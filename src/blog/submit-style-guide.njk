@@ -1,0 +1,221 @@
+---
+layout: layouts/base.njk
+title: Style Guide Submission
+description: Submit your unique design system to be featured in our Style Gallery library. Review requirements and application process.
+---
+
+<section class="py-12 md:py-16 lg:py-20">
+  <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+    {# Header #}
+    <div class="swiss-grid mb-16" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md);">
+      <div class="swiss-col-8">
+        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">CONTRIBUTE TO THE LIBRARY</p>
+        <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em;">{{ title }}</h1>
+        <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch; line-height: 1.6;">{{ description }}</p>
+        <p style="color: var(--swiss-gray-600); max-width: 60ch; line-height: 1.6;">Help build a comprehensive resource for designers and developers by sharing your unique design system approach.</p>
+      </div>
+    </div>
+
+    {# Requirements Section #}
+    <section class="mb-20">
+      <div class="swiss-grid mb-8">
+        <div class="swiss-col-12">
+          <h2 class="font-bold mb-4" style="font-size: var(--fluid-h3);">Submission Requirements</h2>
+          <p style="color: var(--swiss-gray-700); line-height: 1.6;">Please review all requirements carefully before submitting your style guide for consideration.</p>
+        </div>
+      </div>
+
+      <div class="space-y-8">
+        {# General Requirements #}
+        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.25rem;">General Requirements</h3>
+          <ul style="list-style: none; padding: 0; margin: 0; space-y: 1rem;">
+            <li style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="color: var(--swiss-red); font-weight: bold; margin-right: 0.75rem; font-size: 1.2em;">•</span>
+              <div>
+                <strong style="color: var(--swiss-black);">Original Work:</strong>
+                <span style="color: var(--swiss-gray-700); margin-left: 0.5rem;">Must be your own design system or have explicit permission to share</span>
+              </div>
+            </li>
+            <li style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="color: var(--swiss-red); font-weight: bold; margin-right: 0.75rem; font-size: 1.2em;">•</span>
+              <div>
+                <strong style="color: var(--swiss-black);">Complete System:</strong>
+                <span style="color: var(--swiss-gray-700); margin-left: 0.5rem;">Include colors, typography, components, and usage guidelines</span>
+              </div>
+            </li>
+            <li style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="color: var(--swiss-red); font-weight: bold; margin-right: 0.75rem; font-size: 1.2em;">•</span>
+              <div>
+                <strong style="color: var(--swiss-black);">Working Demo:</strong>
+                <span style="color: var(--swiss-gray-700); margin-left: 0.5rem;">Live demonstration of your design system in action</span>
+              </div>
+            </li>
+            <li style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="color: var(--swiss-red); font-weight: bold; margin-right: 0.75rem; font-size: 1.2em;">•</span>
+              <div>
+                <strong style="color: var(--swiss-black);">Quality Standards:</strong>
+                <span style="color: var(--swiss-gray-700); margin-left: 0.5rem;">Professional execution with clear visual hierarchy and consistency</span>
+              </div>
+            </li>
+            <li style="display: flex; align-items: flex-start; margin-bottom: 1rem;">
+              <span style="color: var(--swiss-red); font-weight: bold; margin-right: 0.75rem; font-size: 1.2em;">•</span>
+              <div>
+                <strong style="color: var(--swiss-black);">Unique Approach:</strong>
+                <span style="color: var(--swiss-gray-700); margin-left: 0.5rem;">Distinctive aesthetic that adds value to our library</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        {# Technical Requirements #}
+        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.25rem;">Technical Specifications</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+            <div>
+              <h4 style="font-weight: 600; margin: 0 0 0.75rem 0; color: var(--swiss-black);">Demo Requirements</h4>
+              <ul style="list-style: disc; padding-left: 1.25rem; margin: 0; color: var(--swiss-gray-700); line-height: 1.6;">
+                <li>Live, accessible URL (GitHub Pages, Netlify, etc.)</li>
+                <li>Mobile-responsive design</li>
+                <li>Fast loading times</li>
+                <li>Cross-browser compatibility</li>
+              </ul>
+            </div>
+            <div>
+              <h4 style="font-weight: 600; margin: 0 0 0.75rem 0; color: var(--swiss-black);">Screenshot Requirements</h4>
+              <ul style="list-style: disc; padding-left: 1.25rem; margin: 0; color: var(--swiss-gray-700); line-height: 1.6;">
+                <li>High resolution (minimum 1920px wide)</li>
+                <li>PNG or JPG format</li>
+                <li>Multiple views (desktop, mobile, components)</li>
+                <li>Maximum file size: 10MB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {# Review Process #}
+        <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+          <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.25rem;">Review Process</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+            <div style="text-align: center;">
+              <div style="width: 60px; height: 60px; background: var(--swiss-red); border-radius: 50%; margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem;">1</div>
+              <h4 style="font-weight: 600; margin: 0 0 0.5rem 0; color: var(--swiss-black);">Initial Review</h4>
+              <p style="margin: 0; color: var(--swiss-gray-700); font-size: 0.9rem;">Technical requirements and completeness check</p>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 60px; height: 60px; background: var(--swiss-red); border-radius: 50%; margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem;">2</div>
+              <h4 style="font-weight: 600; margin: 0 0 0.5rem 0; color: var(--swiss-black);">Quality Assessment</h4>
+              <p style="margin: 0; color: var(--swiss-gray-700); font-size: 0.9rem;">Design quality and uniqueness evaluation</p>
+            </div>
+            <div style="text-align: center;">
+              <div style="width: 60px; height: 60px; background: var(--swiss-red); border-radius: 50%; margin: 0 auto 1rem auto; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.5rem;">3</div>
+              <h4 style="font-weight: 600; margin: 0 0 0.5rem 0; color: var(--swiss-black);">Final Decision</h4>
+              <p style="margin: 0; color: var(--swiss-gray-700); font-size: 0.9rem;">Acceptance notification and next steps</p>
+            </div>
+          </div>
+          <div style="margin-top: 2rem; padding: 1.5rem; background: white; border-radius: 6px; border-left: 4px solid var(--swiss-red);">
+            <p style="margin: 0; color: var(--swiss-gray-700); line-height: 1.6;"><strong>Timeline:</strong> Reviews typically take 5-7 business days. We'll contact you via email with our decision and any feedback.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {# Submission Form #}
+    <section class="mb-16">
+      <div class="swiss-grid mb-8">
+        <div class="swiss-col-12">
+          <h2 class="font-bold mb-4" style="font-size: var(--fluid-h3);">Submit Your Style Guide</h2>
+          <p style="color: var(--swiss-gray-700); line-height: 1.6;">Complete all required fields to submit your design system for review.</p>
+        </div>
+      </div>
+
+      <form style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 3rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);" action="#" method="POST" enctype="multipart/form-data">
+        <div class="space-y-8">
+          {# Personal Information #}
+          <div>
+            <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.125rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--swiss-gray-300);">Personal Information</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+              <div>
+                <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Full Name *</label>
+                <input type="text" id="name" name="name" required style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.5;" placeholder="Your full name">
+              </div>
+              <div>
+                <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Email Address *</label>
+                <input type="email" id="email" name="email" required style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.5;" placeholder="your.email@example.com">
+              </div>
+            </div>
+          </div>
+
+          {# Design System Details #}
+          <div>
+            <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.125rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--swiss-gray-300);">Design System Details</h3>
+            <div class="space-y-6">
+              <div>
+                <label for="design-style" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Design Style Name *</label>
+                <input type="text" id="design-style" name="design-style" required style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.5;" placeholder="e.g., 'Cyber Minimalism', 'Organic Brutalism', 'Neon Futurism'">
+                <p style="margin-top: 0.5rem; color: var(--swiss-gray-600); font-size: 0.875rem;">Give your design system a memorable and descriptive name</p>
+              </div>
+              <div>
+                <label for="demo-url" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Demo URL *</label>
+                <input type="url" id="demo-url" name="demo-url" required style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.5;" placeholder="https://your-username.github.io/design-system-demo">
+                <p style="margin-top: 0.5rem; color: var(--swiss-gray-600); font-size: 0.875rem;">Live, accessible URL where we can view your design system in action</p>
+              </div>
+              <div>
+                <label for="screenshot" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Screenshot Upload *</label>
+                <input type="file" id="screenshot" name="screenshot" accept="image/png,image/jpeg,image/jpg" required multiple style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.5; background: white;">
+                <p style="margin-top: 0.5rem; color: var(--swiss-gray-600); font-size: 0.875rem;">Upload high-resolution screenshots (PNG/JPG, max 10MB each). Include desktop, mobile, and component views.</p>
+              </div>
+            </div>
+          </div>
+
+          {# Authenticity Statement #}
+          <div>
+            <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.125rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--swiss-gray-300);">Authenticity & Explanation</h3>
+            <div>
+              <label for="authenticity" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Written Explanation of Authenticity *</label>
+              <textarea id="authenticity" name="authenticity" required rows="8" style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.6; resize: vertical;" placeholder="Please provide a detailed explanation of:&#10;• The inspiration and conceptual foundation of your design system&#10;• Your role in creating this work (solo project, team collaboration, etc.)&#10;• How this design system is unique and what sets it apart&#10;• The design principles and philosophy behind your approach&#10;• Any influences or references you've drawn from&#10;&#10;Minimum 200 words required."></textarea>
+              <p style="margin-top: 0.5rem; color: var(--swiss-gray-600); font-size: 0.875rem;">Describe your design process, inspiration, and what makes your approach unique. This helps us understand the authenticity and value of your contribution.</p>
+            </div>
+          </div>
+
+          {# Additional Information #}
+          <div>
+            <h3 style="font-weight: bold; margin: 0 0 1.5rem 0; color: var(--swiss-black); font-size: 1.125rem; padding-bottom: 0.5rem; border-bottom: 2px solid var(--swiss-gray-300);">Additional Information</h3>
+            <div class="space-y-6">
+              <div>
+                <label for="tools-used" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Tools & Technologies Used</label>
+                <input type="text" id="tools-used" name="tools-used" style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.5;" placeholder="e.g., Figma, CSS, Tailwind, React, etc.">
+              </div>
+              <div>
+                <label for="additional-notes" style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--swiss-black);">Additional Notes</label>
+                <textarea id="additional-notes" name="additional-notes" rows="4" style="width: 100%; padding: 1rem; border: 1px solid var(--swiss-gray-300); border-radius: 4px; font-size: 1rem; line-height: 1.6; resize: vertical;" placeholder="Any additional information you'd like to share about your design system..."></textarea>
+              </div>
+            </div>
+          </div>
+
+          {# Agreement & Submit #}
+          <div>
+            <div style="background: #f8fafc; border: 1px solid var(--swiss-gray-300); border-radius: 6px; padding: 1.5rem; margin-bottom: 2rem;">
+              <label style="display: flex; align-items: flex-start; cursor: pointer;">
+                <input type="checkbox" required style="margin-right: 1rem; margin-top: 0.25rem; transform: scale(1.2);">
+                <div>
+                  <p style="margin: 0 0 0.5rem 0; color: var(--swiss-black); font-weight: 600;">I confirm that:</p>
+                  <ul style="list-style: disc; padding-left: 1.25rem; margin: 0; color: var(--swiss-gray-700); font-size: 0.9rem; line-height: 1.5;">
+                    <li>This is my original work or I have explicit permission to share it</li>
+                    <li>All information provided is accurate and truthful</li>
+                    <li>I understand that my submission will be reviewed and may not be accepted</li>
+                    <li>I grant permission for my design system to be featured in the Style Gallery</li>
+                  </ul>
+                </div>
+              </label>
+            </div>
+            <div style="text-align: center;">
+              <button type="submit" class="btn-swiss-primary" style="text-decoration: none; padding: 1rem 3rem; font-size: 1.1rem;">Submit for Review</button>
+              <p style="margin-top: 1rem; color: var(--swiss-gray-600); font-size: 0.875rem;">You'll receive a confirmation email within 24 hours</p>
+            </div>
+          </div>
+        </div>
+      </form>
+    </section>
+  </div>
+</section>

@@ -1,113 +1,98 @@
 ---
 layout: layouts/base.njk
-title: Blog
-description: Articles, tutorials, and insights about web development
-pagination:
-  data: collections.blog
-  size: 10
-  alias: posts
+title: Style Gallery
+description: A curated library of design systems showcasing different aesthetic approaches and style guides.
 ---
-
-{% import "components/card.njk" as card %}
 
 <section class="py-12 md:py-16 lg:py-20">
   <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
     {# Swiss header - asymmetric with section number #}
     <div class="swiss-grid mb-12" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md);">
       <div class="swiss-col-7">
-        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">03 — ARTICLES</p>
+        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">03 — STYLE GALLERY</p>
         <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em;">{{ title }}</h1>
-        <p class="text-lg" style="color: var(--swiss-gray-700); max-width: 60ch;">{{ description }}</p>
+        <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch;">{{ description }}</p>
+        <p style="color: var(--swiss-gray-600); max-width: 60ch;">This page is dedicated to being a library for style galleries, showcasing various design approaches and aesthetic philosophies.</p>
       </div>
     </div>
-    
-    {# Structural divider #}
-    <div class="swiss-divider mb-12"></div>
-    
-    {% if posts.length > 0 %}
-    {# Swiss list layout - horizontal structure #}
-    <div class="space-y-0">{% for post in posts %}
-      {# Article row with Swiss structure #}
-      <article class="swiss-grid py-6" style="border-bottom: 1px solid var(--swiss-gray-300);">
-        {# Date column #}
-        <div class="swiss-col-2">
-          <time datetime="{{ post.data.date | dateToISO }}" class="text-sm font-bold uppercase tracking-wider" style="color: var(--swiss-gray-600);">
-            {{ post.data.date | readableDate }}
-          </time>
-        </div>
-        
-        {# Content column #}
-        <div class="swiss-col-7">
-          <h2 class="font-bold mb-2" style="font-size: var(--fluid-h3); line-height: 1.2;">
-            <a href="{{ post.url }}" class="hover:underline" style="text-decoration: none; color: var(--swiss-black);">{{ post.data.title }}</a>
-          </h2>
-          {% if post.data.description %}
-          <p style="color: var(--swiss-gray-700);">{{ post.data.description }}</p>
-          {% endif %}
-        </div>
-        
-        {# Action column #}
-        <div class="swiss-col-3 flex items-center justify-end">
-          <a href="{{ post.url }}" class="btn-swiss-primary">READ ARTICLE</a>
-        </div>
-      </article>
-    {% endfor %}</div>
 
-    {% if pagination.pages.length > 1 %}
-    {# Swiss pagination #}
-    <div class="swiss-divider my-12"></div>
-    <nav class="swiss-grid" aria-label="Blog pagination">
-      <div class="swiss-col-12">
-        <ul class="flex justify-end items-center gap-3">
-          {% if pagination.previousPageLink %}
-          <li>
-            <a
-              href="{{ pagination.previousPageLink }}"
-              class="btn-swiss"
-              aria-label="Previous page"
-            >
-              ← PREVIOUS
-            </a>
-          </li>
-          {% endif %}
-          {% for pageEntry in pagination.pages %}
-          <li>
-            <a
-              href="{{ pagination.hrefs[ loop.index0 ] }}"
-              class="btn-swiss {% if page.url == pagination.hrefs[ loop.index0 ] %}btn-swiss-primary{% endif %}"
-              aria-label="Page {{ loop.index }}"
-              {% if page.url == pagination.hrefs[ loop.index0 ] %}aria-current="page"{% endif %}
-            >
-              {{ loop.index }}
-            </a>
-          </li>
-          {% endfor %}
-          {% if pagination.nextPageLink %}
-          <li>
-            <a
-              href="{{ pagination.nextPageLink }}"
-              class="btn-swiss"
-              aria-label="Next page"
-            >
-              NEXT →
-            </a>
-          </li>
-          {% endif %}
-        </ul>
-      </div>
-    </nav>
-    {% endif %}
-    {% else %}
-    {# Swiss empty state #}
-    <div class="py-16" style="border: 2px solid var(--swiss-gray-300);">
-      <div class="swiss-grid">
-        <div class="swiss-col-8 swiss-col-start-3">
-          <p class="text-sm font-bold uppercase tracking-wider mb-4" style="color: var(--swiss-gray-600);">NO ARTICLES YET</p>
-          <h2 class="font-bold mb-4" style="font-size: var(--fluid-h3);">Check Back Later</h2>
-          <p style="color: var(--swiss-gray-700);">New insightful articles and tutorials coming soon.</p>
+    {# Structural divider #}
+    <div class="swiss-divider mb-16"></div>
+
+    {# Style Gallery Cards #}
+    <section class="mb-20">
+      <div class="swiss-grid mb-8">
+        <div class="swiss-col-12">
+          <h2 class="font-bold mb-2" style="font-size: var(--fluid-h3);">Design Systems</h2>
+          <p style="color: var(--swiss-gray-700);">Explore different aesthetic approaches and their visual languages.</p>
         </div>
       </div>
-    </div>
-    {% endif %}
+      
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        {# Nordic Minimalism Card #}
+        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+          <div style="height: 200px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); position: relative;">
+            <div style="position: absolute; top: 1.5rem; left: 1.5rem; width: 60px; height: 60px; background: #ffffff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></div>
+            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; background: #64748b; border-radius: 4px;"></div>
+            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; width: 80px; height: 4px; background: #cbd5e1; border-radius: 2px;"></div>
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Nordic Minimalism</h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">Clean, functional design inspired by Scandinavian aesthetics. Emphasizes whitespace, natural materials, and purposeful simplicity.</p>
+            <a href="/blog/nordic-minimalism/" class="btn-swiss-primary" style="text-decoration: none;">Explore Style →</a>
+          </div>
+        </article>
+
+        {# Neo Brutalism Card #}
+        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+          <div style="height: 200px; background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%); position: relative;">
+            <div style="position: absolute; top: 1.5rem; left: 1.5rem; width: 80px; height: 20px; background: #ff0000; transform: rotate(-2deg);"></div>
+            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem; width: 60px; height: 60px; background: #ffff00; border: 3px solid #000000; transform: rotate(5deg);"></div>
+            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; width: 100px; height: 8px; background: #ffffff; box-shadow: 2px 2px 0 #000000;"></div>
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Neo Brutalism</h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">Bold, raw design with stark contrasts, geometric shapes, and unapologetic visual weight. Digital brutalism for the modern web.</p>
+            <a href="/blog/neo-brutalism/" class="btn-swiss-primary" style="text-decoration: none;">Explore Style →</a>
+          </div>
+        </article>
+
+        {# Third Style Placeholder Card #}
+        <article style="background: white; border: 2px dashed var(--swiss-gray-300); border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
+          <div style="height: 200px; background: repeating-linear-gradient(45deg, #f8fafc 0px, #f8fafc 10px, #f1f5f9 10px, #f1f5f9 20px); position: relative; display: flex; align-items: center; justify-content: center;">
+            <div style="width: 60px; height: 60px; border: 2px dashed var(--swiss-gray-400); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+              <span style="font-size: 1.5rem; color: var(--swiss-gray-500);">+</span>
+            </div>
+          </div>
+          <div style="padding: 2rem;">
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Coming Soon</h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">New design system in development. Stay tuned for another unique aesthetic approach to inspire your projects.</p>
+            <button class="btn-swiss" disabled style="opacity: 0.5; cursor: not-allowed;">In Development</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    {# Submission Section #}
+    <section class="mb-16">
+      <div class="swiss-grid">
+        <div class="swiss-col-8 swiss-col-start-3" style="text-align: center;">
+          <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--swiss-gray-300); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
+            <h2 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: var(--fluid-h3);">Share Your Style</h2>
+            <p style="margin: 0 0 2rem 0; color: var(--swiss-gray-700); line-height: 1.6; max-width: 50ch; margin-left: auto; margin-right: auto;">
+              Have a unique design system or aesthetic approach you'd like to showcase? Submit your style guide to be featured in our library.
+            </p>
+            <a href="/blog/submit-style-guide/" class="btn-swiss-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+              <span>Submit Style Guide</span>
+              <span style="font-size: 1.2em;">→</span>
+            </a>
+            <p style="margin: 1.5rem 0 0 0; color: var(--swiss-gray-600); font-size: 0.875rem;">
+              Include examples, color palettes, typography, and component specifications
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </div>
 </section>

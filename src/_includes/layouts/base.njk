@@ -166,14 +166,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="/townhall/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/townhall/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
-                            <span>Town Hall</span>
-                            {% if '/townhall/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                    <li>
                         <a href="/blog/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/blog/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
-                            <span>Blog</span>
+                            <span>Style Gallery</span>
                             {% if '/blog/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
                         </a>
                     </li>
@@ -181,6 +175,12 @@
                         <a href="/projects/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/projects/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
                             <span>Projects</span>
                             {% if '/projects/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/blog/submit-style-guide/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/blog/submit-style-guide/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
+                            <span>Style Submission</span>
+                            {% if '/blog/submit-style-guide/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
                         </a>
                     </li>
                     <li>
@@ -248,22 +248,12 @@
                     </li>
                     <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
                         <a 
-                            href="/townhall/" 
-                            class="block font-bold uppercase tracking-wider"
-                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/townhall/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
-                        >
-                            <span style="display: block; margin-bottom: 0.25rem;">02</span>
-                            <span>Town Hall</span>
-                        </a>
-                    </li>
-                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
-                        <a 
                             href="/blog/" 
                             class="block font-bold uppercase tracking-wider"
                             style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/blog/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
                         >
-                            <span style="display: block; margin-bottom: 0.25rem;">03</span>
-                            <span>Blog</span>
+                            <span style="display: block; margin-bottom: 0.25rem;">02</span>
+                            <span>Style Gallery</span>
                         </a>
                     </li>
                     <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
@@ -272,8 +262,18 @@
                             class="block font-bold uppercase tracking-wider"
                             style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/projects/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
                         >
-                            <span style="display: block; margin-bottom: 0.25rem;">04</span>
+                            <span style="display: block; margin-bottom: 0.25rem;">03</span>
                             <span>Projects</span>
+                        </a>
+                    </li>
+                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
+                        <a 
+                            href="/blog/submit-style-guide/" 
+                            class="block font-bold uppercase tracking-wider"
+                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/blog/submit-style-guide/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+                        >
+                            <span style="display: block; margin-bottom: 0.25rem;">04</span>
+                            <span>Style Submission</span>
                         </a>
                     </li>
                     <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
@@ -343,9 +343,9 @@
                         <dd>
                             <ul style="display: flex; flex-direction: column; gap: var(--space-md);">
                                 <li><a href="/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Home</a></li>
-                                <li><a href="/townhall/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Town Hall</a></li>
-                                <li><a href="/blog/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Blog</a></li>
+                                <li><a href="/blog/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Style Gallery</a></li>
                                 <li><a href="/projects/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Projects</a></li>
+                                <li><a href="/blog/submit-style-guide/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Style Submission</a></li>
                                 <li><a href="/about/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">About</a></li>
                                 <li><a href="/about-site/" class="font-medium hover:underline" style="color: var(--swiss-gray-400); transition: color 0.2s;">About this Site</a></li>
                             </ul>
