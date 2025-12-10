@@ -30,7 +30,8 @@ permalink: /who-is-this-for/
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {# Persona 1: Design Student #}
-          <div style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease;" 
+          <div class="persona-card" data-persona="student" onclick="openJourneyPopup('student')" 
+               style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease; cursor: pointer;" 
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='8px 8px 0 var(--swiss-black)';" 
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
             
@@ -38,6 +39,7 @@ permalink: /who-is-this-for/
             <div style="background: var(--swiss-red); padding: var(--space-2xl); border-bottom: 2px solid var(--swiss-black);">
               <div style="font-size: 3rem; margin-bottom: var(--space-md); text-align: center;">🎓</div>
               <h2 class="font-bold text-2xl text-center" style="color: var(--swiss-white);">Design Student</h2>
+              <p class="text-center text-xs mt-2 font-mono" style="color: rgba(255,255,255,0.9);">Click to view journey →</p>
             </div>
 
             {# Persona Content #}
@@ -93,7 +95,8 @@ permalink: /who-is-this-for/
           </div>
 
           {# Persona 2: Design Instructor #}
-          <div style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease;" 
+          <div class="persona-card" data-persona="instructor" onclick="openJourneyPopup('instructor')" 
+               style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease; cursor: pointer;" 
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='8px 8px 0 var(--swiss-black)';" 
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
             
@@ -101,6 +104,7 @@ permalink: /who-is-this-for/
             <div style="background: var(--swiss-black); padding: var(--space-2xl); border-bottom: 2px solid var(--swiss-black);">
               <div style="font-size: 3rem; margin-bottom: var(--space-md); text-align: center;">👨‍🏫</div>
               <h2 class="font-bold text-2xl text-center" style="color: var(--swiss-white);">Design Instructor</h2>
+              <p class="text-center text-xs mt-2 font-mono" style="color: rgba(255,255,255,0.9);">Click to view journey →</p>
             </div>
 
             {# Persona Content #}
@@ -156,7 +160,8 @@ permalink: /who-is-this-for/
           </div>
 
           {# Persona 3: Hobbyist Designer/Web Developer #}
-          <div style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease;" 
+          <div class="persona-card" data-persona="hobbyist" onclick="openJourneyPopup('hobbyist')" 
+               style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease; cursor: pointer;" 
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='8px 8px 0 var(--swiss-black)';" 
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
             
@@ -164,6 +169,7 @@ permalink: /who-is-this-for/
             <div style="background: var(--swiss-red); padding: var(--space-2xl); border-bottom: 2px solid var(--swiss-black);">
               <div style="font-size: 3rem; margin-bottom: var(--space-md); text-align: center;">💻</div>
               <h2 class="font-bold text-2xl text-center" style="color: var(--swiss-white);">Hobbyist Designer</h2>
+              <p class="text-center text-xs mt-2 font-mono" style="color: rgba(255,255,255,0.9);">Click to view journey →</p>
             </div>
 
             {# Persona Content #}
@@ -226,13 +232,15 @@ permalink: /who-is-this-for/
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {# Persona 4: Freelance Designer #}
-          <div style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease;" 
+          <div class="persona-card" data-persona="freelance" onclick="openJourneyPopup('freelance')" 
+               style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease; cursor: pointer;" 
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='8px 8px 0 var(--swiss-black)';" 
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
             
             <div style="background: var(--swiss-gray-800); padding: var(--space-2xl); border-bottom: 2px solid var(--swiss-black);">
               <div style="font-size: 3rem; margin-bottom: var(--space-md); text-align: center;">🎨</div>
               <h2 class="font-bold text-2xl text-center" style="color: var(--swiss-white);">Freelance Designer</h2>
+              <p class="text-center text-xs mt-2 font-mono" style="color: rgba(255,255,255,0.9);">Click to view journey →</p>
             </div>
 
             <div style="padding: var(--space-2xl);">
@@ -271,13 +279,15 @@ permalink: /who-is-this-for/
           </div>
 
           {# Persona 5: Product Manager #}
-          <div style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease;" 
+          <div class="persona-card" data-persona="product-manager" onclick="openJourneyPopup('product-manager')" 
+               style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease; cursor: pointer;" 
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='8px 8px 0 var(--swiss-black)';" 
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
             
             <div style="background: var(--swiss-gray-800); padding: var(--space-2xl); border-bottom: 2px solid var(--swiss-black);">
               <div style="font-size: 3rem; margin-bottom: var(--space-md); text-align: center;">📊</div>
               <h2 class="font-bold text-2xl text-center" style="color: var(--swiss-white);">Product Manager</h2>
+              <p class="text-center text-xs mt-2 font-mono" style="color: rgba(255,255,255,0.9);">Click to view journey →</p>
             </div>
 
             <div style="padding: var(--space-2xl);">
@@ -316,13 +326,15 @@ permalink: /who-is-this-for/
           </div>
 
           {# Persona 6: Career Changer #}
-          <div style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease;" 
+          <div class="persona-card" data-persona="career-changer" onclick="openJourneyPopup('career-changer')" 
+               style="border: 2px solid var(--swiss-black); background: var(--swiss-white); transition: all 0.3s ease; cursor: pointer;" 
                onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='8px 8px 0 var(--swiss-black)';" 
                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
             
             <div style="background: var(--swiss-gray-800); padding: var(--space-2xl); border-bottom: 2px solid var(--swiss-black);">
               <div style="font-size: 3rem; margin-bottom: var(--space-md); text-align: center;">🔄</div>
               <h2 class="font-bold text-2xl text-center" style="color: var(--swiss-white);">Career Changer</h2>
+              <p class="text-center text-xs mt-2 font-mono" style="color: rgba(255,255,255,0.9);">Click to view journey →</p>
             </div>
 
             <div style="padding: var(--space-2xl);">
@@ -401,3 +413,410 @@ permalink: /who-is-this-for/
     </div>
   </div>
 </section>
+
+{# Customer Journey Popup Modal #}
+<div id="journeyModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.95); z-index: 9999; overflow-y: auto; padding: var(--space-2xl);">
+  <div style="max-width: 1400px; margin: 0 auto; position: relative;">
+    <button id="closeJourneyBtn" style="position: fixed; top: 20px; right: 20px; background: var(--swiss-white); color: var(--swiss-black); border: 3px solid var(--swiss-black); width: 60px; height: 60px; font-size: 32px; cursor: pointer; font-weight: bold; z-index: 10000; font-family: var(--font-mono);">×</button>
+    
+    <div id="journeyContent" style="background: var(--swiss-white); border: 3px solid var(--swiss-black); padding: var(--space-4xl);"></div>
+  </div>
+</div>
+
+<script>
+// Customer Journey Map Data
+const journeyData = {
+  student: {
+    name: "Design Student - Alex Rivera",
+    emoji: "🎓",
+    color: "#ef4444",
+    scenario: "Student wants to submit their first design system project",
+    stages: [
+      {
+        title: "Discovery",
+        emoji: "🔍",
+        actions: ["Hears about Design Gallery from professor", "Visits website to explore existing style guides", "Reads 'Who Is This For?' page"],
+        thoughts: ["Is this credible enough for my portfolio?", "Will this help me stand out to employers?", "These examples are really professional"],
+        emotions: ["Curious", "Hopeful", "Slightly intimidated"],
+        touchpoints: ["Homepage", "Style Gallery", "Who Is This For page"],
+        opportunities: ["Show student success stories", "Display university partnerships"]
+      },
+      {
+        title: "Consideration",
+        emoji: "🤔",
+        actions: ["Reviews submission guidelines", "Checks if class project qualifies", "Looks at approved student submissions"],
+        thoughts: ["My project meets these requirements", "Will reviewers take a student seriously?", "What if my design isn't good enough?"],
+        emotions: ["Excited", "Nervous", "Motivated"],
+        touchpoints: ["Submission Guidelines", "Gallery filtered by students"],
+        opportunities: ["Add 'Student Submissions Welcome' badge", "Show review timeline"]
+      },
+      {
+        title: "Submission",
+        emoji: "📝",
+        actions: ["Fills out submission form", "Uploads project documentation", "Writes detailed description", "Submits for review"],
+        thoughts: ["I hope I explained everything clearly", "When will I hear back?", "Should I tell my professor?"],
+        emotions: ["Proud", "Anxious", "Accomplished"],
+        touchpoints: ["Submit Form", "Confirmation Email"],
+        opportunities: ["Instant confirmation with timeline", "Tips for improving submission"]
+      },
+      {
+        title: "Approval",
+        emoji: "✅",
+        actions: ["Receives approval email", "Views live submission in gallery", "Adds to resume and portfolio", "Shares on LinkedIn"],
+        thoughts: ["This is amazing!", "I can't wait to show my professor", "This validates my design skills"],
+        emotions: ["Ecstatic", "Proud", "Validated"],
+        touchpoints: ["Approval Email", "Live Gallery Page", "Social Sharing"],
+        opportunities: ["Pre-written social media posts", "Digital badge for portfolio"]
+      }
+    ]
+  },
+  
+  instructor: {
+    name: "Design Instructor - Dr. Sarah Chen",
+    emoji: "👨‍🏫",
+    color: "#000000",
+    scenario: "Instructor wants to use gallery as teaching resource",
+    stages: [
+      {
+        title: "Research",
+        emoji: "📚",
+        actions: ["Searches for design system resources", "Evaluates quality of examples", "Checks if suitable for curriculum"],
+        thoughts: ["These examples are current and relevant", "Can I build assignments around this?", "Is this free to use for education?"],
+        emotions: ["Impressed", "Analytical", "Interested"],
+        touchpoints: ["Gallery Browse", "About Page"],
+        opportunities: ["Add 'For Educators' section", "Bulk download for offline use"]
+      },
+      {
+        title: "Integration",
+        emoji: "📖",
+        actions: ["Creates assignment using gallery examples", "Shows examples in lecture", "Discusses different design approaches"],
+        thoughts: ["Students are really engaged with these", "This saves me hours of curation", "I wish I could filter by complexity level"],
+        emotions: ["Satisfied", "Productive", "Engaged"],
+        touchpoints: ["Style Gallery", "Category Filters"],
+        opportunities: ["Educator portal", "Complexity ratings", "Downloadable lesson plans"]
+      },
+      {
+        title: "Assignment",
+        emoji: "✏️",
+        actions: ["Assigns students to submit their projects", "Provides submission guidelines", "Sets expectations for quality"],
+        thoughts: ["This will be great for their portfolios", "I hope the review process isn't too harsh", "Will students get constructive feedback?"],
+        emotions: ["Hopeful", "Supportive", "Curious"],
+        touchpoints: ["Submit Page", "Guidelines"],
+        opportunities: ["Bulk submission for classes", "Instructor review support"]
+      },
+      {
+        title: "Advocacy",
+        emoji: "📢",
+        actions: ["Recommends to other faculty", "Adds to syllabus permanently", "Suggests institutional partnership"],
+        thoughts: ["This should be department-wide", "Could we get institutional access?", "Perfect for our curriculum"],
+        emotions: ["Enthusiastic", "Evangelical", "Strategic"],
+        touchpoints: ["Contact Form", "Institution Partnerships"],
+        opportunities: ["Institutional licensing", "Faculty network", "Co-branding"]
+      }
+    ]
+  },
+  
+  hobbyist: {
+    name: "Hobbyist Designer - Marcus Thompson",
+    emoji: "💻",
+    color: "#ef4444",
+    scenario: "Self-taught developer wants to improve design skills",
+    stages: [
+      {
+        title: "Inspiration Search",
+        emoji: "💡",
+        actions: ["Googles 'design system examples'", "Lands on Design Gallery", "Browses different style categories"],
+        thoughts: ["These designs are gorgeous", "I could never make something this good", "Maybe I can learn from these"],
+        emotions: ["Inspired", "Overwhelmed", "Determined"],
+        touchpoints: ["Google Search", "Homepage", "Gallery"],
+        opportunities: ["Beginner-friendly filtering", "Complexity indicators"]
+      },
+      {
+        title: "Learning",
+        emoji: "📖",
+        actions: ["Studies color palette choices", "Analyzes typography decisions", "Saves favorite examples for reference"],
+        thoughts: ["So that's how they achieve that look", "I need to understand spacing better", "This breakdown is really helpful"],
+        emotions: ["Focused", "Curious", "Enlightened"],
+        touchpoints: ["Style Guide Details", "Component Breakdowns"],
+        opportunities: ["Save/bookmark feature", "Learning annotations", "Comparison tool"]
+      },
+      {
+        title: "Application",
+        emoji: "🛠️",
+        actions: ["Applies learnings to side project", "References specific color schemes", "Tests different approaches"],
+        thoughts: ["This is starting to look professional", "The gallery made this so much easier", "I'm actually getting better at design"],
+        emotions: ["Confident", "Productive", "Proud"],
+        touchpoints: ["Referenced Style Guides"],
+        opportunities: ["Code snippets", "Figma templates", "Tutorial videos"]
+      },
+      {
+        title: "Growth",
+        emoji: "🌱",
+        actions: ["Returns for new projects", "Recommends to other developers", "Considers design as career path"],
+        thoughts: ["This resource changed my approach", "Design isn't as scary anymore", "Maybe I could do this professionally"],
+        emotions: ["Confident", "Transformed", "Ambitious"],
+        touchpoints: ["Repeat Visits", "Social Sharing"],
+        opportunities: ["Progress tracking", "Skill development path", "Certification"]
+      }
+    ]
+  },
+  
+  freelance: {
+    name: "Freelance Designer - Jordan Lee",
+    emoji: "🎨",
+    color: "#4b5563",
+    scenario: "Freelancer needs quick inspiration for client presentation",
+    stages: [
+      {
+        title: "Client Request",
+        emoji: "📧",
+        actions: ["Receives brief for corporate redesign", "Needs to show style direction options", "Has 2 days to prepare presentation"],
+        thoughts: ["I need strong examples quickly", "Client wants to see variety", "Where can I find quality references?"],
+        emotions: ["Pressured", "Focused", "Strategic"],
+        touchpoints: ["Gallery Search"],
+        opportunities: ["Quick download options", "Presentation mode"]
+      },
+      {
+        title: "Curation",
+        emoji: "🎯",
+        actions: ["Filters by corporate category", "Selects 3-4 different approaches", "Downloads/screenshots examples"],
+        thoughts: ["Perfect - exactly what I needed", "These show clear differences in approach", "This saves me hours of research"],
+        emotions: ["Relieved", "Efficient", "Professional"],
+        touchpoints: ["Category Filters", "Gallery Details"],
+        opportunities: ["Presentation export", "Mood board creator"]
+      },
+      {
+        title: "Client Meeting",
+        emoji: "💼",
+        actions: ["Presents style directions using examples", "Discusses pros/cons of each approach", "Client makes informed decision"],
+        thoughts: ["Client really understands the options", "Examples made this so clear", "This gave me credibility"],
+        emotions: ["Confident", "Professional", "Successful"],
+        touchpoints: ["Exported References"],
+        opportunities: ["Presentation templates", "Client-safe links"]
+      },
+      {
+        title: "Loyalty",
+        emoji: "⭐",
+        actions: ["Uses for every client project", "Bookmarks favorite examples", "Refers other freelancers"],
+        thoughts: ["This is essential to my workflow", "Worth paying for premium features", "My secret weapon"],
+        emotions: ["Loyal", "Appreciative", "Evangelical"],
+        touchpoints: ["Frequent Visits", "Referrals"],
+        opportunities: ["Pro membership", "Affiliate program", "Premium features"]
+      }
+    ]
+  },
+  
+  "product-manager": {
+    name: "Product Manager - Priya Patel",
+    emoji: "📊",
+    color: "#4b5563",
+    scenario: "PM researching design systems for company implementation",
+    stages: [
+      {
+        title: "Research Phase",
+        emoji: "🔬",
+        actions: ["Searches for design system examples", "Compares different approaches", "Assesses scalability and maintenance"],
+        thoughts: ["What are industry standards?", "Which approach fits our needs?", "How do others structure this?"],
+        emotions: ["Analytical", "Thorough", "Cautious"],
+        touchpoints: ["Gallery Browse", "Category Compare"],
+        opportunities: ["Case studies", "ROI data", "Implementation guides"]
+      },
+      {
+        title: "Stakeholder Buy-in",
+        emoji: "🎤",
+        actions: ["Creates presentation for leadership", "Shows examples of successful systems", "Demonstrates business value"],
+        thoughts: ["These examples prove the ROI", "Executive team needs to see this", "Data-backed decisions"],
+        emotions: ["Confident", "Persuasive", "Strategic"],
+        touchpoints: ["Featured Examples", "Success Metrics"],
+        opportunities: ["Business case templates", "Cost-benefit analysis"]
+      },
+      {
+        title: "Implementation",
+        emoji: "⚙️",
+        actions: ["References examples during build", "Checks best practices", "Monitors progress against benchmarks"],
+        thoughts: ["Are we following best practices?", "How does ours compare?", "What are we missing?"],
+        emotions: ["Focused", "Comparative", "Quality-driven"],
+        touchpoints: ["Detailed Documentation", "Component Libraries"],
+        opportunities: ["Checklist generator", "Quality benchmarks"]
+      },
+      {
+        title: "Success & Sharing",
+        emoji: "🎯",
+        actions: ["Company system launches", "Considers submitting to gallery", "Becomes advocate for design systems"],
+        thoughts: ["This was a game-changer", "Others could learn from our journey", "Worth sharing publicly"],
+        emotions: ["Accomplished", "Proud", "Generous"],
+        touchpoints: ["Submit Page", "Success Stories"],
+        opportunities: ["Featured case studies", "PM community", "Webinars"]
+      }
+    ]
+  },
+  
+  "career-changer": {
+    name: "Career Changer - Taylor Davis",
+    emoji: "🔄",
+    color: "#4b5563",
+    scenario: "Bootcamp grad building portfolio to land first design job",
+    stages: [
+      {
+        title: "Portfolio Building",
+        emoji: "📂",
+        actions: ["Needs portfolio projects", "Researches what employers want to see", "Discovers Design Gallery"],
+        thoughts: ["My portfolio needs real-world quality", "How do I show I understand systems?", "These examples are what I should aim for"],
+        emotions: ["Determined", "Nervous", "Motivated"],
+        touchpoints: ["Gallery Browse", "Style Guide Details"],
+        opportunities: ["Portfolio tips", "What employers look for", "Project templates"]
+      },
+      {
+        title: "Learning Standards",
+        emoji: "📚",
+        actions: ["Studies professional design systems", "Takes notes on common patterns", "Practices recreating components"],
+        thoughts: ["This is how pros document design", "I need to match this quality", "Understanding the 'why' behind choices"],
+        emotions: ["Focused", "Absorbing", "Challenged"],
+        touchpoints: ["Documentation Examples", "Best Practices"],
+        opportunities: ["Learning paths", "Skill assessments", "Practice projects"]
+      },
+      {
+        title: "Creating Portfolio Piece",
+        emoji: "✨",
+        actions: ["Builds comprehensive design system", "Documents like professional examples", "Prepares submission"],
+        thoughts: ["This is my best work yet", "Professional quality documentation", "Will employers take me seriously?"],
+        emotions: ["Proud", "Anxious", "Hopeful"],
+        touchpoints: ["Referenced Style Guides", "Documentation Standards"],
+        opportunities: ["Portfolio review service", "Feedback before submission"]
+      },
+      {
+        title: "Career Launch",
+        emoji: "🚀",
+        actions: ["Lands first design job", "Credits gallery in journey", "Continues using as resource"],
+        thoughts: ["This resource was crucial", "Now I'm the professional creating these", "Full circle moment"],
+        emotions: ["Grateful", "Accomplished", "Excited"],
+        touchpoints: ["Success Story", "Professional Use"],
+        opportunities: ["Mentor program", "Success stories", "Alumni network"]
+      }
+    ]
+  }
+};
+
+function openJourneyPopup(personaType) {
+  const modal = document.getElementById('journeyModal');
+  const content = document.getElementById('journeyContent');
+  const journey = journeyData[personaType];
+  
+  if (!journey) return;
+  
+  let html = `
+    <div style="border-bottom: 3px solid var(--swiss-black); padding-bottom: var(--space-3xl); margin-bottom: var(--space-4xl);">
+      <div style="font-size: 4rem; text-align: center; margin-bottom: var(--space-lg);">${journey.emoji}</div>
+      <h2 class="font-black text-center" style="font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: var(--space-md); letter-spacing: -0.02em;">
+        Customer Journey Map
+      </h2>
+      <h3 class="font-bold text-center text-2xl" style="color: var(--swiss-gray-700); margin-bottom: var(--space-md);">
+        ${journey.name}
+      </h3>
+      <p class="text-center font-mono" style="color: var(--swiss-gray-600); font-size: 0.9rem;">
+        SCENARIO: ${journey.scenario}
+      </p>
+    </div>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-2xl); margin-bottom: var(--space-3xl);">
+  `;
+  
+  journey.stages.forEach((stage, index) => {
+    html += `
+      <div style="border: 3px solid var(--swiss-black); background: var(--swiss-gray-50);">
+        <div style="background: ${journey.color}; color: var(--swiss-white); padding: var(--space-xl); border-bottom: 3px solid var(--swiss-black);">
+          <div style="font-size: 2.5rem; text-align: center; margin-bottom: var(--space-sm);">${stage.emoji}</div>
+          <div class="font-mono text-xs text-center" style="opacity: 0.9; margin-bottom: 8px;">STAGE ${index + 1}</div>
+          <h4 class="font-bold text-xl text-center">${stage.title}</h4>
+        </div>
+        
+        <div style="padding: var(--space-xl);">
+          <div style="margin-bottom: var(--space-lg);">
+            <h5 class="font-mono font-bold text-xs uppercase mb-3" style="color: var(--swiss-red);">✓ Actions</h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              ${stage.actions.map(action => `
+                <li style="padding: 8px 0 8px 12px; border-left: 2px solid var(--swiss-black); margin-bottom: 8px; font-size: 0.85rem; color: var(--swiss-gray-800);">
+                  ${action}
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          
+          <div style="margin-bottom: var(--space-lg);">
+            <h5 class="font-mono font-bold text-xs uppercase mb-3" style="color: var(--swiss-red);">💭 Thoughts</h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              ${stage.thoughts.map(thought => `
+                <li style="padding: 8px 0 8px 12px; border-left: 2px solid var(--swiss-gray-400); margin-bottom: 8px; font-size: 0.85rem; color: var(--swiss-gray-700); font-style: italic;">
+                  "${thought}"
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+          
+          <div style="margin-bottom: var(--space-lg);">
+            <h5 class="font-mono font-bold text-xs uppercase mb-3" style="color: var(--swiss-red);">😊 Emotions</h5>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              ${stage.emotions.map(emotion => `
+                <span style="padding: 4px 10px; background: var(--swiss-white); border: 2px solid var(--swiss-black); font-size: 0.75rem; font-weight: 600; font-family: var(--font-mono);">
+                  ${emotion}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+          
+          <div style="margin-bottom: var(--space-lg);">
+            <h5 class="font-mono font-bold text-xs uppercase mb-3" style="color: var(--swiss-red);">📍 Touchpoints</h5>
+            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+              ${stage.touchpoints.map(touchpoint => `
+                <span style="padding: 4px 10px; background: var(--swiss-black); color: var(--swiss-white); font-size: 0.75rem; font-family: var(--font-mono);">
+                  ${touchpoint}
+                </span>
+              `).join('')}
+            </div>
+          </div>
+          
+          <div style="background: var(--swiss-white); padding: var(--space-md); border: 2px solid var(--swiss-red); border-left-width: 4px;">
+            <h5 class="font-mono font-bold text-xs uppercase mb-2" style="color: var(--swiss-red);">💡 Opportunities</h5>
+            <ul style="list-style: disc; padding-left: 20px; margin: 0; color: var(--swiss-gray-700); font-size: 0.85rem;">
+              ${stage.opportunities.map(opp => `<li style="margin-bottom: 4px;">${opp}</li>`).join('')}
+            </ul>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  
+  html += '</div>';
+  
+  content.innerHTML = html;
+  modal.style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+
+// Close modal functionality
+document.addEventListener('DOMContentLoaded', function() {
+  const modal = document.getElementById('journeyModal');
+  const closeBtn = document.getElementById('closeJourneyBtn');
+  
+  if (closeBtn) {
+    closeBtn.addEventListener('click', function() {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+  }
+  
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+  
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.style.display === 'block') {
+      modal.style.display = 'none';
+      document.body.style.overflow = 'auto';
+    }
+  });
+});
+</script>
