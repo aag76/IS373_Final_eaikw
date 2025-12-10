@@ -193,6 +193,12 @@
                         </a>
                     </li>
                     <li>
+                        <a href="/who-is-this-for/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/who-is-this-for/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
+                            <span>Who Is This For</span>
+                            {% if '/who-is-this-for/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
+                        </a>
+                    </li>
+                    <li>
                         <a href="/about/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if page.url == '/about/' %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
                             <span>About</span>
                             {% if page.url == '/about/' %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
