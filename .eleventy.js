@@ -30,7 +30,34 @@ export default async function (eleventyConfig) {
     return collectionApi.getFilteredByGlob("src/projects/*.md").reverse();
   });
 
-  // Filters with error handling
+  // Sanity Collections - fetched during build
+  eleventyConfig.addCollection("sanityArticles", async function () {
+    if (!process.env.817a8pxv) {
+      console.warn("⚠️ SANITY_PROJECT_ID not set. Skipping Sanity articles.");
+      return [];
+    }
+    try {
+      const { getArticles } = await import("./src/_data/sanity.js");
+      const articles = await getArticles();
+      return articles.sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt));
+    } catch (error) {
+      console.warn("⚠️ Error fetching Sanity articles:", error.message);
+      return [];
+    }
+  });
+
+  eleventyConfig.addCollection("sanityDesignStyles", async function () {
+    if (!process.env.SANITY_PROJECT_ID) {
+      return [];
+    }
+    try {
+      const { getDesignStyles } = await import("./src/_data/sanity.js");
+      return await getDesignStyles();
+    } catch (error) {
+      console.warn("⚠️ Error fetching Sanity design styles:", error.message);
+      return [];
+    }
+  });
   eleventyConfig.addFilter("dateFormat", function (date) {
     if (!date) {
       return "Date not available";

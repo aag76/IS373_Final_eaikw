@@ -1,0 +1,5 @@
+{
+  "projectId": "eaikw-cms",
+  "dataset": "production",
+  "plugins": ["@sanity/vision"]
+}

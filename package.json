@@ -18,6 +18,9 @@
     "start": "npm run dev",
     "clean": "rm -rf _site",
     "test": "playwright test",
+    "sanity:dev": "cd sanity && npm run dev",
+    "sanity:build": "cd sanity && npm run build",
+    "sanity:deploy": "cd sanity && npm run deploy",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:update": "playwright test --update-snapshots",
@@ -82,6 +85,8 @@
   },
   "dependencies": {
     "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@sanity/client": "^7.13.1",
+    "@sanity/vision": "^4.21.0",
     "web-vitals": "^5.1.0"
   }
 }
