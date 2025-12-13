@@ -57,42 +57,56 @@ description: A curated library of design systems showcasing different aesthetic 
           </div>
         </article>
 
-        {# Third Style Placeholder Card #}
-        <article style="background: white; border: 2px dashed var(--swiss-gray-300); border-radius: 12px; overflow: hidden; transition: all 0.3s ease;">
-          <div style="height: 200px; background: repeating-linear-gradient(45deg, #f8fafc 0px, #f8fafc 10px, #f1f5f9 10px, #f1f5f9 20px); position: relative; display: flex; align-items: center; justify-content: center;">
-            <div style="width: 60px; height: 60px; border: 2px dashed var(--swiss-gray-400); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
-              <span style="font-size: 1.5rem; color: var(--swiss-gray-500);">+</span>
-            </div>
+        {# Deconstructivism Card #}
+        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease;">
+          <div style="height: 200px; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 1rem; right: 1rem; width: 100px; height: 100px; border: 3px solid #ff6b6b; transform: rotate(35deg);"></div>
+            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; width: 70px; height: 70px; background: #4ecdc4; clip-path: polygon(0 0, 100% 20%, 80% 100%, 0 100%); transform: rotate(-10deg);"></div>
+            <div style="position: absolute; top: 2rem; left: 2rem; width: 80px; height: 12px; background: #ffe66d; transform: skewX(-15deg);"></div>
+            <div style="position: absolute; bottom: 3rem; right: 2rem; width: 50px; height: 50px; background: #000000; transform: rotate(45deg) skewX(-10deg);"></div>
           </div>
           <div style="padding: 2rem;">
-            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Coming Soon</h3>
-            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">New design system in development. Stay tuned for another unique aesthetic approach to inspire your projects.</p>
-            <button class="btn-swiss" disabled style="opacity: 0.5; cursor: not-allowed;">In Development</button>
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Deconstructivism</h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">Fragmented geometry, intentional chaos, and deliberate disorientation. Breaking traditional grids to create dynamic visual tension.</p>
+            <a href="/blog/deconstructivism/" class="btn-swiss-primary" style="text-decoration: none;">Explore Style →</a>
           </div>
         </article>
       </div>
     </section>
 
-    {# Submission Section #}
-    <section class="mb-16">
-      <div class="swiss-grid">
-        <div class="swiss-col-8 swiss-col-start-3" style="text-align: center;">
-          <div style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--swiss-gray-300); border-radius: 12px; padding: 3rem 2rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08);">
-            <h2 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: var(--fluid-h3);">Share Your Style</h2>
-            <p style="margin: 0 0 2rem 0; color: var(--swiss-gray-700); line-height: 1.6; max-width: 50ch; margin-left: auto; margin-right: auto;">
-              Have a unique design system or aesthetic approach you'd like to showcase? Submit your style guide to be featured in our library.
-            </p>
-            <a href="/blog/submit-style-guide/" class="btn-swiss-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
-              <span>Submit Style Guide</span>
-              <span style="font-size: 1.2em;">→</span>
-            </a>
-            <p style="margin: 1.5rem 0 0 0; color: var(--swiss-gray-600); font-size: 0.875rem;">
-              Include examples, color palettes, typography, and component specifications
-            </p>
+    {# Second Row with Share Your Style and Coming Soon #}
+    <section class="mb-20">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+        {# Share Your Style Card #}
+        <article style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--swiss-gray-300); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-align: center;">
+          <div style="width: 80px; height: 80px; background: var(--swiss-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 12px rgba(110, 119, 170, 0.3);">
+            <span style="font-size: 2.5rem; color: white;">+</span>
           </div>
-        </div>
+          <h3 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: 1.5rem;">Share Your Style</h3>
+          <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">
+            Have a unique design system or aesthetic approach? Submit your style guide to be featured in our library.
+          </p>
+          <a href="/blog/submit-style-guide/" class="btn-swiss-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+            <span>Submit Style Guide</span>
+            <span style="font-size: 1.2em;">→</span>
+          </a>
+        </article>
+
+        {# Coming Soon Card #}
+        <article style="background: white; border: 2px dashed var(--swiss-gray-300); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease; text-align: center;">
+          <div style="width: 80px; height: 80px; border: 3px dashed var(--swiss-gray-400); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
+            <span style="font-size: 2rem; color: var(--swiss-gray-500);">⏳</span>
+          </div>
+          <h3 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: 1.5rem;">Coming Soon</h3>
+          <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">
+            New design system in development. Stay tuned for another unique aesthetic approach to inspire your projects.
+          </p>
+          <button class="btn-swiss" disabled style="opacity: 0.5; cursor: not-allowed;">In Development</button>
+        </article>
       </div>
     </section>
+
+
 
   </div>
 </section>
