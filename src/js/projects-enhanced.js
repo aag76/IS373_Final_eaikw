@@ -72,9 +72,9 @@ class SwissProjectsEnhanced {
    */
   setupCardInteractions(card) {
     const number = card.querySelector(".project-number");
-    const title = card.querySelector(".project-title");
+    // const title = card.querySelector(".project-title");
     const accentBar = card.querySelector(".project-accent-bar");
-    const cta = card.querySelector(".project-cta");
+    // const cta = card.querySelector(".project-cta");
     const arrow = card.querySelector(".project-arrow");
     const overlay = card.querySelector(".project-overlay");
     const tags = card.querySelectorAll(".project-tag");

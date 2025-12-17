@@ -200,7 +200,7 @@ class SwissAboutEnhanced {
       });
 
       // Click feedback
-      link.addEventListener("click", (e) => {
+      link.addEventListener("click", () => {
         link.style.transform = "scale(0.95)";
         setTimeout(() => {
           link.style.transform = "scale(1)";

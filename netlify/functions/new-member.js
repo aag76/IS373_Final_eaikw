@@ -5,13 +5,13 @@ const Airtable = require("airtable");
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_TOKEN }).base(
   process.env.AIRTABLE_BASE_ID
 );
-const tableName = "Submissions"; // Your table name in Airtable
+const tableName = "Members"; // Your table name in Airtable
 
 // Discord webhook URL
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_SUBMISSIONS;
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_INTRODUCTIONS;
 
 // Send Discord notification
-async function sendDiscordNotification(submission) {
+async function sendDiscordNotification(member) {
   if (!DISCORD_WEBHOOK_URL) {
     console.log("Discord webhook not configured, skipping notification");
     return;
@@ -19,43 +19,48 @@ async function sendDiscordNotification(submission) {
 
   try {
     const embed = {
-      title: "🎨 New Style Guide Submission!",
-      color: 3447003, // Blue
-      description: "A new design style has been submitted for review.",
+      title: "👋 New Member Joined!",
+      color: 5763719, // Purple
+      description: "Welcome a new member to the Design Gallery community!",
       fields: [
         {
-          name: "📝 Design Style",
-          value: submission.designStyle || "Untitled",
-          inline: false,
-        },
-        {
-          name: "👤 Submitter",
-          value: submission.name,
+          name: "👤 Name",
+          value: member.name,
           inline: true,
         },
         {
           name: "📧 Email",
-          value: submission.email,
+          value: member.email,
           inline: true,
         },
         {
-          name: "🔗 Demo URL",
-          value: submission.demoUrl || "Not provided",
+          name: "🎨 Interests",
+          value: member.interests || "Not specified",
           inline: false,
         },
         {
-          name: "🎫 Confirmation Number",
-          value: `\`${submission.confirmationNumber}\``,
+          name: "💼 Role/Title",
+          value: member.role || "Not specified",
           inline: true,
         },
         {
-          name: "📅 Submitted",
+          name: "🌐 Website",
+          value: member.website || "Not provided",
+          inline: true,
+        },
+        {
+          name: "🎫 Member ID",
+          value: `\`${member.memberId}\``,
+          inline: true,
+        },
+        {
+          name: "📅 Joined",
           value: new Date().toLocaleString(),
           inline: true,
         },
       ],
       footer: {
-        text: "Design Gallery - Submission System",
+        text: "Design Gallery - Community",
       },
       timestamp: new Date().toISOString(),
     };
@@ -64,7 +69,7 @@ async function sendDiscordNotification(submission) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: "📬 **New submission received!**",
+        content: "🎊 **Welcome our newest member!** Say hi! 👋",
         embeds: [embed],
       }),
     });
@@ -72,7 +77,7 @@ async function sendDiscordNotification(submission) {
     console.log("Discord notification sent successfully");
   } catch (error) {
     console.error("Discord notification failed:", error);
-    // Don't fail the submission if Discord notification fails
+    // Don't fail the registration if Discord notification fails
   }
 }
 
@@ -94,89 +99,85 @@ exports.handler = async (event, _context) => {
     };
   }
 
-  // Handle POST - Submit new style guide
+  // Handle POST - Register new member
   if (event.httpMethod === "POST") {
     try {
       const data = JSON.parse(event.body);
 
-      // Generate confirmation number
-      const confirmationNumber = "DSG-" + crypto.randomBytes(4).toString("hex").toUpperCase();
+      // Generate member ID
+      const memberId = "MBR-" + crypto.randomBytes(4).toString("hex").toUpperCase();
 
       // Create record in Airtable
       await base(tableName).create([
         {
           fields: {
-            ConfirmationNumber: confirmationNumber,
-            Status: "pending",
+            MemberId: memberId,
+            Status: "active",
             Name: data.name,
             Email: data.email,
-            DesignStyle: data.designStyle,
-            DemoURL: data.demoUrl || "",
-            Authenticity: data.authenticity || "",
-            ToolsUsed: data.toolsUsed || "",
-            AdditionalNotes: data.additionalNotes || "",
-            SubmittedDate: new Date().toISOString(),
+            Role: data.role || "",
+            Interests: data.interests || "",
+            Website: data.website || "",
+            Bio: data.bio || "",
+            JoinedDate: new Date().toISOString(),
           },
         },
       ]);
 
       // Send Discord notification (non-blocking)
-      const submissionData = {
-        confirmationNumber,
+      const memberData = {
+        memberId,
         name: data.name,
         email: data.email,
-        designStyle: data.designStyle,
-        demoUrl: data.demoUrl,
+        role: data.role,
+        interests: data.interests,
+        website: data.website,
       };
-      sendDiscordNotification(submissionData).catch(console.error);
+      sendDiscordNotification(memberData).catch(console.error);
 
       return {
         statusCode: 200,
         headers,
         body: JSON.stringify({
           success: true,
-          confirmationNumber: confirmationNumber,
-          message:
-            "Your style guide submission has been received! Please save your confirmation number for tracking.",
+          memberId: memberId,
+          message: "Welcome to the Design Gallery community! Your member ID has been created.",
         }),
       };
     } catch (error) {
-      console.error("Airtable submission error:", error);
+      console.error("Airtable member registration error:", error);
       return {
         statusCode: 400,
         headers,
         body: JSON.stringify({
           success: false,
-          error: "Invalid submission data",
+          error: "Invalid member data",
           details: error.message,
         }),
       };
     }
   }
 
-  // Handle GET - Retrieve submissions for review mode
+  // Handle GET - Retrieve members
   if (event.httpMethod === "GET") {
     try {
       const records = await base(tableName)
         .select({
-          sort: [{ field: "SubmittedDate", direction: "desc" }],
+          sort: [{ field: "JoinedDate", direction: "desc" }],
         })
         .all();
 
-      const submissions = records.map((record) => ({
+      const members = records.map((record) => ({
         id: record.id,
-        confirmationNumber: record.fields.ConfirmationNumber,
-        status: record.fields.Status || "pending",
+        memberId: record.fields.MemberId,
+        status: record.fields.Status || "active",
         name: record.fields.Name,
         email: record.fields.Email,
-        designStyle: record.fields.DesignStyle,
-        demoUrl: record.fields.DemoURL,
-        authenticity: record.fields.Authenticity,
-        toolsUsed: record.fields.ToolsUsed,
-        additionalNotes: record.fields.AdditionalNotes,
-        submittedDate: record.fields.SubmittedDate,
-        reviewDate: record.fields.ReviewDate,
-        reviewNotes: record.fields.ReviewNotes,
+        role: record.fields.Role,
+        interests: record.fields.Interests,
+        website: record.fields.Website,
+        bio: record.fields.Bio,
+        joinedDate: record.fields.JoinedDate,
       }));
 
       return {
@@ -184,8 +185,8 @@ exports.handler = async (event, _context) => {
         headers,
         body: JSON.stringify({
           success: true,
-          submissions: submissions,
-          count: submissions.length,
+          members: members,
+          count: members.length,
         }),
       };
     } catch (error) {
@@ -195,7 +196,7 @@ exports.handler = async (event, _context) => {
         headers,
         body: JSON.stringify({
           success: false,
-          error: "Failed to retrieve submissions",
+          error: "Failed to retrieve members",
           details: error.message,
         }),
       };

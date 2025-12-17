@@ -92,7 +92,7 @@ export async function createSubmission(event) {
 /**
  * Get all approved submissions
  */
-export async function getApprovedSubmissions(event) {
+export async function getApprovedSubmissions(_event) {
   try {
     const submissions = await client.fetch(
       '*[_type == "gallerySubmission" && status == "approved"] | order(submittedAt desc)'
@@ -293,7 +293,9 @@ async function notifyDiscord(submission, event) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ embeds: [embed] }),
       });
-      if (res.ok) return;
+      if (res.ok) {
+        return;
+      }
       const body = await res.text();
       console.error(`Discord webhook responded ${res.status}: ${body}`);
       // rate limited? inspect headers

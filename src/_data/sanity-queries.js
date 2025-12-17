@@ -11,7 +11,9 @@ import sanityClient from "@sanity/client";
 let client = null;
 
 function initClient() {
-  if (client) return;
+  if (client) {
+    return;
+  }
   if (!process.env.SANITY_PROJECT_ID) {
     client = null;
     return;
@@ -23,7 +25,7 @@ function initClient() {
       apiVersion: "2023-12-01",
       useCdn: true,
     });
-  } catch (error) {
+  } catch {
     console.warn("⚠️  Sanity CMS not configured. Set SANITY_PROJECT_ID in .env");
     client = null;
   }

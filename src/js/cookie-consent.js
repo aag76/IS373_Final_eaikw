@@ -53,7 +53,9 @@ class CookieConsentManager {
   }
 
   showBanner() {
-    if (this.bannerShown) return;
+    if (this.bannerShown) {
+      return;
+    }
 
     const banner = this.createBanner();
     document.body.appendChild(banner);
@@ -386,7 +388,7 @@ class CookieConsentManager {
       // Initialize dataLayer
       window.dataLayer = window.dataLayer || [];
       function gtag() {
-        dataLayer.push(arguments);
+        window.dataLayer.push(arguments);
       }
       window.gtag = gtag;
 
@@ -432,15 +434,21 @@ class CookieConsentManager {
       const analyticsCheckbox = document.getElementById("analytics-consent");
       const functionalCheckbox = document.getElementById("functional-consent");
 
-      if (analyticsCheckbox) analyticsCheckbox.checked = preferences.analytics;
-      if (functionalCheckbox) functionalCheckbox.checked = preferences.functional;
+      if (analyticsCheckbox) {
+        analyticsCheckbox.checked = preferences.analytics;
+      }
+      if (functionalCheckbox) {
+        functionalCheckbox.checked = preferences.functional;
+      }
     }, 100);
   }
 
   // Public method to check if analytics is consented
   hasAnalyticsConsent() {
     const consent = this.getConsent();
-    if (consent !== true) return false;
+    if (consent !== true) {
+      return false;
+    }
 
     const preferences = this.getPreferences();
     return preferences.analytics;
@@ -449,7 +457,9 @@ class CookieConsentManager {
   // Public method to check if functional is consented
   hasFunctionalConsent() {
     const consent = this.getConsent();
-    if (consent !== true) return false;
+    if (consent !== true) {
+      return false;
+    }
 
     const preferences = this.getPreferences();
     return preferences.functional;

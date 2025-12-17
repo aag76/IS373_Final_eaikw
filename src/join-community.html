@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Join Our Community - Design Gallery</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: system-ui;
+        background: #f5f5f5;
+        padding: 2rem;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      h1 {
+        margin-bottom: 1.5rem;
+        color: #333;
+      }
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #555;
+      }
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: 2px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #9c27b0;
+      }
+      button {
+        background: #9c27b0;
+        color: white;
+        padding: 1rem 2rem;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background: #7b1fa2;
+      }
+      button:disabled {
+        background: #ccc;
+        cursor: not-allowed;
+      }
+      .message {
+        padding: 1rem;
+        margin-top: 1rem;
+        border-radius: 4px;
+        display: none;
+      }
+      .message.success {
+        background: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+      }
+      .message.error {
+        background: #f8d7da;
+        color: #721c24;
+        border: 1px solid #f5c6cb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>👋 Join Our Community</h1>
+
+      <form id="memberForm">
+        <div class="form-group">
+          <label for="name">Full Name *</label>
+          <input type="text" id="name" name="name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+
+        <div class="form-group">
+          <label for="role">Role/Title</label>
+          <input
+            type="text"
+            id="role"
+            name="role"
+            placeholder="e.g., Product Designer, Frontend Developer"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="interests">Design Interests</label>
+          <input
+            type="text"
+            id="interests"
+            name="interests"
+            placeholder="e.g., UI/UX, Typography, Motion Design"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="website">Website/Portfolio</label>
+          <input type="url" id="website" name="website" placeholder="https://yoursite.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="bio">Bio (Tell us about yourself)</label>
+          <textarea
+            id="bio"
+            name="bio"
+            rows="4"
+            placeholder="Share a bit about your background and what brings you to the Design Gallery community..."
+          ></textarea>
+        </div>
+
+        <button type="submit">Join Community</button>
+      </form>
+
+      <div id="message" class="message"></div>
+    </div>
+
+    <script>
+      const form = document.getElementById("memberForm");
+      const messageDiv = document.getElementById("message");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const button = form.querySelector("button");
+        button.disabled = true;
+        button.textContent = "Submitting...";
+        messageDiv.style.display = "none";
+
+        const formData = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          role: document.getElementById("role").value,
+          interests: document.getElementById("interests").value,
+          website: document.getElementById("website").value,
+          bio: document.getElementById("bio").value,
+        };
+
+        try {
+          const response = await fetch("/.netlify/functions/new-member", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
+          });
+
+          const data = await response.json();
+
+          if (data.success) {
+            messageDiv.className = "message success";
+            messageDiv.style.display = "block";
+            messageDiv.innerHTML = `
+                        <strong>🎉 Welcome to the community!</strong><br>
+                        Your member ID is: <strong>${data.memberId}</strong><br>
+                        We've posted your introduction in our Discord. Say hi! 👋
+                    `;
+            form.reset();
+          } else {
+            throw new Error(data.error || "Registration failed");
+          }
+        } catch (error) {
+          messageDiv.className = "message error";
+          messageDiv.style.display = "block";
+          messageDiv.textContent = `❌ Error: ${error.message}`;
+        } finally {
+          button.disabled = false;
+          button.textContent = "Join Community";
+        }
+      });
+    </script>
+  </body>
+</html>

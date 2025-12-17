@@ -5,13 +5,13 @@ const Airtable = require("airtable");
 const base = new Airtable({ apiKey: process.env.AIRTABLE_API_TOKEN }).base(
   process.env.AIRTABLE_BASE_ID
 );
-const tableName = "Submissions"; // Your table name in Airtable
+const tableName = "EventRegistrations"; // Your table name in Airtable
 
 // Discord webhook URL
-const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_SUBMISSIONS;
+const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_EVENTS;
 
 // Send Discord notification
-async function sendDiscordNotification(submission) {
+async function sendDiscordNotification(registration) {
   if (!DISCORD_WEBHOOK_URL) {
     console.log("Discord webhook not configured, skipping notification");
     return;
@@ -19,43 +19,43 @@ async function sendDiscordNotification(submission) {
 
   try {
     const embed = {
-      title: "🎨 New Style Guide Submission!",
-      color: 3447003, // Blue
-      description: "A new design style has been submitted for review.",
+      title: "📅 New Event Registration!",
+      color: 15844367, // Gold/Yellow
+      description: "Someone just registered for an event.",
       fields: [
         {
-          name: "📝 Design Style",
-          value: submission.designStyle || "Untitled",
+          name: "🎯 Event Name",
+          value: registration.eventName || "Untitled Event",
           inline: false,
         },
         {
-          name: "👤 Submitter",
-          value: submission.name,
+          name: "👤 Registrant",
+          value: registration.name,
           inline: true,
         },
         {
           name: "📧 Email",
-          value: submission.email,
+          value: registration.email,
           inline: true,
         },
         {
-          name: "🔗 Demo URL",
-          value: submission.demoUrl || "Not provided",
-          inline: false,
-        },
-        {
-          name: "🎫 Confirmation Number",
-          value: `\`${submission.confirmationNumber}\``,
+          name: "📱 Contact",
+          value: registration.phone || "Not provided",
           inline: true,
         },
         {
-          name: "📅 Submitted",
+          name: "🎫 Registration Number",
+          value: `\`${registration.registrationNumber}\``,
+          inline: true,
+        },
+        {
+          name: "📅 Registered",
           value: new Date().toLocaleString(),
           inline: true,
         },
       ],
       footer: {
-        text: "Design Gallery - Submission System",
+        text: "Design Gallery - Event Registration System",
       },
       timestamp: new Date().toISOString(),
     };
@@ -64,7 +64,7 @@ async function sendDiscordNotification(submission) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        content: "📬 **New submission received!**",
+        content: "🎉 **New event registration!**",
         embeds: [embed],
       }),
     });
@@ -72,7 +72,7 @@ async function sendDiscordNotification(submission) {
     console.log("Discord notification sent successfully");
   } catch (error) {
     console.error("Discord notification failed:", error);
-    // Don't fail the submission if Discord notification fails
+    // Don't fail the registration if Discord notification fails
   }
 }
 
@@ -94,89 +94,85 @@ exports.handler = async (event, _context) => {
     };
   }
 
-  // Handle POST - Submit new style guide
+  // Handle POST - Register for event
   if (event.httpMethod === "POST") {
     try {
       const data = JSON.parse(event.body);
 
-      // Generate confirmation number
-      const confirmationNumber = "DSG-" + crypto.randomBytes(4).toString("hex").toUpperCase();
+      // Generate registration number
+      const registrationNumber = "EVT-" + crypto.randomBytes(4).toString("hex").toUpperCase();
 
       // Create record in Airtable
       await base(tableName).create([
         {
           fields: {
-            ConfirmationNumber: confirmationNumber,
-            Status: "pending",
+            RegistrationNumber: registrationNumber,
+            Status: "confirmed",
             Name: data.name,
             Email: data.email,
-            DesignStyle: data.designStyle,
-            DemoURL: data.demoUrl || "",
-            Authenticity: data.authenticity || "",
-            ToolsUsed: data.toolsUsed || "",
-            AdditionalNotes: data.additionalNotes || "",
-            SubmittedDate: new Date().toISOString(),
+            Phone: data.phone || "",
+            EventName: data.eventName,
+            EventDate: data.eventDate || "",
+            AdditionalNotes: data.notes || "",
+            RegisteredDate: new Date().toISOString(),
           },
         },
       ]);
 
       // Send Discord notification (non-blocking)
-      const submissionData = {
-        confirmationNumber,
+      const registrationData = {
+        registrationNumber,
         name: data.name,
         email: data.email,
-        designStyle: data.designStyle,
-        demoUrl: data.demoUrl,
+        phone: data.phone,
+        eventName: data.eventName,
       };
-      sendDiscordNotification(submissionData).catch(console.error);
+      sendDiscordNotification(registrationData).catch(console.error);
 
       return {
         statusCode: 200,
         headers,
         body: JSON.stringify({
           success: true,
-          confirmationNumber: confirmationNumber,
+          registrationNumber: registrationNumber,
           message:
-            "Your style guide submission has been received! Please save your confirmation number for tracking.",
+            "Your event registration has been confirmed! Please save your registration number.",
         }),
       };
     } catch (error) {
-      console.error("Airtable submission error:", error);
+      console.error("Airtable registration error:", error);
       return {
         statusCode: 400,
         headers,
         body: JSON.stringify({
           success: false,
-          error: "Invalid submission data",
+          error: "Invalid registration data",
           details: error.message,
         }),
       };
     }
   }
 
-  // Handle GET - Retrieve submissions for review mode
+  // Handle GET - Retrieve registrations
   if (event.httpMethod === "GET") {
     try {
       const records = await base(tableName)
         .select({
-          sort: [{ field: "SubmittedDate", direction: "desc" }],
+          sort: [{ field: "RegisteredDate", direction: "desc" }],
         })
         .all();
 
-      const submissions = records.map((record) => ({
+      const registrations = records.map((record) => ({
         id: record.id,
-        confirmationNumber: record.fields.ConfirmationNumber,
-        status: record.fields.Status || "pending",
+        registrationNumber: record.fields.RegistrationNumber,
+        status: record.fields.Status || "confirmed",
         name: record.fields.Name,
         email: record.fields.Email,
-        designStyle: record.fields.DesignStyle,
-        demoUrl: record.fields.DemoURL,
-        authenticity: record.fields.Authenticity,
-        toolsUsed: record.fields.ToolsUsed,
-        additionalNotes: record.fields.AdditionalNotes,
-        submittedDate: record.fields.SubmittedDate,
-        reviewDate: record.fields.ReviewDate,
-        reviewNotes: record.fields.ReviewNotes,
+        phone: record.fields.Phone,
+        eventName: record.fields.EventName,
+        eventDate: record.fields.EventDate,
+        notes: record.fields.AdditionalNotes,
+        registeredDate: record.fields.RegisteredDate,
       }));
 
       return {
@@ -184,8 +180,8 @@ exports.handler = async (event, _context) => {
         headers,
         body: JSON.stringify({
           success: true,
-          submissions: submissions,
-          count: submissions.length,
+          registrations: registrations,
+          count: registrations.length,
         }),
       };
     } catch (error) {
@@ -195,7 +191,7 @@ exports.handler = async (event, _context) => {
         headers,
         body: JSON.stringify({
           success: false,
-          error: "Failed to retrieve submissions",
+          error: "Failed to retrieve registrations",
           details: error.message,
         }),
       };

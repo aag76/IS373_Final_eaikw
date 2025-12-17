@@ -1,9 +1,15 @@
-const crypto = require("crypto");
+const Airtable = require("airtable");
 
-// In-memory storage (in production, use a database)
+// Configure Airtable
+const base = new Airtable({ apiKey: process.env.AIRTABLE_API_TOKEN }).base(
+  process.env.AIRTABLE_BASE_ID
+);
+const tableName = "Submissions";
+
+// In-memory submissions cache for testing
 let submissions = [];
 
-exports.handler = async (event, context) => {
+exports.handler = async (event, _context) => {
   // Set CORS headers
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -38,10 +44,15 @@ exports.handler = async (event, context) => {
         };
       }
 
-      // Find submission (in production, query from database)
-      const submission = submissions.find((s) => s.confirmationNumber === confirmationNumber);
+      // Find submission in Airtable
+      const records = await base(tableName)
+        .select({
+          filterByFormula: `{ConfirmationNumber} = '${confirmationNumber}'`,
+          maxRecords: 1,
+        })
+        .all();
 
-      if (!submission) {
+      if (records.length === 0) {
         return {
           statusCode: 404,
           headers,
@@ -53,6 +64,8 @@ exports.handler = async (event, context) => {
         };
       }
 
+      const record = records[0];
+
       // Return submission details
       return {
         statusCode: 200,
@@ -60,16 +73,17 @@ exports.handler = async (event, context) => {
         body: JSON.stringify({
           success: true,
           submission: {
-            confirmationNumber: submission.confirmationNumber,
-            status: submission.status,
-            designStyle: submission.designStyle,
-            submittedDate: submission.timestamp,
-            reviewDate: submission.reviewDate,
-            reviewNotes: submission.reviewNotes,
+            confirmationNumber: record.fields.ConfirmationNumber,
+            status: record.fields.Status || "pending",
+            designStyle: record.fields.DesignStyle,
+            submittedDate: record.fields.SubmittedDate,
+            reviewDate: record.fields.ReviewDate,
+            reviewNotes: record.fields.ReviewNotes,
           },
         }),
       };
     } catch (error) {
+      console.error("Airtable track error:", error);
       return {
         statusCode: 500,
         headers,
@@ -92,8 +106,6 @@ exports.handler = async (event, context) => {
     }),
   };
 };
-
-// Share submissions array with submissions function
 exports.setSubmissions = (subs) => {
   submissions = subs;
 };

@@ -33,6 +33,13 @@ export default [
     },
   },
   {
-    ignores: ["_site/**", "node_modules/**", "*.bundle.js", "*.min.js"],
+    ignores: [
+      "_site/**",
+      "node_modules/**",
+      "*.bundle.js",
+      "*.min.js",
+      "eaikw-cms/**",
+      ".sanity/**",
+    ],
   },
 ];

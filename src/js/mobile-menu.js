@@ -43,7 +43,7 @@ class SwissMobileMenu {
 
     // Close on menu link click
     this.menuLinks.forEach((link) => {
-      link.addEventListener("click", (e) => {
+      link.addEventListener("click", () => {
         // Close menu immediately
         this.close();
       });

@@ -8,6 +8,10 @@ dist
 build
 *.bundle.js
 
+# Sanity CMS files (use Sanity's own formatting)
+eaikw-cms
+.sanity
+
 # Cache
 .cache
 .eleventy-cache

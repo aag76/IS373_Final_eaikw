@@ -4,7 +4,7 @@
  */
 
 const DISCORD_WEBHOOK_URL = process.env.DISCORD_WEBHOOK_URL;
-const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN;
+// const DISCORD_BOT_TOKEN = process.env.DISCORD_BOT_TOKEN; // Reserved for future use
 
 /**
  * Send submission notification to Discord

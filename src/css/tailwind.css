@@ -1043,7 +1043,7 @@
   }
 
   /* High contrast mode support */
-  @media (prefers-contrast: high) {
+  @media (prefers-contrast: more) {
     .project-card {
       border-width: 3px;
     }
