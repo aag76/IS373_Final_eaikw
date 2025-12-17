@@ -328,7 +328,9 @@ class CookieConsentManager {
     }
 
     if (acceptSelectedBtn) {
-      acceptSelectedBtn.addEventListener("click", () => this.handleAcceptSelected(), { once: true });
+      acceptSelectedBtn.addEventListener("click", () => this.handleAcceptSelected(), {
+        once: true,
+      });
     }
 
     if (acceptAllBtn) {
@@ -403,7 +405,7 @@ class CookieConsentManager {
     // Update Google Analytics 4 Consent Mode
     // GA4 script is already loaded in base.njk with default consent denied
     // This method grants consent when user accepts analytics cookies
-    
+
     // Check if gtag is defined (loaded via GA4 script in base.njk)
     if (typeof window.gtag === "function") {
       const gtag = window.gtag;
@@ -416,12 +418,15 @@ class CookieConsentManager {
       });
 
       this.analyticsLoaded = true;
-      
+
       // Only log in development
       if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
         console.log("✓ Analytics consent granted - GA4 tracking enabled");
       }
-    } else if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    } else if (
+      window.location.hostname === "localhost" ||
+      window.location.hostname === "127.0.0.1"
+    ) {
       console.warn("GA4 gtag function not found. Ensure GA4 script is loaded in base.njk");
     }
   }

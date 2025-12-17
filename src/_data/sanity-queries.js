@@ -14,14 +14,14 @@ function initClient() {
   if (client || initAttempted) {
     return client;
   }
-  
+
   initAttempted = true;
-  
+
   if (!process.env.SANITY_PROJECT_ID) {
     console.warn("⚠️  Sanity CMS not configured. Set SANITY_PROJECT_ID in .env");
     return null;
   }
-  
+
   try {
     client = sanityClient({
       projectId: process.env.SANITY_PROJECT_ID,

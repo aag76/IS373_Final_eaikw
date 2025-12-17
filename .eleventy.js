@@ -72,11 +72,11 @@ export default async function (eleventyConfig) {
       .replace(/(<([^>]+)>)/gi, "")
       .replace(/\s+/g, " ")
       .trim();
-    
+
     if (plainText.length <= length) {
       return plainText;
     }
-    
+
     // Try to break at a word boundary
     const excerpt = plainText.substring(0, length);
     const lastSpace = excerpt.lastIndexOf(" ");
@@ -97,7 +97,7 @@ export default async function (eleventyConfig) {
       return null;
     }
     const index = collection.findIndex((item) => item && item.url === page.url);
-    return (index > 0 && index !== -1) ? collection[index - 1] : null;
+    return index > 0 && index !== -1 ? collection[index - 1] : null;
   });
 
   eleventyConfig.addFilter("getNextCollectionItem", function (collection, page) {
@@ -105,7 +105,7 @@ export default async function (eleventyConfig) {
       return null;
     }
     const index = collection.findIndex((item) => item && item.url === page.url);
-    return (index !== -1 && index < collection.length - 1) ? collection[index + 1] : null;
+    return index !== -1 && index < collection.length - 1 ? collection[index + 1] : null;
   });
 
   // Image shortcode for optimized images

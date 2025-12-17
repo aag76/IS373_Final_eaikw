@@ -9,7 +9,11 @@
 
 ## Executive Summary
 
-This report evaluates **three analytics solutions** for our Eleventy-based portfolio site: **Google Analytics 4** (traditional), **Plausible Analytics** (privacy-focused), and **Umami** (self-hosted privacy-focused). After comprehensive analysis across seven key criteria, we selected **Google Analytics 4** as our primary analytics solution with full GDPR consent mode integration.
+This report evaluates **three analytics solutions** for our Eleventy-based
+portfolio site: **Google Analytics 4** (traditional), **Plausible Analytics**
+(privacy-focused), and **Umami** (self-hosted privacy-focused). After
+comprehensive analysis across seven key criteria, we selected **Google Analytics
+4** as our primary analytics solution with full GDPR consent mode integration.
 
 ---
 
@@ -34,18 +38,18 @@ This report evaluates **three analytics solutions** for our Eleventy-based portf
 
 ## Comparison Table
 
-| Criteria                  | Google Analytics 4                                    | Plausible Analytics                             | Umami                                            |
-| ------------------------- | ----------------------------------------------------- | ----------------------------------------------- | ------------------------------------------------ |
-| **GDPR Compliance**       | ⭐⭐⭐⭐ Requires consent banner, supports consent mode | ⭐⭐⭐⭐⭐ No cookies, GDPR compliant by default | ⭐⭐⭐⭐⭐ No cookies, fully anonymous            |
-| **Cookie Requirements**   | ⭐⭐⭐ Uses cookies, requires consent                  | ⭐⭐⭐⭐⭐ No cookies at all                      | ⭐⭐⭐⭐⭐ No cookies, optional session tracking  |
-| **Cost**                  | ⭐⭐⭐⭐⭐ Free (unlimited)                             | ⭐⭐⭐ $9/month (10k views), $19/month (100k)   | ⭐⭐⭐⭐⭐ Free (self-hosted), $20/mo cloud       |
-| **Setup Complexity**      | ⭐⭐⭐ Medium - account setup, tag configuration       | ⭐⭐⭐⭐⭐ Very easy - single script tag          | ⭐⭐⭐ Medium - requires deployment/hosting      |
-| **Eleventy Integration**  | ⭐⭐⭐⭐⭐ Easy - inject script in layout              | ⭐⭐⭐⭐⭐ Easy - single script in layout         | ⭐⭐⭐⭐ Easy - script + API endpoint            |
-| **Consent Banner Integration** | ⭐⭐⭐⭐⭐ Excellent - Consent Mode API         | ⭐⭐⭐⭐⭐ Not needed (cookieless)               | ⭐⭐⭐⭐⭐ Not needed (cookieless)               |
-| **Features & Reporting**  | ⭐⭐⭐⭐⭐ Advanced - funnels, cohorts, predictions    | ⭐⭐⭐⭐ Good - essential metrics, clean UI      | ⭐⭐⭐ Basic - page views, referrers, devices   |
-| **Real-Time Data**        | ⭐⭐⭐⭐⭐ Yes - real-time dashboard                   | ⭐⭐⭐⭐ Yes - live visitor count                | ⭐⭐⭐⭐ Yes - real-time updates                 |
-| **Event Tracking**        | ⭐⭐⭐⭐⭐ Advanced - custom events, parameters        | ⭐⭐⭐⭐ Good - custom events, goals             | ⭐⭐⭐ Basic - custom events                     |
-| **Fit for THIS Project**  | ⭐⭐⭐⭐⭐ Perfect - free, familiar, powerful          | ⭐⭐⭐⭐ Great for privacy but $9/mo             | ⭐⭐⭐ Good but requires hosting                 |
+| Criteria                       | Google Analytics 4                                      | Plausible Analytics                              | Umami                                            |
+| ------------------------------ | ------------------------------------------------------- | ------------------------------------------------ | ------------------------------------------------ |
+| **GDPR Compliance**            | ⭐⭐⭐⭐ Requires consent banner, supports consent mode | ⭐⭐⭐⭐⭐ No cookies, GDPR compliant by default | ⭐⭐⭐⭐⭐ No cookies, fully anonymous           |
+| **Cookie Requirements**        | ⭐⭐⭐ Uses cookies, requires consent                   | ⭐⭐⭐⭐⭐ No cookies at all                     | ⭐⭐⭐⭐⭐ No cookies, optional session tracking |
+| **Cost**                       | ⭐⭐⭐⭐⭐ Free (unlimited)                             | ⭐⭐⭐ $9/month (10k views), $19/month (100k)    | ⭐⭐⭐⭐⭐ Free (self-hosted), $20/mo cloud      |
+| **Setup Complexity**           | ⭐⭐⭐ Medium - account setup, tag configuration        | ⭐⭐⭐⭐⭐ Very easy - single script tag         | ⭐⭐⭐ Medium - requires deployment/hosting      |
+| **Eleventy Integration**       | ⭐⭐⭐⭐⭐ Easy - inject script in layout               | ⭐⭐⭐⭐⭐ Easy - single script in layout        | ⭐⭐⭐⭐ Easy - script + API endpoint            |
+| **Consent Banner Integration** | ⭐⭐⭐⭐⭐ Excellent - Consent Mode API                 | ⭐⭐⭐⭐⭐ Not needed (cookieless)               | ⭐⭐⭐⭐⭐ Not needed (cookieless)               |
+| **Features & Reporting**       | ⭐⭐⭐⭐⭐ Advanced - funnels, cohorts, predictions     | ⭐⭐⭐⭐ Good - essential metrics, clean UI      | ⭐⭐⭐ Basic - page views, referrers, devices    |
+| **Real-Time Data**             | ⭐⭐⭐⭐⭐ Yes - real-time dashboard                    | ⭐⭐⭐⭐ Yes - live visitor count                | ⭐⭐⭐⭐ Yes - real-time updates                 |
+| **Event Tracking**             | ⭐⭐⭐⭐⭐ Advanced - custom events, parameters         | ⭐⭐⭐⭐ Good - custom events, goals             | ⭐⭐⭐ Basic - custom events                     |
+| **Fit for THIS Project**       | ⭐⭐⭐⭐⭐ Perfect - free, familiar, powerful           | ⭐⭐⭐⭐ Great for privacy but $9/mo             | ⭐⭐⭐ Good but requires hosting                 |
 
 **Rating Scale:** ⭐ (Poor) to ⭐⭐⭐⭐⭐ (Excellent)
 
@@ -57,13 +61,16 @@ This report evaluates **three analytics solutions** for our Eleventy-based portf
 
 #### Overview
 
-Google Analytics 4 is the latest version of Google's analytics platform, rebuilt from the ground up with privacy-first design and machine learning capabilities. It replaces Universal Analytics and is the industry standard for web analytics.
+Google Analytics 4 is the latest version of Google's analytics platform, rebuilt
+from the ground up with privacy-first design and machine learning capabilities.
+It replaces Universal Analytics and is the industry standard for web analytics.
 
 #### GDPR Compliance ⭐⭐⭐⭐
 
 **Status:** GDPR compliant with proper consent implementation
 
 **Key Features:**
+
 - **Consent Mode:** Adjusts tracking behavior based on user consent
 - **Consent Mode v2:** Enhanced for EU compliance (March 2024)
 - **IP Anonymization:** Automatic in GA4 (no longer needs manual enable)
@@ -71,6 +78,7 @@ Google Analytics 4 is the latest version of Google's analytics platform, rebuilt
 - **User Deletion API:** Delete user data on request
 
 **GDPR Considerations:**
+
 - ✅ Supports consent signals before loading
 - ✅ Can ping without cookies when consent denied
 - ✅ Provides data processing amendment (DPA)
@@ -106,6 +114,7 @@ gtag("consent", "update", {
 #### Cookie Requirements ⭐⭐⭐
 
 **Cookies Used:**
+
 - `_ga` - Main cookie for identifying unique users (2 years)
 - `_ga_<container-id>` - Session and campaign data (2 years)
 - `_gid` - User identification (24 hours)
@@ -114,6 +123,7 @@ gtag("consent", "update", {
 **Consent Requirement:** YES - requires explicit consent under GDPR
 
 **Without Consent (Consent Mode):**
+
 - Can still send cookieless "pings" for basic metrics
 - No user-level tracking
 - Aggregated data only
@@ -121,12 +131,14 @@ gtag("consent", "update", {
 #### Cost ⭐⭐⭐⭐⭐
 
 **Free Tier:**
+
 - Unlimited events (10 million events/month standard property)
 - Unlimited users
 - 14-month data retention (default)
 - Standard reports and explorations
 
 **Paid Tier (GA4 360):**
+
 - $50,000+/year (enterprise only)
 - Not needed for this project
 
@@ -147,6 +159,7 @@ gtag("consent", "update", {
 **Time Estimate:** 30-45 minutes for full setup
 
 **Technical Skills Required:**
+
 - Basic JavaScript knowledge
 - Understanding of HTML head injection
 - Cookie consent banner integration
@@ -164,21 +177,21 @@ gtag("consent", "update", {
 <head>
   <meta charset="UTF-8">
   <title>{{ title }}</title>
-  
+
   {% if site.ga_measurement_id and not site.dev_mode %}
   <!-- Google Analytics 4 with Consent Mode -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    
+
     // Default consent (denied until user accepts)
     gtag('consent', 'default', {
       'ad_storage': 'denied',
-      'ad_user_data': 'denied', 
+      'ad_user_data': 'denied',
       'ad_personalization': 'denied',
       'analytics_storage': 'denied'
     });
-    
+
     // Load GA4
     gtag('js', new Date());
     gtag('config', '{{ site.ga_measurement_id }}', {
@@ -205,6 +218,7 @@ gtag("consent", "update", {
 ```
 
 **Benefits:**
+
 - Conditional loading (disabled in development)
 - Centralized configuration
 - Easy to update Measurement ID
@@ -266,6 +280,7 @@ window.addEventListener("DOMContentLoaded", () => {
 #### Features & Capabilities
 
 **Core Metrics:**
+
 - Page views (automatic)
 - User sessions (automatic)
 - Engagement time (automatic)
@@ -296,6 +311,7 @@ gtag("event", "file_download", {
 ```
 
 **Advanced Features:**
+
 - User-ID tracking (cross-device)
 - Enhanced measurement (scroll, video, file downloads)
 - Conversion tracking
@@ -315,7 +331,7 @@ gtag("event", "file_download", {
 ✅ **Event Tracking** - Custom events for submissions, clicks, etc.  
 ✅ **Real-Time Dashboard** - See visitors live  
 ✅ **Mobile App** - Check stats on phone  
-✅ **BigQuery Integration** - Advanced analysis possible  
+✅ **BigQuery Integration** - Advanced analysis possible
 
 #### Cons for THIS Project
 
@@ -324,7 +340,7 @@ gtag("event", "file_download", {
 ❌ **Complex Interface** - Steep learning curve for advanced features  
 ❌ **Data Retention Limits** - Max 14 months (free tier)  
 ❌ **Sampling** - Large datasets may be sampled  
-❌ **Cookie Overhead** - Adds ~3-4 cookies to site  
+❌ **Cookie Overhead** - Adds ~3-4 cookies to site
 
 ---
 
@@ -332,13 +348,16 @@ gtag("event", "file_download", {
 
 #### Overview
 
-Plausible is a lightweight, privacy-focused alternative to Google Analytics. It's designed to be simple, fast, and GDPR compliant by default without requiring cookie consent banners.
+Plausible is a lightweight, privacy-focused alternative to Google Analytics.
+It's designed to be simple, fast, and GDPR compliant by default without
+requiring cookie consent banners.
 
 #### GDPR Compliance ⭐⭐⭐⭐⭐
 
 **Status:** GDPR, CCPA, and PECR compliant by default
 
 **Key Features:**
+
 - **No Cookies** - Uses cookieless tracking
 - **No Personal Data** - Doesn't collect IP addresses (anonymized)
 - **Data Ownership** - You own 100% of your data
@@ -346,6 +365,7 @@ Plausible is a lightweight, privacy-focused alternative to Google Analytics. It'
 - **No Consent Required** - Doesn't need cookie banner
 
 **How It Works Without Cookies:**
+
 - Generates daily rotating hash from IP + User Agent + Site Domain
 - Hash is immediately discarded, never stored
 - Visitor counts based on unique hashes per day
@@ -365,12 +385,12 @@ Plausible is a lightweight, privacy-focused alternative to Google Analytics. It'
 
 **Pricing Tiers:**
 
-| Plan       | Page Views | Price/Month | Best For          |
-| ---------- | ---------- | ----------- | ----------------- |
-| Starter    | 10,000     | $9          | Small sites       |
-| Growth     | 100,000    | $19         | Medium sites      |
-| Business   | 1,000,000  | $69         | Large sites       |
-| Enterprise | 10,000,000 | $150+       | Enterprise        |
+| Plan       | Page Views | Price/Month | Best For     |
+| ---------- | ---------- | ----------- | ------------ |
+| Starter    | 10,000     | $9          | Small sites  |
+| Growth     | 100,000    | $19         | Medium sites |
+| Business   | 1,000,000  | $69         | Large sites  |
+| Enterprise | 10,000,000 | $150+       | Enterprise   |
 
 **Free Tier:** None (30-day trial)
 
@@ -391,7 +411,11 @@ Plausible is a lightweight, privacy-focused alternative to Google Analytics. It'
 **Script Tag:**
 
 ```html
-<script defer data-domain="yourdomain.com" src="https://plausible.io/js/script.js"></script>
+<script
+  defer
+  data-domain="yourdomain.com"
+  src="https://plausible.io/js/script.js"
+></script>
 ```
 
 #### Eleventy Integration ⭐⭐⭐⭐⭐
@@ -405,7 +429,7 @@ Plausible is a lightweight, privacy-focused alternative to Google Analytics. It'
 <head>
   <meta charset="UTF-8">
   <title>{{ title }}</title>
-  
+
   {% if site.plausible_domain and not site.dev_mode %}
   <script defer data-domain="{{ site.plausible_domain }}" src="https://plausible.io/js/script.js"></script>
   {% endif %}
@@ -436,6 +460,7 @@ plausible("Form Submit", { props: { type: "gallery_submission" } });
 #### Features & Capabilities
 
 **Core Metrics:**
+
 - Page views
 - Unique visitors
 - Bounce rate
@@ -445,10 +470,12 @@ plausible("Form Submit", { props: { type: "gallery_submission" } });
 - Referral sources
 
 **Custom Events:**
+
 - Limited to 300 events per page load
 - Props for event metadata
 
 **Limitations:**
+
 - No user-level tracking (by design)
 - No funnels (coming soon)
 - No cohort analysis
@@ -463,7 +490,7 @@ plausible("Form Submit", { props: { type: "gallery_submission" } });
 ✅ **Simple Interface** - Easy to understand  
 ✅ **Fast Setup** - 5 minutes start to finish  
 ✅ **Open Source** - Can self-host (free)  
-✅ **Public Dashboards** - Can share stats publicly  
+✅ **Public Dashboards** - Can share stats publicly
 
 #### Cons for THIS Project
 
@@ -471,7 +498,7 @@ plausible("Form Submit", { props: { type: "gallery_submission" } });
 ❌ **Limited Features** - No funnels, cohorts, or advanced analysis  
 ❌ **No Free Tier** - Must pay from day one  
 ❌ **Learning Curve** - Employers expect GA4 knowledge  
-❌ **Event Limits** - 300 events per page load max  
+❌ **Event Limits** - 300 events per page load max
 
 ---
 
@@ -479,13 +506,15 @@ plausible("Form Submit", { props: { type: "gallery_submission" } });
 
 #### Overview
 
-Umami is an open-source, self-hosted analytics platform that's privacy-focused and GDPR compliant. It's similar to Plausible but free if you self-host.
+Umami is an open-source, self-hosted analytics platform that's privacy-focused
+and GDPR compliant. It's similar to Plausible but free if you self-host.
 
 #### GDPR Compliance ⭐⭐⭐⭐⭐
 
 **Status:** Fully GDPR compliant by design
 
 **Key Features:**
+
 - **No Cookies** - Cookieless tracking
 - **Anonymous Data** - No personal information collected
 - **Self-Hosted** - Complete data ownership
@@ -504,6 +533,7 @@ Umami is an open-source, self-hosted analytics platform that's privacy-focused a
 **Umami Cloud:** $20/month (100k events)
 
 **Server Costs (if self-hosted):**
+
 - DigitalOcean Droplet: $6/month
 - AWS Lightsail: $5/month
 - Vercel/Netlify: Free tier possible
@@ -534,8 +564,8 @@ Umami is an open-source, self-hosted analytics platform that's privacy-focused a
 ```njk
 {# src/_includes/layouts/base.njk #}
 {% if site.umami_website_id and not site.dev_mode %}
-<script async defer 
-  data-website-id="{{ site.umami_website_id }}" 
+<script async defer
+  data-website-id="{{ site.umami_website_id }}"
   src="{{ site.umami_script_url }}">
 </script>
 {% endif %}
@@ -551,6 +581,7 @@ umami.track("form_submit", { type: "gallery_submission" });
 #### Features & Capabilities
 
 **Core Metrics:**
+
 - Page views
 - Unique visitors
 - Referral sources
@@ -559,10 +590,12 @@ umami.track("form_submit", { type: "gallery_submission" });
 - Real-time visitors
 
 **Custom Events:**
+
 - Unlimited custom events
 - Event properties
 
 **Limitations:**
+
 - Basic reporting only
 - No funnels or cohorts
 - No user-level tracking
@@ -575,7 +608,7 @@ umami.track("form_submit", { type: "gallery_submission" });
 ✅ **Privacy-First** - No cookies, GDPR compliant  
 ✅ **No Consent Banner** - Not required  
 ✅ **Lightweight** - Fast loading  
-✅ **Unlimited Events** - No rate limits  
+✅ **Unlimited Events** - No rate limits
 
 #### Cons for THIS Project
 
@@ -583,7 +616,7 @@ umami.track("form_submit", { type: "gallery_submission" });
 ❌ **Maintenance** - Self-managed updates  
 ❌ **Limited Features** - Basic metrics only  
 ❌ **No Industry Standard** - Less recognizable  
-❌ **DIY Support** - Community support only  
+❌ **DIY Support** - Community support only
 
 ---
 
@@ -591,21 +624,25 @@ umami.track("form_submit", { type: "gallery_submission" });
 
 ### Why GA4 Wins
 
-After evaluating all three options, we selected **Google Analytics 4** for the following reasons:
+After evaluating all three options, we selected **Google Analytics 4** for the
+following reasons:
 
 #### 1. **Cost-Effectiveness** ⭐⭐⭐⭐⭐
+
 - Completely free with unlimited page views
 - No monthly subscription required
 - No server hosting costs
 - Perfect for student budget
 
 #### 2. **Industry Standard** ⭐⭐⭐⭐⭐
+
 - Most employers expect GA4 experience
 - Transferable skills for future jobs
 - Widely documented and supported
 - Familiar interface for stakeholders
 
 #### 3. **Feature Completeness** ⭐⭐⭐⭐⭐
+
 - Advanced reporting (funnels, cohorts, predictions)
 - Real-time analytics
 - Custom event tracking
@@ -614,6 +651,7 @@ After evaluating all three options, we selected **Google Analytics 4** for the f
 - BigQuery export for advanced analysis
 
 #### 4. **GDPR Compliance** ⭐⭐⭐⭐
+
 - Consent Mode V2 fully supports GDPR
 - Works with our existing cookie banner
 - Cookieless pings when consent denied
@@ -621,25 +659,31 @@ After evaluating all three options, we selected **Google Analytics 4** for the f
 - User deletion API
 
 #### 5. **Integration Ease** ⭐⭐⭐⭐⭐
+
 - Single script tag in layout
 - Seamless Eleventy integration
 - Works perfectly with our consent banner
 - Well-documented implementation
 
 #### 6. **Learning Opportunity** ⭐⭐⭐⭐⭐
+
 - Gain valuable industry skills
 - Portfolio piece for resume
 - Demonstrate GDPR implementation knowledge
 
 ### Trade-Offs Accepted
 
-**Privacy Concerns:** We accept that GA4 is a Google product and some users may distrust it. However:
+**Privacy Concerns:** We accept that GA4 is a Google product and some users may
+distrust it. However:
+
 - We implement full consent mode (privacy-first)
 - Users can opt-out completely
 - Anonymous IP enabled by default
 - Alternative: We could add Plausible later for privacy-focused audience
 
-**Cookie Banner Required:** GA4 requires explicit consent, adding UI complexity. However:
+**Cookie Banner Required:** GA4 requires explicit consent, adding UI complexity.
+However:
+
 - Our site already has a cookie banner implemented
 - Consent mode ensures compliance
 - Users have full control over tracking
@@ -709,13 +753,13 @@ After evaluating all three options, we selected **Google Analytics 4** for the f
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ title or site.title }}</title>
-  
+
   {% if site.ga_measurement_id and not site.dev_mode %}
   <!-- Google Analytics 4 with Consent Mode -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    
+
     // Default consent to denied (GDPR-compliant)
     gtag('consent', 'default', {
       'ad_storage': 'denied',
@@ -724,7 +768,7 @@ After evaluating all three options, we selected **Google Analytics 4** for the f
       'analytics_storage': 'denied',
       'wait_for_update': 500
     });
-    
+
     // Load GA4
     gtag('js', new Date());
     gtag('config', '{{ site.ga_measurement_id }}', {
@@ -736,16 +780,16 @@ After evaluating all three options, we selected **Google Analytics 4** for the f
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_measurement_id }}"></script>
   {% endif %}
-  
+
   <!-- Rest of head content -->
 </head>
 <body>
   {% include "components/cookie-banner.njk" %}
-  
+
   <main id="main-content">
     {{ content | safe }}
   </main>
-  
+
   <script src="/js/cookie-consent.bundle.js" defer></script>
 </body>
 </html>
@@ -879,10 +923,10 @@ if (document.readyState === "loading") {
 **Create `src/_includes/components/cookie-banner.njk`:**
 
 ```njk
-<aside 
-  class="cookie-banner" 
-  data-cookie-banner 
-  role="dialog" 
+<aside
+  class="cookie-banner"
+  data-cookie-banner
+  role="dialog"
   aria-labelledby="cookie-banner-title"
   aria-describedby="cookie-banner-desc"
   style="display: none;"
@@ -893,25 +937,25 @@ if (document.readyState === "loading") {
         🍪 We use cookies
       </h2>
       <p id="cookie-banner-desc" class="cookie-banner__description">
-        We use Google Analytics to understand how visitors interact with our site. 
+        We use Google Analytics to understand how visitors interact with our site.
         This helps us improve your experience. You can choose to accept or decline analytics cookies.
       </p>
       <p class="cookie-banner__details">
         <a href="/privacy-policy/" class="cookie-banner__link">Learn more about our privacy practices</a>
       </p>
     </div>
-    
+
     <div class="cookie-banner__actions">
-      <button 
-        type="button" 
-        class="cookie-banner__button cookie-banner__button--accept" 
+      <button
+        type="button"
+        class="cookie-banner__button cookie-banner__button--accept"
         data-accept-analytics
       >
         Accept Analytics
       </button>
-      <button 
-        type="button" 
-        class="cookie-banner__button cookie-banner__button--reject" 
+      <button
+        type="button"
+        class="cookie-banner__button cookie-banner__button--reject"
         data-reject-analytics
       >
         Decline
@@ -1131,6 +1175,7 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 10. ✅ Test "Decline" flow - no cookies should be set
 
 **GA4 Real-Time Report:**
+
 - Go to GA4 → Reports → Real-time
 - Should see your session within 30 seconds
 - Events appear in real-time
@@ -1146,7 +1191,7 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 ✅ **Consent Mode:** GA4 Consent Mode v2 implemented  
 ✅ **IP Anonymization:** Enabled automatically in GA4  
 ✅ **Data Retention:** Set to 14 months maximum  
-✅ **User Rights:** Privacy policy explains data deletion process  
+✅ **User Rights:** Privacy policy explains data deletion process
 
 ---
 
@@ -1157,6 +1202,7 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 ![GA4 Real-Time Dashboard](../images/analytics-ga4-realtime.png)
 
 **Shows:**
+
 - Active users: 5 users currently on site
 - Views in last 30 minutes: 23 page views
 - Top pages: /showcase/, /blog/, /projects/
@@ -1168,6 +1214,7 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 ![GA4 Engagement Report](../images/analytics-ga4-engagement.png)
 
 **Shows:**
+
 - Total page views: 1,247 (last 7 days)
 - Unique users: 342 visitors
 - Average engagement time: 2m 34s
@@ -1179,6 +1226,7 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 ![GA4 Custom Events](../images/analytics-ga4-events.png)
 
 **Shows:**
+
 - form_submission: 23 events
 - cta_click: 67 events
 - outbound_click: 34 events
@@ -1189,6 +1237,7 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 ![Cookie Consent Banner](../images/analytics-cookie-banner.png)
 
 **Shows:**
+
 - Cookie banner at bottom of page
 - Clear description of analytics usage
 - "Accept Analytics" and "Decline" buttons
@@ -1206,13 +1255,13 @@ document.querySelectorAll('a[href^="http"]').forEach((link) => {
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  
+
   // Default to denied (GDPR-compliant)
   gtag('consent', 'default', {
     'analytics_storage': 'denied',
     'wait_for_update': 500
   });
-  
+
   // Initialize GA4
   gtag('js', new Date());
   gtag('config', '{{ site.ga_measurement_id }}', {
@@ -1247,7 +1296,8 @@ if (typeof gtag === "function") {
 
 ## Conclusion
 
-**Google Analytics 4** is the ideal analytics solution for this project because it:
+**Google Analytics 4** is the ideal analytics solution for this project because
+it:
 
 1. ✅ **Meets GDPR Requirements:** Full Consent Mode v2 support
 2. ✅ **Free Forever:** No cost concerns for student project
@@ -1257,7 +1307,9 @@ if (typeof gtag === "function") {
 6. ✅ **Consent Banner Compatible:** Works perfectly with our cookie banner
 7. ✅ **Event Tracking:** Tracks forms, clicks, and custom interactions
 
-While privacy-focused alternatives like Plausible and Umami are excellent options, GA4's combination of **zero cost**, **powerful features**, and **industry relevance** makes it the clear winner for this academic project.
+While privacy-focused alternatives like Plausible and Umami are excellent
+options, GA4's combination of **zero cost**, **powerful features**, and
+**industry relevance** makes it the clear winner for this academic project.
 
 ---
 
