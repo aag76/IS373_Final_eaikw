@@ -35,21 +35,38 @@ class CookieConsentManager {
   }
 
   getConsent() {
-    const consent = localStorage.getItem(this.consentKey);
-    return consent ? JSON.parse(consent) : null;
+    try {
+      const consent = localStorage.getItem(this.consentKey);
+      return consent ? JSON.parse(consent) : null;
+    } catch {
+      return null;
+    }
   }
 
   setConsent(accepted) {
-    localStorage.setItem(this.consentKey, JSON.stringify(accepted));
+    try {
+      localStorage.setItem(this.consentKey, JSON.stringify(accepted));
+    } catch (error) {
+      // localStorage may be disabled or full
+      console.error("Failed to save consent:", error);
+    }
   }
 
   getPreferences() {
-    const prefs = localStorage.getItem(this.preferencesKey);
-    return prefs ? JSON.parse(prefs) : this.defaultPreferences;
+    try {
+      const prefs = localStorage.getItem(this.preferencesKey);
+      return prefs ? JSON.parse(prefs) : this.defaultPreferences;
+    } catch {
+      return this.defaultPreferences;
+    }
   }
 
   setPreferences(preferences) {
-    localStorage.setItem(this.preferencesKey, JSON.stringify(preferences));
+    try {
+      localStorage.setItem(this.preferencesKey, JSON.stringify(preferences));
+    } catch (error) {
+      console.error("Failed to save preferences:", error);
+    }
   }
 
   showBanner() {
@@ -302,27 +319,30 @@ class CookieConsentManager {
   }
 
   addBannerEventListeners(banner) {
-    // Reject All
-    banner.querySelector("#reject-all-cookies").addEventListener("click", () => {
-      this.handleRejectAll();
-    });
+    const rejectBtn = banner.querySelector("#reject-all-cookies");
+    const acceptSelectedBtn = banner.querySelector("#accept-selected-cookies");
+    const acceptAllBtn = banner.querySelector("#accept-all-cookies");
 
-    // Accept Selected
-    banner.querySelector("#accept-selected-cookies").addEventListener("click", () => {
-      this.handleAcceptSelected();
-    });
+    if (rejectBtn) {
+      rejectBtn.addEventListener("click", () => this.handleRejectAll(), { once: true });
+    }
 
-    // Accept All
-    banner.querySelector("#accept-all-cookies").addEventListener("click", () => {
-      this.handleAcceptAll();
-    });
+    if (acceptSelectedBtn) {
+      acceptSelectedBtn.addEventListener("click", () => this.handleAcceptSelected(), { once: true });
+    }
 
-    // Escape key to close (reject)
-    document.addEventListener("keydown", (e) => {
+    if (acceptAllBtn) {
+      acceptAllBtn.addEventListener("click", () => this.handleAcceptAll(), { once: true });
+    }
+
+    // Escape key handler
+    const escapeHandler = (e) => {
       if (e.key === "Escape" && this.bannerShown) {
         this.handleRejectAll();
+        document.removeEventListener("keydown", escapeHandler);
       }
-    });
+    };
+    document.addEventListener("keydown", escapeHandler);
   }
 
   handleRejectAll() {
@@ -384,28 +404,32 @@ class CookieConsentManager {
     // GA4 script is already loaded in base.njk with default consent denied
     // This method grants consent when user accepts analytics cookies
     
-    if (typeof gtag === "function") {
+    // Check if gtag is defined (loaded via GA4 script in base.njk)
+    if (typeof window.gtag === "function") {
+      const gtag = window.gtag;
       // Update consent to granted for analytics
       gtag("consent", "update", {
         analytics_storage: "granted",
-        ad_storage: "denied", // Still deny advertising
+        ad_storage: "denied",
         ad_user_data: "denied",
         ad_personalization: "denied",
       });
 
-      console.log("✓ Analytics consent granted - GA4 tracking enabled");
       this.analyticsLoaded = true;
-    } else {
-      console.warn(
-        "GA4 gtag function not found. Ensure GA4 script is loaded in base.njk"
-      );
+      
+      // Only log in development
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        console.log("✓ Analytics consent granted - GA4 tracking enabled");
+      }
+    } else if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+      console.warn("GA4 gtag function not found. Ensure GA4 script is loaded in base.njk");
     }
   }
 
   loadFunctionalScripts() {
     // Load functional scripts here
     // Example: Theme preferences, language settings, etc.
-    console.log("Functional scripts loaded with consent");
+    // Functional scripts loaded with user consent
   }
 
   // Public method to show preferences dialog

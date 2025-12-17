@@ -32,7 +32,8 @@ export default async function (eleventyConfig) {
   });
 
   // Filters with error handling
-  eleventyConfig.addFilter("dateFormat", function (date) {
+  // Helper function to format dates (DRY principle)
+  const formatDate = (date) => {
     if (!date) {
       return "Date not available";
     }
@@ -45,22 +46,11 @@ export default async function (eleventyConfig) {
       month: "long",
       day: "numeric",
     });
-  });
+  };
 
-  eleventyConfig.addFilter("readableDate", function (date) {
-    if (!date) {
-      return "Date not available";
-    }
-    const d = new Date(date);
-    if (isNaN(d.getTime())) {
-      return "Invalid date";
-    }
-    return d.toLocaleDateString("en-US", {
-      year: "numeric",
-      month: "long",
-      day: "numeric",
-    });
-  });
+  // Use the same function for both filters
+  eleventyConfig.addFilter("dateFormat", formatDate);
+  eleventyConfig.addFilter("readableDate", formatDate);
 
   eleventyConfig.addFilter("dateToISO", function (date) {
     if (!date) {
@@ -73,9 +63,24 @@ export default async function (eleventyConfig) {
     return d.toISOString();
   });
 
-  eleventyConfig.addFilter("excerpt", function (content) {
-    const excerpt = content.replace(/(<([^>]+)>)/gi, "").substring(0, 200);
-    return excerpt + (excerpt.length >= 200 ? "..." : "");
+  eleventyConfig.addFilter("excerpt", function (content, length = 200) {
+    if (!content) {
+      return "";
+    }
+    // Remove HTML tags and extra whitespace
+    const plainText = content
+      .replace(/(<([^>]+)>)/gi, "")
+      .replace(/\s+/g, " ")
+      .trim();
+    
+    if (plainText.length <= length) {
+      return plainText;
+    }
+    
+    // Try to break at a word boundary
+    const excerpt = plainText.substring(0, length);
+    const lastSpace = excerpt.lastIndexOf(" ");
+    return (lastSpace > 0 ? excerpt.substring(0, lastSpace) : excerpt) + "...";
   });
 
   eleventyConfig.addFilter("limit", function (array, limit) {
@@ -88,46 +93,56 @@ export default async function (eleventyConfig) {
 
   // Navigation filters for prev/next post links
   eleventyConfig.addFilter("getPreviousCollectionItem", function (collection, page) {
-    if (!collection || !page) {
+    if (!collection || !Array.isArray(collection) || !page || !page.url) {
       return null;
     }
-    const index = collection.findIndex((item) => item.url === page.url);
-    return index > 0 ? collection[index - 1] : null;
+    const index = collection.findIndex((item) => item && item.url === page.url);
+    return (index > 0 && index !== -1) ? collection[index - 1] : null;
   });
 
   eleventyConfig.addFilter("getNextCollectionItem", function (collection, page) {
-    if (!collection || !page) {
+    if (!collection || !Array.isArray(collection) || !page || !page.url) {
       return null;
     }
-    const index = collection.findIndex((item) => item.url === page.url);
-    return index < collection.length - 1 ? collection[index + 1] : null;
+    const index = collection.findIndex((item) => item && item.url === page.url);
+    return (index !== -1 && index < collection.length - 1) ? collection[index + 1] : null;
   });
 
   // Image shortcode for optimized images
-  eleventyConfig.addAsyncShortcode("image", async function (src, alt, sizes = "100vw") {
-    const metadata = await Image(src, {
-      widths: [300, 600, 1200],
-      formats: ["webp", "jpeg"],
-      outputDir: "./_site/images/",
-      urlPath: "/images/",
-      filenameFormat: function (id, src, width, format) {
-        const extension = `.${format}`;
-        const name = src
-          .split("/")
-          .pop()
-          .replace(/\.[^.]+$/, "");
-        return `${name}-${width}w${extension}`;
-      },
-    });
+  eleventyConfig.addAsyncShortcode("image", async function (src, alt = "", sizes = "100vw") {
+    if (!src) {
+      console.warn("Image shortcode called without src");
+      return "";
+    }
 
-    const imageAttributes = {
-      alt,
-      sizes,
-      loading: "lazy",
-      decoding: "async",
-    };
+    try {
+      const metadata = await Image(src, {
+        widths: [300, 600, 1200],
+        formats: ["webp", "jpeg"],
+        outputDir: "./_site/images/",
+        urlPath: "/images/",
+        filenameFormat: function (id, src, width, format) {
+          const extension = `.${format}`;
+          const name = src
+            .split("/")
+            .pop()
+            .replace(/\.[^.]+$/, "");
+          return `${name}-${width}w${extension}`;
+        },
+      });
 
-    return Image.generateHTML(metadata, imageAttributes);
+      const imageAttributes = {
+        alt,
+        sizes,
+        loading: "lazy",
+        decoding: "async",
+      };
+
+      return Image.generateHTML(metadata, imageAttributes);
+    } catch (error) {
+      console.error(`Error processing image ${src}:`, error.message);
+      return `<img src="${src}" alt="${alt}" loading="lazy" />`;
+    }
   });
 
   // Custom filter for GitHub Pages path prefix
@@ -146,12 +161,17 @@ export default async function (eleventyConfig) {
 
   md.use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.headerLink(),
-    slugify: (s) =>
-      s
+    slugify: (s) => {
+      if (!s) {
+        return "";
+      }
+      return s
         .toLowerCase()
+        .trim()
         .replace(/[^\w\s-]/g, "")
         .replace(/[\s_]+/g, "-")
-        .replace(/^-+|-+$/g, ""),
+        .replace(/^-+|-+$/g, "");
+    },
   });
 
   eleventyConfig.setLibrary("md", md);

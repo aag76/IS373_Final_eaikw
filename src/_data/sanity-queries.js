@@ -6,92 +6,90 @@
 import "dotenv/config";
 import sanityClient from "@sanity/client";
 
-// Lazy-initialized client. This ensures environment variables loaded by dotenv are
-// available when Eleventy imports data during build.
+// Singleton client instance with lazy initialization
 let client = null;
+let initAttempted = false;
 
 function initClient() {
-  if (client) {
-    return;
+  if (client || initAttempted) {
+    return client;
   }
+  
+  initAttempted = true;
+  
   if (!process.env.SANITY_PROJECT_ID) {
-    client = null;
-    return;
+    console.warn("⚠️  Sanity CMS not configured. Set SANITY_PROJECT_ID in .env");
+    return null;
   }
+  
   try {
     client = sanityClient({
       projectId: process.env.SANITY_PROJECT_ID,
       dataset: process.env.SANITY_DATASET || "production",
       apiVersion: "2023-12-01",
-      useCdn: true,
+      useCdn: process.env.NODE_ENV === "production",
+      token: process.env.SANITY_API_TOKEN,
     });
-  } catch {
-    console.warn("⚠️  Sanity CMS not configured. Set SANITY_PROJECT_ID in .env");
-    client = null;
+    return client;
+  } catch (error) {
+    console.error("Failed to initialize Sanity client:", error.message);
+    return null;
   }
 }
 
 function ensureClient() {
-  initClient();
-  if (!client) {
+  const sanityClient = initClient();
+  if (!sanityClient) {
     throw new Error(
       "Sanity client is not configured. Set SANITY_PROJECT_ID and SANITY_DATASET in environment."
     );
   }
+  return sanityClient;
 }
+
+/**
+ * Helper function to execute queries with consistent error handling
+ */
+async function executeQuery(query, params = {}, errorContext = "query") {
+  const sanityClient = ensureClient();
+  try {
+    return await sanityClient.fetch(query, params);
+  } catch (error) {
+    console.error(`Error ${errorContext}:`, error.message);
+    throw error;
+  }
+}
+
+// Common projection for submissions
+const submissionProjection = `
+  _id,
+  submitterName,
+  submitterEmail,
+  url,
+  description,
+  status,
+  submittedAt,
+  "screenshot": screenshot.asset->url,
+  "designStyle": designStyle->{
+    title,
+    slug
+  }
+`;
 
 /**
  * Get all approved submissions
  */
 export async function getApprovedSubmissions() {
-  ensureClient();
-  try {
-    const submissions = await client.fetch(
-      `*[_type == "gallerySubmission" && status == "approved"] | order(submittedAt desc) {
-        _id,
-        submitterName,
-        submitterEmail,
-        url,
-        description,
-        status,
-        submittedAt,
-        "screenshot": screenshot.asset->url,
-        "designStyle": designStyle->{
-          title,
-          slug
-        }
-      }`
-    );
-    return submissions;
-  } catch (error) {
-    console.error("Error fetching approved submissions:", error);
-    throw error;
-  }
+  const query = `*[_type == "gallerySubmission" && status == "approved"] | order(submittedAt desc) {${submissionProjection}}`;
+  return executeQuery(query, {}, "fetching approved submissions");
 }
 
 /**
  * Get pending submissions for review
  */
 export async function getPendingSubmissions() {
-  ensureClient();
-  try {
-    const submissions = await client.fetch(
-      `*[_type == "gallerySubmission" && status == "submitted"] | order(submittedAt desc) {
-        _id,
-        submitterName,
-        submitterEmail,
-        url,
-        description,
-        status,
-        submittedAt,
-        "screenshot": screenshot.asset->url
-      }`
-    );
-    return submissions;
-  } catch (error) {
-    console.error("Error fetching pending submissions:", error);
-    throw error;
-  }
+  const query = `*[_type == "gallerySubmission" && status == "submitted"] | order(submittedAt desc) {${submissionProjection}}`;
+  return executeQuery(query, {}, "fetching pending submissions");
 }
 
 /**

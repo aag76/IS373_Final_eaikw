@@ -15,9 +15,11 @@
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
     
     {# Open Graph Meta Tags for Social Sharing #}
+    {% set pageTitle = title or site.title %}
+    {% set pageDesc = excerpt or description or site.description %}
     <meta property="og:type" content="{% if tags and 'blog' in tags %}article{% else %}website{% endif %}">
-    <meta property="og:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
-    <meta property="og:description" content="{{ excerpt or description or site.description }}">
+    <meta property="og:title" content="{{ pageTitle }}">
+    <meta property="og:description" content="{{ pageDesc }}">
     <meta property="og:url" content="{{ site.url }}{{ page.url }}">
     <meta property="og:site_name" content="{{ site.title }}">
     <meta property="og:locale" content="en_US">
@@ -38,13 +40,9 @@
     
     {# Twitter Card Meta Tags #}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{% if title %}{{ title }}{% else %}{{ site.title }}{% endif %}">
-    <meta name="twitter:description" content="{{ excerpt or description or site.description }}">
-    {% if image %}
-    <meta name="twitter:image" content="{{ site.url }}{{ image }}">
-    {% else %}
-    <meta name="twitter:image" content="{{ site.url }}/images/og-default.png">
-    {% endif %}
+    <meta name="twitter:title" content="{{ pageTitle }}">
+    <meta name="twitter:description" content="{{ pageDesc }}">
+    <meta name="twitter:image" content="{{ site.url }}{% if image %}{{ image }}{% else %}/images/og-default.png{% endif %}">
     {% if site.social.twitter %}
     <meta name="twitter:site" content="{{ site.social.twitter }}">
     <meta name="twitter:creator" content="{{ site.social.twitter }}">
@@ -79,7 +77,12 @@
           "name": "{{ site.author }}",
           "url": "{{ site.url }}",
           "description": "{{ site.description }}",
-          {% if site.social.linkedin %}"sameAs": ["{{ site.social.linkedin }}"{% if site.social.github %}, "{{ site.social.github }}"{% endif %}{% if site.social.twitter %}, "{{ site.social.twitter }}"{% endif %}{% if site.social.youtube %}, "{{ site.social.youtube }}"{% endif %}],{% endif %}
+          "sameAs": [
+            {% if site.social.linkedin %}"{{ site.social.linkedin }}"{% endif %}
+            {% if site.social.github %}{% if site.social.linkedin %},{% endif %}"{{ site.social.github }}"{% endif %}
+            {% if site.social.twitter %}{% if site.social.linkedin or site.social.github %},{% endif %}"{{ site.social.twitter }}"{% endif %}
+            {% if site.social.youtube %}{% if site.social.linkedin or site.social.github or site.social.twitter %},{% endif %}"{{ site.social.youtube }}"{% endif %}
+          ],
           "jobTitle": "Director of Information Systems & Technology",
           "worksFor": {
             "@type": "EducationalOrganization",
