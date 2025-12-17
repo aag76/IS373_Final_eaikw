@@ -1,710 +1,1043 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     {# Basic Meta #}
     <title>{% if title %}{{ title }} | {% endif %}{{ site.title }}</title>
-    <meta name="description" content="{{ description or site.description }}">
-    <meta name="author" content="{{ site.author }}">
-    {# SEO Keywords #}
-    {% if keywords %}
-    <meta name="keywords" content="{{ keywords | join(', ') }}">
+    <meta name="description" content="{{ description or site.description }}" />
+    <meta name="author" content="{{ site.author }}" />
+    {# SEO Keywords #} {% if keywords %}
+    <meta name="keywords" content="{{ keywords | join(', ') }}" />
     {% endif %}
-    <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-    
-    {# Open Graph Meta Tags for Social Sharing #}
-    {% set pageTitle = title or site.title %}
-    {% set pageDesc = excerpt or description or site.description %}
-    <meta property="og:type" content="{% if tags and 'blog' in tags %}article{% else %}website{% endif %}">
-    <meta property="og:title" content="{{ pageTitle }}">
-    <meta property="og:description" content="{{ pageDesc }}">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta property="og:site_name" content="{{ site.title }}">
-    <meta property="og:locale" content="en_US">
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+
+    {# Open Graph Meta Tags for Social Sharing #} {% set pageTitle = title or site.title %} {% set pageDesc = excerpt or
+    description or site.description %}
+    <meta property="og:type" content="{% if tags and 'blog' in tags %}article{% else %}website{% endif %}" />
+    <meta property="og:title" content="{{ pageTitle }}" />
+    <meta property="og:description" content="{{ pageDesc }}" />
+    <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:locale" content="en_US" />
     {% if image %}
-    <meta property="og:image" content="{{ site.url }}{{ image }}">
-    <meta property="og:image:alt" content="{{ title or site.title }}">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="{{ site.url }}{{ image }}" />
+    <meta property="og:image:alt" content="{{ title or site.title }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     {% else %}
-    <meta property="og:image" content="{{ site.url }}/images/og-default.png">
-    <meta property="og:image:alt" content="{{ site.title }} - {{ site.description }}">
-    {% endif %}
-    {% if tags and 'blog' in tags %}
-    <meta property="article:published_time" content="{{ date | dateToISO }}">
-    <meta property="article:author" content="{{ site.author }}">
-    {% for tag in tags %}{% if tag != 'blog' %}<meta property="article:tag" content="{{ tag }}">{% endif %}{% endfor %}
-    {% endif %}
-    
-    {# Twitter Card Meta Tags #}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ pageTitle }}">
-    <meta name="twitter:description" content="{{ pageDesc }}">
-    <meta name="twitter:image" content="{{ site.url }}{% if image %}{{ image }}{% else %}/images/og-default.png{% endif %}">
+    <meta property="og:image" content="{{ site.url }}/images/og-default.png" />
+    <meta property="og:image:alt" content="{{ site.title }} - {{ site.description }}" />
+    {% endif %} {% if tags and 'blog' in tags %}
+    <meta property="article:published_time" content="{{ date | dateToISO }}" />
+    <meta property="article:author" content="{{ site.author }}" />
+    {% for tag in tags %}{% if tag != 'blog' %}
+    <meta property="article:tag" content="{{ tag }}" />
+    {% endif %}{% endfor %} {% endif %} {# Twitter Card Meta Tags #}
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="{{ pageTitle }}" />
+    <meta name="twitter:description" content="{{ pageDesc }}" />
+    <meta
+      name="twitter:image"
+      content="{{ site.url }}{% if image %}{{ image }}{% else %}/images/og-default.png{% endif %}"
+    />
     {% if site.social.twitter %}
-    <meta name="twitter:site" content="{{ site.social.twitter }}">
-    <meta name="twitter:creator" content="{{ site.social.twitter }}">
-    {% endif %}
-    
-    {# Favicon and Icons #}
-    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | baseUrl }}">
-    
+    <meta name="twitter:site" content="{{ site.social.twitter }}" />
+    <meta name="twitter:creator" content="{{ site.social.twitter }}" />
+    {% endif %} {# Favicon and Icons #}
+    <link rel="icon" type="image/svg+xml" href="{{ '/favicon.svg' | baseUrl }}" />
+
     {# Stylesheets #}
-    <link rel="preload" href="{{ '/css/main.css' | baseUrl }}" as="style">
-    <link rel="stylesheet" href="{{ '/css/main.css' | baseUrl }}">
-    <link rel="stylesheet" href="{{ '/css/print.css' | baseUrl }}" media="print">
-    
+    <link rel="preload" href="{{ '/css/main.css' | baseUrl }}" as="style" />
+    <link rel="stylesheet" href="{{ '/css/main.css' | baseUrl }}" />
+    <link rel="stylesheet" href="{{ '/css/print.css' | baseUrl }}" media="print" />
+
     {# Fonts #}
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" as="style">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet"></noscript>
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      as="style"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript
+      ><link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap"
+        rel="stylesheet"
+    /></noscript>
+
     {# RSS Feed #}
-    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ site.url }}/feed.xml">
-    
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }} RSS Feed" href="{{ site.url }}/feed.xml" />
+
     {# JSON-LD Structured Data #}
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@graph": [
-        {
-          "@type": "Person",
-          "@id": "{{ site.url }}/#person",
-          "name": "{{ site.author }}",
-          "url": "{{ site.url }}",
-          "description": "{{ site.description }}",
-          "sameAs": [
-            {% if site.social.linkedin %}"{{ site.social.linkedin }}"{% endif %}
-            {% if site.social.github %}{% if site.social.linkedin %},{% endif %}"{{ site.social.github }}"{% endif %}
-            {% if site.social.twitter %}{% if site.social.linkedin or site.social.github %},{% endif %}"{{ site.social.twitter }}"{% endif %}
-            {% if site.social.youtube %}{% if site.social.linkedin or site.social.github or site.social.twitter %},{% endif %}"{{ site.social.youtube }}"{% endif %}
-          ],
-          "jobTitle": "Director of Information Systems & Technology",
-          "worksFor": {
-            "@type": "EducationalOrganization",
-            "name": "New Jersey Institute of Technology"
-          }
-        },
-        {
-          "@type": "Organization",
-          "@id": "{{ site.url }}/#organization",
-          "name": "EverydayAI Community",
-          "url": "{{ site.url }}",
-          "description": "Students teaching Newark residents how to use AI every day—for health, legal help, education, budgets, and productivity.",
-          "founder": {
-            "@id": "{{ site.url }}/#person"
-          }
-        },
-        {
-          "@type": "WebSite",
-          "@id": "{{ site.url }}/#website",
-          "url": "{{ site.url }}",
-          "name": "{{ site.title }}",
-          "description": "{{ site.description }}",
-          "publisher": {
-            "@id": "{{ site.url }}/#person"
-          }
-        }
-        {% if tags and 'blog' in tags %},
-        {
-          "@type": "BlogPosting",
-          "@id": "{{ site.url }}{{ page.url }}#article",
-          "headline": "{{ title }}",
-          "description": "{{ description or site.description }}",
-          "datePublished": "{{ date | dateToISO }}",
-          "dateModified": "{{ date | dateToISO }}",
-          "author": {
-            "@id": "{{ site.url }}/#person"
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "{{ site.url }}/#person",
+            "name": "{{ site.author }}",
+            "url": "{{ site.url }}",
+            "description": "{{ site.description }}",
+            "sameAs": [
+              {% if site.social.linkedin %}"{{ site.social.linkedin }}"{% endif %}
+              {% if site.social.github %}{% if site.social.linkedin %},{% endif %}"{{ site.social.github }}"{% endif %}
+              {% if site.social.twitter %}{% if site.social.linkedin or site.social.github %},{% endif %}"{{ site.social.twitter }}"{% endif %}
+              {% if site.social.youtube %}{% if site.social.linkedin or site.social.github or site.social.twitter %},{% endif %}"{{ site.social.youtube }}"{% endif %}
+            ],
+            "jobTitle": "Director of Information Systems & Technology",
+            "worksFor": {
+              "@type": "EducationalOrganization",
+              "name": "New Jersey Institute of Technology"
+            }
           },
-          "publisher": {
-            "@id": "{{ site.url }}/#person"
+          {
+            "@type": "Organization",
+            "@id": "{{ site.url }}/#organization",
+            "name": "EverydayAI Community",
+            "url": "{{ site.url }}",
+            "description": "Students teaching Newark residents how to use AI every day—for health, legal help, education, budgets, and productivity.",
+            "founder": {
+              "@id": "{{ site.url }}/#person"
+            }
           },
-          {% if image %}"image": "{{ site.url }}{{ image }}",{% else %}"image": "{{ site.url }}/images/og-default.png",{% endif %}
-          "url": "{{ site.url }}{{ page.url }}",
-          "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "{{ site.url }}{{ page.url }}"
+          {
+            "@type": "WebSite",
+            "@id": "{{ site.url }}/#website",
+            "url": "{{ site.url }}",
+            "name": "{{ site.title }}",
+            "description": "{{ site.description }}",
+            "publisher": {
+              "@id": "{{ site.url }}/#person"
+            }
           }
-        }
-        {% elif tags and 'projects' in tags %},
-        {
-          "@type": "CreativeWork",
-          "@id": "{{ site.url }}{{ page.url }}#project",
-          "name": "{{ title }}",
-          "description": "{{ description or site.description }}",
-          "author": {
-            "@id": "{{ site.url }}/#person"
-          },
-          {% if image %}"image": "{{ site.url }}{{ image }}",{% endif %}
-          "url": "{{ site.url }}{{ page.url }}"
-        }
-        {% endif %}
-      ]
-    }
+          {% if tags and 'blog' in tags %},
+          {
+            "@type": "BlogPosting",
+            "@id": "{{ site.url }}{{ page.url }}#article",
+            "headline": "{{ title }}",
+            "description": "{{ description or site.description }}",
+            "datePublished": "{{ date | dateToISO }}",
+            "dateModified": "{{ date | dateToISO }}",
+            "author": {
+              "@id": "{{ site.url }}/#person"
+            },
+            "publisher": {
+              "@id": "{{ site.url }}/#person"
+            },
+            {% if image %}"image": "{{ site.url }}{{ image }}",{% else %}"image": "{{ site.url }}/images/og-default.png",{% endif %}
+            "url": "{{ site.url }}{{ page.url }}",
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "{{ site.url }}{{ page.url }}"
+            }
+          }
+          {% elif tags and 'projects' in tags %},
+          {
+            "@type": "CreativeWork",
+            "@id": "{{ site.url }}{{ page.url }}#project",
+            "name": "{{ title }}",
+            "description": "{{ description or site.description }}",
+            "author": {
+              "@id": "{{ site.url }}/#person"
+            },
+            {% if image %}"image": "{{ site.url }}{{ image }}",{% endif %}
+            "url": "{{ site.url }}{{ page.url }}"
+          }
+          {% endif %}
+        ]
+      }
     </script>
-    
-    {% if site.ga_measurement_id and site.ga_measurement_id != 'G-XXXXXXXXXX' and not site.dev_mode %}
-    {# Google Analytics 4 with GDPR Consent Mode #}
+
+    {% if site.ga_measurement_id and site.ga_measurement_id != 'G-XXXXXXXXXX' and not site.dev_mode %} {# Google
+    Analytics 4 with GDPR Consent Mode #}
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
       // Default consent to denied (GDPR-compliant - privacy-first)
-      gtag('consent', 'default', {
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied',
-        'analytics_storage': 'denied',
-        'wait_for_update': 500
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+        wait_for_update: 500,
       });
-      
+
       // Initialize GA4
-      gtag('js', new Date());
-      gtag('config', '{{ site.ga_measurement_id }}', {
-        'anonymize_ip': true,
-        'cookie_flags': 'SameSite=None;Secure',
-        'cookie_domain': 'auto'
+      gtag("js", new Date());
+      gtag("config", "{{ site.ga_measurement_id }}", {
+        anonymize_ip: true,
+        cookie_flags: "SameSite=None;Secure",
+        cookie_domain: "auto",
       });
     </script>
     <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.ga_measurement_id }}"></script>
-    {% endif %}
-    
-    {# GDPR Cookie Consent - Load Early for Banner Display #}
+    {% endif %} {# GDPR Cookie Consent - Load Early for Banner Display #}
     <script src="{{ '/js/cookie-consent.js' | baseUrl }}" defer></script>
     <style>
-        body {
-            background-color: #f9f6e8;
-            background-image: radial-gradient(circle, rgba(0,0,0,0.06) 1px, transparent 1px);
-            background-size: 20px 20px;
-            background-attachment: fixed;
-        }
+      body {
+        background-color: #f9f6e8;
+        background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-attachment: fixed;
+      }
     </style>
-</head>
-<body class="font-sans antialiased text-neutral-900 min-h-screen flex flex-col">
+  </head>
+  <body class="font-sans antialiased text-neutral-900 min-h-screen flex flex-col">
     <!-- Swiss International Typographic Style Navigation -->
-    <header data-component="header" data-testid="main-header" class="sticky top-0 z-50 no-print" style="background-color: var(--swiss-white); border-bottom: 3px solid var(--swiss-black);">
-        <nav style="max-width: 1440px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem;">
-            <div class="flex items-center justify-between" style="height: 64px; align-items: center;">
-                <!-- Swiss Logo/Wordmark - Design Gallery -->
-                <a href="/" style="display: flex; flex-direction: column; line-height: 1; text-decoration: none; z-index: 60; position: relative; transition: opacity 0.2s;" class="group hover:opacity-80">
-                    <!-- Main Logo -->
-                    <span class="font-black" style="font-size: clamp(1.25rem, 3vw, 1.5rem); color: var(--swiss-black); letter-spacing: -0.03em; line-height: 1;">
-                        DESIGN <span style="color: var(--swiss-red); font-weight: 900; background-image: radial-gradient(circle, rgba(0,0,0,0.15) 1px, transparent 1px); background-size: 8px 8px; padding: 0.1em 0.2em; border-radius: 2px;">GALLERY</span>
-                    </span>
-                    <!-- Tagline underneath -->
-                    <span style="color: var(--swiss-gray-500); font-weight: 400; font-size: 0.5rem; letter-spacing: 0.1em; margin-top: 0.25rem; line-height: 1;">WHERE STUDENT VISION MEETS WEB INNOVATION</span>
-                </a>
+    <header
+      data-component="header"
+      data-testid="main-header"
+      class="sticky top-0 z-50 no-print"
+      style="background-color: var(--swiss-white); border-bottom: 3px solid var(--swiss-black)"
+    >
+      <nav style="max-width: 1440px; margin: 0 auto; padding-left: 1rem; padding-right: 1rem">
+        <div class="flex items-center justify-between" style="height: 64px; align-items: center">
+          <!-- Swiss Logo/Wordmark - Design Gallery -->
+          <a
+            href="/"
+            style="
+              display: flex;
+              flex-direction: column;
+              line-height: 1;
+              text-decoration: none;
+              z-index: 60;
+              position: relative;
+              transition: opacity 0.2s;
+            "
+            class="group hover:opacity-80"
+          >
+            <!-- Main Logo -->
+            <span
+              class="font-black"
+              style="
+                font-size: clamp(1.25rem, 3vw, 1.5rem);
+                color: var(--swiss-black);
+                letter-spacing: -0.03em;
+                line-height: 1;
+              "
+            >
+              DESIGN
+              <span
+                style="
+                  color: var(--swiss-red);
+                  font-weight: 900;
+                  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+                  background-size: 8px 8px;
+                  padding: 0.1em 0.2em;
+                  border-radius: 2px;
+                "
+                >GALLERY</span
+              >
+            </span>
+            <!-- Tagline underneath -->
+            <span
+              style="
+                color: var(--swiss-gray-500);
+                font-weight: 400;
+                font-size: 0.5rem;
+                letter-spacing: 0.1em;
+                margin-top: 0.25rem;
+                line-height: 1;
+              "
+              >WHERE STUDENT VISION MEETS WEB INNOVATION</span
+            >
+          </a>
 
-                <!-- Desktop Navigation - Swiss Minimal -->
-                <ul class="hidden lg:flex items-center" style="gap: var(--space-3xl); align-items: center;">
-                    <li>
-                        <a href="/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if page.url == '/' %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
-                            <span>Home</span>
-                            {% if page.url == '/' %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                    <li style="display: flex; align-items: center;">
-                        <a href="/blog/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/blog/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;">
-                            <span>Style Gallery</span>
-                            {% if '/blog/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                    <li style="display: flex; align-items: center;">
-                        <a href="/submit-style-guide/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/submit-style-guide/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;">
-                            <span>Submit</span>
-                            {% if '/submit-style-guide/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                    <li style="display: flex; align-items: center;">
-                        <a href="/track-submission/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/track-submission/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;">
-                            <span>Track</span>
-                            {% if '/track-submission/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                    <li style="display: flex; align-items: center;">
-                        <a href="/who-is-this-for/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if '/who-is-this-for/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;">
-                            <span>Who Is This For</span>
-                            {% if '/who-is-this-for/' in page.url %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/about/" class="font-bold uppercase tracking-wider relative" style="font-size: 0.75rem; color: {% if page.url == '/about/' %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;">
-                            <span>About</span>
-                            {% if page.url == '/about/' %}<span style="position: absolute; bottom: -8px; left: 0; width: 100%; height: 2px; background-color: var(--swiss-red);"></span>{% endif %}
-                        </a>
-                    </li>
-                </ul>
+          <!-- Desktop Navigation - Swiss Minimal -->
+          <ul class="hidden lg:flex items-center" style="gap: var(--space-3xl); align-items: center">
+            <li>
+              <a
+                href="/"
+                class="font-bold uppercase tracking-wider relative"
+                style="font-size: 0.75rem; color: {% if page.url == '/' %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;"
+              >
+                <span>Home</span>
+                {% if page.url == '/' %}<span
+                  style="
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--swiss-red);
+                  "
+                ></span
+                >{% endif %}
+              </a>
+            </li>
+            <li style="display: flex; align-items: center">
+              <a
+                href="/blog/"
+                class="font-bold uppercase tracking-wider relative"
+                style="font-size: 0.75rem; color: {% if '/blog/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;"
+              >
+                <span>Style Gallery</span>
+                {% if '/blog/' in page.url %}<span
+                  style="
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--swiss-red);
+                  "
+                ></span
+                >{% endif %}
+              </a>
+            </li>
+            <li style="display: flex; align-items: center">
+              <a
+                href="/submit-style-guide/"
+                class="font-bold uppercase tracking-wider relative"
+                style="font-size: 0.75rem; color: {% if '/submit-style-guide/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;"
+              >
+                <span>Submit</span>
+                {% if '/submit-style-guide/' in page.url %}<span
+                  style="
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--swiss-red);
+                  "
+                ></span
+                >{% endif %}
+              </a>
+            </li>
+            <li style="display: flex; align-items: center">
+              <a
+                href="/track-submission/"
+                class="font-bold uppercase tracking-wider relative"
+                style="font-size: 0.75rem; color: {% if '/track-submission/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;"
+              >
+                <span>Track</span>
+                {% if '/track-submission/' in page.url %}<span
+                  style="
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--swiss-red);
+                  "
+                ></span
+                >{% endif %}
+              </a>
+            </li>
+            <li style="display: flex; align-items: center">
+              <a
+                href="/who-is-this-for/"
+                class="font-bold uppercase tracking-wider relative"
+                style="font-size: 0.75rem; color: {% if '/who-is-this-for/' in page.url %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s; display: flex; align-items: center;"
+              >
+                <span>Who Is This For</span>
+                {% if '/who-is-this-for/' in page.url %}<span
+                  style="
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--swiss-red);
+                  "
+                ></span
+                >{% endif %}
+              </a>
+            </li>
+            <li>
+              <a
+                href="/about/"
+                class="font-bold uppercase tracking-wider relative"
+                style="font-size: 0.75rem; color: {% if page.url == '/about/' %}var(--swiss-red){% else %}var(--swiss-black){% endif %}; letter-spacing: 0.15em; transition: color 0.2s;"
+              >
+                <span>About</span>
+                {% if page.url == '/about/' %}<span
+                  style="
+                    position: absolute;
+                    bottom: -8px;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background-color: var(--swiss-red);
+                  "
+                ></span
+                >{% endif %}
+              </a>
+            </li>
+          </ul>
 
-                <!-- Review Mode Toggle - Desktop -->
-                <div class="hidden lg:flex items-center" style="gap: 1rem; margin-left: 3rem;">
-                    <a href="/review/" id="reviewLinkDesktop" class="font-bold uppercase tracking-wider" style="display: none; font-size: 0.75rem; color: var(--swiss-red); letter-spacing: 0.15em; text-decoration: none; padding: 0.5rem 1rem; background: rgba(239, 68, 68, 0.1); border-radius: 4px; transition: all 0.2s;">
-                        <span>🔍 Review</span>
-                    </a>
-                    <span class="text-xs uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600);">Review Mode</span>
-                    <label class="review-toggle">
-                        <input type="checkbox" id="reviewModeToggle" />
-                        <span class="toggle-slider"></span>
-                    </label>
-                </div>
+          <!-- Review Mode Toggle - Desktop -->
+          <div class="hidden lg:flex items-center" style="gap: 1rem; margin-left: 3rem">
+            <a
+              href="/review/"
+              id="reviewLinkDesktop"
+              class="font-bold uppercase tracking-wider"
+              style="
+                display: none;
+                font-size: 0.75rem;
+                color: var(--swiss-red);
+                letter-spacing: 0.15em;
+                text-decoration: none;
+                padding: 0.5rem 1rem;
+                background: rgba(239, 68, 68, 0.1);
+                border-radius: 4px;
+                transition: all 0.2s;
+              "
+            >
+              <span>🔍 Review</span>
+            </a>
+            <span class="text-xs uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600)"
+              >Review Mode</span
+            >
+            <label class="review-toggle">
+              <input type="checkbox" id="reviewModeToggle" />
+              <span class="toggle-slider"></span>
+            </label>
+          </div>
 
-                <!-- Swiss Hamburger Menu Button - Refined Elegance -->
-                <button 
-                    type="button" 
-                    data-testid="mobile-menu-button"
-                    class="lg:hidden relative z-60 inline-flex items-center justify-center menu-button group"
-                    style="width: 48px; height: 48px; background-color: transparent; border: 1px solid var(--swiss-black); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"
-                    aria-expanded="false"
-                    aria-controls="mobile-menu"
-                    aria-label="Toggle navigation menu"
-                >
-                    <!-- Swiss Hamburger Icon - Precise Geometry -->
-                    <span class="relative" style="width: 24px; height: 16px; display: inline-block;">
-                        <span 
-                            class="menu-line menu-line-top"
-                            style="position: absolute; left: 0; top: 0; width: 100%; height: 1px; background-color: var(--swiss-black); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: center;"
-                        ></span>
-                        <span 
-                            class="menu-line menu-line-middle"
-                            style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 100%; height: 1px; background-color: var(--swiss-black); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"
-                        ></span>
-                        <span 
-                            class="menu-line menu-line-bottom"
-                            style="position: absolute; left: 0; bottom: 0; width: 100%; height: 1px; background-color: var(--swiss-black); transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); transform-origin: center;"
-                        ></span>
-                    </span>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Full Screen Swiss Mobile Menu Overlay -->
-        <div 
-            data-testid="mobile-menu"
-            id="mobile-menu"
-            class="lg:hidden fixed inset-0 z-40 hidden"
-            style="background-color: var(--swiss-white); top: 64px; padding: 2rem 1rem; opacity: 0; transition: opacity 0.3s ease;"
-        >
-            <!-- Swiss Grid Mobile Navigation -->
-            <nav>
-                <!-- Section Number -->
-                <p class="text-xs font-bold uppercase tracking-widest mb-8" style="color: var(--swiss-gray-600); letter-spacing: 0.15em;">
-                    01 — Navigation
-                </p>
-
-                <!-- Swiss Menu Items - Definition List Style -->
-                <ul style="border-left: 4px solid var(--swiss-red); padding-left: 1.5rem;">
-                    <li class="mb-6">
-                        <a 
-                            href="/" 
-                            class="block font-bold uppercase tracking-wider"
-                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if page.url == '/' %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
-                        >
-                            <span style="display: block; margin-bottom: 0.25rem;">01</span>
-                            <span>Home</span>
-                        </a>
-                    </li>
-                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
-                        <a 
-                            href="/blog/" 
-                            class="block font-bold uppercase tracking-wider"
-                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/blog/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
-                        >
-                            <span style="display: block; margin-bottom: 0.25rem;">02</span>
-                            <span>Style Gallery</span>
-                        </a>
-                    </li>
-                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
-                        <a 
-                            href="/blog/submit-style-guide/" 
-                            class="block font-bold uppercase tracking-wider"
-                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/blog/submit-style-guide/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
-                        >
-                            <span style="display: block; margin-bottom: 0.25rem;">03</span>
-                            <span>Style Submission</span>
-                        </a>
-                    </li>
-                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
-                        <a 
-                            href="/contact/" 
-                            class="block font-bold uppercase tracking-wider"
-                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/contact/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
-                        >
-                            <span style="display: block; margin-bottom: 0.25rem;">04</span>
-                            <span>Contact</span>
-                        </a>
-                    </li>
-                    <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem;">
-                        <a 
-                            href="/about/" 
-                            class="block font-bold uppercase tracking-wider"
-                            style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if page.url == '/about/' %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
-                        >
-                            <span style="display: block; margin-bottom: 0.25rem;">05</span>
-                            <span>About</span>
-                        </a>
-                    </li>
-                </ul>
-
-                <!-- Swiss Divider -->
-                <div style="border-top: 2px solid var(--swiss-black); margin: 2rem 0;"></div>
-
-                <!-- Review Mode Toggle - Mobile -->
-                <div style="padding: 1.5rem; background: var(--swiss-gray-100); border-radius: 8px;">
-                    <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem;">
-                        <span class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600);">Review Mode</span>
-                        <label class="review-toggle">
-                            <input type="checkbox" id="reviewModeToggleMobile" />
-                            <span class="toggle-slider"></span>
-                        </label>
-                    </div>
-                    <p style="font-size: 0.75rem; color: var(--swiss-gray-600); line-height: 1.4;">
-                        Enable to access submission review dashboard
-                    </p>
-                    <a href="/review/" id="reviewLink" style="display: none; margin-top: 1rem; padding: 0.75rem; background: var(--swiss-red); color: white; text-align: center; border-radius: 4px; font-weight: bold; text-decoration: none; display: block;">
-                        → Review Submissions
-                    </a>
-                </div>
-
-                <!-- Additional Info -->
-                <div style="padding-left: 1.5rem;">
-                    <p class="text-xs uppercase tracking-widest font-bold mb-2" style="color: var(--swiss-gray-600); letter-spacing: 0.15em;">
-                        Quick Access
-                    </p>
-                    <a 
-                        href="/about-site/" 
-                        class="block text-sm font-bold uppercase tracking-wider mb-3"
-                        style="color: var(--swiss-gray-700); letter-spacing: 0.1em;"
-                    >
-                        About this Site
-                    </a>
-                </div>
-            </nav>
+          <!-- Swiss Hamburger Menu Button - Refined Elegance -->
+          <button
+            type="button"
+            data-testid="mobile-menu-button"
+            class="lg:hidden relative z-60 inline-flex items-center justify-center menu-button group"
+            style="
+              width: 48px;
+              height: 48px;
+              background-color: transparent;
+              border: 1px solid var(--swiss-black);
+              transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            "
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+            aria-label="Toggle navigation menu"
+          >
+            <!-- Swiss Hamburger Icon - Precise Geometry -->
+            <span class="relative" style="width: 24px; height: 16px; display: inline-block">
+              <span
+                class="menu-line menu-line-top"
+                style="
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 1px;
+                  background-color: var(--swiss-black);
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                  transform-origin: center;
+                "
+              ></span>
+              <span
+                class="menu-line menu-line-middle"
+                style="
+                  position: absolute;
+                  left: 0;
+                  top: 50%;
+                  transform: translateY(-50%);
+                  width: 100%;
+                  height: 1px;
+                  background-color: var(--swiss-black);
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                "
+              ></span>
+              <span
+                class="menu-line menu-line-bottom"
+                style="
+                  position: absolute;
+                  left: 0;
+                  bottom: 0;
+                  width: 100%;
+                  height: 1px;
+                  background-color: var(--swiss-black);
+                  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                  transform-origin: center;
+                "
+              ></span>
+            </span>
+          </button>
         </div>
+      </nav>
+
+      <!-- Full Screen Swiss Mobile Menu Overlay -->
+      <div
+        data-testid="mobile-menu"
+        id="mobile-menu"
+        class="lg:hidden fixed inset-0 z-40 hidden"
+        style="
+          background-color: var(--swiss-white);
+          top: 64px;
+          padding: 2rem 1rem;
+          opacity: 0;
+          transition: opacity 0.3s ease;
+        "
+      >
+        <!-- Swiss Grid Mobile Navigation -->
+        <nav>
+          <!-- Section Number -->
+          <p
+            class="text-xs font-bold uppercase tracking-widest mb-8"
+            style="color: var(--swiss-gray-600); letter-spacing: 0.15em"
+          >
+            01 — Navigation
+          </p>
+
+          <!-- Swiss Menu Items - Definition List Style -->
+          <ul style="border-left: 4px solid var(--swiss-red); padding-left: 1.5rem">
+            <li class="mb-6">
+              <a
+                href="/"
+                class="block font-bold uppercase tracking-wider"
+                style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if page.url == '/' %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+              >
+                <span style="display: block; margin-bottom: 0.25rem">01</span>
+                <span>Home</span>
+              </a>
+            </li>
+            <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem">
+              <a
+                href="/blog/"
+                class="block font-bold uppercase tracking-wider"
+                style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/blog/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+              >
+                <span style="display: block; margin-bottom: 0.25rem">02</span>
+                <span>Style Gallery</span>
+              </a>
+            </li>
+            <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem">
+              <a
+                href="/blog/submit-style-guide/"
+                class="block font-bold uppercase tracking-wider"
+                style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/blog/submit-style-guide/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+              >
+                <span style="display: block; margin-bottom: 0.25rem">03</span>
+                <span>Style Submission</span>
+              </a>
+            </li>
+            <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem">
+              <a
+                href="/contact/"
+                class="block font-bold uppercase tracking-wider"
+                style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if '/contact/' in page.url %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+              >
+                <span style="display: block; margin-bottom: 0.25rem">04</span>
+                <span>Contact</span>
+              </a>
+            </li>
+            <li class="mb-6" style="border-top: 1px solid var(--swiss-gray-300); padding-top: 1.5rem">
+              <a
+                href="/about/"
+                class="block font-bold uppercase tracking-wider"
+                style="font-size: clamp(1.5rem, 5vw, 2.5rem); line-height: 1.2; letter-spacing: -0.01em; {% if page.url == '/about/' %}color: var(--swiss-red); transform: translateX(0.5rem);{% else %}color: var(--swiss-black);{% endif %} transition: all 0.2s;"
+              >
+                <span style="display: block; margin-bottom: 0.25rem">05</span>
+                <span>About</span>
+              </a>
+            </li>
+          </ul>
+
+          <!-- Swiss Divider -->
+          <div style="border-top: 2px solid var(--swiss-black); margin: 2rem 0"></div>
+
+          <!-- Review Mode Toggle - Mobile -->
+          <div style="padding: 1.5rem; background: var(--swiss-gray-100); border-radius: 8px">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem">
+              <span class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600)"
+                >Review Mode</span
+              >
+              <label class="review-toggle">
+                <input type="checkbox" id="reviewModeToggleMobile" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--swiss-gray-600); line-height: 1.4">
+              Enable to access submission review dashboard
+            </p>
+            <a
+              href="/review/"
+              id="reviewLink"
+              style="
+                display: none;
+                margin-top: 1rem;
+                padding: 0.75rem;
+                background: var(--swiss-red);
+                color: white;
+                text-align: center;
+                border-radius: 4px;
+                font-weight: bold;
+                text-decoration: none;
+                display: block;
+              "
+            >
+              → Review Submissions
+            </a>
+          </div>
+
+          <!-- Additional Info -->
+          <div style="padding-left: 1.5rem">
+            <p
+              class="text-xs uppercase tracking-widest font-bold mb-2"
+              style="color: var(--swiss-gray-600); letter-spacing: 0.15em"
+            >
+              Quick Access
+            </p>
+            <a
+              href="/about-site/"
+              class="block text-sm font-bold uppercase tracking-wider mb-3"
+              style="color: var(--swiss-gray-700); letter-spacing: 0.1em"
+            >
+              About this Site
+            </a>
+          </div>
+        </nav>
+      </div>
     </header>
 
     <!-- Main Content -->
-    <main class="flex-1">
-        {{ content | safe }}
-    </main>
+    <main class="flex-1">{{ content | safe }}</main>
 
     <!-- Swiss International Typographic Style Footer -->
-    <footer data-component="footer" data-testid="main-footer" class="no-print" style="background-color: #365d9f; color: var(--swiss-white); border-top: 3px solid var(--swiss-red);">
-        <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
-            <!-- Main Footer Content - Two Column Layout -->
-            <div class="grid grid-cols-1 md:grid-cols-2" style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl); gap: clamp(4rem, 10vw, 8rem); border-bottom: 1px solid var(--swiss-gray-700);">
-                <!-- Brand Column -->
-                <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <!-- Swiss Logo/Wordmark - Footer Version -->
-                    <div>
-                        <div style="line-height: 1; margin-bottom: var(--space-2xl);">
-                            <span class="font-black" style="font-size: var(--fluid-h2); color: var(--swiss-white); letter-spacing: -0.03em; line-height: 1; display: block;">
-                                EVERYDAY<span style="color: var(--swiss-red); font-weight: 900;">AI</span>
-                            </span>
-                            <span style="color: var(--swiss-gray-500); font-weight: 400; font-size: 0.75rem; letter-spacing: 0.1em; display: block; margin-top: 0.5rem; text-transform: uppercase;">
-                                Where Student Vision Meets Web Innovation
-                            </span>
-                        </div>
-                        <p class="leading-relaxed" style="color: var(--swiss-gray-400); max-width: 400px; line-height: 1.8;">
-                            {{ site.description }}
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Navigation as Definition List - Very Swiss -->
-                <div style="display: flex; flex-direction: column; justify-content: space-between;">
-                    <dl>
-                        <dt class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-500); margin-bottom: var(--space-lg); letter-spacing: 0.15em;">
-                            Navigation
-                        </dt>
-                        <dd>
-                            <ul style="display: flex; flex-direction: column; gap: clamp(0.75rem, 1.5vw, 1rem);">
-                                <li><a href="/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem;">Home</a></li>
-                                <li><a href="/blog/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem;">Style Gallery</a></li>
-                                <li><a href="/projects/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem;">Projects</a></li>
-                                <li><a href="/blog/submit-style-guide/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem;">Style Submission</a></li>
-                                <li><a href="/contact/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem;">Contact</a></li>
-                                <li><a href="/about/" class="font-medium hover:underline" style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem;">About</a></li>
-                                <li style="margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.1);"><a href="/privacy-policy/" class="font-medium hover:underline" style="color: var(--swiss-gray-400); transition: color 0.2s; font-size: 0.875rem;">Privacy Policy</a></li>
-                                <li><a href="/about-site/" class="font-medium hover:underline" style="color: var(--swiss-gray-400); transition: color 0.2s; font-size: 0.875rem;">About this Site</a></li>
-                            </ul>
-                        </dd>
-                    </dl>
-                </div>
+    <footer
+      data-component="footer"
+      data-testid="main-footer"
+      class="no-print"
+      style="background-color: #365d9f; color: var(--swiss-white); border-top: 3px solid var(--swiss-red)"
+    >
+      <div
+        style="
+          max-width: 1440px;
+          margin: 0 auto;
+          padding-left: var(--swiss-grid-margin);
+          padding-right: var(--swiss-grid-margin);
+        "
+      >
+        <!-- Main Footer Content - Two Column Layout -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2"
+          style="
+            padding-top: var(--space-5xl);
+            padding-bottom: var(--space-5xl);
+            gap: clamp(4rem, 10vw, 8rem);
+            border-bottom: 1px solid var(--swiss-gray-700);
+          "
+        >
+          <!-- Brand Column -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between">
+            <!-- Swiss Logo/Wordmark - Footer Version -->
+            <div>
+              <div style="line-height: 1; margin-bottom: var(--space-2xl)">
+                <span
+                  class="font-black"
+                  style="
+                    font-size: var(--fluid-h2);
+                    color: var(--swiss-white);
+                    letter-spacing: -0.03em;
+                    line-height: 1;
+                    display: block;
+                  "
+                >
+                  EVERYDAY<span style="color: var(--swiss-red); font-weight: 900">AI</span>
+                </span>
+                <span
+                  style="
+                    color: var(--swiss-gray-500);
+                    font-weight: 400;
+                    font-size: 0.75rem;
+                    letter-spacing: 0.1em;
+                    display: block;
+                    margin-top: 0.5rem;
+                    text-transform: uppercase;
+                  "
+                >
+                  Where Student Vision Meets Web Innovation
+                </span>
+              </div>
+              <p class="leading-relaxed" style="color: var(--swiss-gray-400); max-width: 400px; line-height: 1.8">
+                {{ site.description }}
+              </p>
             </div>
+          </div>
 
-            <!-- Copyright Bar - Swiss Minimal -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl);">
-                <div>
-                    <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-500); letter-spacing: 0.15em; line-height: 1.6;">
-                        &copy; {{ '' | currentYear }} {{ site.author }}
-                    </p>
-                </div>
-                <div class="md:text-right">
-                    <p class="text-xs" style="color: var(--swiss-gray-500); line-height: 1.6;">
-                        Built with 
-                        <a href="https://www.11ty.dev/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Eleventy</a> 
-                        / 
-                        <a href="https://tailwindcss.com/" target="_blank" rel="noopener noreferrer" class="font-bold hover:underline" style="color: var(--swiss-white); transition: color 0.2s;">Tailwind CSS</a>
-                        / International Typographic Style
-                    </p>
-                </div>
-            </div>
+          <!-- Navigation as Definition List - Very Swiss -->
+          <div style="display: flex; flex-direction: column; justify-content: space-between">
+            <dl>
+              <dt
+                class="text-xs uppercase tracking-widest font-bold"
+                style="color: var(--swiss-gray-500); margin-bottom: var(--space-lg); letter-spacing: 0.15em"
+              >
+                Navigation
+              </dt>
+              <dd>
+                <ul style="display: flex; flex-direction: column; gap: clamp(0.75rem, 1.5vw, 1rem)">
+                  <li>
+                    <a
+                      href="/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem"
+                      >Home</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/blog/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem"
+                      >Style Gallery</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/projects/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem"
+                      >Projects</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/blog/submit-style-guide/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem"
+                      >Style Submission</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/contact/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem"
+                      >Contact</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/about/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-white); transition: color 0.2s; font-size: 0.95rem"
+                      >About</a
+                    >
+                  </li>
+                  <li style="margin-top: 0.5rem; padding-top: 0.75rem; border-top: 1px solid rgba(255, 255, 255, 0.1)">
+                    <a
+                      href="/privacy-policy/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-gray-400); transition: color 0.2s; font-size: 0.875rem"
+                      >Privacy Policy</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="/about-site/"
+                      class="font-medium hover:underline"
+                      style="color: var(--swiss-gray-400); transition: color 0.2s; font-size: 0.875rem"
+                      >About this Site</a
+                    >
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+          </div>
         </div>
+
+        <!-- Copyright Bar - Swiss Minimal -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-6"
+          style="padding-top: var(--space-2xl); padding-bottom: var(--space-2xl)"
+        >
+          <div>
+            <p
+              class="text-xs uppercase tracking-widest font-bold"
+              style="color: var(--swiss-gray-500); letter-spacing: 0.15em; line-height: 1.6"
+            >
+              &copy; {{ '' | currentYear }} {{ site.author }}
+            </p>
+          </div>
+          <div class="md:text-right">
+            <p class="text-xs" style="color: var(--swiss-gray-500); line-height: 1.6">
+              Built with
+              <a
+                href="https://www.11ty.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-bold hover:underline"
+                style="color: var(--swiss-white); transition: color 0.2s"
+                >Eleventy</a
+              >
+              /
+              <a
+                href="https://tailwindcss.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="font-bold hover:underline"
+                style="color: var(--swiss-white); transition: color 0.2s"
+                >Tailwind CSS</a
+              >
+              / International Typographic Style
+            </p>
+          </div>
+        </div>
+      </div>
     </footer>
-    
+
     <!-- Swiss Menu Button - Refined Animation Styles -->
     <style>
-        /* Hover state - subtle emphasis */
-        .menu-button:hover {
-            border-color: var(--swiss-red);
-        }
-        .menu-button:hover .menu-line {
-            background-color: var(--swiss-red);
-        }
-        
-        /* Active/Open state - elegant transformation */
-        .menu-button.is-open {
-            background-color: var(--swiss-black) !important;
-            border-color: var(--swiss-black) !important;
-        }
-        .menu-button.is-open .menu-line-top {
-            top: 50% !important;
-            transform: translateY(-50%) rotate(45deg) !important;
-            background-color: var(--swiss-white) !important;
-        }
-        .menu-button.is-open .menu-line-middle {
-            opacity: 0 !important;
-            transform: translateY(-50%) scale(0) !important;
-        }
-        .menu-button.is-open .menu-line-bottom {
-            bottom: 50% !important;
-            transform: translateY(50%) rotate(-45deg) !important;
-            background-color: var(--swiss-white) !important;
-        }
-        
-        /* Focus state for accessibility */
-        .menu-button:focus {
-            outline: 2px solid var(--swiss-red);
-            outline-offset: 2px;
-        }
-        .menu-button:focus:not(:focus-visible) {
-            outline: none;
-        }
-        
-        /* Cookie Preferences Floating Button */
+      /* Hover state - subtle emphasis */
+      .menu-button:hover {
+        border-color: var(--swiss-red);
+      }
+      .menu-button:hover .menu-line {
+        background-color: var(--swiss-red);
+      }
+
+      /* Active/Open state - elegant transformation */
+      .menu-button.is-open {
+        background-color: var(--swiss-black) !important;
+        border-color: var(--swiss-black) !important;
+      }
+      .menu-button.is-open .menu-line-top {
+        top: 50% !important;
+        transform: translateY(-50%) rotate(45deg) !important;
+        background-color: var(--swiss-white) !important;
+      }
+      .menu-button.is-open .menu-line-middle {
+        opacity: 0 !important;
+        transform: translateY(-50%) scale(0) !important;
+      }
+      .menu-button.is-open .menu-line-bottom {
+        bottom: 50% !important;
+        transform: translateY(50%) rotate(-45deg) !important;
+        background-color: var(--swiss-white) !important;
+      }
+
+      /* Focus state for accessibility */
+      .menu-button:focus {
+        outline: 2px solid var(--swiss-red);
+        outline-offset: 2px;
+      }
+      .menu-button:focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      /* Cookie Preferences Floating Button */
+      .cookie-prefs-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 40;
+        background: var(--swiss-white);
+        border: 2px solid var(--swiss-black);
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 3rem;
+        height: 3rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      }
+
+      .cookie-prefs-btn:hover {
+        background: var(--swiss-red);
+        color: var(--swiss-white);
+        border-color: var(--swiss-red);
+        transform: scale(1.1);
+      }
+
+      .cookie-prefs-btn:focus {
+        outline: 2px solid var(--swiss-red);
+        outline-offset: 2px;
+      }
+
+      @media (max-width: 640px) {
         .cookie-prefs-btn {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            z-index: 40;
-            background: var(--swiss-white);
-            border: 2px solid var(--swiss-black);
-            padding: 0.5rem;
-            border-radius: 50%;
-            width: 3rem;
-            height: 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+          bottom: 1rem;
+          right: 1rem;
+          width: 2.5rem;
+          height: 2.5rem;
         }
-        
-        .cookie-prefs-btn:hover {
-            background: var(--swiss-red);
-            color: var(--swiss-white);
-            border-color: var(--swiss-red);
-            transform: scale(1.1);
-        }
-        
-        .cookie-prefs-btn:focus {
-            outline: 2px solid var(--swiss-red);
-            outline-offset: 2px;
-        }
-        
-        @media (max-width: 640px) {
-            .cookie-prefs-btn {
-                bottom: 1rem;
-                right: 1rem;
-                width: 2.5rem;
-                height: 2.5rem;
-            }
-        }
+      }
     </style>
-    
+
     <!-- Cookie Preferences Floating Button -->
-    <button 
-        class="cookie-prefs-btn no-print" 
-        onclick="if(window.cookieConsent) window.cookieConsent.showPreferences()"
-        title="Manage Cookie Preferences"
-        aria-label="Manage Cookie Preferences"
+    <button
+      class="cookie-prefs-btn no-print"
+      onclick="if(window.cookieConsent) window.cookieConsent.showPreferences()"
+      title="Manage Cookie Preferences"
+      aria-label="Manage Cookie Preferences"
     >
-        🍪
+      🍪
     </button>
 
     <!-- Review Mode Toggle Styles and Script -->
     <style>
-        .review-toggle {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 26px;
-        }
+      .review-toggle {
+        position: relative;
+        display: inline-block;
+        width: 50px;
+        height: 26px;
+      }
 
-        .review-toggle input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
+      .review-toggle input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
 
-        .toggle-slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: var(--swiss-gray-300);
-            transition: 0.3s;
-            border-radius: 26px;
-            border: 2px solid var(--swiss-black);
-        }
+      .toggle-slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: var(--swiss-gray-300);
+        transition: 0.3s;
+        border-radius: 26px;
+        border: 2px solid var(--swiss-black);
+      }
 
-        .toggle-slider:before {
-            position: absolute;
-            content: "";
-            height: 18px;
-            width: 18px;
-            left: 2px;
-            bottom: 2px;
-            background-color: var(--swiss-black);
-            transition: 0.3s;
-            border-radius: 50%;
-        }
+      .toggle-slider:before {
+        position: absolute;
+        content: "";
+        height: 18px;
+        width: 18px;
+        left: 2px;
+        bottom: 2px;
+        background-color: var(--swiss-black);
+        transition: 0.3s;
+        border-radius: 50%;
+      }
 
-        .review-toggle input:checked + .toggle-slider {
-            background-color: var(--swiss-red);
-        }
+      .review-toggle input:checked + .toggle-slider {
+        background-color: var(--swiss-red);
+      }
 
-        .review-toggle input:checked + .toggle-slider:before {
-            transform: translateX(24px);
-            background-color: var(--swiss-white);
-        }
+      .review-toggle input:checked + .toggle-slider:before {
+        transform: translateX(24px);
+        background-color: var(--swiss-white);
+      }
 
-        .review-toggle input:focus + .toggle-slider {
-            box-shadow: 0 0 1px var(--swiss-red);
-        }
+      .review-toggle input:focus + .toggle-slider {
+        box-shadow: 0 0 1px var(--swiss-red);
+      }
 
-        /* Review mode indicator badge */
-        .review-mode-badge {
-            display: none;
-            position: fixed;
-            top: 80px;
-            right: 20px;
-            background: var(--swiss-red);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            z-index: 40;
-            animation: slideIn 0.3s ease;
-        }
+      /* Review mode indicator badge */
+      .review-mode-badge {
+        display: none;
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        background: var(--swiss-red);
+        color: white;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        font-weight: bold;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        z-index: 40;
+        animation: slideIn 0.3s ease;
+      }
 
-        @keyframes slideIn {
-            from {
-                transform: translateX(100px);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
+      @keyframes slideIn {
+        from {
+          transform: translateX(100px);
+          opacity: 0;
         }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
 
-        .review-mode-active .review-mode-badge {
-            display: block;
-        }
+      .review-mode-active .review-mode-badge {
+        display: block;
+      }
     </style>
 
     <!-- Review Mode Badge -->
-    <div class="review-mode-badge no-print">
-        🔍 Review Mode Active
-    </div>
+    <div class="review-mode-badge no-print">🔍 Review Mode Active</div>
 
     <script>
-        // Review Mode functionality
-        (function() {
-            const desktopToggle = document.getElementById('reviewModeToggle');
-            const mobileToggle = document.getElementById('reviewModeToggleMobile');
-            const reviewLink = document.getElementById('reviewLink');
-            const reviewLinkDesktop = document.getElementById('reviewLinkDesktop');
-            
-            // Check initial state from localStorage
-            const isReviewMode = localStorage.getItem('reviewMode') === 'true';
-            
-            function updateReviewMode(enabled) {
-                localStorage.setItem('reviewMode', enabled);
-                
-                // Update both toggles
-                if (desktopToggle) desktopToggle.checked = enabled;
-                if (mobileToggle) mobileToggle.checked = enabled;
-                
-                // Show/hide review links
-                if (reviewLink) {
-                    reviewLink.style.display = enabled ? 'block' : 'none';
-                }
-                if (reviewLinkDesktop) {
-                    reviewLinkDesktop.style.display = enabled ? 'flex' : 'none';
-                }
-                
-                // Toggle body class for badge
-                if (enabled) {
-                    document.body.classList.add('review-mode-active');
-                } else {
-                    document.body.classList.remove('review-mode-active');
-                }
-                
-                // Dispatch custom event for other pages to listen
-                window.dispatchEvent(new Event('reviewModeChange'));
+      // Review Mode functionality
+      (function () {
+        const desktopToggle = document.getElementById("reviewModeToggle");
+        const mobileToggle = document.getElementById("reviewModeToggleMobile");
+        const reviewLink = document.getElementById("reviewLink");
+        const reviewLinkDesktop = document.getElementById("reviewLinkDesktop");
+
+        // Check initial state from localStorage
+        const isReviewMode = localStorage.getItem("reviewMode") === "true";
+
+        function updateReviewMode(enabled) {
+          localStorage.setItem("reviewMode", enabled);
+
+          // Update both toggles
+          if (desktopToggle) desktopToggle.checked = enabled;
+          if (mobileToggle) mobileToggle.checked = enabled;
+
+          // Show/hide review links
+          if (reviewLink) {
+            reviewLink.style.display = enabled ? "block" : "none";
+          }
+          if (reviewLinkDesktop) {
+            reviewLinkDesktop.style.display = enabled ? "flex" : "none";
+          }
+
+          // Toggle body class for badge
+          if (enabled) {
+            document.body.classList.add("review-mode-active");
+          } else {
+            document.body.classList.remove("review-mode-active");
+          }
+
+          // Dispatch custom event for other pages to listen
+          window.dispatchEvent(new Event("reviewModeChange"));
+        }
+
+        // Initialize on page load
+        updateReviewMode(isReviewMode);
+
+        // Add event listeners
+        if (desktopToggle) {
+          desktopToggle.addEventListener("change", function () {
+            updateReviewMode(this.checked);
+
+            // Show notification
+            if (this.checked) {
+              alert("Review Mode Enabled\n\nYou can now access the submission review dashboard at /review/");
             }
-            
-            // Initialize on page load
-            updateReviewMode(isReviewMode);
-            
-            // Add event listeners
-            if (desktopToggle) {
-                desktopToggle.addEventListener('change', function() {
-                    updateReviewMode(this.checked);
-                    
-                    // Show notification
-                    if (this.checked) {
-                        alert('Review Mode Enabled\n\nYou can now access the submission review dashboard at /review/');
-                    }
-                });
+          });
+        }
+
+        if (mobileToggle) {
+          mobileToggle.addEventListener("change", function () {
+            updateReviewMode(this.checked);
+
+            // Show notification
+            if (this.checked) {
+              alert("Review Mode Enabled\n\nYou can now access the submission review dashboard.");
             }
-            
-            if (mobileToggle) {
-                mobileToggle.addEventListener('change', function() {
-                    updateReviewMode(this.checked);
-                    
-                    // Show notification
-                    if (this.checked) {
-                        alert('Review Mode Enabled\n\nYou can now access the submission review dashboard.');
-                    }
-                });
-            }
-        })();
+          });
+        }
+      })();
     </script>
 
     <!-- Load Mobile Menu Script -->
     <script src="{{ '/js/mobile-menu.bundle.js' | baseUrl }}"></script>
-</body>
+  </body>
 </html>

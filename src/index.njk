@@ -4,75 +4,126 @@ title: Home
 description: Director of Enterprise AI at NJIT building the future of AI education. 23 years experience, 10,000+ students. Honest conversations about AI's real impact on jobs, education, and society.
 ---
 
-{% import "components/card.njk" as card %}
-
-{# Swiss Design Hero - Asymmetric Layout with Dramatic Typography #}
+{% import "components/card.njk" as card %} {# Swiss Design Hero - Asymmetric Layout with Dramatic Typography #}
 <section
   data-component="hero"
   data-section="home"
   data-testid="hero-section"
   class="relative"
-  style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl);"
+  style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl)"
 >
   <div class="swiss-grid">
     {# Left Column - Massive Typography (5 columns) #}
-    <div class="swiss-col-12 md:swiss-col-7" style="padding-right: var(--space-3xl);">
+    <div class="swiss-col-12 md:swiss-col-7" style="padding-right: var(--space-3xl)">
       <div>
-        <div style="border-left: 3px solid var(--swiss-black); padding-left: var(--space-lg); margin-bottom: var(--space-xl);">
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); letter-spacing: 0.2em;">
+        <div
+          style="
+            border-left: 3px solid var(--swiss-black);
+            padding-left: var(--space-lg);
+            margin-bottom: var(--space-xl);
+          "
+        >
+          <p
+            class="text-xs uppercase tracking-widest font-bold"
+            style="color: var(--swiss-gray-600); letter-spacing: 0.2em"
+          >
             Portfolio 2024
           </p>
         </div>
-        <h1 class="font-bold leading-none hero-title" style="font-size: var(--fluid-display); letter-spacing: -0.03em; line-height: 0.95; margin-bottom: var(--space-2xl); background-color: #6e77aa; background-image: radial-gradient(circle, rgba(0,0,0,0.08) 1.5px, transparent 1.5px); background-size: 12px 12px; padding: 0.5em; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); position: relative; overflow: hidden; color: white;">
-          <span style="position: relative; z-index: 2;">{{ site.author }}</span>
-          <span class="hero-shine" style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); animation: shine 3s infinite;"></span>
+        <h1
+          class="font-bold leading-none hero-title"
+          style="
+            font-size: var(--fluid-display);
+            letter-spacing: -0.03em;
+            line-height: 0.95;
+            margin-bottom: var(--space-2xl);
+            background-color: #6e77aa;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.08) 1.5px, transparent 1.5px);
+            background-size: 12px 12px;
+            padding: 0.5em;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            color: white;
+          "
+        >
+          <span style="position: relative; z-index: 2">{{ site.author }}</span>
+          <span
+            class="hero-shine"
+            style="
+              position: absolute;
+              top: 0;
+              left: -100%;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+              animation: shine 3s infinite;
+            "
+          ></span>
         </h1>
         <style>
           @keyframes shine {
-            0% { left: -100%; }
-            50%, 100% { left: 100%; }
+            0% {
+              left: -100%;
+            }
+            50%,
+            100% {
+              left: 100%;
+            }
           }
           .hero-title {
             animation: float 6s ease-in-out infinite;
           }
           @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+            0%,
+            100% {
+              transform: translateY(0px);
+            }
+            50% {
+              transform: translateY(-10px);
+            }
           }
         </style>
-        <div style="border-top: 2px solid var(--swiss-black); margin-top: var(--space-xl); margin-bottom: var(--space-xl);"></div>
-        <h2 class="font-bold uppercase tracking-wider" style="font-size: var(--fluid-h3); margin-bottom: var(--space-xl); letter-spacing: 0.1em;">
-          A library of design styles of inspiration<br>for your next digital creation
+        <div
+          style="border-top: 2px solid var(--swiss-black); margin-top: var(--space-xl); margin-bottom: var(--space-xl)"
+        ></div>
+        <h2
+          class="font-bold uppercase tracking-wider"
+          style="font-size: var(--fluid-h3); margin-bottom: var(--space-xl); letter-spacing: 0.1em"
+        >
+          A library of design styles of inspiration<br />for your next digital creation
         </h2>
       </div>
     </div>
-    
+
     {# Right Column - Content & Actions (7 columns) #}
-    <div class="swiss-col-12 md:swiss-col-5" style="padding-top: var(--space-4xl);">
+    <div class="swiss-col-12 md:swiss-col-5" style="padding-top: var(--space-4xl)">
       {# Definition List - Swiss Style Structured Data #}
-      <dl style="margin-bottom: var(--space-3xl);">
-        <div style="margin-bottom: var(--space-xl);">
-          <dt class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-sm); letter-spacing: 0.15em;">
+      <dl style="margin-bottom: var(--space-3xl)">
+        <div style="margin-bottom: var(--space-xl)">
+          <dt
+            class="text-xs uppercase tracking-widest font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: var(--space-sm); letter-spacing: 0.15em"
+          >
             Mission
           </dt>
-          <dd class="text-lg leading-relaxed" style="color: var(--swiss-gray-800);">
-            Creating a collaborative platform where students share, discover, and elevate each other's digital creativity—fostering a community where every line of code and pixel of design contributes to collective learning and innovation.
+          <dd class="text-lg leading-relaxed" style="color: var(--swiss-gray-800)">
+            Creating a collaborative platform where students share, discover, and elevate each other's digital
+            creativity—fostering a community where every line of code and pixel of design contributes to collective
+            learning and innovation.
           </dd>
         </div>
       </dl>
-      
+
       {# Swiss Button Group #}
-      <div class="flex flex-col sm:flex-row gap-4" style="margin-top: var(--space-2xl);">
-        <a href="/blog/" class="btn-swiss-primary">
-          VIEW STYLE GALLERY
-        </a>
-        <a href="/about/" class="btn-swiss">
-          ABOUT US
-        </a>
+      <div class="flex flex-col sm:flex-row gap-4" style="margin-top: var(--space-2xl)">
+        <a href="/blog/" class="btn-swiss-primary"> VIEW STYLE GALLERY </a>
+        <a href="/about/" class="btn-swiss"> ABOUT US </a>
       </div>
     </div>
   </div>
-  
+
   {# Large Structural Divider #}
   <div class="swiss-divider"></div>
 </section>
@@ -82,166 +133,368 @@ description: Director of Enterprise AI at NJIT building the future of AI educati
   data-component="why-us"
   data-section="features"
   data-testid="why-us-section"
-  style="padding-top: 0; padding-bottom: var(--space-5xl); background-color: var(--swiss-white);"
+  style="padding-top: 0; padding-bottom: var(--space-5xl); background-color: var(--swiss-white)"
 >
   <div class="swiss-grid">
     {# Feature Cards Grid #}
     <div class="swiss-col-12">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem">
         {# Feature 1: Curated Collection #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;" class="feature-card">
-          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--swiss-red);"></div>
-          <div style="margin-bottom: 1.5rem;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--swiss-red);">
-              <path d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
-              <path d="M3 7v14a2 2 0 002 2h10"/>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          "
+          class="feature-card"
+        >
+          <div
+            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--swiss-red)"
+          ></div>
+          <div style="margin-bottom: 1.5rem">
+            <svg
+              width="48"
+              height="48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: var(--swiss-red)"
+            >
+              <path
+                d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+              />
+              <path d="M3 7v14a2 2 0 002 2h10" />
             </svg>
           </div>
-          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em;">
+          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em">
             Curated Design Systems
           </h3>
-          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem;">
-            Hand-picked collection of professional design systems showcasing diverse aesthetics from Swiss minimalism to Neo-brutalism and beyond.
+          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem">
+            Hand-picked collection of professional design systems showcasing diverse aesthetics from Swiss minimalism to
+            Neo-brutalism and beyond.
           </p>
-          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--swiss-red); font-weight: bold; font-size: 0.875rem;">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: var(--swiss-red);
+              font-weight: bold;
+              font-size: 0.875rem;
+            "
+          >
             <span>Explore Gallery</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square"/>
+              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square" />
             </svg>
           </div>
         </article>
 
         {# Feature 2: Live Demos #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;" class="feature-card">
-          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #6e77aa;"></div>
-          <div style="margin-bottom: 1.5rem;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #6e77aa;">
-              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          "
+          class="feature-card"
+        >
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #6e77aa"></div>
+          <div style="margin-bottom: 1.5rem">
+            <svg
+              width="48"
+              height="48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: #6e77aa"
+            >
+              <path
+                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+              />
             </svg>
           </div>
-          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em;">
+          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em">
             Interactive Showcases
           </h3>
-          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem;">
-            Experience each design system in action with fully interactive demos. See typography, colors, components, and layouts come to life.
+          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem">
+            Experience each design system in action with fully interactive demos. See typography, colors, components,
+            and layouts come to life.
           </p>
-          <div style="display: flex; align-items: center; gap: 0.5rem; color: #6e77aa; font-weight: bold; font-size: 0.875rem;">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #6e77aa;
+              font-weight: bold;
+              font-size: 0.875rem;
+            "
+          >
             <span>View Demos</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square"/>
+              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square" />
             </svg>
           </div>
         </article>
 
         {# Feature 3: Submit Your Work #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;" class="feature-card">
-          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #451516;"></div>
-          <div style="margin-bottom: 1.5rem;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #451516;">
-              <path d="M12 4v16m8-8H4"/>
-              <circle cx="12" cy="12" r="10"/>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          "
+          class="feature-card"
+        >
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #451516"></div>
+          <div style="margin-bottom: 1.5rem">
+            <svg
+              width="48"
+              height="48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: #451516"
+            >
+              <path d="M12 4v16m8-8H4" />
+              <circle cx="12" cy="12" r="10" />
             </svg>
           </div>
-          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em;">
+          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em">
             Share Your Vision
           </h3>
-          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem;">
-            Contribute your unique design system to our growing library. Get featured and share your creative approach with the design community.
+          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem">
+            Contribute your unique design system to our growing library. Get featured and share your creative approach
+            with the design community.
           </p>
-          <div style="display: flex; align-items: center; gap: 0.5rem; color: #451516; font-weight: bold; font-size: 0.875rem;">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #451516;
+              font-weight: bold;
+              font-size: 0.875rem;
+            "
+          >
             <span>Submit Design</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square"/>
+              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square" />
             </svg>
           </div>
         </article>
 
         {# Feature 4: Review Mode #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;" class="feature-card">
-          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #365d9f;"></div>
-          <div style="margin-bottom: 1.5rem;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #365d9f;">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          "
+          class="feature-card"
+        >
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #365d9f"></div>
+          <div style="margin-bottom: 1.5rem">
+            <svg
+              width="48"
+              height="48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: #365d9f"
+            >
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
           </div>
-          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em;">
+          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em">
             Advanced Review System
           </h3>
-          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem;">
-            Toggle review mode to access our comprehensive submission dashboard. Manage, approve, and provide feedback on new design systems.
+          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem">
+            Toggle review mode to access our comprehensive submission dashboard. Manage, approve, and provide feedback
+            on new design systems.
           </p>
-          <div style="display: flex; align-items: center; gap: 0.5rem; color: #365d9f; font-weight: bold; font-size: 0.875rem;">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #365d9f;
+              font-weight: bold;
+              font-size: 0.875rem;
+            "
+          >
             <span>Review Dashboard</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square"/>
+              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square" />
             </svg>
           </div>
         </article>
 
         {# Feature 5: Built with Modern Tech #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;" class="feature-card">
-          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #cad5db;"></div>
-          <div style="margin-bottom: 1.5rem;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: #365d9f;">
-              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          "
+          class="feature-card"
+        >
+          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #cad5db"></div>
+          <div style="margin-bottom: 1.5rem">
+            <svg
+              width="48"
+              height="48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: #365d9f"
+            >
+              <path d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
             </svg>
           </div>
-          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em;">
+          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em">
             Modern Stack
           </h3>
-          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem;">
-            Built with Eleventy, Tailwind CSS, and following International Typographic Style principles. Fast, accessible, and maintainable.
+          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem">
+            Built with Eleventy, Tailwind CSS, and following International Typographic Style principles. Fast,
+            accessible, and maintainable.
           </p>
-          <div style="display: flex; align-items: center; gap: 0.5rem; color: #365d9f; font-weight: bold; font-size: 0.875rem;">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: #365d9f;
+              font-weight: bold;
+              font-size: 0.875rem;
+            "
+          >
             <span>Tech Stack</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square"/>
+              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square" />
             </svg>
           </div>
         </article>
 
         {# Feature 6: Community Focused #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2.5rem; transition: all 0.3s ease; position: relative; overflow: hidden;" class="feature-card">
-          <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--swiss-red);"></div>
-          <div style="margin-bottom: 1.5rem;">
-            <svg width="48" height="48" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="color: var(--swiss-red);">
-              <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+          "
+          class="feature-card"
+        >
+          <div
+            style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--swiss-red)"
+          ></div>
+          <div style="margin-bottom: 1.5rem">
+            <svg
+              width="48"
+              height="48"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              style="color: var(--swiss-red)"
+            >
+              <path
+                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+              />
             </svg>
           </div>
-          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em;">
+          <h3 class="font-bold" style="font-size: 1.5rem; margin-bottom: 1rem; letter-spacing: -0.01em">
             For Designers & Developers
           </h3>
-          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem;">
-            A growing community of design system enthusiasts. Learn, share, and discover inspiration from diverse creative approaches.
+          <p style="color: var(--swiss-gray-700); line-height: 1.6; margin-bottom: 1.5rem">
+            A growing community of design system enthusiasts. Learn, share, and discover inspiration from diverse
+            creative approaches.
           </p>
-          <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--swiss-red); font-weight: bold; font-size: 0.875rem;">
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+              color: var(--swiss-red);
+              font-weight: bold;
+              font-size: 0.875rem;
+            "
+          >
             <span>Join Community</span>
             <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 16 16">
-              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square"/>
+              <path d="M4 8h8M8 4l4 4-4 4" stroke-linecap="square" />
             </svg>
           </div>
         </article>
-
       </div>
     </div>
-    
+
     {# Call to Action - Learn More About Us #}
-    <div class="swiss-col-12" style="margin-top: var(--space-5xl); text-align: center;">
-      <div style="background: #451516; border-radius: 8px; padding: 4rem 2rem; color: white;">
-        <p class="text-xs uppercase tracking-widest font-bold" style="color: rgba(255,255,255,0.7); margin-bottom: 1rem; letter-spacing: 0.15em;">
+    <div class="swiss-col-12" style="margin-top: var(--space-5xl); text-align: center">
+      <div style="background: #451516; border-radius: 8px; padding: 4rem 2rem; color: white">
+        <p
+          class="text-xs uppercase tracking-widest font-bold"
+          style="color: rgba(255, 255, 255, 0.7); margin-bottom: 1rem; letter-spacing: 0.15em"
+        >
           Want to Know More?
         </p>
-        <h3 class="font-bold" style="font-size: var(--fluid-h2); margin-bottom: 1.5rem; letter-spacing: -0.02em;">
+        <h3 class="font-bold" style="font-size: var(--fluid-h2); margin-bottom: 1.5rem; letter-spacing: -0.02em">
           Discover Our Story
         </h3>
-        <p class="text-lg leading-relaxed" style="color: rgba(255,255,255,0.9); max-width: 600px; margin: 0 auto 2rem;">
-          Creating a collaborative platform where students share, discover, and elevate each other's digital creativity—fostering a community where every line of code and pixel of design contributes to collective learning and innovation.
+        <p
+          class="text-lg leading-relaxed"
+          style="color: rgba(255, 255, 255, 0.9); max-width: 600px; margin: 0 auto 2rem"
+        >
+          Creating a collaborative platform where students share, discover, and elevate each other's digital
+          creativity—fostering a community where every line of code and pixel of design contributes to collective
+          learning and innovation.
         </p>
-        <a href="/about/" class="inline-flex items-center gap-2 font-bold uppercase tracking-wider" style="color: white; border: 2px solid white; padding: 1rem 2.5rem; border-radius: 4px; text-decoration: none; transition: all 0.3s; background: transparent;">
+        <a
+          href="/about/"
+          class="inline-flex items-center gap-2 font-bold uppercase tracking-wider"
+          style="
+            color: white;
+            border: 2px solid white;
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: all 0.3s;
+            background: transparent;
+          "
+        >
           <span>Learn About Us</span>
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M5 10h10M10 5l5 5-5 5" stroke-linecap="square"/>
+            <path d="M5 10h10M10 5l5 5-5 5" stroke-linecap="square" />
           </svg>
         </a>
       </div>
@@ -253,12 +506,12 @@ description: Director of Enterprise AI at NJIT building the future of AI educati
   .feature-card {
     cursor: default;
   }
-  
+
   .feature-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
   }
-  
+
   .feature-card:hover > div:first-child {
     width: 6px;
   }

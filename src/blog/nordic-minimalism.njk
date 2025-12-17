@@ -5,68 +5,168 @@ description: Clean, functional design inspired by Scandinavian aesthetics. Empha
 ---
 
 <section class="py-12 md:py-16 lg:py-20">
-  <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+  <div
+    style="
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: var(--swiss-grid-margin);
+      padding-right: var(--swiss-grid-margin);
+    "
+  >
     {# Header #}
-    <div class="swiss-grid mb-16" style="border-left: 4px solid #64748b; padding-left: var(--space-md);">
+    <div class="swiss-grid mb-16" style="border-left: 4px solid #64748b; padding-left: var(--space-md)">
       <div class="swiss-col-8">
-        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: #64748b;">DESIGN PHILOSOPHY</p>
-        <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em; color: #365d9f;">{{ title }}</h1>
-        <p class="text-lg mb-4" style="color: #475569; max-width: 60ch; line-height: 1.6;">{{ description }}</p>
-        <p style="color: #64748b; max-width: 60ch; line-height: 1.6;">Rooted in Scandinavian design principles that prioritize functionality, sustainability, and human-centered experiences.</p>
+        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: #64748b">DESIGN PHILOSOPHY</p>
+        <h1
+          class="font-bold mb-4"
+          style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em; color: #365d9f"
+        >
+          {{ title }}
+        </h1>
+        <p class="text-lg mb-4" style="color: #475569; max-width: 60ch; line-height: 1.6">{{ description }}</p>
+        <p style="color: #64748b; max-width: 60ch; line-height: 1.6">
+          Rooted in Scandinavian design principles that prioritize functionality, sustainability, and human-centered
+          experiences.
+        </p>
       </div>
     </div>
 
     {# Color Palette #}
     <section class="mb-20">
-      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f;">Color Palette</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <div style="height: 120px; background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; margin-bottom: 1rem;"></div>
-          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f;">Pure White</h3>
-          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem;">Primary background</p>
-          <code style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569;">#f8fafc</code>
+      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f">Color Palette</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem">
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <div
+            style="
+              height: 120px;
+              background: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 8px;
+              margin-bottom: 1rem;
+            "
+          ></div>
+          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f">Pure White</h3>
+          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem">Primary background</p>
+          <code
+            style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569"
+            >#f8fafc</code
+          >
         </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <div style="height: 120px; background: #365d9f; border-radius: 8px; margin-bottom: 1rem;"></div>
-          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f;">Charcoal</h3>
-          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem;">Primary text</p>
-          <code style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569;">#365d9f</code>
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <div style="height: 120px; background: #365d9f; border-radius: 8px; margin-bottom: 1rem"></div>
+          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f">Charcoal</h3>
+          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem">Primary text</p>
+          <code
+            style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569"
+            >#365d9f</code
+          >
         </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <div style="height: 120px; background: #64748b; border-radius: 8px; margin-bottom: 1rem;"></div>
-          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f;">Slate Gray</h3>
-          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem;">Secondary text</p>
-          <code style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569;">#64748b</code>
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <div style="height: 120px; background: #64748b; border-radius: 8px; margin-bottom: 1rem"></div>
+          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f">Slate Gray</h3>
+          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem">Secondary text</p>
+          <code
+            style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569"
+            >#64748b</code
+          >
         </div>
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <div style="height: 120px; background: #e2e8f0; border-radius: 8px; margin-bottom: 1rem;"></div>
-          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f;">Light Gray</h3>
-          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem;">Borders & dividers</p>
-          <code style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569;">#e2e8f0</code>
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <div style="height: 120px; background: #e2e8f0; border-radius: 8px; margin-bottom: 1rem"></div>
+          <h3 style="font-weight: 600; margin: 0 0 0.25rem 0; color: #365d9f">Light Gray</h3>
+          <p style="margin: 0 0 0.5rem 0; color: #64748b; font-size: 0.875rem">Borders & dividers</p>
+          <code
+            style="font-size: 0.75rem; background: #f1f5f9; padding: 0.25rem 0.5rem; border-radius: 4px; color: #475569"
+            >#e2e8f0</code
+          >
         </div>
       </div>
     </section>
 
     {# Typography #}
     <section class="mb-20">
-      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f;">Typography</h2>
-      <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 3rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
+      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f">Typography</h2>
+      <div
+        style="
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 3rem;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        "
+      >
         <div class="space-y-10">
           <div>
-            <h1 style="font-size: clamp(2rem, 5vw, 3.5rem); margin: 0; line-height: 1.1; letter-spacing: -0.02em; font-weight: 300; color: #365d9f;">Simplicity Above All</h1>
-            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem;">Light weight headlines — clean and unobtrusive</p>
+            <h1
+              style="
+                font-size: clamp(2rem, 5vw, 3.5rem);
+                margin: 0;
+                line-height: 1.1;
+                letter-spacing: -0.02em;
+                font-weight: 300;
+                color: #365d9f;
+              "
+            >
+              Simplicity Above All
+            </h1>
+            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem">
+              Light weight headlines — clean and unobtrusive
+            </p>
           </div>
           <div>
-            <h2 style="font-size: clamp(1.5rem, 4vw, 2.25rem); margin: 0; font-weight: 400; color: #365d9f;">Function Follows Form</h2>
-            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem;">Regular weight for subheadings</p>
+            <h2 style="font-size: clamp(1.5rem, 4vw, 2.25rem); margin: 0; font-weight: 400; color: #365d9f">
+              Function Follows Form
+            </h2>
+            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem">Regular weight for subheadings</p>
           </div>
           <div>
-            <p style="color: #475569; margin: 0; font-size: 1.125rem; line-height: 1.7; font-weight: 300;">Body text emphasizes readability and breathing room. Every element serves a purpose, with generous spacing that allows content to breathe naturally.</p>
-            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem;">Light body text with increased line height</p>
+            <p style="color: #475569; margin: 0; font-size: 1.125rem; line-height: 1.7; font-weight: 300">
+              Body text emphasizes readability and breathing room. Every element serves a purpose, with generous spacing
+              that allows content to breathe naturally.
+            </p>
+            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem">
+              Light body text with increased line height
+            </p>
           </div>
           <div>
-            <p style="color: #64748b; margin: 0; font-size: 0.875rem; line-height: 1.6; font-weight: 400;">Supporting text and captions maintain clarity while establishing subtle hierarchy through weight and color variations.</p>
-            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem;">Regular weight for supporting information</p>
+            <p style="color: #64748b; margin: 0; font-size: 0.875rem; line-height: 1.6; font-weight: 400">
+              Supporting text and captions maintain clarity while establishing subtle hierarchy through weight and color
+              variations.
+            </p>
+            <p style="color: #64748b; margin-top: 0.75rem; font-size: 0.875rem">
+              Regular weight for supporting information
+            </p>
           </div>
         </div>
       </div>
@@ -74,29 +174,113 @@ description: Clean, functional design inspired by Scandinavian aesthetics. Empha
 
     {# Components #}
     <section class="mb-20">
-      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f;">Interactive Elements</h2>
+      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f">Interactive Elements</h2>
       <div class="space-y-8">
         {# Buttons #}
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <h3 style="font-weight: 500; margin: 0 0 2rem 0; color: #365d9f; font-size: 1.125rem;">Buttons</h3>
-          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center;">
-            <button style="background: #365d9f; color: white; border: none; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 400; font-size: 0.95rem; transition: all 0.2s; cursor: pointer;">Primary Action</button>
-            <button style="background: transparent; color: #365d9f; border: 1px solid #e2e8f0; padding: 0.75rem 2rem; border-radius: 6px; font-weight: 400; font-size: 0.95rem; transition: all 0.2s; cursor: pointer;">Secondary</button>
-            <button style="background: transparent; color: #64748b; border: none; padding: 0.75rem 1rem; font-weight: 400; font-size: 0.95rem; text-decoration: underline; text-underline-offset: 4px; cursor: pointer;">Text Link</button>
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <h3 style="font-weight: 500; margin: 0 0 2rem 0; color: #365d9f; font-size: 1.125rem">Buttons</h3>
+          <div style="display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center">
+            <button
+              style="
+                background: #365d9f;
+                color: white;
+                border: none;
+                padding: 0.75rem 2rem;
+                border-radius: 6px;
+                font-weight: 400;
+                font-size: 0.95rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+            >
+              Primary Action
+            </button>
+            <button
+              style="
+                background: transparent;
+                color: #365d9f;
+                border: 1px solid #e2e8f0;
+                padding: 0.75rem 2rem;
+                border-radius: 6px;
+                font-weight: 400;
+                font-size: 0.95rem;
+                transition: all 0.2s;
+                cursor: pointer;
+              "
+            >
+              Secondary
+            </button>
+            <button
+              style="
+                background: transparent;
+                color: #64748b;
+                border: none;
+                padding: 0.75rem 1rem;
+                font-weight: 400;
+                font-size: 0.95rem;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                cursor: pointer;
+              "
+            >
+              Text Link
+            </button>
           </div>
         </div>
 
         {# Form Elements #}
-        <div style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <h3 style="font-weight: 500; margin: 0 0 2rem 0; color: #365d9f; font-size: 1.125rem;">Form Elements</h3>
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem;">
+        <div
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <h3 style="font-weight: 500; margin: 0 0 2rem 0; color: #365d9f; font-size: 1.125rem">Form Elements</h3>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem">
             <div>
-              <label style="display: block; margin-bottom: 0.5rem; font-weight: 400; color: #365d9f; font-size: 0.9rem;">Email Address</label>
-              <input type="email" placeholder="your.email@example.com" style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.95rem; font-weight: 300; background: #ffffff;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 400; color: #365d9f; font-size: 0.9rem"
+                >Email Address</label
+              >
+              <input
+                type="email"
+                placeholder="your.email@example.com"
+                style="
+                  width: 100%;
+                  padding: 1rem;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 6px;
+                  font-size: 0.95rem;
+                  font-weight: 300;
+                  background: #ffffff;
+                "
+              />
             </div>
             <div>
-              <label style="display: block; margin-bottom: 0.5rem; font-weight: 400; color: #365d9f; font-size: 0.9rem;">Country</label>
-              <select style="width: 100%; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 6px; font-size: 0.95rem; font-weight: 300; background: #ffffff;">
+              <label style="display: block; margin-bottom: 0.5rem; font-weight: 400; color: #365d9f; font-size: 0.9rem"
+                >Country</label
+              >
+              <select
+                style="
+                  width: 100%;
+                  padding: 1rem;
+                  border: 1px solid #e2e8f0;
+                  border-radius: 6px;
+                  font-size: 0.95rem;
+                  font-weight: 300;
+                  background: #ffffff;
+                "
+              >
                 <option>Select your country</option>
                 <option>Denmark</option>
                 <option>Sweden</option>
@@ -110,40 +294,84 @@ description: Clean, functional design inspired by Scandinavian aesthetics. Empha
 
     {# Cards #}
     <section class="mb-20">
-      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f;">Card Components</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
-        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <h3 style="font-weight: 400; margin: 0 0 1rem 0; color: #365d9f; font-size: 1.25rem;">Essential Information</h3>
-          <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300;">Content is presented with generous whitespace and careful attention to hierarchy, ensuring easy scanning and comprehension.</p>
+      <h2 class="font-bold mb-6" style="font-size: var(--fluid-h3); color: #365d9f">Card Components</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem">
+        <article
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <h3 style="font-weight: 400; margin: 0 0 1rem 0; color: #365d9f; font-size: 1.25rem">
+            Essential Information
+          </h3>
+          <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300">
+            Content is presented with generous whitespace and careful attention to hierarchy, ensuring easy scanning and
+            comprehension.
+          </p>
         </article>
-        <article style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.05);">
-          <h3 style="font-weight: 400; margin: 0 0 1rem 0; color: #365d9f; font-size: 1.25rem;">Purposeful Design</h3>
-          <p style="margin: 0 0 2rem 0; color: #64748b; line-height: 1.6; font-weight: 300;">Every element serves a clear function with no unnecessary decoration or complexity.</p>
-          <button style="background: transparent; color: #365d9f; border: 1px solid #e2e8f0; padding: 0.5rem 1.5rem; border-radius: 6px; font-weight: 400; font-size: 0.9rem; cursor: pointer;">Learn More</button>
+        <article
+          style="
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <h3 style="font-weight: 400; margin: 0 0 1rem 0; color: #365d9f; font-size: 1.25rem">Purposeful Design</h3>
+          <p style="margin: 0 0 2rem 0; color: #64748b; line-height: 1.6; font-weight: 300">
+            Every element serves a clear function with no unnecessary decoration or complexity.
+          </p>
+          <button
+            style="
+              background: transparent;
+              color: #365d9f;
+              border: 1px solid #e2e8f0;
+              padding: 0.5rem 1.5rem;
+              border-radius: 6px;
+              font-weight: 400;
+              font-size: 0.9rem;
+              cursor: pointer;
+            "
+          >
+            Learn More
+          </button>
         </article>
       </div>
     </section>
 
     {# Design Principles #}
     <section class="mb-16">
-      <h2 class="font-bold mb-8" style="font-size: var(--fluid-h3); color: #365d9f;">Design Principles</h2>
-      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 3rem;">
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem;">
+      <h2 class="font-bold mb-8" style="font-size: var(--fluid-h3); color: #365d9f">Design Principles</h2>
+      <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 3rem">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem">
           <div>
-            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f;">Less is More</h3>
-            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300;">Remove all non-essential elements. Focus on what truly matters to the user experience.</p>
+            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f">Less is More</h3>
+            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300">
+              Remove all non-essential elements. Focus on what truly matters to the user experience.
+            </p>
           </div>
           <div>
-            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f;">Natural Materials</h3>
-            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300;">Use colors and textures that reflect the natural world — whites, grays, and earth tones.</p>
+            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f">Natural Materials</h3>
+            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300">
+              Use colors and textures that reflect the natural world — whites, grays, and earth tones.
+            </p>
           </div>
           <div>
-            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f;">Functional Beauty</h3>
-            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300;">Aesthetic choices should enhance usability, not distract from it.</p>
+            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f">Functional Beauty</h3>
+            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300">
+              Aesthetic choices should enhance usability, not distract from it.
+            </p>
           </div>
           <div>
-            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f;">Generous Space</h3>
-            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300;">Whitespace is not empty space — it's a fundamental design element that creates calm and focus.</p>
+            <h3 style="font-weight: 500; margin: 0 0 1rem 0; color: #365d9f">Generous Space</h3>
+            <p style="margin: 0; color: #64748b; line-height: 1.6; font-weight: 300">
+              Whitespace is not empty space — it's a fundamental design element that creates calm and focus.
+            </p>
           </div>
         </div>
       </div>

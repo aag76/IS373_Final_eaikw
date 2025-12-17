@@ -5,403 +5,367 @@ description: "Get in touch with Erik Aikin for inquiries, collaborations, or que
 ---
 
 <article class="max-w-3xl mx-auto px-4 py-16">
-    <!-- Swiss Typography Header -->
-    <header class="mb-12">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4" style="
-            font-family: var(--font-mono);
-            color: var(--swiss-black);
-            line-height: 0.9;
-            text-transform: uppercase;
-            letter-spacing: -0.02em;
-        ">Contact</h1>
-        
-        <div class="border-l-4 border-red-500 pl-6">
-            <p class="text-lg text-gray-600" style="
-                font-family: var(--font-sans);
-                line-height: 1.6;
-            ">
-                Have a question, collaboration idea, or just want to say hello? I'd love to hear from you.
-            </p>
-        </div>
-    </header>
-
-    <!-- Accessible Contact Form -->
-    <form 
-        id="contact-form" 
-        class="space-y-8"
-        aria-labelledby="contact-form-title"
-        novalidate
+  <!-- Swiss Typography Header -->
+  <header class="mb-12">
+    <h1
+      class="text-4xl md:text-6xl font-bold mb-4"
+      style="
+        font-family: var(--font-mono);
+        color: var(--swiss-black);
+        line-height: 0.9;
+        text-transform: uppercase;
+        letter-spacing: -0.02em;
+      "
     >
-        <h2 
-            id="contact-form-title" 
-            class="text-2xl font-bold mb-6" 
-            style="
-                font-family: var(--font-mono);
-                color: var(--swiss-black);
-                text-transform: uppercase;
-                border-bottom: 3px solid var(--swiss-red);
-                padding-bottom: 0.5rem;
-            "
-        >
-            Send a Message
-        </h2>
+      Contact
+    </h1>
 
-        <!-- Name Field -->
-        <div>
-            <label 
-                for="name" 
-                class="block font-bold mb-2 text-sm uppercase tracking-wider"
-                style="font-family: var(--font-mono);"
-            >
-                Your Name <span class="text-red-500" aria-label="required">*</span>
-            </label>
-            <input 
-                type="text" 
-                id="name" 
-                name="name"
-                required
-                aria-required="true"
-                aria-describedby="name-error"
-                aria-invalid="false"
-                class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors"
-                style="font-family: var(--font-sans);"
-                placeholder="John Doe"
-            >
-            <div 
-                id="name-error" 
-                class="text-red-500 text-sm mt-2 hidden" 
-                role="alert"
-                aria-live="polite"
-            ></div>
-        </div>
-
-        <!-- Email Field -->
-        <div>
-            <label 
-                for="email" 
-                class="block font-bold mb-2 text-sm uppercase tracking-wider"
-                style="font-family: var(--font-mono);"
-            >
-                Email Address <span class="text-red-500" aria-label="required">*</span>
-            </label>
-            <input 
-                type="email" 
-                id="email" 
-                name="email"
-                required
-                aria-required="true"
-                aria-describedby="email-error email-help"
-                aria-invalid="false"
-                class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors"
-                style="font-family: var(--font-sans);"
-                placeholder="john@example.com"
-            >
-            <div 
-                id="email-help" 
-                class="text-gray-600 text-sm mt-1"
-            >
-                We'll never share your email with anyone else.
-            </div>
-            <div 
-                id="email-error" 
-                class="text-red-500 text-sm mt-2 hidden" 
-                role="alert"
-                aria-live="polite"
-            ></div>
-        </div>
-
-        <!-- Subject Field -->
-        <div>
-            <label 
-                for="subject" 
-                class="block font-bold mb-2 text-sm uppercase tracking-wider"
-                style="font-family: var(--font-mono);"
-            >
-                Subject <span class="text-red-500" aria-label="required">*</span>
-            </label>
-            <select 
-                id="subject" 
-                name="subject"
-                required
-                aria-required="true"
-                aria-describedby="subject-error"
-                aria-invalid="false"
-                class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors"
-                style="font-family: var(--font-sans);"
-            >
-                <option value="">Select a subject...</option>
-                <option value="general">General Inquiry</option>
-                <option value="collaboration">Collaboration Opportunity</option>
-                <option value="style-guide">Style Guide Question</option>
-                <option value="project">Project Discussion</option>
-                <option value="feedback">Feedback</option>
-                <option value="other">Other</option>
-            </select>
-            <div 
-                id="subject-error" 
-                class="text-red-500 text-sm mt-2 hidden" 
-                role="alert"
-                aria-live="polite"
-            ></div>
-        </div>
-
-        <!-- Message Field -->
-        <div>
-            <label 
-                for="message" 
-                class="block font-bold mb-2 text-sm uppercase tracking-wider"
-                style="font-family: var(--font-mono);"
-            >
-                Message <span class="text-red-500" aria-label="required">*</span>
-            </label>
-            <textarea 
-                id="message" 
-                name="message"
-                rows="6"
-                required
-                aria-required="true"
-                aria-describedby="message-error message-help"
-                aria-invalid="false"
-                class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors resize-vertical"
-                style="font-family: var(--font-sans);"
-                placeholder="Tell me about your inquiry..."
-            ></textarea>
-            <div 
-                id="message-help" 
-                class="text-gray-600 text-sm mt-1"
-            >
-                Minimum 10 characters. Be as detailed as you'd like.
-            </div>
-            <div 
-                id="message-error" 
-                class="text-red-500 text-sm mt-2 hidden" 
-                role="alert"
-                aria-live="polite"
-            ></div>
-        </div>
-
-        <!-- Privacy Consent -->
-        <div class="bg-gray-50 border-l-4 border-blue-500 p-6">
-            <div class="flex items-start">
-                <input 
-                    type="checkbox" 
-                    id="privacy-consent" 
-                    name="privacy-consent"
-                    required
-                    aria-required="true"
-                    aria-describedby="privacy-consent-error privacy-consent-text"
-                    aria-invalid="false"
-                    class="mt-1 mr-3"
-                    style="accent-color: var(--swiss-red); width: 1.25rem; height: 1.25rem;"
-                >
-                <label 
-                    for="privacy-consent" 
-                    id="privacy-consent-text"
-                    class="text-sm text-gray-700 flex-1"
-                    style="font-family: var(--font-sans);"
-                >
-                    I consent to having this website store my submitted information so they can respond to my inquiry. 
-                    I understand my data will be processed according to the 
-                    <a href="/privacy-policy/" class="text-red-500 underline font-semibold">Privacy Policy</a>.
-                    <span class="text-red-500 ml-1" aria-label="required">*</span>
-                </label>
-            </div>
-            <div 
-                id="privacy-consent-error" 
-                class="text-red-500 text-sm mt-2 ml-8 hidden" 
-                role="alert"
-                aria-live="polite"
-            ></div>
-        </div>
-
-        <!-- Form Status Messages -->
-        <div 
-            id="form-status" 
-            class="hidden p-4 border-2"
-            role="status"
-            aria-live="polite"
-            aria-atomic="true"
-        ></div>
-
-        <!-- Submit Button -->
-        <div class="flex gap-4">
-            <button 
-                type="submit"
-                class="bg-red-500 hover:bg-black text-white px-8 py-4 font-mono font-bold uppercase text-sm transition-colors border-2 border-red-500 hover:border-black focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
-                aria-describedby="submit-help"
-            >
-                Send Message
-            </button>
-            
-            <button 
-                type="reset"
-                class="bg-gray-100 hover:bg-gray-200 text-black px-8 py-4 font-mono font-bold uppercase text-sm transition-colors border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
-            >
-                Clear Form
-            </button>
-        </div>
-        
-        <p id="submit-help" class="text-sm text-gray-600">
-            Fields marked with <span class="text-red-500">*</span> are required.
-        </p>
-    </form>
-
-    <!-- Additional Contact Information -->
-    <div class="mt-16 pt-8 border-t border-gray-200">
-        <h2 class="text-2xl font-bold mb-6" style="
-            font-family: var(--font-mono);
-            color: var(--swiss-black);
-            text-transform: uppercase;
-        ">Other Ways to Connect</h2>
-        
-        <div class="space-y-4">
-            <p class="text-gray-700">
-                <strong class="font-mono text-sm uppercase tracking-wider">Email:</strong>
-                <a href="mailto:contact@erikaikin.com" class="text-red-500 hover:underline ml-2">contact@erikaikin.com</a>
-            </p>
-            
-            <p class="text-gray-700">
-                <strong class="font-mono text-sm uppercase tracking-wider">Response Time:</strong>
-                <span class="ml-2">I typically respond within 24-48 hours.</span>
-            </p>
-        </div>
+    <div class="border-l-4 border-red-500 pl-6">
+      <p class="text-lg text-gray-600" style="font-family: var(--font-sans); line-height: 1.6">
+        Have a question, collaboration idea, or just want to say hello? I'd love to hear from you.
+      </p>
     </div>
+  </header>
+
+  <!-- Accessible Contact Form -->
+  <form id="contact-form" class="space-y-8" aria-labelledby="contact-form-title" novalidate>
+    <h2
+      id="contact-form-title"
+      class="text-2xl font-bold mb-6"
+      style="
+        font-family: var(--font-mono);
+        color: var(--swiss-black);
+        text-transform: uppercase;
+        border-bottom: 3px solid var(--swiss-red);
+        padding-bottom: 0.5rem;
+      "
+    >
+      Send a Message
+    </h2>
+
+    <!-- Name Field -->
+    <div>
+      <label
+        for="name"
+        class="block font-bold mb-2 text-sm uppercase tracking-wider"
+        style="font-family: var(--font-mono)"
+      >
+        Your Name <span class="text-red-500" aria-label="required">*</span>
+      </label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        aria-required="true"
+        aria-describedby="name-error"
+        aria-invalid="false"
+        class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors"
+        style="font-family: var(--font-sans)"
+        placeholder="John Doe"
+      />
+      <div id="name-error" class="text-red-500 text-sm mt-2 hidden" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Email Field -->
+    <div>
+      <label
+        for="email"
+        class="block font-bold mb-2 text-sm uppercase tracking-wider"
+        style="font-family: var(--font-mono)"
+      >
+        Email Address <span class="text-red-500" aria-label="required">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        aria-required="true"
+        aria-describedby="email-error email-help"
+        aria-invalid="false"
+        class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors"
+        style="font-family: var(--font-sans)"
+        placeholder="john@example.com"
+      />
+      <div id="email-help" class="text-gray-600 text-sm mt-1">We'll never share your email with anyone else.</div>
+      <div id="email-error" class="text-red-500 text-sm mt-2 hidden" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Subject Field -->
+    <div>
+      <label
+        for="subject"
+        class="block font-bold mb-2 text-sm uppercase tracking-wider"
+        style="font-family: var(--font-mono)"
+      >
+        Subject <span class="text-red-500" aria-label="required">*</span>
+      </label>
+      <select
+        id="subject"
+        name="subject"
+        required
+        aria-required="true"
+        aria-describedby="subject-error"
+        aria-invalid="false"
+        class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors"
+        style="font-family: var(--font-sans)"
+      >
+        <option value="">Select a subject...</option>
+        <option value="general">General Inquiry</option>
+        <option value="collaboration">Collaboration Opportunity</option>
+        <option value="style-guide">Style Guide Question</option>
+        <option value="project">Project Discussion</option>
+        <option value="feedback">Feedback</option>
+        <option value="other">Other</option>
+      </select>
+      <div id="subject-error" class="text-red-500 text-sm mt-2 hidden" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Message Field -->
+    <div>
+      <label
+        for="message"
+        class="block font-bold mb-2 text-sm uppercase tracking-wider"
+        style="font-family: var(--font-mono)"
+      >
+        Message <span class="text-red-500" aria-label="required">*</span>
+      </label>
+      <textarea
+        id="message"
+        name="message"
+        rows="6"
+        required
+        aria-required="true"
+        aria-describedby="message-error message-help"
+        aria-invalid="false"
+        class="w-full px-4 py-3 border-2 border-black focus:border-red-500 focus:outline-none transition-colors resize-vertical"
+        style="font-family: var(--font-sans)"
+        placeholder="Tell me about your inquiry..."
+      ></textarea>
+      <div id="message-help" class="text-gray-600 text-sm mt-1">
+        Minimum 10 characters. Be as detailed as you'd like.
+      </div>
+      <div id="message-error" class="text-red-500 text-sm mt-2 hidden" role="alert" aria-live="polite"></div>
+    </div>
+
+    <!-- Privacy Consent -->
+    <div class="bg-gray-50 border-l-4 border-blue-500 p-6">
+      <div class="flex items-start">
+        <input
+          type="checkbox"
+          id="privacy-consent"
+          name="privacy-consent"
+          required
+          aria-required="true"
+          aria-describedby="privacy-consent-error privacy-consent-text"
+          aria-invalid="false"
+          class="mt-1 mr-3"
+          style="accent-color: var(--swiss-red); width: 1.25rem; height: 1.25rem"
+        />
+        <label
+          for="privacy-consent"
+          id="privacy-consent-text"
+          class="text-sm text-gray-700 flex-1"
+          style="font-family: var(--font-sans)"
+        >
+          I consent to having this website store my submitted information so they can respond to my inquiry. I
+          understand my data will be processed according to the
+          <a href="/privacy-policy/" class="text-red-500 underline font-semibold">Privacy Policy</a>.
+          <span class="text-red-500 ml-1" aria-label="required">*</span>
+        </label>
+      </div>
+      <div
+        id="privacy-consent-error"
+        class="text-red-500 text-sm mt-2 ml-8 hidden"
+        role="alert"
+        aria-live="polite"
+      ></div>
+    </div>
+
+    <!-- Form Status Messages -->
+    <div id="form-status" class="hidden p-4 border-2" role="status" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- Submit Button -->
+    <div class="flex gap-4">
+      <button
+        type="submit"
+        class="bg-red-500 hover:bg-black text-white px-8 py-4 font-mono font-bold uppercase text-sm transition-colors border-2 border-red-500 hover:border-black focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2"
+        aria-describedby="submit-help"
+      >
+        Send Message
+      </button>
+
+      <button
+        type="reset"
+        class="bg-gray-100 hover:bg-gray-200 text-black px-8 py-4 font-mono font-bold uppercase text-sm transition-colors border-2 border-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2"
+      >
+        Clear Form
+      </button>
+    </div>
+
+    <p id="submit-help" class="text-sm text-gray-600">
+      Fields marked with <span class="text-red-500">*</span> are required.
+    </p>
+  </form>
+
+  <!-- Additional Contact Information -->
+  <div class="mt-16 pt-8 border-t border-gray-200">
+    <h2
+      class="text-2xl font-bold mb-6"
+      style="font-family: var(--font-mono); color: var(--swiss-black); text-transform: uppercase"
+    >
+      Other Ways to Connect
+    </h2>
+
+    <div class="space-y-4">
+      <p class="text-gray-700">
+        <strong class="font-mono text-sm uppercase tracking-wider">Email:</strong>
+        <a href="mailto:contact@erikaikin.com" class="text-red-500 hover:underline ml-2">contact@erikaikin.com</a>
+      </p>
+
+      <p class="text-gray-700">
+        <strong class="font-mono text-sm uppercase tracking-wider">Response Time:</strong>
+        <span class="ml-2">I typically respond within 24-48 hours.</span>
+      </p>
+    </div>
+  </div>
 </article>
 
 <!-- Accessible Form Validation Script -->
 <script>
-(function() {
-    'use strict';
-    
-    const form = document.getElementById('contact-form');
+  (function () {
+    "use strict";
+
+    const form = document.getElementById("contact-form");
     if (!form) return;
 
     // Validation functions
     const validators = {
-        name: (value) => {
-            if (!value.trim()) return 'Please enter your name.';
-            if (value.trim().length < 2) return 'Name must be at least 2 characters.';
-            return '';
-        },
-        email: (value) => {
-            if (!value.trim()) return 'Please enter your email address.';
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(value)) return 'Please enter a valid email address.';
-            return '';
-        },
-        subject: (value) => {
-            if (!value) return 'Please select a subject.';
-            return '';
-        },
-        message: (value) => {
-            if (!value.trim()) return 'Please enter a message.';
-            if (value.trim().length < 10) return 'Message must be at least 10 characters.';
-            return '';
-        },
-        'privacy-consent': (checked) => {
-            if (!checked) return 'You must consent to data processing to submit the form.';
-            return '';
-        }
+      name: (value) => {
+        if (!value.trim()) return "Please enter your name.";
+        if (value.trim().length < 2) return "Name must be at least 2 characters.";
+        return "";
+      },
+      email: (value) => {
+        if (!value.trim()) return "Please enter your email address.";
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(value)) return "Please enter a valid email address.";
+        return "";
+      },
+      subject: (value) => {
+        if (!value) return "Please select a subject.";
+        return "";
+      },
+      message: (value) => {
+        if (!value.trim()) return "Please enter a message.";
+        if (value.trim().length < 10) return "Message must be at least 10 characters.";
+        return "";
+      },
+      "privacy-consent": (checked) => {
+        if (!checked) return "You must consent to data processing to submit the form.";
+        return "";
+      },
     };
 
     // Show error message
     function showError(fieldId, message) {
-        const field = document.getElementById(fieldId);
-        const errorDiv = document.getElementById(`${fieldId}-error`);
-        
-        if (field && errorDiv) {
-            field.setAttribute('aria-invalid', 'true');
-            field.classList.add('border-red-500');
-            errorDiv.textContent = message;
-            errorDiv.classList.remove('hidden');
-        }
+      const field = document.getElementById(fieldId);
+      const errorDiv = document.getElementById(`${fieldId}-error`);
+
+      if (field && errorDiv) {
+        field.setAttribute("aria-invalid", "true");
+        field.classList.add("border-red-500");
+        errorDiv.textContent = message;
+        errorDiv.classList.remove("hidden");
+      }
     }
 
     // Clear error message
     function clearError(fieldId) {
-        const field = document.getElementById(fieldId);
-        const errorDiv = document.getElementById(`${fieldId}-error`);
-        
-        if (field && errorDiv) {
-            field.setAttribute('aria-invalid', 'false');
-            field.classList.remove('border-red-500');
-            errorDiv.textContent = '';
-            errorDiv.classList.add('hidden');
-        }
+      const field = document.getElementById(fieldId);
+      const errorDiv = document.getElementById(`${fieldId}-error`);
+
+      if (field && errorDiv) {
+        field.setAttribute("aria-invalid", "false");
+        field.classList.remove("border-red-500");
+        errorDiv.textContent = "";
+        errorDiv.classList.add("hidden");
+      }
     }
 
     // Validate single field
     function validateField(fieldId) {
-        const field = document.getElementById(fieldId);
-        if (!field) return true;
+      const field = document.getElementById(fieldId);
+      if (!field) return true;
 
-        const value = field.type === 'checkbox' ? field.checked : field.value;
-        const validator = validators[fieldId];
-        
-        if (!validator) return true;
+      const value = field.type === "checkbox" ? field.checked : field.value;
+      const validator = validators[fieldId];
 
-        const errorMessage = validator(value);
-        
-        if (errorMessage) {
-            showError(fieldId, errorMessage);
-            return false;
-        } else {
-            clearError(fieldId);
-            return true;
-        }
+      if (!validator) return true;
+
+      const errorMessage = validator(value);
+
+      if (errorMessage) {
+        showError(fieldId, errorMessage);
+        return false;
+      } else {
+        clearError(fieldId);
+        return true;
+      }
     }
 
     // Add real-time validation on blur
-    Object.keys(validators).forEach(fieldId => {
-        const field = document.getElementById(fieldId);
-        if (field) {
-            field.addEventListener('blur', () => validateField(fieldId));
-            field.addEventListener('input', () => {
-                if (field.getAttribute('aria-invalid') === 'true') {
-                    validateField(fieldId);
-                }
-            });
-        }
+    Object.keys(validators).forEach((fieldId) => {
+      const field = document.getElementById(fieldId);
+      if (field) {
+        field.addEventListener("blur", () => validateField(fieldId));
+        field.addEventListener("input", () => {
+          if (field.getAttribute("aria-invalid") === "true") {
+            validateField(fieldId);
+          }
+        });
+      }
     });
 
     // Form submission
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-        // Validate all fields
-        let isValid = true;
-        Object.keys(validators).forEach(fieldId => {
-            if (!validateField(fieldId)) {
-                isValid = false;
-            }
-        });
-
-        const statusDiv = document.getElementById('form-status');
-
-        if (!isValid) {
-            statusDiv.className = 'block p-4 border-2 border-red-500 bg-red-50 text-red-700';
-            statusDiv.textContent = 'Please fix the errors above before submitting.';
-            statusDiv.classList.remove('hidden');
-            
-            // Focus first invalid field
-            const firstInvalid = form.querySelector('[aria-invalid="true"]');
-            if (firstInvalid) firstInvalid.focus();
-            
-            return;
+      // Validate all fields
+      let isValid = true;
+      Object.keys(validators).forEach((fieldId) => {
+        if (!validateField(fieldId)) {
+          isValid = false;
         }
+      });
 
-        // Show success message (in production, this would submit to backend)
-        statusDiv.className = 'block p-4 border-2 border-green-500 bg-green-50 text-green-700';
-        statusDiv.textContent = '✓ Thank you! Your message has been sent successfully. I\'ll get back to you soon.';
-        statusDiv.classList.remove('hidden');
+      const statusDiv = document.getElementById("form-status");
 
-        // Reset form
-        form.reset();
+      if (!isValid) {
+        statusDiv.className = "block p-4 border-2 border-red-500 bg-red-50 text-red-700";
+        statusDiv.textContent = "Please fix the errors above before submitting.";
+        statusDiv.classList.remove("hidden");
 
-        // Scroll to status message
-        statusDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        // Focus first invalid field
+        const firstInvalid = form.querySelector('[aria-invalid="true"]');
+        if (firstInvalid) firstInvalid.focus();
 
-        console.log('Form submitted successfully (demo mode)');
+        return;
+      }
+
+      // Show success message (in production, this would submit to backend)
+      statusDiv.className = "block p-4 border-2 border-green-500 bg-green-50 text-green-700";
+      statusDiv.textContent = "✓ Thank you! Your message has been sent successfully. I'll get back to you soon.";
+      statusDiv.classList.remove("hidden");
+
+      // Reset form
+      form.reset();
+
+      // Scroll to status message
+      statusDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+      console.log("Form submitted successfully (demo mode)");
     });
-})();
+  })();
 </script>

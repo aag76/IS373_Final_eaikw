@@ -5,13 +5,30 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
 ---
 
 <article class="py-12 md:py-16 lg:py-20">
-  <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+  <div
+    style="
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: var(--swiss-grid-margin);
+      padding-right: var(--swiss-grid-margin);
+    "
+  >
     {# Swiss header with asymmetric layout #}
-    <header class="swiss-grid mb-12" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md);">
+    <header class="swiss-grid mb-12" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md)">
       <div class="swiss-col-8">
-        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">05 — META</p>
-        <h1 class="font-bold mb-4" style="font-size: var(--fluid-display); line-height: 1.1; letter-spacing: -0.02em;">{{ title }}</h1>
-        <p class="text-lg" style="color: var(--swiss-gray-700); max-width: 60ch; border-top: 2px solid var(--swiss-red); padding-top: var(--space-md);">
+        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">05 — META</p>
+        <h1 class="font-bold mb-4" style="font-size: var(--fluid-display); line-height: 1.1; letter-spacing: -0.02em">
+          {{ title }}
+        </h1>
+        <p
+          class="text-lg"
+          style="
+            color: var(--swiss-gray-700);
+            max-width: 60ch;
+            border-top: 2px solid var(--swiss-red);
+            padding-top: var(--space-md);
+          "
+        >
           {{ description }}
         </p>
       </div>
@@ -25,13 +42,24 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
       <div class="swiss-col-8">
         <div class="prose-swiss">
           <h2>Design Philosophy</h2>
-          <p>This portfolio embraces the principles of <strong>Swiss Design</strong> (International Typographic Style), a movement that emerged in Switzerland in the 1950s. It emphasizes cleanliness, readability, and objectivity through mathematical grids, sans-serif typography, and asymmetric layouts.</p>
-          
+          <p>
+            This portfolio embraces the principles of <strong>Swiss Design</strong> (International Typographic Style), a
+            movement that emerged in Switzerland in the 1950s. It emphasizes cleanliness, readability, and objectivity
+            through mathematical grids, sans-serif typography, and asymmetric layouts.
+          </p>
+
           <h3>Core Principles Applied</h3>
           <ul>
-            <li><strong>Mathematical Grid System</strong> — 12-column precision grid with 1.5rem gutters for perfect alignment</li>
-            <li><strong>Dramatic Typography</strong> — Golden Ratio (1.618) scale from 6rem display to 0.75rem caption</li>
-            <li><strong>Minimal Color Palette</strong> — Black, white, and Swiss red as accent, plus 9-step grayscale</li>
+            <li>
+              <strong>Mathematical Grid System</strong> — 12-column precision grid with 1.5rem gutters for perfect
+              alignment
+            </li>
+            <li>
+              <strong>Dramatic Typography</strong> — Golden Ratio (1.618) scale from 6rem display to 0.75rem caption
+            </li>
+            <li>
+              <strong>Minimal Color Palette</strong> — Black, white, and Swiss red as accent, plus 9-step grayscale
+            </li>
             <li><strong>Asymmetric Layouts</strong> — 7:5 and 8:4 column splits create visual tension</li>
             <li><strong>Structural Lines</strong> — 2-4px borders as functional design elements</li>
             <li><strong>Definition Lists</strong> — Structured data presentation for metadata</li>
@@ -53,36 +81,52 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
 
     {# Technology Stack Section #}
     <div class="swiss-divider mb-12"></div>
-    
+
     <section class="swiss-grid mb-16">
       <div class="swiss-col-8">
         <div class="prose-swiss">
           <h2>Technology Stack</h2>
-          
+
           <h3>Core Technologies</h3>
-          <dl style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); margin: 2rem 0;">
-            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md);">
-              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Static Site Generator</dt>
-              <dd class="font-bold" style="font-size: var(--fluid-h4);">Eleventy 3.1.2</dd>
-              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700);">Fast, flexible, and powerful static site generation with zero client-side JavaScript overhead</dd>
+          <dl style="display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-lg); margin: 2rem 0">
+            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md)">
+              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+                Static Site Generator
+              </dt>
+              <dd class="font-bold" style="font-size: var(--fluid-h4)">Eleventy 3.1.2</dd>
+              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700)">
+                Fast, flexible, and powerful static site generation with zero client-side JavaScript overhead
+              </dd>
             </div>
-            
-            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md);">
-              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Templating Engine</dt>
-              <dd class="font-bold" style="font-size: var(--fluid-h4);">Nunjucks</dd>
-              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700);">Powerful templating with macros, inheritance, and includes for maintainable code</dd>
+
+            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md)">
+              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+                Templating Engine
+              </dt>
+              <dd class="font-bold" style="font-size: var(--fluid-h4)">Nunjucks</dd>
+              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700)">
+                Powerful templating with macros, inheritance, and includes for maintainable code
+              </dd>
             </div>
-            
-            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md);">
-              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">CSS Framework</dt>
-              <dd class="font-bold" style="font-size: var(--fluid-h4);">Tailwind CSS 3.4</dd>
-              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700);">Utility-first framework extended with custom Swiss design components and typography</dd>
+
+            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md)">
+              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+                CSS Framework
+              </dt>
+              <dd class="font-bold" style="font-size: var(--fluid-h4)">Tailwind CSS 3.4</dd>
+              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700)">
+                Utility-first framework extended with custom Swiss design components and typography
+              </dd>
             </div>
-            
-            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md);">
-              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Interactivity</dt>
-              <dd class="font-bold" style="font-size: var(--fluid-h4);">Alpine.js</dd>
-              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700);">Lightweight JavaScript for mobile menu and interactive components</dd>
+
+            <div style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md)">
+              <dt class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+                Interactivity
+              </dt>
+              <dd class="font-bold" style="font-size: var(--fluid-h4)">Alpine.js</dd>
+              <dd class="text-sm mt-2" style="color: var(--swiss-gray-700)">
+                Lightweight JavaScript for mobile menu and interactive components
+              </dd>
             </div>
           </dl>
 
@@ -95,14 +139,18 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
           </ul>
 
           <h3>Typography</h3>
-          <p>The site uses <strong>Inter</strong>, a carefully crafted typeface optimized for user interfaces and digital screens. Its Helvetica-inspired design makes it the perfect modern substitute for Swiss design's traditional typography.</p>
+          <p>
+            The site uses <strong>Inter</strong>, a carefully crafted typeface optimized for user interfaces and digital
+            screens. Its Helvetica-inspired design makes it the perfect modern substitute for Swiss design's traditional
+            typography.
+          </p>
         </div>
       </div>
     </section>
 
     {# Features Section #}
     <div class="swiss-divider mb-12"></div>
-    
+
     <section class="swiss-grid mb-16">
       <div class="swiss-col-8">
         <div class="prose-swiss">
@@ -114,7 +162,9 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
             <li>Desktop: 12 columns with 1.5rem (24px) gutters</li>
             <li>Tablet: 8 columns with responsive scaling</li>
             <li>Mobile: 4 columns for optimal readability</li>
-            <li>Swiss grid classes: <code>.swiss-grid</code>, <code>.swiss-col-1</code> through <code>.swiss-col-12</code></li>
+            <li>
+              Swiss grid classes: <code>.swiss-grid</code>, <code>.swiss-col-1</code> through <code>.swiss-col-12</code>
+            </li>
           </ul>
 
           <h3>Fluid Typography</h3>
@@ -170,7 +220,7 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
 
     {# Build Process Section #}
     <div class="swiss-divider mb-12"></div>
-    
+
     <section class="swiss-grid mb-16">
       <div class="swiss-col-8">
         <div class="prose-swiss">
@@ -178,7 +228,7 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
 
           <h3>Development Workflow</h3>
           <p>The site uses a parallel build process for optimal development experience:</p>
-          
+
           <ol>
             <li><strong>CSS Compilation</strong> — Tailwind processes custom CSS with Swiss components</li>
             <li><strong>JavaScript Bundling</strong> — Alpine.js is bundled for production</li>
@@ -211,7 +261,7 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
 
     {# Design Resources Section #}
     <div class="swiss-divider mb-12"></div>
-    
+
     <section class="swiss-grid mb-16">
       <div class="swiss-col-8">
         <div class="prose-swiss">
@@ -228,7 +278,9 @@ description: Learn about the design philosophy, technology stack, and Swiss desi
 
           <h3>Quote from Josef Müller-Brockmann</h3>
           <blockquote>
-            "The grid system is an aid, not a guarantee. It permits a number of possible uses and each designer can look for a solution appropriate to their personal style. But one must learn how to use the grid; it is an art that requires practice."
+            "The grid system is an aid, not a guarantee. It permits a number of possible uses and each designer can look
+            for a solution appropriate to their personal style. But one must learn how to use the grid; it is an art
+            that requires practice."
           </blockquote>
         </div>
       </div>

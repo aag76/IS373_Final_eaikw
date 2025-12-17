@@ -7,104 +7,162 @@ eleventyExcludeFromCollections: true
 ---
 
 {# Swiss 404 Error Page - Dramatic Typography & Asymmetric Layout #}
-<section style="padding-top: var(--space-5xl); padding-bottom: var(--space-5xl); min-height: 70vh; display: flex; align-items: center;">
-  <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin); width: 100%;">
+<section
+  style="
+    padding-top: var(--space-5xl);
+    padding-bottom: var(--space-5xl);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+  "
+>
+  <div
+    style="
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: var(--swiss-grid-margin);
+      padding-right: var(--swiss-grid-margin);
+      width: 100%;
+    "
+  >
     <div class="swiss-grid">
       {# Massive 404 - Left Column #}
-      <div class="swiss-col-12 md:swiss-col-5" style="margin-bottom: var(--space-4xl);">
-        <div style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-2xl);">
+      <div class="swiss-col-12 md:swiss-col-5" style="margin-bottom: var(--space-4xl)">
+        <div style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-2xl)">
           {# Dramatic 404 Typography #}
-          <p class="font-black" style="font-size: clamp(8rem, 20vw, 16rem); line-height: 0.9; letter-spacing: -0.05em; color: var(--swiss-black); margin-bottom: 0;">
+          <p
+            class="font-black"
+            style="
+              font-size: clamp(8rem, 20vw, 16rem);
+              line-height: 0.9;
+              letter-spacing: -0.05em;
+              color: var(--swiss-black);
+              margin-bottom: 0;
+            "
+          >
             404
           </p>
-          <div style="width: 80px; height: 4px; background-color: var(--swiss-red); margin-top: var(--space-lg);"></div>
+          <div style="width: 80px; height: 4px; background-color: var(--swiss-red); margin-top: var(--space-lg)"></div>
         </div>
       </div>
-      
+
       {# Content - Right Column #}
-      <div class="swiss-col-12 md:swiss-col-7" style="display: flex; flex-direction: column; justify-content: center;">
-        <div style="max-width: 600px;">
+      <div class="swiss-col-12 md:swiss-col-7" style="display: flex; flex-direction: column; justify-content: center">
+        <div style="max-width: 600px">
           {# Section Number #}
-          <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-md); letter-spacing: 0.15em;">
+          <p
+            class="text-xs uppercase tracking-widest font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: var(--space-md); letter-spacing: 0.15em"
+          >
             Error — Page Not Found
           </p>
-          
+
           {# Headline #}
-          <h1 class="font-bold" style="font-size: var(--fluid-h1); letter-spacing: -0.02em; line-height: 1.1; margin-bottom: var(--space-xl);">
-            This Page<br>Doesn't Exist
+          <h1
+            class="font-bold"
+            style="
+              font-size: var(--fluid-h1);
+              letter-spacing: -0.02em;
+              line-height: 1.1;
+              margin-bottom: var(--space-xl);
+            "
+          >
+            This Page<br />Doesn't Exist
           </h1>
-          
-          <div style="border-top: 2px solid var(--swiss-black); margin-bottom: var(--space-xl);"></div>
-          
+
+          <div style="border-top: 2px solid var(--swiss-black); margin-bottom: var(--space-xl)"></div>
+
           {# Description #}
-          <p class="text-lg leading-relaxed" style="color: var(--swiss-gray-700); margin-bottom: var(--space-2xl);">
+          <p class="text-lg leading-relaxed" style="color: var(--swiss-gray-700); margin-bottom: var(--space-2xl)">
             The page you're looking for has been moved, deleted, or never existed. Let's get you back on track.
           </p>
-          
+
           {# Suggestions as Definition List - Very Swiss #}
-          <dl style="margin-bottom: var(--space-2xl);">
-            <dt class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.15em;">
+          <dl style="margin-bottom: var(--space-2xl)">
+            <dt
+              class="text-xs uppercase tracking-widest font-bold"
+              style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.15em"
+            >
               Suggestions
             </dt>
             <dd>
-              <ul style="list-style: none; padding: 0; border-left: 2px solid var(--swiss-black); padding-left: var(--space-lg);">
-                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200);">
-                  <a href="/" class="font-medium hover:underline" style="color: var(--swiss-black); text-decoration: none;">
+              <ul
+                style="
+                  list-style: none;
+                  padding: 0;
+                  border-left: 2px solid var(--swiss-black);
+                  padding-left: var(--space-lg);
+                "
+              >
+                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200)">
+                  <a
+                    href="/"
+                    class="font-medium hover:underline"
+                    style="color: var(--swiss-black); text-decoration: none"
+                  >
                     01 → Return to Homepage
                   </a>
                 </li>
-                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200);">
-                  <a href="/projects/" class="font-medium hover:underline" style="color: var(--swiss-black); text-decoration: none;">
+                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200)">
+                  <a
+                    href="/projects/"
+                    class="font-medium hover:underline"
+                    style="color: var(--swiss-black); text-decoration: none"
+                  >
                     02 → View Projects
                   </a>
                 </li>
-                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200);">
-                  <a href="/blog/" class="font-medium hover:underline" style="color: var(--swiss-black); text-decoration: none;">
+                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200)">
+                  <a
+                    href="/blog/"
+                    class="font-medium hover:underline"
+                    style="color: var(--swiss-black); text-decoration: none"
+                  >
                     03 → Read Blog
                   </a>
                 </li>
-                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200);">
-                  <a href="/about/" class="font-medium hover:underline" style="color: var(--swiss-black); text-decoration: none;">
+                <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-200)">
+                  <a
+                    href="/about/"
+                    class="font-medium hover:underline"
+                    style="color: var(--swiss-black); text-decoration: none"
+                  >
                     04 → About Me
                   </a>
                 </li>
               </ul>
             </dd>
           </dl>
-          
+
           {# Primary CTA #}
-          <div style="display: flex; gap: var(--space-md); flex-wrap: wrap;">
-            <a href="/" class="btn-swiss-primary">
-              ← GO HOME
-            </a>
-            <a href="javascript:history.back()" class="btn-swiss">
-              GO BACK
-            </a>
+          <div style="display: flex; gap: var(--space-md); flex-wrap: wrap">
+            <a href="/" class="btn-swiss-primary"> ← GO HOME </a>
+            <a href="javascript:history.back()" class="btn-swiss"> GO BACK </a>
           </div>
         </div>
       </div>
     </div>
-    
+
     {# Geometric Swiss Error Visualization #}
-    <div class="swiss-grid" style="margin-top: var(--space-5xl); opacity: 0.1;">
+    <div class="swiss-grid" style="margin-top: var(--space-5xl); opacity: 0.1">
       <div class="swiss-col-12">
         <svg width="100%" height="120" viewBox="0 0 1200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
           {# Geometric pattern representing error state #}
-          <rect x="0" y="0" width="80" height="80" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="100" y="20" width="60" height="60" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="180" y="40" width="40" height="40" stroke="black" stroke-width="2" fill="black"/>
-          <rect x="240" y="30" width="50" height="50" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="310" y="10" width="70" height="70" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="400" y="0" width="80" height="80" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="500" y="20" width="60" height="60" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="580" y="40" width="40" height="40" stroke="black" stroke-width="2" fill="black"/>
-          <rect x="640" y="30" width="50" height="50" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="710" y="10" width="70" height="70" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="800" y="0" width="80" height="80" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="900" y="20" width="60" height="60" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="980" y="40" width="40" height="40" stroke="black" stroke-width="2" fill="black"/>
-          <rect x="1040" y="30" width="50" height="50" stroke="black" stroke-width="2" fill="none"/>
-          <rect x="1110" y="10" width="70" height="70" stroke="black" stroke-width="2" fill="none"/>
+          <rect x="0" y="0" width="80" height="80" stroke="black" stroke-width="2" fill="none" />
+          <rect x="100" y="20" width="60" height="60" stroke="black" stroke-width="2" fill="none" />
+          <rect x="180" y="40" width="40" height="40" stroke="black" stroke-width="2" fill="black" />
+          <rect x="240" y="30" width="50" height="50" stroke="black" stroke-width="2" fill="none" />
+          <rect x="310" y="10" width="70" height="70" stroke="black" stroke-width="2" fill="none" />
+          <rect x="400" y="0" width="80" height="80" stroke="black" stroke-width="2" fill="none" />
+          <rect x="500" y="20" width="60" height="60" stroke="black" stroke-width="2" fill="none" />
+          <rect x="580" y="40" width="40" height="40" stroke="black" stroke-width="2" fill="black" />
+          <rect x="640" y="30" width="50" height="50" stroke="black" stroke-width="2" fill="none" />
+          <rect x="710" y="10" width="70" height="70" stroke="black" stroke-width="2" fill="none" />
+          <rect x="800" y="0" width="80" height="80" stroke="black" stroke-width="2" fill="none" />
+          <rect x="900" y="20" width="60" height="60" stroke="black" stroke-width="2" fill="none" />
+          <rect x="980" y="40" width="40" height="40" stroke="black" stroke-width="2" fill="black" />
+          <rect x="1040" y="30" width="50" height="50" stroke="black" stroke-width="2" fill="none" />
+          <rect x="1110" y="10" width="70" height="70" stroke="black" stroke-width="2" fill="none" />
         </svg>
       </div>
     </div>

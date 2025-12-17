@@ -5,47 +5,60 @@ description: Check the status of your style guide submission
 permalink: /track-submission/
 ---
 
-<section class="swiss-section" style="background-color: var(--swiss-white); padding-top: var(--space-3xl);">
+<section class="swiss-section" style="background-color: var(--swiss-white); padding-top: var(--space-3xl)">
   <div class="swiss-container">
     <div class="swiss-grid">
-      
       {# Header #}
-      <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
-        <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.2em;">
+      <div class="swiss-col-12" style="margin-bottom: var(--space-3xl)">
+        <p
+          class="text-xs uppercase tracking-widest font-bold"
+          style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.2em"
+        >
           SUBMISSION TRACKING
         </p>
-        <h1 class="font-black" style="font-size: var(--fluid-h1); margin-bottom: var(--space-lg); letter-spacing: -0.02em; line-height: 1.1;">
+        <h1
+          class="font-black"
+          style="font-size: var(--fluid-h1); margin-bottom: var(--space-lg); letter-spacing: -0.02em; line-height: 1.1"
+        >
           Track Your Submission
         </h1>
-        <div style="width: 80px; height: 3px; background-color: var(--swiss-red); margin-bottom: var(--space-2xl);"></div>
-        <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-700); max-width: 800px;">
+        <div
+          style="width: 80px; height: 3px; background-color: var(--swiss-red); margin-bottom: var(--space-2xl)"
+        ></div>
+        <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-700); max-width: 800px">
           Enter your submission ID or email address to check the status of your style guide submission.
         </p>
       </div>
 
       {# Tracking Form #}
-      <div class="swiss-col-12 md:swiss-col-8" style="margin-bottom: var(--space-4xl);">
-        <div style="background: var(--swiss-gray-50); padding: var(--space-3xl); border: 2px solid var(--swiss-black);">
+      <div class="swiss-col-12 md:swiss-col-8" style="margin-bottom: var(--space-4xl)">
+        <div style="background: var(--swiss-gray-50); padding: var(--space-3xl); border: 2px solid var(--swiss-black)">
           <form id="trackingForm">
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="confirmationNumber" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="confirmationNumber"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
                 Confirmation Number
               </label>
-              <input 
-                type="text" 
-                id="confirmationNumber" 
+              <input
+                type="text"
+                id="confirmationNumber"
                 required
                 placeholder="e.g., DSG-A1B2C3D4"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white); text-transform: uppercase;"
-              >
-              <p class="text-sm mt-2" style="color: var(--swiss-gray-600);">8-character code from your confirmation (DSG-XXXXXXXX)</p>
+                style="background: var(--swiss-white); text-transform: uppercase"
+              />
+              <p class="text-sm mt-2" style="color: var(--swiss-gray-600)">
+                8-character code from your confirmation (DSG-XXXXXXXX)
+              </p>
             </div>
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               class="font-mono font-bold uppercase text-sm px-8 py-4 border-2 border-black transition-colors"
-              style="background: var(--swiss-black); color: var(--swiss-white);"
+              style="background: var(--swiss-black); color: var(--swiss-white)"
             >
               Check Status →
             </button>
@@ -53,154 +66,176 @@ permalink: /track-submission/
         </div>
 
         {# Results Section #}
-        <div id="resultsSection" style="display: none; margin-top: var(--space-2xl);"></div>
+        <div id="resultsSection" style="display: none; margin-top: var(--space-2xl)"></div>
       </div>
 
       {# Sidebar - Status Guide #}
-      <div class="swiss-col-12 md:swiss-col-4" style="margin-bottom: var(--space-4xl);">
-        <div style="position: sticky; top: var(--space-2xl);">
-          
+      <div class="swiss-col-12 md:swiss-col-4" style="margin-bottom: var(--space-4xl)">
+        <div style="position: sticky; top: var(--space-2xl)">
           {# Status Legend #}
-          <div style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-2xl); margin-bottom: var(--space-xl);">
-            <h3 class="font-bold text-xl mb-4" style="color: var(--swiss-black);">Status Guide</h3>
-            
-            <div style="margin-bottom: var(--space-md);">
-              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
-                <div style="width: 12px; height: 12px; background: var(--swiss-red); border: 2px solid var(--swiss-black);"></div>
+          <div
+            style="
+              background: var(--swiss-white);
+              border: 2px solid var(--swiss-black);
+              padding: var(--space-2xl);
+              margin-bottom: var(--space-xl);
+            "
+          >
+            <h3 class="font-bold text-xl mb-4" style="color: var(--swiss-black)">Status Guide</h3>
+
+            <div style="margin-bottom: var(--space-md)">
+              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs)">
+                <div
+                  style="width: 12px; height: 12px; background: var(--swiss-red); border: 2px solid var(--swiss-black)"
+                ></div>
                 <strong class="font-mono text-sm">Pending Review</strong>
               </div>
-              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px;">
+              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px">
                 Your submission is in the queue and will be reviewed within 1-3 business days.
               </p>
             </div>
 
-            <div style="margin-bottom: var(--space-md);">
-              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
-                <div style="width: 12px; height: 12px; background: #ffc107; border: 2px solid var(--swiss-black);"></div>
+            <div style="margin-bottom: var(--space-md)">
+              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs)">
+                <div style="width: 12px; height: 12px; background: #ffc107; border: 2px solid var(--swiss-black)"></div>
                 <strong class="font-mono text-sm">Under Review</strong>
               </div>
-              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px;">
+              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px">
                 A reviewer is currently evaluating your submission.
               </p>
             </div>
 
-            <div style="margin-bottom: var(--space-md);">
-              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
-                <div style="width: 12px; height: 12px; background: #ff9800; border: 2px solid var(--swiss-black);"></div>
+            <div style="margin-bottom: var(--space-md)">
+              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs)">
+                <div style="width: 12px; height: 12px; background: #ff9800; border: 2px solid var(--swiss-black)"></div>
                 <strong class="font-mono text-sm">Changes Requested</strong>
               </div>
-              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px;">
+              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px">
                 Reviewer has provided feedback. Please update and resubmit.
               </p>
             </div>
 
-            <div style="margin-bottom: var(--space-md);">
-              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
-                <div style="width: 12px; height: 12px; background: #4caf50; border: 2px solid var(--swiss-black);"></div>
+            <div style="margin-bottom: var(--space-md)">
+              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs)">
+                <div style="width: 12px; height: 12px; background: #4caf50; border: 2px solid var(--swiss-black)"></div>
                 <strong class="font-mono text-sm">Approved</strong>
               </div>
-              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px;">
+              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px">
                 Congratulations! Your style guide is now live in our gallery.
               </p>
             </div>
 
             <div>
-              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs);">
-                <div style="width: 12px; height: 12px; background: var(--swiss-gray-600); border: 2px solid var(--swiss-black);"></div>
+              <div style="display: flex; align-items: center; gap: var(--space-sm); margin-bottom: var(--space-xs)">
+                <div
+                  style="
+                    width: 12px;
+                    height: 12px;
+                    background: var(--swiss-gray-600);
+                    border: 2px solid var(--swiss-black);
+                  "
+                ></div>
                 <strong class="font-mono text-sm">Rejected</strong>
               </div>
-              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px;">
+              <p class="text-sm" style="color: var(--swiss-gray-700); padding-left: 24px">
                 Submission did not meet guidelines. See feedback for details.
               </p>
             </div>
           </div>
 
           {# Help Box #}
-          <div style="background: var(--swiss-red); color: var(--swiss-white); padding: var(--space-2xl); border: 2px solid var(--swiss-black);">
+          <div
+            style="
+              background: var(--swiss-red);
+              color: var(--swiss-white);
+              padding: var(--space-2xl);
+              border: 2px solid var(--swiss-black);
+            "
+          >
             <h3 class="font-bold text-xl mb-3">Need Help?</h3>
-            <p class="text-sm mb-4">
-              Can't find your submission or have questions about the review process?
-            </p>
-            <a href="mailto:submissions@designgallery.com" style="display: inline-block; background: var(--swiss-white); color: var(--swiss-black); padding: var(--space-sm) var(--space-md); font-mono font-bold text-sm uppercase border: 2px solid var(--swiss-black);">
+            <p class="text-sm mb-4">Can't find your submission or have questions about the review process?</p>
+            <a
+              href="mailto:submissions@designgallery.com"
+              style="display: inline-block; background: var(--swiss-white); color: var(--swiss-black); padding: var(--space-sm) var(--space-md); font-mono font-bold text-sm uppercase border: 2px solid var(--swiss-black);"
+            >
               Contact Support
             </a>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const trackingForm = document.getElementById('trackingForm');
-  const resultsSection = document.getElementById('resultsSection');
-  const submitButton = trackingForm.querySelector('button[type="submit"]');
+  document.addEventListener("DOMContentLoaded", function () {
+    const trackingForm = document.getElementById("trackingForm");
+    const resultsSection = document.getElementById("resultsSection");
+    const submitButton = trackingForm.querySelector('button[type="submit"]');
 
-  trackingForm.addEventListener('submit', async function(e) {
-    e.preventDefault();
-    
-    const confirmationNumber = document.getElementById('confirmationNumber').value.trim().toUpperCase();
-    
-    // Disable button during request
-    submitButton.disabled = true;
-    submitButton.textContent = 'Checking...';
-    
-    try {
-      const response = await fetch('/.netlify/functions/track', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ confirmationNumber })
-      });
+    trackingForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-      const data = await response.json();
-      
-      if (data.success && data.submission) {
-        displayResult(data.submission);
-      } else {
-        displayNotFound(confirmationNumber);
+      const confirmationNumber = document.getElementById("confirmationNumber").value.trim().toUpperCase();
+
+      // Disable button during request
+      submitButton.disabled = true;
+      submitButton.textContent = "Checking...";
+
+      try {
+        const response = await fetch("/.netlify/functions/track", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ confirmationNumber }),
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.submission) {
+          displayResult(data.submission);
+        } else {
+          displayNotFound(confirmationNumber);
+        }
+      } catch (error) {
+        displayError(error.message);
+      } finally {
+        submitButton.disabled = false;
+        submitButton.textContent = "Check Status →";
       }
-    } catch (error) {
-      displayError(error.message);
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = 'Check Status →';
-    }
+    });
   });
-});
 
-function displayResult(submission) {
-  const resultsSection = document.getElementById('resultsSection');
-  
-  const statusColors = {
-    'pending': '#ef4444',
-    'under-review': '#ffc107',
-    'changes-requested': '#ff9800',
-    'approved': '#4caf50',
-    'rejected': '#6b7280'
-  };
+  function displayResult(submission) {
+    const resultsSection = document.getElementById("resultsSection");
 
-  const statusLabels = {
-    'pending': 'Pending Review',
-    'under-review': 'Under Review',
-    'changes-requested': 'Changes Requested',
-    'approved': 'Approved',
-    'rejected': 'Rejected'
-  };
+    const statusColors = {
+      pending: "#ef4444",
+      "under-review": "#ffc107",
+      "changes-requested": "#ff9800",
+      approved: "#4caf50",
+      rejected: "#6b7280",
+    };
 
-  const statusColor = statusColors[submission.status] || '#6b7280';
-  const statusLabel = statusLabels[submission.status] || submission.status;
-  
-  let statusDetails = '';
-  if (submission.status === 'pending') {
-    const submittedDate = new Date(submission.submittedDate);
-    const estimatedReview = new Date(submittedDate);
-    estimatedReview.setDate(estimatedReview.getDate() + 3);
-    
-    statusDetails = `
+    const statusLabels = {
+      pending: "Pending Review",
+      "under-review": "Under Review",
+      "changes-requested": "Changes Requested",
+      approved: "Approved",
+      rejected: "Rejected",
+    };
+
+    const statusColor = statusColors[submission.status] || "#6b7280";
+    const statusLabel = statusLabels[submission.status] || submission.status;
+
+    let statusDetails = "";
+    if (submission.status === "pending") {
+      const submittedDate = new Date(submission.submittedDate);
+      const estimatedReview = new Date(submittedDate);
+      estimatedReview.setDate(estimatedReview.getDate() + 3);
+
+      statusDetails = `
       <p class="text-sm mb-2" style="color: var(--swiss-gray-700);">
         <strong>Estimated Review:</strong> ${estimatedReview.toLocaleDateString()}
       </p>
@@ -208,48 +243,56 @@ function displayResult(submission) {
         Your submission is in the queue. You'll receive an email when a reviewer begins evaluation.
       </p>
     `;
-  } else if (submission.status === 'under-review') {
-    statusDetails = `
+    } else if (submission.status === "under-review") {
+      statusDetails = `
       <p class="text-sm mb-2" style="color: var(--swiss-gray-700);">
-        ${submission.reviewer ? `<strong>Reviewer:</strong> ${submission.reviewer}` : ''}
+        ${submission.reviewer ? `<strong>Reviewer:</strong> ${submission.reviewer}` : ""}
       </p>
       <p class="text-sm" style="color: var(--swiss-gray-600);">
         Your submission is currently being evaluated. Expect a decision within 1-2 business days.
       </p>
     `;
-  } else if (submission.status === 'approved') {
-    statusDetails = `
+    } else if (submission.status === "approved") {
+      statusDetails = `
       <p class="text-sm mb-2" style="color: var(--swiss-gray-700);">
-        ${submission.reviewDate ? `<strong>Approved:</strong> ${new Date(submission.reviewDate).toLocaleDateString()}` : ''}
+        ${submission.reviewDate ? `<strong>Approved:</strong> ${new Date(submission.reviewDate).toLocaleDateString()}` : ""}
       </p>
       <p class="text-sm mb-3" style="color: var(--swiss-gray-600);">
         Congratulations! Your style guide will be featured in our gallery.
       </p>
     `;
-  } else if (submission.status === 'rejected' || submission.status === 'changes-requested') {
-    statusDetails = `
-      ${submission.reviewDate ? `
+    } else if (submission.status === "rejected" || submission.status === "changes-requested") {
+      statusDetails = `
+      ${
+        submission.reviewDate
+          ? `
         <p class="text-sm mb-2" style="color: var(--swiss-gray-700);">
           <strong>Reviewed:</strong> ${new Date(submission.reviewDate).toLocaleDateString()}
         </p>
-      ` : ''}
-      ${submission.reviewNotes ? `
+      `
+          : ""
+      }
+      ${
+        submission.reviewNotes
+          ? `
         <p class="text-sm mb-2" style="color: var(--swiss-gray-700);">
           <strong>Feedback:</strong>
         </p>
         <p class="text-sm" style="color: var(--swiss-gray-600);">
           ${submission.reviewNotes}
         </p>
-      ` : ''}
+      `
+          : ""
+      }
     `;
-  }
+    }
 
-  resultsSection.style.display = 'block';
-  resultsSection.innerHTML = `
+    resultsSection.style.display = "block";
+    resultsSection.innerHTML = `
     <div style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-2xl);">
       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-lg); flex-wrap: wrap; gap: var(--space-md);">
         <div style="flex: 1; min-width: 250px;">
-          <h3 class="font-bold text-xl mb-2" style="color: var(--swiss-black);">${submission.designStyle || 'Style Guide Submission'}</h3>
+          <h3 class="font-bold text-xl mb-2" style="color: var(--swiss-black);">${submission.designStyle || "Style Guide Submission"}</h3>
           <p class="font-mono text-sm" style="color: var(--swiss-gray-600);">
             ${submission.confirmationNumber} • Submitted: ${new Date(submission.submittedDate).toLocaleDateString()}
           </p>
@@ -265,12 +308,12 @@ function displayResult(submission) {
       </div>
     </div>
   `;
-}
+  }
 
-function displayNotFound(confirmationNumber) {
-  const resultsSection = document.getElementById('resultsSection');
-  resultsSection.style.display = 'block';
-  resultsSection.innerHTML = `
+  function displayNotFound(confirmationNumber) {
+    const resultsSection = document.getElementById("resultsSection");
+    resultsSection.style.display = "block";
+    resultsSection.innerHTML = `
     <div style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-3xl); text-align: center;">
       <div style="font-size: 3rem; margin-bottom: var(--space-lg);">🔍</div>
       <h3 class="font-bold text-xl mb-3" style="color: var(--swiss-black);">Submission Not Found</h3>
@@ -281,12 +324,12 @@ function displayNotFound(confirmationNumber) {
       </p>
     </div>
   `;
-}
+  }
 
-function displayError(message) {
-  const resultsSection = document.getElementById('resultsSection');
-  resultsSection.style.display = 'block';
-  resultsSection.innerHTML = `
+  function displayError(message) {
+    const resultsSection = document.getElementById("resultsSection");
+    resultsSection.style.display = "block";
+    resultsSection.innerHTML = `
     <div style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-3xl); text-align: center; border-left: 4px solid #ef4444;">
       <div style="font-size: 3rem; margin-bottom: var(--space-lg);">⚠️</div>
       <h3 class="font-bold text-xl mb-3" style="color: var(--swiss-black);">Error</h3>
@@ -295,5 +338,5 @@ function displayError(message) {
       </p>
     </div>
   `;
-}
+  }
 </script>

@@ -8,49 +8,164 @@ eleventyExcludeFromCollections: true
 
 <div id="reviewModeRequired">
   <section class="py-12 md:py-16 lg:py-20">
-    <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+    <div
+      style="
+        max-width: 1440px;
+        margin: 0 auto;
+        padding-left: var(--swiss-grid-margin);
+        padding-right: var(--swiss-grid-margin);
+      "
+    >
       {# Header #}
-      <div class="swiss-grid mb-16" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md);">
+      <div class="swiss-grid mb-16" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md)">
         <div class="swiss-col-12">
-          <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">STYLE GUIDE REVIEW</p>
-          <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em;">Submission Dashboard</h1>
-          <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch; line-height: 1.6;">Review and manage design system submissions. Approve, request changes, or decline submissions.</p>
+          <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+            STYLE GUIDE REVIEW
+          </p>
+          <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em">
+            Submission Dashboard
+          </h1>
+          <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch; line-height: 1.6">
+            Review and manage design system submissions. Approve, request changes, or decline submissions.
+          </p>
         </div>
       </div>
 
       {# Stats Overview #}
       <div id="statsOverview" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Total Submissions</p>
-          <p id="totalCount" class="font-black" style="font-size: 2.5rem; color: var(--swiss-black); line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Total Submissions
+          </p>
+          <p id="totalCount" class="font-black" style="font-size: 2.5rem; color: var(--swiss-black); line-height: 1">
+            0
+          </p>
         </div>
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Pending Review</p>
-          <p id="pendingCount" class="font-black" style="font-size: 2.5rem; color: #FFA500; line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Pending Review
+          </p>
+          <p id="pendingCount" class="font-black" style="font-size: 2.5rem; color: #ffa500; line-height: 1">0</p>
         </div>
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Approved</p>
-          <p id="approvedCount" class="font-black" style="font-size: 2.5rem; color: #22C55E; line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Approved
+          </p>
+          <p id="approvedCount" class="font-black" style="font-size: 2.5rem; color: #22c55e; line-height: 1">0</p>
         </div>
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Declined</p>
-          <p id="declinedCount" class="font-black" style="font-size: 2.5rem; color: #EF4444; line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Declined
+          </p>
+          <p id="declinedCount" class="font-black" style="font-size: 2.5rem; color: #ef4444; line-height: 1">0</p>
         </div>
       </div>
 
       {# Filter Tabs #}
-      <div id="filterTabs" class="mb-8" style="border-bottom: 2px solid var(--swiss-gray-300);">
-        <div style="display: flex; gap: 0;">
-          <button class="filter-tab active" data-filter="all" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid var(--swiss-red); font-weight: bold; cursor: pointer; transition: all 0.2s;">
+      <div id="filterTabs" class="mb-8" style="border-bottom: 2px solid var(--swiss-gray-300)">
+        <div style="display: flex; gap: 0">
+          <button
+            class="filter-tab active"
+            data-filter="all"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid var(--swiss-red);
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             All (<span id="allCount">0</span>)
           </button>
-          <button class="filter-tab" data-filter="pending" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+          <button
+            class="filter-tab"
+            data-filter="pending"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid transparent;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             Pending (<span id="pendingTabCount">0</span>)
           </button>
-          <button class="filter-tab" data-filter="approved" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+          <button
+            class="filter-tab"
+            data-filter="approved"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid transparent;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             Approved (<span id="approvedTabCount">0</span>)
           </button>
-          <button class="filter-tab" data-filter="rejected" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+          <button
+            class="filter-tab"
+            data-filter="rejected"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid transparent;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             Rejected (<span id="rejectedTabCount">0</span>)
           </button>
         </div>
@@ -58,7 +173,7 @@ eleventyExcludeFromCollections: true
 
       {# Submissions List - will be populated by JavaScript #}
       <div id="submissionsList" class="space-y-6">
-        <div style="text-align: center; padding: 3rem; color: var(--swiss-gray-600);">
+        <div style="text-align: center; padding: 3rem; color: var(--swiss-gray-600)">
           <p>Loading submissions...</p>
         </div>
       </div>
@@ -67,189 +182,189 @@ eleventyExcludeFromCollections: true
 </div>
 
 <script>
-  let allSubmissions = [];
+    let allSubmissions = [];
 
-  // Check review mode on load
-  function checkReviewMode() {
-    const isReviewMode = localStorage.getItem('reviewMode') === 'true';
-    if (isReviewMode) {
-      document.getElementById('reviewModeRequired').style.display = 'block';
-      document.getElementById('reviewModeDisabled').style.display = 'none';
+    // Check review mode on load
+    function checkReviewMode() {
+      const isReviewMode = localStorage.getItem('reviewMode') === 'true';
+      if (isReviewMode) {
+        document.getElementById('reviewModeRequired').style.display = 'block';
+        document.getElementById('reviewModeDisabled').style.display = 'none';
+        loadSubmissions();
+      } else {
+        document.getElementById('reviewModeRequired').style.display = 'none';
+        document.getElementById('reviewModeDisabled').style.display = 'flex';
+      }
+    }
+  <script>
+    let allSubmissions = [];
+
+    // Load submissions on page load
+    document.addEventListener('DOMContentLoaded', function() {
       loadSubmissions();
-    } else {
-      document.getElementById('reviewModeRequired').style.display = 'none';
-      document.getElementById('reviewModeDisabled').style.display = 'flex';
+    });
+
+    // Load submissions from API
+    async function loadSubmissions() {
+      }
     }
-  }
-<script>
-  let allSubmissions = [];
 
-  // Load submissions on page load
-  document.addEventListener('DOMContentLoaded', function() {
-    loadSubmissions();
-  });
+    // Update statistics
+    function updateStats(submissions) {
+      const pending = submissions.filter(s => s.status === 'pending').length;
+      const approved = submissions.filter(s => s.status === 'approved').length;
+      const rejected = submissions.filter(s => s.status === 'rejected').length;
 
-  // Load submissions from API
-  async function loadSubmissions() {
+      document.getElementById('totalCount').textContent = submissions.length;
+      document.getElementById('pendingCount').textContent = pending;
+      document.getElementById('approvedCount').textContent = approved;
+      document.getElementById('declinedCount').textContent = rejected;
+
+      document.getElementById('allCount').textContent = submissions.length;
+      document.getElementById('pendingTabCount').textContent = pending;
+      document.getElementById('approvedTabCount').textContent = approved;
+      document.getElementById('rejectedTabCount').textContent = rejected;
     }
-  }
 
-  // Update statistics
-  function updateStats(submissions) {
-    const pending = submissions.filter(s => s.status === 'pending').length;
-    const approved = submissions.filter(s => s.status === 'approved').length;
-    const rejected = submissions.filter(s => s.status === 'rejected').length;
-    
-    document.getElementById('totalCount').textContent = submissions.length;
-    document.getElementById('pendingCount').textContent = pending;
-    document.getElementById('approvedCount').textContent = approved;
-    document.getElementById('declinedCount').textContent = rejected;
-    
-    document.getElementById('allCount').textContent = submissions.length;
-    document.getElementById('pendingTabCount').textContent = pending;
-    document.getElementById('approvedTabCount').textContent = approved;
-    document.getElementById('rejectedTabCount').textContent = rejected;
-  }
+    // Render submissions
+    function renderSubmissions(submissions) {
+      const container = document.getElementById('submissionsList');
 
-  // Render submissions
-  function renderSubmissions(submissions) {
-    const container = document.getElementById('submissionsList');
-    
-    if (submissions.length === 0) {
-      container.innerHTML = `
-        <div style="text-align: center; padding: 3rem; color: var(--swiss-gray-600);">
-          <p>No submissions yet.</p>
-        </div>
-      `;
-      return;
-    }
-    
-    container.innerHTML = submissions.map(submission => renderSubmissionCard(submission)).join('');
-    
-    // Attach filter functionality
-    document.querySelectorAll('.filter-tab').forEach(tab => {
-      tab.addEventListener('click', function() {
-        const filter = this.dataset.filter;
-        
-        // Update active tab
-        document.querySelectorAll('.filter-tab').forEach(t => {
-          t.style.borderBottomColor = 'transparent';
-          t.classList.remove('active');
-        });
-        this.style.borderBottomColor = 'var(--swiss-red)';
-        this.classList.add('active');
-        
-        // Filter submissions
-        document.querySelectorAll('.submission-card').forEach(card => {
-          if (filter === 'all' || card.dataset.status === filter) {
-            card.style.display = 'block';
-          } else {
-            card.style.display = 'none';
-          }
+      if (submissions.length === 0) {
+        container.innerHTML = `
+          <div style="text-align: center; padding: 3rem; color: var(--swiss-gray-600);">
+            <p>No submissions yet.</p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = submissions.map(submission => renderSubmissionCard(submission)).join('');
+
+      // Attach filter functionality
+      document.querySelectorAll('.filter-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          const filter = this.dataset.filter;
+
+          // Update active tab
+          document.querySelectorAll('.filter-tab').forEach(t => {
+            t.style.borderBottomColor = 'transparent';
+            t.classList.remove('active');
+          });
+          this.style.borderBottomColor = 'var(--swiss-red)';
+          this.classList.add('active');
+
+          // Filter submissions
+          document.querySelectorAll('.submission-card').forEach(card => {
+            if (filter === 'all' || card.dataset.status === filter) {
+              card.style.display = 'block';
+            } else {
+              card.style.display = 'none';
+            }
+          });
         });
       });
-    });
-  }
+    }
 
-  // Render individual submission card
-  function renderSubmissionCard(submission) {
-    const statusColors = {
-      'pending': { bg: '#FEF3C7', text: '#92400E' },
-      'approved': { bg: '#D1FAE5', text: '#065F46' },
-      'rejected': { bg: '#FEE2E2', text: '#991B1B' }
-    };
-    
-    const statusStyle = statusColors[submission.status] || { bg: '#F3F4F6', text: '#374151' };
-    const submittedDate = new Date(submission.submittedDate).toLocaleDateString();
-    
-    return `
-      <article class="submission-card" data-status="${submission.status}" style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s;">
-        <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
-          <div style="flex: 1;">
-            <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
-              <h3 class="font-bold" style="font-size: 1.5rem; margin: 0;">${submission.designStyle || 'Untitled Style Guide'}</h3>
-              <span class="status-badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background: ${statusStyle.bg}; color: ${statusStyle.text};">
-                ${submission.status}
-              </span>
+    // Render individual submission card
+    function renderSubmissionCard(submission) {
+      const statusColors = {
+        'pending': { bg: '#FEF3C7', text: '#92400E' },
+        'approved': { bg: '#D1FAE5', text: '#065F46' },
+        'rejected': { bg: '#FEE2E2', text: '#991B1B' }
+      };
+
+      const statusStyle = statusColors[submission.status] || { bg: '#F3F4F6', text: '#374151' };
+      const submittedDate = new Date(submission.submittedDate).toLocaleDateString();
+
+      return `
+        <article class="submission-card" data-status="${submission.status}" style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 2rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); transition: all 0.3s;">
+          <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+            <div style="flex: 1;">
+              <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
+                <h3 class="font-bold" style="font-size: 1.5rem; margin: 0;">${submission.designStyle || 'Untitled Style Guide'}</h3>
+                <span class="status-badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background: ${statusStyle.bg}; color: ${statusStyle.text};">
+                  ${submission.status}
+                </span>
+              </div>
+              <p style="color: var(--swiss-gray-600); font-size: 0.875rem; margin: 0;">
+                Submitted by <strong>${submission.name}</strong> on ${submittedDate}
+              </p>
             </div>
-            <p style="color: var(--swiss-gray-600); font-size: 0.875rem; margin: 0;">
-              Submitted by <strong>${submission.name}</strong> on ${submittedDate}
+            <p class="text-xs uppercase tracking-wider font-bold" style="color: var(--swiss-gray-500);">
+              ${submission.confirmationNumber}
             </p>
           </div>
-          <p class="text-xs uppercase tracking-wider font-bold" style="color: var(--swiss-gray-500);">
-            ${submission.confirmationNumber}
-          </p>
-        </div>
 
-        <div style="margin-bottom: 1.5rem;">
-          <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Contact</p>
-          <p style="color: var(--swiss-gray-700); font-size: 0.875rem;">${submission.email}</p>
-          
-          ${submission.demoUrl ? `
-            <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Demo URL</p>
-            <a href="${submission.demoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--swiss-red); text-decoration: underline; font-size: 0.875rem;">${submission.demoUrl}</a>
-          ` : ''}
-          
-          ${submission.toolsUsed ? `
-            <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Tools Used</p>
-            <p style="color: var(--swiss-gray-700); font-size: 0.875rem;">${submission.toolsUsed}</p>
-          ` : ''}
-          
-          ${submission.additionalNotes ? `
-            <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Additional Notes</p>
-            <p style="color: var(--swiss-gray-700); font-size: 0.875rem; line-height: 1.6;">${submission.additionalNotes}</p>
-          ` : ''}
-        </div>
+          <div style="margin-bottom: 1.5rem;">
+            <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Contact</p>
+            <p style="color: var(--swiss-gray-700); font-size: 0.875rem;">${submission.email}</p>
 
-        <div style="display: flex; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--swiss-gray-200); flex-wrap: wrap;">
-          ${submission.demoUrl ? `
-            <a href="${submission.demoUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--swiss-black); color: white; border-radius: 4px; font-weight: bold; text-decoration: none; transition: all 0.2s;">
-              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-              </svg>
-              View Demo
-            </a>
-          ` : ''}
-          
-          ${submission.status === 'pending' ? `
-            <button onclick="updateStatus('${submission.confirmationNumber}', 'approved')" style="padding: 0.75rem 1.5rem; background: #22C55E; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
-              ✓ Approve
-            </button>
-            <button onclick="updateStatus('${submission.confirmationNumber}', 'rejected')" style="padding: 0.75rem 1.5rem; background: #EF4444; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
-              ✗ Reject
-            </button>
-            <button onclick="requestChanges('${submission.confirmationNumber}')" style="padding: 0.75rem 1.5rem; background: #F59E0B; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
-              Request Changes
-            </button>
-          ` : ''}
-        </div>
-      </article>
-    `;
-  }
+            ${submission.demoUrl ? `
+              <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Demo URL</p>
+              <a href="${submission.demoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--swiss-red); text-decoration: underline; font-size: 0.875rem;">${submission.demoUrl}</a>
+            ` : ''}
 
-  // Action functions (placeholders - would need backend update endpoint)
-  function updateStatus(confirmationNumber, status) {
-    alert(\`Submission \${confirmationNumber} status would be updated to: \${status}\n\nThis feature requires a backend update endpoint to be implemented.\`);
-  }
+            ${submission.toolsUsed ? `
+              <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Tools Used</p>
+              <p style="color: var(--swiss-gray-700); font-size: 0.875rem;">${submission.toolsUsed}</p>
+            ` : ''}
 
-  function requestChanges(confirmationNumber) {
-    const feedback = prompt('Enter feedback for the submitter:');
-    if (feedback) {
-      alert(\`Change request would be sent for \${confirmationNumber}\n\nFeedback: \${feedback}\n\nThis feature requires a backend update endpoint to be implemented.\`);
+            ${submission.additionalNotes ? `
+              <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Additional Notes</p>
+              <p style="color: var(--swiss-gray-700); font-size: 0.875rem; line-height: 1.6;">${submission.additionalNotes}</p>
+            ` : ''}
+          </div>
+
+          <div style="display: flex; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--swiss-gray-200); flex-wrap: wrap;">
+            ${submission.demoUrl ? `
+              <a href="${submission.demoUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--swiss-black); color: white; border-radius: 4px; font-weight: bold; text-decoration: none; transition: all 0.2s;">
+                <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+                View Demo
+              </a>
+            ` : ''}
+
+            ${submission.status === 'pending' ? `
+              <button onclick="updateStatus('${submission.confirmationNumber}', 'approved')" style="padding: 0.75rem 1.5rem; background: #22C55E; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+                ✓ Approve
+              </button>
+              <button onclick="updateStatus('${submission.confirmationNumber}', 'rejected')" style="padding: 0.75rem 1.5rem; background: #EF4444; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+                ✗ Reject
+              </button>
+              <button onclick="requestChanges('${submission.confirmationNumber}')" style="padding: 0.75rem 1.5rem; background: #F59E0B; color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+                Request Changes
+              </button>
+            ` : ''}
+          </div>
+        </article>
+      `;
     }
-  }
+
+    // Action functions (placeholders - would need backend update endpoint)
+    function updateStatus(confirmationNumber, status) {
+      alert(\`Submission \${confirmationNumber} status would be updated to: \${status}\n\nThis feature requires a backend update endpoint to be implemented.\`);
+    }
+
+    function requestChanges(confirmationNumber) {
+      const feedback = prompt('Enter feedback for the submitter:');
+      if (feedback) {
+        alert(\`Change request would be sent for \${confirmationNumber}\n\nFeedback: \${feedback}\n\nThis feature requires a backend update endpoint to be implemented.\`);
+      }
+    }
 </script>
 
 <style>
   .filter-tab:hover {
     background: var(--swiss-gray-100);
   }
-  
+
   .submission-card:hover {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     transform: translateY(-2px);
   }
-  
+
   button:hover {
     opacity: 0.9;
     transform: translateY(-1px);

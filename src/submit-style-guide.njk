@@ -8,74 +8,96 @@ eleventyNavigation:
   order: 5
 ---
 
-<section class="swiss-section" style="background-color: var(--swiss-white); padding-top: var(--space-3xl);">
+<section class="swiss-section" style="background-color: var(--swiss-white); padding-top: var(--space-3xl)">
   <div class="swiss-container">
     <div class="swiss-grid">
-      
       {# Header #}
-      <div class="swiss-col-12" style="margin-bottom: var(--space-3xl);">
-        <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.2em;">
+      <div class="swiss-col-12" style="margin-bottom: var(--space-3xl)">
+        <p
+          class="text-xs uppercase tracking-widest font-bold"
+          style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.2em"
+        >
           SUBMIT TO GALLERY
         </p>
-        <h1 class="font-black" style="font-size: var(--fluid-h1); margin-bottom: var(--space-lg); letter-spacing: -0.02em; line-height: 1.1;">
+        <h1
+          class="font-black"
+          style="font-size: var(--fluid-h1); margin-bottom: var(--space-lg); letter-spacing: -0.02em; line-height: 1.1"
+        >
           Submit Your Style Guide
         </h1>
-        <div style="width: 80px; height: 3px; background-color: var(--swiss-red); margin-bottom: var(--space-2xl);"></div>
-        <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-700); max-width: 800px;">
-          Share your design system with the community. Your submission will be reviewed by our team and, once approved, 
+        <div
+          style="width: 80px; height: 3px; background-color: var(--swiss-red); margin-bottom: var(--space-2xl)"
+        ></div>
+        <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-700); max-width: 800px">
+          Share your design system with the community. Your submission will be reviewed by our team and, once approved,
           featured in our gallery for designers and developers worldwide to learn from.
         </p>
       </div>
 
       {# Submission Form #}
-      <div class="swiss-col-12 lg:swiss-col-8" style="margin-bottom: var(--space-4xl);">
-        <form id="styleGuideSubmissionForm" class="submission-form" style="background: var(--swiss-gray-50); padding: var(--space-3xl); border: 2px solid var(--swiss-black);">
-          
+      <div class="swiss-col-12 lg:swiss-col-8" style="margin-bottom: var(--space-4xl)">
+        <form
+          id="styleGuideSubmissionForm"
+          class="submission-form"
+          style="background: var(--swiss-gray-50); padding: var(--space-3xl); border: 2px solid var(--swiss-black)"
+        >
           {# Personal Information #}
-          <div style="margin-bottom: var(--space-3xl);">
-            <h2 class="font-bold text-2xl mb-6" style="color: var(--swiss-black);">Your Information</h2>
-            
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="submitterName" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Full Name <span style="color: var(--swiss-red);">*</span>
+          <div style="margin-bottom: var(--space-3xl)">
+            <h2 class="font-bold text-2xl mb-6" style="color: var(--swiss-black)">Your Information</h2>
+
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="submitterName"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Full Name <span style="color: var(--swiss-red)">*</span>
               </label>
-              <input 
-                type="text" 
-                id="submitterName" 
-                name="submitterName" 
+              <input
+                type="text"
+                id="submitterName"
+                name="submitterName"
                 required
                 aria-required="true"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
-              >
+                style="background: var(--swiss-white)"
+              />
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="submitterEmail" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Email Address <span style="color: var(--swiss-red);">*</span>
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="submitterEmail"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Email Address <span style="color: var(--swiss-red)">*</span>
               </label>
-              <input 
-                type="email" 
-                id="submitterEmail" 
-                name="submitterEmail" 
+              <input
+                type="email"
+                id="submitterEmail"
+                name="submitterEmail"
                 required
                 aria-required="true"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
-              >
+                style="background: var(--swiss-white)"
+              />
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="submitterRole" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Your Role <span style="color: var(--swiss-red);">*</span>
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="submitterRole"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Your Role <span style="color: var(--swiss-red)">*</span>
               </label>
-              <select 
-                id="submitterRole" 
-                name="submitterRole" 
+              <select
+                id="submitterRole"
+                name="submitterRole"
                 required
                 aria-required="true"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
+                style="background: var(--swiss-white)"
               >
                 <option value="">Select your role...</option>
                 <option value="designer">Designer</option>
@@ -89,53 +111,73 @@ eleventyNavigation:
           </div>
 
           {# Style Guide Information #}
-          <div style="margin-bottom: var(--space-3xl); padding-top: var(--space-2xl); border-top: 2px solid var(--swiss-black);">
-            <h2 class="font-bold text-2xl mb-6" style="color: var(--swiss-black);">Style Guide Details</h2>
-            
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="styleGuideName" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Style Guide Name <span style="color: var(--swiss-red);">*</span>
+          <div
+            style="
+              margin-bottom: var(--space-3xl);
+              padding-top: var(--space-2xl);
+              border-top: 2px solid var(--swiss-black);
+            "
+          >
+            <h2 class="font-bold text-2xl mb-6" style="color: var(--swiss-black)">Style Guide Details</h2>
+
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="styleGuideName"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Style Guide Name <span style="color: var(--swiss-red)">*</span>
               </label>
-              <input 
-                type="text" 
-                id="styleGuideName" 
-                name="styleGuideName" 
+              <input
+                type="text"
+                id="styleGuideName"
+                name="styleGuideName"
                 required
                 aria-required="true"
                 placeholder="e.g., Nordic Minimalism Design System"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
-              >
+                style="background: var(--swiss-white)"
+              />
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="styleGuideUrl" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Style Guide URL <span style="color: var(--swiss-red);">*</span>
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="styleGuideUrl"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Style Guide URL <span style="color: var(--swiss-red)">*</span>
               </label>
-              <input 
-                type="url" 
-                id="styleGuideUrl" 
-                name="styleGuideUrl" 
+              <input
+                type="url"
+                id="styleGuideUrl"
+                name="styleGuideUrl"
                 required
                 aria-required="true"
                 placeholder="https://example.com/style-guide"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
-              >
-              <p class="text-sm mt-2" style="color: var(--swiss-gray-600);">Link to your publicly accessible style guide</p>
+                style="background: var(--swiss-white)"
+              />
+              <p class="text-sm mt-2" style="color: var(--swiss-gray-600)">
+                Link to your publicly accessible style guide
+              </p>
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="category" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Primary Category <span style="color: var(--swiss-red);">*</span>
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="category"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Primary Category <span style="color: var(--swiss-red)">*</span>
               </label>
-              <select 
-                id="category" 
-                name="category" 
+              <select
+                id="category"
+                name="category"
                 required
                 aria-required="true"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
+                style="background: var(--swiss-white)"
               >
                 <option value="">Select a category...</option>
                 <option value="minimalist">Minimalist</option>
@@ -149,123 +191,145 @@ eleventyNavigation:
               </select>
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="description" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
-                Description <span style="color: var(--swiss-red);">*</span>
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="description"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
+                Description <span style="color: var(--swiss-red)">*</span>
               </label>
-              <textarea 
-                id="description" 
-                name="description" 
+              <textarea
+                id="description"
+                name="description"
                 required
                 aria-required="true"
                 rows="5"
                 placeholder="Describe your style guide, its purpose, key features, and what makes it unique..."
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white); resize: vertical;"
+                style="background: var(--swiss-white); resize: vertical"
               ></textarea>
-              <p class="text-sm mt-2" style="color: var(--swiss-gray-600);">Minimum 100 characters</p>
+              <p class="text-sm mt-2" style="color: var(--swiss-gray-600)">Minimum 100 characters</p>
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="technologies" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="technologies"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
                 Technologies Used
               </label>
-              <input 
-                type="text" 
-                id="technologies" 
-                name="technologies" 
+              <input
+                type="text"
+                id="technologies"
+                name="technologies"
                 placeholder="e.g., React, Tailwind CSS, Figma"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
-              >
-              <p class="text-sm mt-2" style="color: var(--swiss-gray-600);">Separate multiple items with commas</p>
+                style="background: var(--swiss-white)"
+              />
+              <p class="text-sm mt-2" style="color: var(--swiss-gray-600)">Separate multiple items with commas</p>
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="liveExampleUrl" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="liveExampleUrl"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
                 Live Example URL
               </label>
-              <input 
-                type="url" 
-                id="liveExampleUrl" 
-                name="liveExampleUrl" 
+              <input
+                type="url"
+                id="liveExampleUrl"
+                name="liveExampleUrl"
                 placeholder="https://example.com"
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white);"
-              >
-              <p class="text-sm mt-2" style="color: var(--swiss-gray-600);">Link to a website using this style guide</p>
+                style="background: var(--swiss-white)"
+              />
+              <p class="text-sm mt-2" style="color: var(--swiss-gray-600)">Link to a website using this style guide</p>
             </div>
           </div>
 
           {# Additional Information #}
-          <div style="margin-bottom: var(--space-3xl); padding-top: var(--space-2xl); border-top: 2px solid var(--swiss-black);">
-            <h2 class="font-bold text-2xl mb-6" style="color: var(--swiss-black);">Additional Details</h2>
-            
-            <div style="margin-bottom: var(--space-xl);">
-              <label class="block font-mono font-bold text-sm uppercase mb-3" style="color: var(--swiss-black);">
-                License Type <span style="color: var(--swiss-red);">*</span>
+          <div
+            style="
+              margin-bottom: var(--space-3xl);
+              padding-top: var(--space-2xl);
+              border-top: 2px solid var(--swiss-black);
+            "
+          >
+            <h2 class="font-bold text-2xl mb-6" style="color: var(--swiss-black)">Additional Details</h2>
+
+            <div style="margin-bottom: var(--space-xl)">
+              <label class="block font-mono font-bold text-sm uppercase mb-3" style="color: var(--swiss-black)">
+                License Type <span style="color: var(--swiss-red)">*</span>
               </label>
-              <div style="display: flex; flex-direction: column; gap: var(--space-sm);">
-                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
-                  <input type="radio" name="license" value="open-source" required aria-required="true">
+              <div style="display: flex; flex-direction: column; gap: var(--space-sm)">
+                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer">
+                  <input type="radio" name="license" value="open-source" required aria-required="true" />
                   <span class="font-mono text-sm">Open Source (MIT, Apache, etc.)</span>
                 </label>
-                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
-                  <input type="radio" name="license" value="creative-commons" required>
+                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer">
+                  <input type="radio" name="license" value="creative-commons" required />
                   <span class="font-mono text-sm">Creative Commons</span>
                 </label>
-                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
-                  <input type="radio" name="license" value="proprietary-showcase" required>
+                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer">
+                  <input type="radio" name="license" value="proprietary-showcase" required />
                   <span class="font-mono text-sm">Proprietary (Showcase Only)</span>
                 </label>
-                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer;">
-                  <input type="radio" name="license" value="other" required>
+                <label style="display: flex; align-items: center; gap: var(--space-sm); cursor: pointer">
+                  <input type="radio" name="license" value="other" required />
                   <span class="font-mono text-sm">Other</span>
                 </label>
               </div>
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label for="additionalNotes" class="block font-mono font-bold text-sm uppercase mb-2" style="color: var(--swiss-black);">
+            <div style="margin-bottom: var(--space-xl)">
+              <label
+                for="additionalNotes"
+                class="block font-mono font-bold text-sm uppercase mb-2"
+                style="color: var(--swiss-black)"
+              >
                 Additional Notes
               </label>
-              <textarea 
-                id="additionalNotes" 
-                name="additionalNotes" 
+              <textarea
+                id="additionalNotes"
+                name="additionalNotes"
                 rows="4"
                 placeholder="Any additional information, special requirements, or context you'd like to share..."
                 class="w-full p-3 border-2 border-black font-mono"
-                style="background: var(--swiss-white); resize: vertical;"
+                style="background: var(--swiss-white); resize: vertical"
               ></textarea>
             </div>
 
-            <div style="margin-bottom: var(--space-xl);">
-              <label style="display: flex; align-items: start; gap: var(--space-sm); cursor: pointer;">
-                <input type="checkbox" name="agreement" required aria-required="true" style="margin-top: 4px;">
-                <span class="text-sm" style="color: var(--swiss-gray-700);">
-                  I confirm that I have the right to submit this style guide and agree to the 
-                  <a href="/terms/" style="color: var(--swiss-red); text-decoration: underline;">terms and conditions</a>. 
-                  I understand that my submission will be reviewed before publication.
+            <div style="margin-bottom: var(--space-xl)">
+              <label style="display: flex; align-items: start; gap: var(--space-sm); cursor: pointer">
+                <input type="checkbox" name="agreement" required aria-required="true" style="margin-top: 4px" />
+                <span class="text-sm" style="color: var(--swiss-gray-700)">
+                  I confirm that I have the right to submit this style guide and agree to the
+                  <a href="/terms/" style="color: var(--swiss-red); text-decoration: underline">terms and conditions</a
+                  >. I understand that my submission will be reviewed before publication.
                 </span>
               </label>
             </div>
           </div>
 
           {# Submit Button #}
-          <div style="display: flex; gap: var(--space-md);">
-            <button 
-              type="submit" 
+          <div style="display: flex; gap: var(--space-md)">
+            <button
+              type="submit"
               class="font-mono font-bold uppercase text-sm px-8 py-4 border-2 border-black transition-colors"
-              style="background: var(--swiss-black); color: var(--swiss-white);"
+              style="background: var(--swiss-black); color: var(--swiss-white)"
               onmouseover="this.style.background='var(--swiss-red)'; this.style.borderColor='var(--swiss-red)';"
               onmouseout="this.style.background='var(--swiss-black)'; this.style.borderColor='var(--swiss-black)';"
             >
               Submit for Review →
             </button>
-            <button 
-              type="reset" 
+            <button
+              type="reset"
               class="font-mono font-bold uppercase text-sm px-8 py-4 border-2 border-black transition-colors"
-              style="background: var(--swiss-white); color: var(--swiss-black);"
+              style="background: var(--swiss-white); color: var(--swiss-black)"
               onmouseover="this.style.background='var(--swiss-gray-100)';"
               onmouseout="this.style.background='var(--swiss-white)';"
             >
@@ -274,52 +338,95 @@ eleventyNavigation:
           </div>
 
           {# Success/Error Messages #}
-          <div id="formMessage" style="margin-top: var(--space-xl); display: none;"></div>
+          <div id="formMessage" style="margin-top: var(--space-xl); display: none"></div>
         </form>
       </div>
 
       {# Sidebar - Guidelines #}
-      <div class="swiss-col-12 lg:swiss-col-4" style="margin-bottom: var(--space-4xl);">
-        <div style="position: sticky; top: var(--space-2xl);">
-          
+      <div class="swiss-col-12 lg:swiss-col-4" style="margin-bottom: var(--space-4xl)">
+        <div style="position: sticky; top: var(--space-2xl)">
           {# Submission Guidelines #}
-          <div style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-2xl); margin-bottom: var(--space-xl);">
-            <h3 class="font-bold text-xl mb-4" style="color: var(--swiss-black);">Submission Guidelines</h3>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-300); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--swiss-red); font-weight: bold;">✓</span>
-                <span class="text-sm" style="color: var(--swiss-gray-700);">Publicly accessible style guide documentation</span>
+          <div
+            style="
+              background: var(--swiss-white);
+              border: 2px solid var(--swiss-black);
+              padding: var(--space-2xl);
+              margin-bottom: var(--space-xl);
+            "
+          >
+            <h3 class="font-bold text-xl mb-4" style="color: var(--swiss-black)">Submission Guidelines</h3>
+            <ul style="list-style: none; padding: 0; margin: 0">
+              <li
+                style="
+                  padding: var(--space-sm) 0;
+                  border-bottom: 1px solid var(--swiss-gray-300);
+                  display: flex;
+                  gap: var(--space-sm);
+                "
+              >
+                <span style="color: var(--swiss-red); font-weight: bold">✓</span>
+                <span class="text-sm" style="color: var(--swiss-gray-700)"
+                  >Publicly accessible style guide documentation</span
+                >
               </li>
-              <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-300); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--swiss-red); font-weight: bold;">✓</span>
-                <span class="text-sm" style="color: var(--swiss-gray-700);">Clear design principles and guidelines</span>
+              <li
+                style="
+                  padding: var(--space-sm) 0;
+                  border-bottom: 1px solid var(--swiss-gray-300);
+                  display: flex;
+                  gap: var(--space-sm);
+                "
+              >
+                <span style="color: var(--swiss-red); font-weight: bold">✓</span>
+                <span class="text-sm" style="color: var(--swiss-gray-700)">Clear design principles and guidelines</span>
               </li>
-              <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-300); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--swiss-red); font-weight: bold;">✓</span>
-                <span class="text-sm" style="color: var(--swiss-gray-700);">Color palette documentation</span>
+              <li
+                style="
+                  padding: var(--space-sm) 0;
+                  border-bottom: 1px solid var(--swiss-gray-300);
+                  display: flex;
+                  gap: var(--space-sm);
+                "
+              >
+                <span style="color: var(--swiss-red); font-weight: bold">✓</span>
+                <span class="text-sm" style="color: var(--swiss-gray-700)">Color palette documentation</span>
               </li>
-              <li style="padding: var(--space-sm) 0; border-bottom: 1px solid var(--swiss-gray-300); display: flex; gap: var(--space-sm);">
-                <span style="color: var(--swiss-red); font-weight: bold;">✓</span>
-                <span class="text-sm" style="color: var(--swiss-gray-700);">Typography specifications</span>
+              <li
+                style="
+                  padding: var(--space-sm) 0;
+                  border-bottom: 1px solid var(--swiss-gray-300);
+                  display: flex;
+                  gap: var(--space-sm);
+                "
+              >
+                <span style="color: var(--swiss-red); font-weight: bold">✓</span>
+                <span class="text-sm" style="color: var(--swiss-gray-700)">Typography specifications</span>
               </li>
-              <li style="padding: var(--space-sm) 0; display: flex; gap: var(--space-sm);">
-                <span style="color: var(--swiss-red); font-weight: bold;">✓</span>
-                <span class="text-sm" style="color: var(--swiss-gray-700);">Component examples (preferred)</span>
+              <li style="padding: var(--space-sm) 0; display: flex; gap: var(--space-sm)">
+                <span style="color: var(--swiss-red); font-weight: bold">✓</span>
+                <span class="text-sm" style="color: var(--swiss-gray-700)">Component examples (preferred)</span>
               </li>
             </ul>
           </div>
 
           {# Review Process #}
-          <div style="background: var(--swiss-red); color: var(--swiss-white); padding: var(--space-2xl); border: 2px solid var(--swiss-black);">
+          <div
+            style="
+              background: var(--swiss-red);
+              color: var(--swiss-white);
+              padding: var(--space-2xl);
+              border: 2px solid var(--swiss-black);
+            "
+          >
             <h3 class="font-bold text-xl mb-4">Review Process</h3>
-            <div style="display: flex; flex-direction: column; gap: var(--space-md);">
+            <div style="display: flex; flex-direction: column; gap: var(--space-md)">
               <div>
                 <div class="font-bold text-2xl mb-1">1-3</div>
                 <div class="text-sm">Business days for initial review</div>
               </div>
-              <div style="border-top: 1px solid rgba(255,255,255,0.3); padding-top: var(--space-md);">
+              <div style="border-top: 1px solid rgba(255, 255, 255, 0.3); padding-top: var(--space-md)">
                 <div class="font-bold text-sm mb-2">You'll receive:</div>
-                <ul style="list-style: disc; padding-left: var(--space-lg); font-size: 0.875rem;">
+                <ul style="list-style: disc; padding-left: var(--space-lg); font-size: 0.875rem">
                   <li>Email confirmation of submission</li>
                   <li>Review status updates</li>
                   <li>Feedback if changes needed</li>
@@ -330,71 +437,80 @@ eleventyNavigation:
           </div>
 
           {# Contact #}
-          <div style="background: var(--swiss-gray-50); border: 2px solid var(--swiss-black); padding: var(--space-xl); margin-top: var(--space-xl);">
-            <p class="text-sm font-bold mb-2" style="color: var(--swiss-black);">Questions?</p>
-            <p class="text-sm" style="color: var(--swiss-gray-700);">
-              Contact us at <a href="mailto:submissions@designgallery.com" style="color: var(--swiss-red); text-decoration: underline;">submissions@designgallery.com</a>
+          <div
+            style="
+              background: var(--swiss-gray-50);
+              border: 2px solid var(--swiss-black);
+              padding: var(--space-xl);
+              margin-top: var(--space-xl);
+            "
+          >
+            <p class="text-sm font-bold mb-2" style="color: var(--swiss-black)">Questions?</p>
+            <p class="text-sm" style="color: var(--swiss-gray-700)">
+              Contact us at
+              <a href="mailto:submissions@designgallery.com" style="color: var(--swiss-red); text-decoration: underline"
+                >submissions@designgallery.com</a
+              >
             </p>
           </div>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-  const form = document.getElementById('styleGuideSubmissionForm');
-  const messageDiv = document.getElementById('formMessage');
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("styleGuideSubmissionForm");
+    const messageDiv = document.getElementById("formMessage");
 
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Basic validation
-    const description = document.getElementById('description').value;
-    if (description.length < 100) {
-      showMessage('Please provide a description of at least 100 characters.', 'error');
-      return;
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      // Basic validation
+      const description = document.getElementById("description").value;
+      if (description.length < 100) {
+        showMessage("Please provide a description of at least 100 characters.", "error");
+        return;
+      }
+
+      // Collect form data
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      // Show success message (in production, this would send to a backend)
+      showMessage(
+        "Thank you for your submission! We've received your style guide and will review it within 1-3 business days. You'll receive an email confirmation shortly.",
+        "success"
+      );
+
+      // Log to console (for demonstration)
+      console.log("Submission Data:", data);
+
+      // Reset form
+      setTimeout(() => {
+        form.reset();
+        messageDiv.style.display = "none";
+      }, 5000);
+    });
+
+    function showMessage(text, type) {
+      messageDiv.style.display = "block";
+      messageDiv.style.padding = "var(--space-lg)";
+      messageDiv.style.border = "2px solid var(--swiss-black)";
+      messageDiv.style.fontFamily = "var(--font-mono)";
+      messageDiv.style.fontSize = "0.9rem";
+
+      if (type === "success") {
+        messageDiv.style.background = "#d4edda";
+        messageDiv.style.color = "#155724";
+      } else {
+        messageDiv.style.background = "#f8d7da";
+        messageDiv.style.color = "#721c24";
+      }
+
+      messageDiv.textContent = text;
+      messageDiv.scrollIntoView({ behavior: "smooth", block: "nearest" });
     }
-
-    // Collect form data
-    const formData = new FormData(form);
-    const data = Object.fromEntries(formData);
-    
-    // Show success message (in production, this would send to a backend)
-    showMessage(
-      'Thank you for your submission! We\'ve received your style guide and will review it within 1-3 business days. You\'ll receive an email confirmation shortly.',
-      'success'
-    );
-    
-    // Log to console (for demonstration)
-    console.log('Submission Data:', data);
-    
-    // Reset form
-    setTimeout(() => {
-      form.reset();
-      messageDiv.style.display = 'none';
-    }, 5000);
   });
-
-  function showMessage(text, type) {
-    messageDiv.style.display = 'block';
-    messageDiv.style.padding = 'var(--space-lg)';
-    messageDiv.style.border = '2px solid var(--swiss-black)';
-    messageDiv.style.fontFamily = 'var(--font-mono)';
-    messageDiv.style.fontSize = '0.9rem';
-    
-    if (type === 'success') {
-      messageDiv.style.background = '#d4edda';
-      messageDiv.style.color = '#155724';
-    } else {
-      messageDiv.style.background = '#f8d7da';
-      messageDiv.style.color = '#721c24';
-    }
-    
-    messageDiv.textContent = text;
-    messageDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-  }
-});
 </script>

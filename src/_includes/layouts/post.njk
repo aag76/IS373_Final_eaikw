@@ -4,30 +4,30 @@ layout: layouts/base.njk
 
 {# Breadcrumb Schema for Better Search Display #}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    {
-      "@type": "ListItem",
-      "position": 1,
-      "name": "Home",
-      "item": "{{ '/' | absoluteUrl(site.url) }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 2,
-      "name": "Style Gallery",
-      "item": "{{ '/blog/' | absoluteUrl(site.url) }}"
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "name": "{{ title }}",
-      "item": "{{ page.url | absoluteUrl(site.url) }}"
-    }
-  ]
-}
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "{{ '/' | absoluteUrl(site.url) }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Style Gallery",
+        "item": "{{ '/blog/' | absoluteUrl(site.url) }}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "{{ title }}",
+        "item": "{{ page.url | absoluteUrl(site.url) }}"
+      }
+    ]
+  }
 </script>
 
 {# Enhanced BlogPosting Schema with Keywords and Article Section #}
@@ -65,24 +65,43 @@ layout: layouts/base.njk
 <article class="py-6 md:py-8 lg:py-10">
   <div class="swiss-container">
     {# Swiss header with asymmetric layout #}
-    <header class="swiss-grid mb-6" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md); padding-right: var(--space-md);">
+    <header
+      class="swiss-grid mb-6"
+      style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md); padding-right: var(--space-md)"
+    >
       <div class="swiss-col-8 md:swiss-col-8">
         {# Meta information as definition list #}
-        <dl class="mb-4" style="display: flex; gap: var(--space-lg); flex-wrap: wrap;">
+        <dl class="mb-4" style="display: flex; gap: var(--space-lg); flex-wrap: wrap">
           <div>
-            <dt class="text-xs font-bold uppercase tracking-wider mb-1" style="color: var(--swiss-gray-600);">Published</dt>
+            <dt class="text-xs font-bold uppercase tracking-wider mb-1" style="color: var(--swiss-gray-600)">
+              Published
+            </dt>
             <dd>
-              <time datetime="{{ date | dateToISO }}" class="text-sm font-bold uppercase tracking-wider" style="color: var(--swiss-black);">
+              <time
+                datetime="{{ date | dateToISO }}"
+                class="text-sm font-bold uppercase tracking-wider"
+                style="color: var(--swiss-black)"
+              >
                 {{ date | readableDate }}
               </time>
             </dd>
           </div>
           {% if tags %}
           <div>
-            <dt class="text-xs font-bold uppercase tracking-wider mb-1" style="color: var(--swiss-gray-600);">Topics</dt>
+            <dt class="text-xs font-bold uppercase tracking-wider mb-1" style="color: var(--swiss-gray-600)">Topics</dt>
             <dd class="flex gap-2">
               {% for tag in tags %}{% if tag != "blog" %}
-              <span style="background-color: var(--swiss-gray-100); color: var(--swiss-black); padding: 0.25rem 0.75rem; font-size: 0.875rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em;">
+              <span
+                style="
+                  background-color: var(--swiss-gray-100);
+                  color: var(--swiss-black);
+                  padding: 0.25rem 0.75rem;
+                  font-size: 0.875rem;
+                  font-weight: 500;
+                  text-transform: uppercase;
+                  letter-spacing: 0.05em;
+                "
+              >
                 {{ tag }}
               </span>
               {% endif %}{% endfor %}
@@ -90,14 +109,22 @@ layout: layouts/base.njk
           </div>
           {% endif %}
         </dl>
-        
+
         {# Title with Swiss typography #}
-        <h1 class="font-bold mb-3" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em;">
+        <h1 class="font-bold mb-3" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em">
           {{ title }}
         </h1>
-        
+
         {% if description %}
-        <p style="color: var(--swiss-gray-700); max-width: 60ch; border-top: 2px solid var(--swiss-red); padding-top: var(--space-sm); font-size: var(--fluid-body-lg);">
+        <p
+          style="
+            color: var(--swiss-gray-700);
+            max-width: 60ch;
+            border-top: 2px solid var(--swiss-red);
+            padding-top: var(--space-sm);
+            font-size: var(--fluid-body-lg);
+          "
+        >
           {{ description }}
         </p>
         {% endif %}
@@ -110,47 +137,62 @@ layout: layouts/base.njk
     {# Swiss content layout - asymmetric #}
     <div class="swiss-grid">
       <div class="swiss-col-12 md:swiss-col-8">
-        <div class="prose-swiss">
-          {{ content | safe }}
-        </div>
-        
-        {# Social Sharing Component #}
-        {% include "components/social-share.njk" %}
+        <div class="prose-swiss">{{ content | safe }}</div>
+
+        {# Social Sharing Component #} {% include "components/social-share.njk" %}
       </div>
     </div>
 
-    {# Navigation footer with Swiss styling #}
-    {% if collections.blog %}
-    {% set previousPost = collections.blog | getPreviousCollectionItem(page) %}
-    {% set nextPost = collections.blog | getNextCollectionItem(page) %}
-    {% if previousPost or nextPost %}
+    {# Navigation footer with Swiss styling #} {% if collections.blog %} {% set previousPost = collections.blog |
+    getPreviousCollectionItem(page) %} {% set nextPost = collections.blog | getNextCollectionItem(page) %} {% if
+    previousPost or nextPost %}
     <footer class="mt-10">
       <div class="swiss-divider mb-6"></div>
       <nav class="swiss-grid gap-6" aria-label="Post navigation">
         {% if previousPost %}
-        <div class="swiss-col-12 md:swiss-col-6" style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md); margin-bottom: var(--space-md);">
-          <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">← Previous Article</p>
-          <a href="{{ previousPost.url }}" class="font-bold hover:underline" style="font-size: 1rem; color: var(--swiss-black); text-decoration: none;">
+        <div
+          class="swiss-col-12 md:swiss-col-6"
+          style="
+            border-left: 2px solid var(--swiss-black);
+            padding-left: var(--space-md);
+            margin-bottom: var(--space-md);
+          "
+        >
+          <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+            ← Previous Article
+          </p>
+          <a
+            href="{{ previousPost.url }}"
+            class="font-bold hover:underline"
+            style="font-size: 1rem; color: var(--swiss-black); text-decoration: none"
+          >
             {{ previousPost.data.title }}
           </a>
         </div>
-        {% endif %}
-        {% if nextPost %}
-        <div class="swiss-col-12 md:swiss-col-6" style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md);">
-          <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Next Article →</p>
-          <a href="{{ nextPost.url }}" class="font-bold hover:underline" style="font-size: 1rem; color: var(--swiss-black); text-decoration: none;">
+        {% endif %} {% if nextPost %}
+        <div
+          class="swiss-col-12 md:swiss-col-6"
+          style="border-left: 2px solid var(--swiss-black); padding-left: var(--space-md)"
+        >
+          <p class="text-xs font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+            Next Article →
+          </p>
+          <a
+            href="{{ nextPost.url }}"
+            class="font-bold hover:underline"
+            style="font-size: 1rem; color: var(--swiss-black); text-decoration: none"
+          >
             {{ nextPost.data.title }}
           </a>
         </div>
         {% endif %}
       </nav>
-      
+
       {# Back to blog link #}
       <div class="mt-6">
         <a href="/blog/" class="btn-swiss-primary">← BACK TO ARTICLES</a>
       </div>
     </footer>
-    {% endif %}
-    {% endif %}
+    {% endif %} {% endif %}
   </div>
 </article>

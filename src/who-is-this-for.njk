@@ -17,58 +17,58 @@ permalink: /who-is-this-for/
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     opacity: 0;
     transform: scale(0.8) translateY(30px);
   }
-  
+
   .persona-circle.visible {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
-  
+
   .persona-circle:hover {
     transform: scale(1.1) translateY(-10px);
-    box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
   }
-  
+
   .persona-circle::before {
-    content: '';
+    content: "";
     position: absolute;
     inset: -4px;
     border-radius: 50%;
-    background: linear-gradient(135deg, rgba(255,255,255,0.5), rgba(0,0,0,0.1));
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.5), rgba(0, 0, 0, 0.1));
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   .persona-circle:hover::before {
     opacity: 1;
   }
-  
+
   .persona-icon {
     font-size: 4rem;
     margin-bottom: 0.5rem;
     transition: transform 0.3s ease;
   }
-  
+
   .persona-circle:hover .persona-icon {
     transform: rotate(360deg);
   }
-  
+
   .persona-title {
     font-size: 1.1rem;
     font-weight: bold;
     text-align: center;
     margin-bottom: 0.25rem;
   }
-  
+
   .persona-subtitle {
     font-size: 0.75rem;
     opacity: 0.8;
     text-align: center;
   }
-  
+
   .personas-container {
     display: grid;
     grid-template-columns: repeat(4, 220px);
@@ -78,9 +78,7 @@ permalink: /who-is-this-for/
     margin: 0 auto;
     justify-content: center;
   }
-  
 
-  
   .modal-overlay {
     display: none;
     position: fixed;
@@ -88,17 +86,17 @@ permalink: /who-is-this-for/
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.85);
+    background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(4px);
     z-index: 9999;
     opacity: 0;
     transition: opacity 0.3s ease;
   }
-  
+
   .modal-overlay.active {
     opacity: 1;
   }
-  
+
   .modal-content {
     position: relative;
     background: var(--swiss-white);
@@ -111,13 +109,13 @@ permalink: /who-is-this-for/
     padding: 3rem;
     transform: scale(0.9) translateY(20px);
     transition: transform 0.3s ease;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   }
-  
+
   .modal-overlay.active .modal-content {
     transform: scale(1) translateY(0);
   }
-  
+
   .modal-close {
     position: absolute;
     top: 1.5rem;
@@ -133,42 +131,44 @@ permalink: /who-is-this-for/
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.2s ease, background 0.2s ease;
+    transition:
+      transform 0.2s ease,
+      background 0.2s ease;
     line-height: 1;
   }
-  
+
   .modal-close:hover {
     transform: rotate(90deg);
     background: var(--swiss-red);
   }
-  
+
   .modal-header {
     text-align: center;
     margin-bottom: 2rem;
     padding-bottom: 2rem;
     border-bottom: 2px solid var(--swiss-gray-200);
   }
-  
+
   .modal-icon {
     font-size: 5rem;
     margin-bottom: 1rem;
   }
-  
+
   .modal-title {
     font-size: 2.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
   }
-  
+
   .modal-description {
     font-size: 1rem;
     color: var(--swiss-gray-600);
   }
-  
+
   .modal-section {
     margin-bottom: 2rem;
   }
-  
+
   .modal-section h3 {
     font-size: 1.25rem;
     font-weight: bold;
@@ -177,13 +177,13 @@ permalink: /who-is-this-for/
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
-  
+
   .modal-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
   }
-  
+
   .modal-section li {
     padding: 0.75rem 0 0.75rem 1.5rem;
     border-left: 3px solid var(--swiss-red);
@@ -193,7 +193,7 @@ permalink: /who-is-this-for/
     background: rgba(69, 21, 22, 0.05);
     border-radius: 4px;
   }
-  
+
   .cta-card {
     background: #451516;
     color: var(--swiss-white);
@@ -202,26 +202,26 @@ permalink: /who-is-this-for/
     text-align: center;
     margin-top: 3rem;
   }
-  
+
   .cta-card h2 {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
   }
-  
+
   .cta-card p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     line-height: 1.6;
   }
-  
+
   .cta-buttons {
     display: flex;
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
   }
-  
+
   .btn-cta {
     padding: 0.75rem 2rem;
     border-radius: 8px;
@@ -230,117 +230,125 @@ permalink: /who-is-this-for/
     transition: all 0.2s ease;
     display: inline-block;
   }
-  
+
   .btn-cta-primary {
     background: var(--swiss-white);
     color: #451516;
     border: 2px solid var(--swiss-white);
   }
-  
+
   .btn-cta-primary:hover {
     background: transparent;
     color: var(--swiss-white);
   }
-  
+
   .btn-cta-secondary {
     background: transparent;
     color: var(--swiss-white);
     border: 2px solid var(--swiss-white);
   }
-  
+
   .btn-cta-secondary:hover {
     background: var(--swiss-white);
     color: #451516;
   }
-  
+
   @media (max-width: 768px) {
     .persona-circle {
       width: 180px;
       height: 180px;
     }
-    
+
     .persona-icon {
       font-size: 3rem;
     }
-    
+
     .personas-container {
       grid-template-columns: repeat(2, 180px);
       gap: 2rem;
     }
-    
 
-    
     .modal-content {
       padding: 2rem;
       margin: 1rem;
     }
-    
+
     .modal-title {
       font-size: 2rem;
     }
   }
 </style>
 
-<section class="swiss-section" style="background-color: var(--swiss-white); padding: var(--space-3xl) 0 6rem 0;">
+<section class="swiss-section" style="background-color: var(--swiss-white); padding: var(--space-3xl) 0 6rem 0">
   <div class="swiss-container">
-    
     {# Header #}
-    <div style="margin-bottom: var(--space-4xl); text-align: center;">
-      <p class="text-xs uppercase tracking-widest font-bold" style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.2em;">
+    <div style="margin-bottom: var(--space-4xl); text-align: center">
+      <p
+        class="text-xs uppercase tracking-widest font-bold"
+        style="color: var(--swiss-gray-600); margin-bottom: var(--space-lg); letter-spacing: 0.2em"
+      >
         FIND YOUR FIT
       </p>
-      <h1 class="font-black" style="font-size: var(--fluid-h1); margin-bottom: var(--space-lg); letter-spacing: -0.02em; line-height: 1.1;">
+      <h1
+        class="font-black"
+        style="font-size: var(--fluid-h1); margin-bottom: var(--space-lg); letter-spacing: -0.02em; line-height: 1.1"
+      >
         Who Is This For?
       </h1>
-      <div style="width: 80px; height: 3px; background-color: var(--swiss-red); margin: 0 auto var(--space-2xl);"></div>
-      <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-700); max-width: 700px; margin: 0 auto;">
+      <div style="width: 80px; height: 3px; background-color: var(--swiss-red); margin: 0 auto var(--space-2xl)"></div>
+      <p class="text-xl leading-relaxed" style="color: var(--swiss-gray-700); max-width: 700px; margin: 0 auto">
         Scroll to discover your persona. Click any circle to explore how Design Gallery serves your needs.
       </p>
     </div>
 
     {# Interactive Persona Circles #}
     <div class="personas-container">
-      
-      <div class="persona-circle" data-persona="student" data-delay="0" 
-           style="background: #bfc095; color: #000000;">
+      <div class="persona-circle" data-persona="student" data-delay="0" style="background: #bfc095; color: #000000">
         <div class="persona-icon">●</div>
         <div class="persona-title">Design Student</div>
         <div class="persona-subtitle">Click to explore</div>
       </div>
 
-      <div class="persona-circle" data-persona="instructor" data-delay="200" 
-           style="background: #c2abd2; color: #000000;">
+      <div
+        class="persona-circle"
+        data-persona="instructor"
+        data-delay="200"
+        style="background: #c2abd2; color: #000000"
+      >
         <div class="persona-icon">▲</div>
         <div class="persona-title">Design Instructor</div>
         <div class="persona-subtitle">Click to explore</div>
       </div>
 
-      <div class="persona-circle" data-persona="product" data-delay="400" 
-           style="background: #bfc095; color: #000000;">
+      <div class="persona-circle" data-persona="product" data-delay="400" style="background: #bfc095; color: #000000">
         <div class="persona-icon">★</div>
         <div class="persona-title">Product Manager</div>
         <div class="persona-subtitle">Click to explore</div>
       </div>
 
-      <div class="persona-circle" data-persona="freelancer" data-delay="600" 
-           style="background: #c2abd2; color: #000000;">
+      <div
+        class="persona-circle"
+        data-persona="freelancer"
+        data-delay="600"
+        style="background: #c2abd2; color: #000000"
+      >
         <div class="persona-icon">◆</div>
         <div class="persona-title">Freelance Designer</div>
         <div class="persona-subtitle">Click to explore</div>
       </div>
-      
     </div>
 
     {# CTA Section #}
     <div class="cta-card">
       <h2>See Yourself Here?</h2>
-      <p>Join our community of designers, developers, educators, and enthusiasts shaping the future of design systems.</p>
+      <p>
+        Join our community of designers, developers, educators, and enthusiasts shaping the future of design systems.
+      </p>
       <div class="cta-buttons">
         <a href="/blog/" class="btn-cta btn-cta-primary">Browse Gallery</a>
         <a href="/submit/" class="btn-cta btn-cta-secondary">Submit Your Style Guide</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -353,181 +361,187 @@ permalink: /who-is-this-for/
 </div>
 
 <script>
-// Persona data
-const personas = {
-  student: {
-    icon: '●',
-    title: 'Design Student',
-    description: 'Learn industry-standard design patterns and build your portfolio',
-    profile: {
-      name: 'Alex Rivera',
-      age: 21,
-      education: 'Junior, Graphic Design major',
-      experience: '2 years learning design'
+  // Persona data
+  const personas = {
+    student: {
+      icon: "●",
+      title: "Design Student",
+      description: "Learn industry-standard design patterns and build your portfolio",
+      profile: {
+        name: "Alex Rivera",
+        age: 21,
+        education: "Junior, Graphic Design major",
+        experience: "2 years learning design",
+      },
+      goals: [
+        "Learn industry-standard design patterns",
+        "Build a portfolio with modern design systems",
+        "Understand different design approaches",
+        "Connect with other design students",
+      ],
+      painPoints: [
+        "Overwhelmed by scattered resources online",
+        "Difficulty finding quality examples",
+        "Limited access to professional design systems",
+        "Unsure which design approaches to study",
+      ],
+      howWeHelp:
+        "Curated, categorized collection of real-world style guides with detailed breakdowns of colors, typography, and components—perfect for learning and inspiration.",
     },
-    goals: [
-      'Learn industry-standard design patterns',
-      'Build a portfolio with modern design systems',
-      'Understand different design approaches',
-      'Connect with other design students'
-    ],
-    painPoints: [
-      'Overwhelmed by scattered resources online',
-      'Difficulty finding quality examples',
-      'Limited access to professional design systems',
-      'Unsure which design approaches to study'
-    ],
-    howWeHelp: 'Curated, categorized collection of real-world style guides with detailed breakdowns of colors, typography, and components—perfect for learning and inspiration.'
-  },
-  instructor: {
-    icon: '▲',
-    title: 'Design Instructor',
-    description: 'Provide students with current, real-world examples for engaging curriculum',
-    profile: {
-      name: 'Dr. Sarah Chen',
-      age: 38,
-      position: 'Associate Professor, UX Design',
-      experience: '12 years teaching, 15 years industry'
+    instructor: {
+      icon: "▲",
+      title: "Design Instructor",
+      description: "Provide students with current, real-world examples for engaging curriculum",
+      profile: {
+        name: "Dr. Sarah Chen",
+        age: 38,
+        position: "Associate Professor, UX Design",
+        experience: "12 years teaching, 15 years industry",
+      },
+      goals: [
+        "Provide students with current, real-world examples",
+        "Create engaging curriculum materials",
+        "Show diverse design system approaches",
+        "Track student progress and submissions",
+      ],
+      painPoints: [
+        "Time-consuming to curate quality resources",
+        "Need accessible examples for all skill levels",
+        "Examples become outdated quickly",
+        "Difficult to assess student understanding",
+      ],
+      howWeHelp:
+        "Regularly updated gallery with diverse examples across difficulty levels, plus instructor tools to create assignments and track student engagement.",
     },
-    goals: [
-      'Provide students with current, real-world examples',
-      'Create engaging curriculum materials',
-      'Show diverse design system approaches',
-      'Track student progress and submissions'
-    ],
-    painPoints: [
-      'Time-consuming to curate quality resources',
-      'Need accessible examples for all skill levels',
-      'Examples become outdated quickly',
-      'Difficult to assess student understanding'
-    ],
-    howWeHelp: 'Regularly updated gallery with diverse examples across difficulty levels, plus instructor tools to create assignments and track student engagement.'
-  },
-  hobbyist: {
-    icon: '■',
-    title: 'Hobbyist Designer',
-    description: 'Explore design systems and improve your personal projects',
-    profile: {
-      name: 'Jamie Park',
-      age: 29,
-      background: 'Marketing professional, self-taught designer',
-      experience: '3 years hobby design'
+    hobbyist: {
+      icon: "■",
+      title: "Hobbyist Designer",
+      description: "Explore design systems and improve your personal projects",
+      profile: {
+        name: "Jamie Park",
+        age: 29,
+        background: "Marketing professional, self-taught designer",
+        experience: "3 years hobby design",
+      },
+      goals: [
+        "Improve personal project aesthetics",
+        "Learn professional design principles",
+        "Find inspiration for side projects",
+        "Understand design system thinking",
+      ],
+      painPoints: [
+        "Limited formal design education",
+        'Hard to know what "good" looks like',
+        "Struggle with consistent styling",
+        "Need approachable learning resources",
+      ],
+      howWeHelp:
+        "Easy-to-browse gallery organized by style and complexity, with clear explanations that don't require design school background.",
     },
-    goals: [
-      'Improve personal project aesthetics',
-      'Learn professional design principles',
-      'Find inspiration for side projects',
-      'Understand design system thinking'
-    ],
-    painPoints: [
-      'Limited formal design education',
-      'Hard to know what "good" looks like',
-      'Struggle with consistent styling',
-      'Need approachable learning resources'
-    ],
-    howWeHelp: 'Easy-to-browse gallery organized by style and complexity, with clear explanations that don\'t require design school background.'
-  },
-  freelancer: {
-    icon: '◆',
-    title: 'Freelance Designer',
-    description: 'Find inspiration and speed up your client work with proven patterns',
-    profile: {
-      name: 'Marcus Thompson',
-      age: 32,
-      business: 'Independent design consultant',
-      experience: '8 years freelance'
+    freelancer: {
+      icon: "◆",
+      title: "Freelance Designer",
+      description: "Find inspiration and speed up your client work with proven patterns",
+      profile: {
+        name: "Marcus Thompson",
+        age: 32,
+        business: "Independent design consultant",
+        experience: "8 years freelance",
+      },
+      goals: [
+        "Speed up client project kickoff",
+        "Show clients diverse style options",
+        "Stay current with design trends",
+        "Build comprehensive style guides efficiently",
+      ],
+      painPoints: [
+        "Time pressure to deliver quickly",
+        "Clients struggle to articulate their vision",
+        "Need proven patterns that work",
+        "Building from scratch is time-consuming",
+      ],
+      howWeHelp:
+        "Professional-grade examples you can reference, adapt, and show clients. Save hours on research and start with battle-tested foundations.",
     },
-    goals: [
-      'Speed up client project kickoff',
-      'Show clients diverse style options',
-      'Stay current with design trends',
-      'Build comprehensive style guides efficiently'
-    ],
-    painPoints: [
-      'Time pressure to deliver quickly',
-      'Clients struggle to articulate their vision',
-      'Need proven patterns that work',
-      'Building from scratch is time-consuming'
-    ],
-    howWeHelp: 'Professional-grade examples you can reference, adapt, and show clients. Save hours on research and start with battle-tested foundations.'
-  },
-  product: {
-    icon: '★',
-    title: 'Product Manager',
-    description: 'Align teams with clear design standards and improve product consistency',
-    profile: {
-      name: 'Priya Desai',
-      age: 35,
-      role: 'Senior Product Manager',
-      experience: '10 years product management'
+    product: {
+      icon: "★",
+      title: "Product Manager",
+      description: "Align teams with clear design standards and improve product consistency",
+      profile: {
+        name: "Priya Desai",
+        age: 35,
+        role: "Senior Product Manager",
+        experience: "10 years product management",
+      },
+      goals: [
+        "Establish consistent product design language",
+        "Align design and development teams",
+        "Make informed design decisions",
+        "Communicate design standards clearly",
+      ],
+      painPoints: [
+        "Inconsistent UI across product features",
+        "Designers and developers misaligned",
+        "Lack of shared design vocabulary",
+        "Difficult to evaluate design quality",
+      ],
+      howWeHelp:
+        "Clear examples of well-structured design systems that help you understand what comprehensive design standards look like and how to implement them.",
     },
-    goals: [
-      'Establish consistent product design language',
-      'Align design and development teams',
-      'Make informed design decisions',
-      'Communicate design standards clearly'
-    ],
-    painPoints: [
-      'Inconsistent UI across product features',
-      'Designers and developers misaligned',
-      'Lack of shared design vocabulary',
-      'Difficult to evaluate design quality'
-    ],
-    howWeHelp: 'Clear examples of well-structured design systems that help you understand what comprehensive design standards look like and how to implement them.'
-  }
-};
+  };
 
-// Scroll animation observer
-const observerOptions = {
-  threshold: 0.2,
-  rootMargin: '0px 0px -100px 0px'
-};
+  // Scroll animation observer
+  const observerOptions = {
+    threshold: 0.2,
+    rootMargin: "0px 0px -100px 0px",
+  };
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      const delay = entry.target.dataset.delay || 0;
-      setTimeout(() => {
-        entry.target.classList.add('visible');
-      }, delay);
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const delay = entry.target.dataset.delay || 0;
+        setTimeout(() => {
+          entry.target.classList.add("visible");
+        }, delay);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
 
-// Initialize scroll animations
-document.addEventListener('DOMContentLoaded', () => {
-  const circles = document.querySelectorAll('.persona-circle');
-  circles.forEach(circle => {
-    observer.observe(circle);
-    
-    // Add click handler
-    circle.addEventListener('click', () => {
-      const persona = circle.dataset.persona;
-      openPersonaModal(persona);
+  // Initialize scroll animations
+  document.addEventListener("DOMContentLoaded", () => {
+    const circles = document.querySelectorAll(".persona-circle");
+    circles.forEach((circle) => {
+      observer.observe(circle);
+
+      // Add click handler
+      circle.addEventListener("click", () => {
+        const persona = circle.dataset.persona;
+        openPersonaModal(persona);
+      });
     });
   });
-});
 
-// Modal functions
-function openPersonaModal(personaKey) {
-  const persona = personas[personaKey];
-  if (!persona) return;
-  
-  const modal = document.getElementById('personaModal');
-  const modalBody = document.getElementById('modalBody');
-  
-  // Build modal content
-  let profileHTML = '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.95rem;">';
-  for (const [key, value] of Object.entries(persona.profile)) {
-    profileHTML += `<div><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</div>`;
-  }
-  profileHTML += '</div>';
-  
-  const goalsHTML = persona.goals.map(goal => `<li>${goal}</li>`).join('');
-  const painPointsHTML = persona.painPoints.map(point => `<li>${point}</li>`).join('');
-  
-  modalBody.innerHTML = `
+  // Modal functions
+  function openPersonaModal(personaKey) {
+    const persona = personas[personaKey];
+    if (!persona) return;
+
+    const modal = document.getElementById("personaModal");
+    const modalBody = document.getElementById("modalBody");
+
+    // Build modal content
+    let profileHTML =
+      '<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.5rem; font-size: 0.95rem;">';
+    for (const [key, value] of Object.entries(persona.profile)) {
+      profileHTML += `<div><strong>${key.charAt(0).toUpperCase() + key.slice(1)}:</strong> ${value}</div>`;
+    }
+    profileHTML += "</div>";
+
+    const goalsHTML = persona.goals.map((goal) => `<li>${goal}</li>`).join("");
+    const painPointsHTML = persona.painPoints.map((point) => `<li>${point}</li>`).join("");
+
+    modalBody.innerHTML = `
     <div class="modal-header">
       <div class="modal-icon">${persona.icon}</div>
       <h2 class="modal-title">${persona.title}</h2>
@@ -556,38 +570,38 @@ function openPersonaModal(personaKey) {
       </p>
     </div>
   `;
-  
-  modal.style.display = 'block';
-  setTimeout(() => modal.classList.add('active'), 10);
-  document.body.style.overflow = 'hidden';
-}
 
-function closePersonaModal() {
-  const modal = document.getElementById('personaModal');
-  modal.classList.remove('active');
-  setTimeout(() => {
-    modal.style.display = 'none';
-    document.body.style.overflow = 'auto';
-  }, 300);
-}
+    modal.style.display = "block";
+    setTimeout(() => modal.classList.add("active"), 10);
+    document.body.style.overflow = "hidden";
+  }
 
-// Close modal handlers
-document.addEventListener('DOMContentLoaded', () => {
-  const modal = document.getElementById('personaModal');
-  const closeBtn = document.getElementById('closeModal');
-  
-  closeBtn.addEventListener('click', closePersonaModal);
-  
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closePersonaModal();
-    }
+  function closePersonaModal() {
+    const modal = document.getElementById("personaModal");
+    modal.classList.remove("active");
+    setTimeout(() => {
+      modal.style.display = "none";
+      document.body.style.overflow = "auto";
+    }, 300);
+  }
+
+  // Close modal handlers
+  document.addEventListener("DOMContentLoaded", () => {
+    const modal = document.getElementById("personaModal");
+    const closeBtn = document.getElementById("closeModal");
+
+    closeBtn.addEventListener("click", closePersonaModal);
+
+    modal.addEventListener("click", (e) => {
+      if (e.target === modal) {
+        closePersonaModal();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closePersonaModal();
+      }
+    });
   });
-  
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.classList.contains('active')) {
-      closePersonaModal();
-    }
-  });
-});
 </script>

@@ -5,14 +5,28 @@ description: A curated library of design systems showcasing different aesthetic 
 ---
 
 <section class="py-12 md:py-16 lg:py-20">
-  <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+  <div
+    style="
+      max-width: 1440px;
+      margin: 0 auto;
+      padding-left: var(--swiss-grid-margin);
+      padding-right: var(--swiss-grid-margin);
+    "
+  >
     {# Swiss header - asymmetric with section number #}
-    <div class="swiss-grid mb-12" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md);">
+    <div class="swiss-grid mb-12" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md)">
       <div class="swiss-col-7">
-        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">03 — STYLE GALLERY</p>
-        <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em;">{{ title }}</h1>
-        <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch;">{{ description }}</p>
-        <p style="color: var(--swiss-gray-600); max-width: 60ch;">This page is dedicated to being a library for style galleries, showcasing various design approaches and aesthetic philosophies.</p>
+        <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+          03 — STYLE GALLERY
+        </p>
+        <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em">
+          {{ title }}
+        </h1>
+        <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch">{{ description }}</p>
+        <p style="color: var(--swiss-gray-600); max-width: 60ch">
+          This page is dedicated to being a library for style galleries, showcasing various design approaches and
+          aesthetic philosophies.
+        </p>
       </div>
     </div>
 
@@ -23,52 +37,208 @@ description: A curated library of design systems showcasing different aesthetic 
     <section class="mb-20">
       <div class="swiss-grid mb-8">
         <div class="swiss-col-12">
-          <h2 class="font-bold mb-2" style="font-size: var(--fluid-h3);">Design Systems</h2>
-          <p style="color: var(--swiss-gray-700);">Explore different aesthetic approaches and their visual languages.</p>
+          <h2 class="font-bold mb-2" style="font-size: var(--fluid-h3)">Design Systems</h2>
+          <p style="color: var(--swiss-gray-700)">Explore different aesthetic approaches and their visual languages.</p>
         </div>
       </div>
-      
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem">
         {# Nordic Minimalism Card #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-          <div style="height: 200px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); position: relative;">
-            <div style="position: absolute; top: 1.5rem; left: 1.5rem; width: 60px; height: 60px; background: #ffffff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></div>
-            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; background: #64748b; border-radius: 4px;"></div>
-            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; width: 80px; height: 4px; background: #cbd5e1; border-radius: 2px;"></div>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+          "
+        >
+          <div style="height: 200px; background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); position: relative">
+            <div
+              style="
+                position: absolute;
+                top: 1.5rem;
+                left: 1.5rem;
+                width: 60px;
+                height: 60px;
+                background: #ffffff;
+                border-radius: 50%;
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 40px;
+                height: 40px;
+                background: #64748b;
+                border-radius: 4px;
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 80px;
+                height: 4px;
+                background: #cbd5e1;
+                border-radius: 2px;
+              "
+            ></div>
           </div>
-          <div style="padding: 2rem;">
-            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Nordic Minimalism</h3>
-            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">Clean, functional design inspired by Scandinavian aesthetics. Emphasizes whitespace, natural materials, and purposeful simplicity.</p>
-            <a href="/blog/nordic-minimalism/" class="btn-swiss-primary" style="text-decoration: none;">Explore Style →</a>
+          <div style="padding: 2rem">
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem">
+              Nordic Minimalism
+            </h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6">
+              Clean, functional design inspired by Scandinavian aesthetics. Emphasizes whitespace, natural materials,
+              and purposeful simplicity.
+            </p>
+            <a href="/blog/nordic-minimalism/" class="btn-swiss-primary" style="text-decoration: none"
+              >Explore Style →</a
+            >
           </div>
         </article>
 
         {# Neo Brutalism Card #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-          <div style="height: 200px; background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%); position: relative;">
-            <div style="position: absolute; top: 1.5rem; left: 1.5rem; width: 80px; height: 20px; background: #ff0000; transform: rotate(-2deg);"></div>
-            <div style="position: absolute; bottom: 1.5rem; right: 1.5rem; width: 60px; height: 60px; background: #ffff00; border: 3px solid #000000; transform: rotate(5deg);"></div>
-            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; width: 100px; height: 8px; background: #ffffff; box-shadow: 2px 2px 0 #000000;"></div>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+          "
+        >
+          <div style="height: 200px; background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%); position: relative">
+            <div
+              style="
+                position: absolute;
+                top: 1.5rem;
+                left: 1.5rem;
+                width: 80px;
+                height: 20px;
+                background: #ff0000;
+                transform: rotate(-2deg);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                bottom: 1.5rem;
+                right: 1.5rem;
+                width: 60px;
+                height: 60px;
+                background: #ffff00;
+                border: 3px solid #000000;
+                transform: rotate(5deg);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 100px;
+                height: 8px;
+                background: #ffffff;
+                box-shadow: 2px 2px 0 #000000;
+              "
+            ></div>
           </div>
-          <div style="padding: 2rem;">
-            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Neo Brutalism</h3>
-            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">Bold, raw design with stark contrasts, geometric shapes, and unapologetic visual weight. Digital brutalism for the modern web.</p>
-            <a href="/blog/neo-brutalism/" class="btn-swiss-primary" style="text-decoration: none;">Explore Style →</a>
+          <div style="padding: 2rem">
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem">
+              Neo Brutalism
+            </h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6">
+              Bold, raw design with stark contrasts, geometric shapes, and unapologetic visual weight. Digital brutalism
+              for the modern web.
+            </p>
+            <a href="/blog/neo-brutalism/" class="btn-swiss-primary" style="text-decoration: none">Explore Style →</a>
           </div>
         </article>
 
         {# Deconstructivism Card #}
-        <article style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.08); transition: all 0.3s ease;">
-          <div style="height: 200px; background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%); position: relative; overflow: hidden;">
-            <div style="position: absolute; top: 1rem; right: 1rem; width: 100px; height: 100px; border: 3px solid #ff6b6b; transform: rotate(35deg);"></div>
-            <div style="position: absolute; bottom: 1.5rem; left: 1.5rem; width: 70px; height: 70px; background: #4ecdc4; clip-path: polygon(0 0, 100% 20%, 80% 100%, 0 100%); transform: rotate(-10deg);"></div>
-            <div style="position: absolute; top: 2rem; left: 2rem; width: 80px; height: 12px; background: #ffe66d; transform: skewX(-15deg);"></div>
-            <div style="position: absolute; bottom: 3rem; right: 2rem; width: 50px; height: 50px; background: #000000; transform: rotate(45deg) skewX(-10deg);"></div>
+        <article
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+          "
+        >
+          <div
+            style="
+              height: 200px;
+              background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+              position: relative;
+              overflow: hidden;
+            "
+          >
+            <div
+              style="
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                width: 100px;
+                height: 100px;
+                border: 3px solid #ff6b6b;
+                transform: rotate(35deg);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                bottom: 1.5rem;
+                left: 1.5rem;
+                width: 70px;
+                height: 70px;
+                background: #4ecdc4;
+                clip-path: polygon(0 0, 100% 20%, 80% 100%, 0 100%);
+                transform: rotate(-10deg);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                top: 2rem;
+                left: 2rem;
+                width: 80px;
+                height: 12px;
+                background: #ffe66d;
+                transform: skewX(-15deg);
+              "
+            ></div>
+            <div
+              style="
+                position: absolute;
+                bottom: 3rem;
+                right: 2rem;
+                width: 50px;
+                height: 50px;
+                background: #000000;
+                transform: rotate(45deg) skewX(-10deg);
+              "
+            ></div>
           </div>
-          <div style="padding: 2rem;">
-            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem;">Deconstructivism</h3>
-            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">Fragmented geometry, intentional chaos, and deliberate disorientation. Breaking traditional grids to create dynamic visual tension.</p>
-            <a href="/blog/deconstructivism/" class="btn-swiss-primary" style="text-decoration: none;">Explore Style →</a>
+          <div style="padding: 2rem">
+            <h3 style="font-weight: bold; margin: 0 0 0.75rem 0; color: var(--swiss-black); font-size: 1.25rem">
+              Deconstructivism
+            </h3>
+            <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6">
+              Fragmented geometry, intentional chaos, and deliberate disorientation. Breaking traditional grids to
+              create dynamic visual tension.
+            </p>
+            <a href="/blog/deconstructivism/" class="btn-swiss-primary" style="text-decoration: none"
+              >Explore Style →</a
+            >
           </div>
         </article>
       </div>
@@ -76,37 +246,83 @@ description: A curated library of design systems showcasing different aesthetic 
 
     {# Second Row with Share Your Style and Coming Soon #}
     <section class="mb-20">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem">
         {# Share Your Style Card #}
-        <article style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid var(--swiss-gray-300); border-radius: 12px; padding: 2.5rem; box-shadow: 0 4px 16px rgba(0,0,0,0.08); text-align: center;">
-          <div style="width: 80px; height: 80px; background: var(--swiss-red); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; box-shadow: 0 4px 12px rgba(110, 119, 170, 0.3);">
-            <span style="font-size: 2.5rem; color: white;">+</span>
+        <article
+          style="
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              width: 80px;
+              height: 80px;
+              background: var(--swiss-red);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1.5rem;
+              box-shadow: 0 4px 12px rgba(110, 119, 170, 0.3);
+            "
+          >
+            <span style="font-size: 2.5rem; color: white">+</span>
           </div>
-          <h3 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: 1.5rem;">Share Your Style</h3>
-          <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">
+          <h3 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: 1.5rem">
+            Share Your Style
+          </h3>
+          <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6">
             Have a unique design system or aesthetic approach? Submit your style guide to be featured in our library.
           </p>
-          <a href="/blog/submit-style-guide/" class="btn-swiss-primary" style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem;">
+          <a
+            href="/blog/submit-style-guide/"
+            class="btn-swiss-primary"
+            style="text-decoration: none; display: inline-flex; align-items: center; gap: 0.5rem"
+          >
             <span>Submit Style Guide</span>
-            <span style="font-size: 1.2em;">→</span>
+            <span style="font-size: 1.2em">→</span>
           </a>
         </article>
 
         {# Coming Soon Card #}
-        <article style="background: white; border: 2px dashed var(--swiss-gray-300); border-radius: 12px; padding: 2.5rem; transition: all 0.3s ease; text-align: center;">
-          <div style="width: 80px; height: 80px; border: 3px dashed var(--swiss-gray-400); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem;">
-            <span style="font-size: 2rem; color: var(--swiss-gray-500);">⏳</span>
+        <article
+          style="
+            background: white;
+            border: 2px dashed var(--swiss-gray-300);
+            border-radius: 12px;
+            padding: 2.5rem;
+            transition: all 0.3s ease;
+            text-align: center;
+          "
+        >
+          <div
+            style="
+              width: 80px;
+              height: 80px;
+              border: 3px dashed var(--swiss-gray-400);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1.5rem;
+            "
+          >
+            <span style="font-size: 2rem; color: var(--swiss-gray-500)">⏳</span>
           </div>
-          <h3 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: 1.5rem;">Coming Soon</h3>
-          <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6;">
+          <h3 style="font-weight: bold; margin: 0 0 1rem 0; color: var(--swiss-black); font-size: 1.5rem">
+            Coming Soon
+          </h3>
+          <p style="margin: 0 0 1.5rem 0; color: var(--swiss-gray-700); line-height: 1.6">
             New design system in development. Stay tuned for another unique aesthetic approach to inspire your projects.
           </p>
-          <button class="btn-swiss" disabled style="opacity: 0.5; cursor: not-allowed;">In Development</button>
+          <button class="btn-swiss" disabled style="opacity: 0.5; cursor: not-allowed">In Development</button>
         </article>
       </div>
     </section>
-
-
-
   </div>
 </section>

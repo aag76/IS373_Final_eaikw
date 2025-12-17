@@ -8,58 +8,182 @@ eleventyExcludeFromCollections: true
 
 <div class="min-h-screen bg-gray-50">
   <section class="py-12 md:py-16 lg:py-20">
-    <div style="max-width: 1440px; margin: 0 auto; padding-left: var(--swiss-grid-margin); padding-right: var(--swiss-grid-margin);">
+    <div
+      style="
+        max-width: 1440px;
+        margin: 0 auto;
+        padding-left: var(--swiss-grid-margin);
+        padding-right: var(--swiss-grid-margin);
+      "
+    >
       <!-- Header -->
-      <div class="swiss-grid mb-16" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md);">
+      <div class="swiss-grid mb-16" style="border-left: 4px solid var(--swiss-red); padding-left: var(--space-md)">
         <div class="swiss-col-12">
-          <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">INSTRUCTOR TOOLS</p>
-          <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em;">Review Panel</h1>
-          <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch; line-height: 1.6;">Manage and approve design system submissions for the gallery.</p>
+          <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600)">
+            INSTRUCTOR TOOLS
+          </p>
+          <h1 class="font-bold mb-4" style="font-size: var(--fluid-h1); line-height: 1.1; letter-spacing: -0.02em">
+            Review Panel
+          </h1>
+          <p class="text-lg mb-4" style="color: var(--swiss-gray-700); max-width: 60ch; line-height: 1.6">
+            Manage and approve design system submissions for the gallery.
+          </p>
         </div>
       </div>
 
       <!-- Stats -->
       <div id="statsContainer" class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Total</p>
-          <p id="statTotal" class="font-black" style="font-size: 2.5rem; color: var(--swiss-black); line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Total
+          </p>
+          <p id="statTotal" class="font-black" style="font-size: 2.5rem; color: var(--swiss-black); line-height: 1">
+            0
+          </p>
         </div>
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Pending</p>
-          <p id="statPending" class="font-black" style="font-size: 2.5rem; color: #FFA500; line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Pending
+          </p>
+          <p id="statPending" class="font-black" style="font-size: 2.5rem; color: #ffa500; line-height: 1">0</p>
         </div>
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Approved</p>
-          <p id="statApproved" class="font-black" style="font-size: 2.5rem; color: #22C55E; line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Approved
+          </p>
+          <p id="statApproved" class="font-black" style="font-size: 2.5rem; color: #22c55e; line-height: 1">0</p>
         </div>
-        <div style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
-          <p class="text-sm uppercase tracking-wider font-bold" style="color: var(--swiss-gray-600); margin-bottom: 0.5rem;">Rejected</p>
-          <p id="statRejected" class="font-black" style="font-size: 2.5rem; color: #EF4444; line-height: 1;">0</p>
+        <div
+          style="
+            background: white;
+            border: 1px solid var(--swiss-gray-300);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <p
+            class="text-sm uppercase tracking-wider font-bold"
+            style="color: var(--swiss-gray-600); margin-bottom: 0.5rem"
+          >
+            Rejected
+          </p>
+          <p id="statRejected" class="font-black" style="font-size: 2.5rem; color: #ef4444; line-height: 1">0</p>
         </div>
       </div>
 
       <!-- Filters -->
-      <div id="filterTabs" class="mb-8" style="border-bottom: 2px solid var(--swiss-gray-300);">
-        <div style="display: flex; gap: 0;">
-          <button class="filter-tab active" data-filter="all" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid var(--swiss-red); font-weight: bold; cursor: pointer; transition: all 0.2s;">
+      <div id="filterTabs" class="mb-8" style="border-bottom: 2px solid var(--swiss-gray-300)">
+        <div style="display: flex; gap: 0">
+          <button
+            class="filter-tab active"
+            data-filter="all"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid var(--swiss-red);
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             All (<span id="countAll">0</span>)
           </button>
-          <button class="filter-tab" data-filter="submitted" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+          <button
+            class="filter-tab"
+            data-filter="submitted"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid transparent;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             Submitted (<span id="countSubmitted">0</span>)
           </button>
-          <button class="filter-tab" data-filter="approved" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+          <button
+            class="filter-tab"
+            data-filter="approved"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid transparent;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             Approved (<span id="countApproved">0</span>)
           </button>
-          <button class="filter-tab" data-filter="rejected" style="padding: 1rem 2rem; background: none; border: none; border-bottom: 3px solid transparent; font-weight: bold; cursor: pointer; transition: all 0.2s;">
+          <button
+            class="filter-tab"
+            data-filter="rejected"
+            style="
+              padding: 1rem 2rem;
+              background: none;
+              border: none;
+              border-bottom: 3px solid transparent;
+              font-weight: bold;
+              cursor: pointer;
+              transition: all 0.2s;
+            "
+          >
             Rejected (<span id="countRejected">0</span>)
           </button>
         </div>
       </div>
 
       <!-- Submissions Table -->
-      <div id="submissionsContainer" style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+      <div
+        id="submissionsContainer"
+        style="
+          background: white;
+          border: 1px solid var(--swiss-gray-300);
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        "
+      >
         <div id="submissionsContent">
-          <div style="padding: 3rem; text-align: center; color: var(--swiss-gray-600);">
+          <div style="padding: 3rem; text-align: center; color: var(--swiss-gray-600)">
             <p>Loading submissions...</p>
           </div>
         </div>
@@ -69,25 +193,98 @@ eleventyExcludeFromCollections: true
 </div>
 
 <!-- Review Modal -->
-<div id="reviewModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; padding: 2rem;">
-  <div style="max-width: 600px; margin: 2rem auto; background: white; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-height: 90vh; overflow-y: auto;">
-    <div style="padding: 2rem; border-bottom: 1px solid var(--swiss-gray-300);">
-      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;" id="modalTitle">Review Submission</h2>
-      <button id="closeModal" style="position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--swiss-gray-600);">✕</button>
+<div
+  id="reviewModal"
+  style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    padding: 2rem;
+  "
+>
+  <div
+    style="
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-height: 90vh;
+      overflow-y: auto;
+    "
+  >
+    <div style="padding: 2rem; border-bottom: 1px solid var(--swiss-gray-300)">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem" id="modalTitle">Review Submission</h2>
+      <button
+        id="closeModal"
+        style="
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: none;
+          border: none;
+          font-size: 1.5rem;
+          cursor: pointer;
+          color: var(--swiss-gray-600);
+        "
+      >
+        ✕
+      </button>
     </div>
 
-    <div id="modalContent" style="padding: 2rem;">
+    <div id="modalContent" style="padding: 2rem">
       <!-- Loaded via JavaScript -->
     </div>
 
-    <div style="padding: 2rem; border-top: 1px solid var(--swiss-gray-300); display: flex; gap: 1rem;">
-      <button id="approveBtn" style="flex: 1; padding: 0.75rem 1.5rem; background: #22C55E; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+    <div style="padding: 2rem; border-top: 1px solid var(--swiss-gray-300); display: flex; gap: 1rem">
+      <button
+        id="approveBtn"
+        style="
+          flex: 1;
+          padding: 0.75rem 1.5rem;
+          background: #22c55e;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+        "
+      >
         ✓ Approve
       </button>
-      <button id="rejectBtn" style="flex: 1; padding: 0.75rem 1.5rem; background: #EF4444; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+      <button
+        id="rejectBtn"
+        style="
+          flex: 1;
+          padding: 0.75rem 1.5rem;
+          background: #ef4444;
+          color: white;
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+        "
+      >
         ✕ Reject
       </button>
-      <button id="cancelBtn" style="flex: 1; padding: 0.75rem 1.5rem; background: var(--swiss-gray-300); color: var(--swiss-black); border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+      <button
+        id="cancelBtn"
+        style="
+          flex: 1;
+          padding: 0.75rem 1.5rem;
+          background: var(--swiss-gray-300);
+          color: var(--swiss-black);
+          border: none;
+          border-radius: 6px;
+          font-weight: bold;
+          cursor: pointer;
+        "
+      >
         Cancel
       </button>
     </div>
@@ -97,25 +294,26 @@ eleventyExcludeFromCollections: true
 <script>
   class ReviewPanel {
     constructor() {
-      this.submissions = []
-      this.currentFilter = 'all'
-      this.currentSubmission = null
-      this.apiToken = localStorage.getItem('reviewApiToken')
-      this.init()
+      this.submissions = [];
+      this.currentFilter = "all";
+      this.currentSubmission = null;
+      this.apiToken = localStorage.getItem("reviewApiToken");
+      this.init();
     }
 
     async init() {
       if (!this.apiToken) {
-        this.showAuthModal()
+        this.showAuthModal();
       } else {
-        await this.loadSubmissions()
-        this.setupEventListeners()
+        await this.loadSubmissions();
+        this.setupEventListeners();
       }
     }
 
     showAuthModal() {
-      const modal = document.createElement('div')
-      modal.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 2rem;'
+      const modal = document.createElement("div");
+      modal.style.cssText =
+        "position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 2000; display: flex; align-items: center; justify-content: center; padding: 2rem;";
       modal.innerHTML = `
         <div style="background: white; border-radius: 12px; padding: 2rem; max-width: 400px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.3);">
           <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">Instructor Access Required</h2>
@@ -125,85 +323,99 @@ eleventyExcludeFromCollections: true
             Authenticate
           </button>
         </div>
-      `
-      document.body.appendChild(modal)
+      `;
+      document.body.appendChild(modal);
 
-      document.getElementById('submitTokenBtn').addEventListener('click', () => {
-        const token = document.getElementById('tokenInput').value
+      document.getElementById("submitTokenBtn").addEventListener("click", () => {
+        const token = document.getElementById("tokenInput").value;
         if (token) {
-          localStorage.setItem('reviewApiToken', token)
-          this.apiToken = token
-          modal.remove()
-          this.loadSubmissions()
-          this.setupEventListeners()
+          localStorage.setItem("reviewApiToken", token);
+          this.apiToken = token;
+          modal.remove();
+          this.loadSubmissions();
+          this.setupEventListeners();
         }
-      })
+      });
     }
 
     async loadSubmissions() {
       try {
-        const response = await fetch('/.netlify/functions/sanity-submissions', {
+        const response = await fetch("/.netlify/functions/sanity-submissions", {
           headers: {
-            'Authorization': `Bearer ${this.apiToken}`,
+            Authorization: `Bearer ${this.apiToken}`,
           },
-        })
+        });
 
         if (!response.ok) {
-          throw new Error('Failed to load submissions')
+          throw new Error("Failed to load submissions");
         }
 
-        this.submissions = await response.json()
-        this.render()
+        this.submissions = await response.json();
+        this.render();
       } catch (error) {
-        console.error('Load error:', error)
-        document.getElementById('submissionsContent').innerHTML = `
+        console.error("Load error:", error);
+        document.getElementById("submissionsContent").innerHTML = `
           <div style="padding: 3rem; text-align: center; color: #EF4444;">
             <p>Error loading submissions. Please check your API token.</p>
           </div>
-        `
+        `;
       }
     }
 
     setupEventListeners() {
       // Filter tabs
-      document.querySelectorAll('.filter-tab').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          document.querySelectorAll('.filter-tab').forEach(b => {
-            b.style.borderBottomColor = 'transparent'
-          })
-          e.target.style.borderBottomColor = 'var(--swiss-red)'
-          this.currentFilter = e.target.dataset.filter
-          this.render()
-        })
-      })
+      document.querySelectorAll(".filter-tab").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          document.querySelectorAll(".filter-tab").forEach((b) => {
+            b.style.borderBottomColor = "transparent";
+          });
+          e.target.style.borderBottomColor = "var(--swiss-red)";
+          this.currentFilter = e.target.dataset.filter;
+          this.render();
+        });
+      });
 
       // Modal controls
-      document.getElementById('closeModal').addEventListener('click', () => this.closeModal())
-      document.getElementById('cancelBtn').addEventListener('click', () => this.closeModal())
-      document.getElementById('approveBtn').addEventListener('click', () => this.updateStatus('approved'))
-      document.getElementById('rejectBtn').addEventListener('click', () => this.updateStatus('rejected'))
+      document.getElementById("closeModal").addEventListener("click", () => this.closeModal());
+      document.getElementById("cancelBtn").addEventListener("click", () => this.closeModal());
+      document.getElementById("approveBtn").addEventListener("click", () => this.updateStatus("approved"));
+      document.getElementById("rejectBtn").addEventListener("click", () => this.updateStatus("rejected"));
     }
 
     render() {
-      const filtered = this.submissions.filter(s => {
-        if (this.currentFilter === 'all') return true
-        return s.status === this.currentFilter
-      })
+      const filtered = this.submissions.filter((s) => {
+        if (this.currentFilter === "all") return true;
+        return s.status === this.currentFilter;
+      });
 
       // Update stats
-      document.getElementById('statTotal').textContent = this.submissions.length
-      document.getElementById('statPending').textContent = this.submissions.filter(s => s.status === 'submitted').length
-      document.getElementById('statApproved').textContent = this.submissions.filter(s => s.status === 'approved').length
-      document.getElementById('statRejected').textContent = this.submissions.filter(s => s.status === 'rejected').length
+      document.getElementById("statTotal").textContent = this.submissions.length;
+      document.getElementById("statPending").textContent = this.submissions.filter(
+        (s) => s.status === "submitted"
+      ).length;
+      document.getElementById("statApproved").textContent = this.submissions.filter(
+        (s) => s.status === "approved"
+      ).length;
+      document.getElementById("statRejected").textContent = this.submissions.filter(
+        (s) => s.status === "rejected"
+      ).length;
 
       // Update counts
-      document.getElementById('countAll').textContent = this.submissions.length
-      document.getElementById('countSubmitted').textContent = this.submissions.filter(s => s.status === 'submitted').length
-      document.getElementById('countApproved').textContent = this.submissions.filter(s => s.status === 'approved').length
-      document.getElementById('countRejected').textContent = this.submissions.filter(s => s.status === 'rejected').length
+      document.getElementById("countAll").textContent = this.submissions.length;
+      document.getElementById("countSubmitted").textContent = this.submissions.filter(
+        (s) => s.status === "submitted"
+      ).length;
+      document.getElementById("countApproved").textContent = this.submissions.filter(
+        (s) => s.status === "approved"
+      ).length;
+      document.getElementById("countRejected").textContent = this.submissions.filter(
+        (s) => s.status === "rejected"
+      ).length;
 
       // Render table
-      const html = filtered.map(s => `
+      const html = filtered
+        .map(
+          (s) => `
         <div style="border-bottom: 1px solid var(--swiss-gray-300); padding: 1.5rem; display: flex; justify-content: space-between; align-items: center;">
           <div>
             <p style="font-weight: bold; margin-bottom: 0.25rem;">${s.submitterName}</p>
@@ -219,23 +431,27 @@ eleventyExcludeFromCollections: true
             </button>
           </div>
         </div>
-      `).join('')
+      `
+        )
+        .join("");
 
-      document.getElementById('submissionsContent').innerHTML = html || '<div style="padding: 3rem; text-align: center; color: var(--swiss-gray-600);">No submissions found.</div>'
+      document.getElementById("submissionsContent").innerHTML =
+        html ||
+        '<div style="padding: 3rem; text-align: center; color: var(--swiss-gray-600);">No submissions found.</div>';
     }
 
     getStatusStyle(status) {
       const styles = {
-        submitted: 'background: #FFA500; color: white;',
-        approved: 'background: #D1FAE5; color: #065F46;',
-        rejected: 'background: #FEE2E2; color: #7F1D1D;',
-      }
-      return styles[status] || ''
+        submitted: "background: #FFA500; color: white;",
+        approved: "background: #D1FAE5; color: #065F46;",
+        rejected: "background: #FEE2E2; color: #7F1D1D;",
+      };
+      return styles[status] || "";
     }
 
     openReview(submissionId) {
-      this.currentSubmission = this.submissions.find(s => s._id === submissionId)
-      if (!this.currentSubmission) return
+      this.currentSubmission = this.submissions.find((s) => s._id === submissionId);
+      if (!this.currentSubmission) return;
 
       const content = `
         <p style="color: var(--swiss-gray-600); margin-bottom: 1rem;">
@@ -250,47 +466,47 @@ eleventyExcludeFromCollections: true
         <p style="color: var(--swiss-gray-600); margin-bottom: 1rem;">
           <strong>Status:</strong> ${this.currentSubmission.status}
         </p>
-        <textarea id="reviewNotes" placeholder="Add review notes..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--swiss-gray-300); border-radius: 6px; font-family: monospace; height: 100px; resize: vertical;">${this.currentSubmission.reviewNotes || ''}</textarea>
-      `
+        <textarea id="reviewNotes" placeholder="Add review notes..." style="width: 100%; padding: 0.75rem; border: 1px solid var(--swiss-gray-300); border-radius: 6px; font-family: monospace; height: 100px; resize: vertical;">${this.currentSubmission.reviewNotes || ""}</textarea>
+      `;
 
-      document.getElementById('modalContent').innerHTML = content
-      document.getElementById('reviewModal').style.display = 'block'
+      document.getElementById("modalContent").innerHTML = content;
+      document.getElementById("reviewModal").style.display = "block";
     }
 
     closeModal() {
-      document.getElementById('reviewModal').style.display = 'none'
-      this.currentSubmission = null
+      document.getElementById("reviewModal").style.display = "none";
+      this.currentSubmission = null;
     }
 
     async updateStatus(status) {
-      if (!this.currentSubmission) return
+      if (!this.currentSubmission) return;
 
       try {
-        const response = await fetch('/.netlify/functions/sanity-submissions', {
-          method: 'PUT',
+        const response = await fetch("/.netlify/functions/sanity-submissions", {
+          method: "PUT",
           headers: {
-            'Authorization': `Bearer ${this.apiToken}`,
-            'Content-Type': 'application/json',
+            Authorization: `Bearer ${this.apiToken}`,
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             submissionId: this.currentSubmission._id,
             status,
-            reviewNotes: document.getElementById('reviewNotes')?.value || '',
+            reviewNotes: document.getElementById("reviewNotes")?.value || "",
           }),
-        })
+        });
 
         if (!response.ok) {
-          throw new Error('Failed to update submission')
+          throw new Error("Failed to update submission");
         }
 
-        await this.loadSubmissions()
-        this.closeModal()
+        await this.loadSubmissions();
+        this.closeModal();
       } catch (error) {
-        console.error('Update error:', error)
-        alert('Failed to update submission')
+        console.error("Update error:", error);
+        alert("Failed to update submission");
       }
     }
   }
 
-  const reviewPanel = new ReviewPanel()
+  const reviewPanel = new ReviewPanel();
 </script>
