@@ -3,6 +3,8 @@
   "description": "Professional portfolio showcasing modern web development expertise and innovative projects",
   "author": "Design Gallery- IS373",
   "url": "https://www.eaikw.com",
+  "ga_measurement_id": "G-XXXXXXXXXX",
+  "dev_mode": false,
   "social": {
     "github": "https://github.com/kaw393939",
     "linkedin": "https://www.linkedin.com/in/keithwilliams5/",

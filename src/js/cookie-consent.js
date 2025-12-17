@@ -380,40 +380,24 @@ class CookieConsentManager {
   }
 
   loadAnalytics() {
-    // Google Analytics 4 - Replace GA_MEASUREMENT_ID with your actual ID
-    // Example: G-XXXXXXXXXX
-    const GA_ID = "GA_MEASUREMENT_ID"; // Replace with your actual Analytics ID
+    // Update Google Analytics 4 Consent Mode
+    // GA4 script is already loaded in base.njk with default consent denied
+    // This method grants consent when user accepts analytics cookies
+    
+    if (typeof gtag === "function") {
+      // Update consent to granted for analytics
+      gtag("consent", "update", {
+        analytics_storage: "granted",
+        ad_storage: "denied", // Still deny advertising
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
 
-    if (typeof gtag === "undefined" && GA_ID !== "GA_MEASUREMENT_ID") {
-      // Initialize dataLayer
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      window.gtag = gtag;
-
-      // Load Google Analytics script
-      const script = document.createElement("script");
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
-      document.head.appendChild(script);
-
-      script.onload = () => {
-        gtag("js", new Date());
-        gtag("config", GA_ID, {
-          anonymize_ip: true,
-          cookie_flags: "secure;samesite=strict",
-          cookie_domain: window.location.hostname,
-          send_page_view: true,
-        });
-
-        console.log("Analytics loaded with user consent");
-      };
-
+      console.log("✓ Analytics consent granted - GA4 tracking enabled");
       this.analyticsLoaded = true;
-    } else if (GA_ID === "GA_MEASUREMENT_ID") {
-      console.log(
-        "Analytics ID not configured. Please update GA_MEASUREMENT_ID in cookie-consent.js"
+    } else {
+      console.warn(
+        "GA4 gtag function not found. Ensure GA4 script is loaded in base.njk"
       );
     }
   }
