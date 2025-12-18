@@ -25,11 +25,11 @@ test.describe("Homepage Tests", () => {
     expect(linkCount).toBeGreaterThan(3);
 
     // Test a navigation link
-    const showcaseLink = page.locator('nav a:has-text("Showcase"), nav a:has-text("Gallery")');
-    if ((await showcaseLink.count()) > 0) {
-      await showcaseLink.first().click();
+    const galleryLink = page.locator('nav a:has-text("Style Gallery"), nav a:has-text("Gallery")');
+    if ((await galleryLink.count()) > 0) {
+      await galleryLink.first().click();
       await page.waitForLoadState("networkidle");
-      expect(page.url()).toContain("showcase");
+      expect(page.url()).toContain("blog");
     }
   });
 

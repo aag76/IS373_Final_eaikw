@@ -2,7 +2,7 @@ import { test, expect } from "./fixtures";
 
 test.describe("Gallery Functionality", () => {
   test("should display approved submissions in gallery", async ({ page }) => {
-    await page.goto("/showcase/");
+    await page.goto("/blog/");
 
     // Wait for gallery to load
     await page.waitForLoadState("networkidle");
@@ -20,7 +20,7 @@ test.describe("Gallery Functionality", () => {
   });
 
   test("should filter submissions by status", async ({ page }) => {
-    await page.goto("/showcase/");
+    await page.goto("/blog/");
 
     // Check filtering functionality
     const filterButtons = await page.locator("[data-filter-status]");

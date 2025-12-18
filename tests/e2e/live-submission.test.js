@@ -35,11 +35,11 @@ test.describe("Live Form Submission Experience", () => {
 
     await page.fill('input[name="name"]', testData.name);
     await page.fill('input[name="email"]', testData.email);
-    await page.fill('input[name="designStyle"]', testData.designStyle);
-    await page.fill('input[name="demoUrl"]', testData.demoUrl);
+    await page.fill('input[name="design-style"]', testData.designStyle);
+    await page.fill('input[name="demo-url"]', testData.demoUrl);
     await page.fill('textarea[name="authenticity"]', testData.authenticity);
-    await page.fill('input[name="toolsUsed"]', testData.toolsUsed);
-    await page.fill('textarea[name="additionalNotes"]', testData.additionalNotes);
+    await page.fill('input[name="tools-used"]', testData.toolsUsed);
+    await page.fill('textarea[name="additional-notes"]', testData.additionalNotes);
 
     // Check required checkbox
     await page.check('input[name="agreeTerms"]');
@@ -212,7 +212,8 @@ test.describe("Live Form Submission Experience", () => {
   test("Review mode: Live data refresh", async ({ page }) => {
     // Navigate to review mode
     await page.goto("http://localhost:8765/");
-    await page.click("#reviewModeToggle");
+    await page.waitForSelector("#reviewModeToggle", { state: "attached" });
+    await page.check("#reviewModeToggle", { force: true });
     await page.click("#reviewLinkDesktop, #reviewLink");
 
     await page.waitForURL("**/review/**");
@@ -251,10 +252,10 @@ test.describe("Mobile Experience", () => {
     // Test review mode on mobile
     await page.goto("http://localhost:8765/");
 
-    // Find mobile review toggle
-    const mobileToggle = page.locator("#reviewModeToggleMobile, #reviewModeToggle");
+    // Find mobile review toggle - use .first() to avoid strict mode violation
+    const mobileToggle = page.locator("#reviewModeToggleMobile");
     if ((await mobileToggle.count()) > 0) {
-      await mobileToggle.check();
+      await mobileToggle.check({ force: true });
       await page.click("#reviewLink");
 
       await page.waitForURL("**/review/**", { timeout: 10000 });
