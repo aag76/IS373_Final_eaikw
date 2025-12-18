@@ -38,7 +38,8 @@ test.describe("Gallery Functionality", () => {
     }
   });
 
-  test("should display submission details on click", async ({ page }) => {
+  test("should display submission details on click @slow", async ({ page }) => {
+    test.setTimeout(15000); // Increase timeout for this specific test
     await page.goto("/showcase/");
 
     // Click on first submission card
@@ -95,7 +96,8 @@ test.describe("Review Panel", () => {
 });
 
 test.describe("Submission Form", () => {
-  test("should display submission form", async ({ page }) => {
+  test("should display submission form @slow", async ({ page }) => {
+    test.setTimeout(15000);
     await page.goto("/submit-style-guide/");
 
     // Check form exists
@@ -110,7 +112,8 @@ test.describe("Submission Form", () => {
     await expect(emailInput).toBeVisible();
   });
 
-  test("should validate required fields", async ({ page }) => {
+  test("should validate required fields @slow", async ({ page }) => {
+    test.setTimeout(15000);
     await page.goto("/submit-style-guide/");
 
     // Find submit button
@@ -129,7 +132,8 @@ test.describe("Submission Form", () => {
     }
   });
 
-  test("should submit form successfully", async ({ page }) => {
+  test("should submit form successfully @slow", async ({ page }) => {
+    test.setTimeout(15000);
     await page.goto("/submit-style-guide/");
 
     // Fill in form

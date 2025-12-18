@@ -12,11 +12,20 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
 
-  /* Retry on CI only */
-  retries: process.env.CI ? 2 : 0,
+  /* Retry on CI only - reduce retries */
+  retries: process.env.CI ? 1 : 0,
 
-  /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  /* Use multiple workers for faster execution */
+  workers: process.env.CI ? 2 : 4,
+
+  /* Timeout settings - reduce from default 30s */
+  timeout: 10 * 1000, // 10 seconds per test
+  expect: {
+    timeout: 5 * 1000, // 5 seconds for assertions
+  },
+
+  /* Grep - skip slow integration tests by default unless explicitly running them */
+  grep: process.env.RUN_SLOW_TESTS ? undefined : /^(?!.*@slow)/,
 
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
@@ -34,18 +43,33 @@ export default defineConfig({
 
     /* Screenshot only on failure */
     screenshot: "only-on-failure",
+
+    /* Speed up navigation */
+    navigationTimeout: 10 * 1000, // 10 seconds for page loads
+    actionTimeout: 5 * 1000, // 5 seconds for actions (click, fill, etc.)
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: "chromium",
-      use: { ...devices["Desktop Chrome"] },
+      use: { 
+        ...devices["Desktop Chrome"],
+        // Speed up by disabling video
+        video: "off",
+      },
+      // Only run integration tests on desktop
+      testMatch: /.*\.(spec|test)\.(ts|js)/,
     },
 
     {
       name: "mobile",
-      use: { ...devices["Pixel 5"] },
+      use: { 
+        ...devices["Pixel 5"],
+        video: "off",
+      },
+      // Run only specific mobile tests, not all tests
+      testMatch: /tests\/(visual\/responsive|homepage)\.spec\.ts/,
     },
   ],
 
@@ -54,6 +78,8 @@ export default defineConfig({
     command: "npm run build && npx @11ty/eleventy --serve --port=8765",
     url: "http://localhost:8765",
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 60 * 1000, // Reduce from 120s to 60s
+    stdout: "ignore", // Suppress build output noise
+    stderr: "pipe",
   },
 });

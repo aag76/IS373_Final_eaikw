@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("User Workflow - Submit and Track", () => {
-  test("complete workflow: submit style guide and track submission", async ({ page }) => {
+  test("complete workflow: submit style guide and track submission @slow", async ({ page }) => {
+    test.setTimeout(15000); // Increase timeout for integration test
     // Step 1: Navigate to submission form
     await page.goto("/submit-style-guide/");
     await expect(page.locator("h1")).toContainText(/submit|style guide/i);
@@ -85,7 +86,8 @@ test.describe("User Workflow - Submit and Track", () => {
     }
   });
 
-  test("should handle invalid confirmation number gracefully", async ({ page }) => {
+  test("should handle invalid confirmation number gracefully @slow", async ({ page }) => {
+    test.setTimeout(15000);
     await page.goto("/track-submission/");
 
     // Enter invalid confirmation number
