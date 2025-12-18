@@ -20,6 +20,7 @@
 ```
 
 **Root Cause:**  
+
 - Current fixture uses `page.addInitScript()` which only runs on initial page load
 - When tests navigate to new pages (e.g., `/showcase`), localStorage is not set
 - Cookie banner reappears and blocks interactions
@@ -92,6 +93,7 @@ git commit -m "chore: Update visual regression baselines"
 ```
 
 **Root Causes:**
+
 1. Netlify serverless functions not available on Eleventy static server
 2. Missing environment variables for Airtable and Discord
 3. Tests expect JSON responses from `/.netlify/functions/*` endpoints
@@ -228,6 +230,7 @@ await expect(page.locator("h1")).toContainText("Style Guide Submission");
 ## Recommended Action Plan
 
 ### Phase 1: Quick Fixes (15 minutes)
+
 1. ✅ Fix cookie consent to use context-level localStorage
 2. ✅ Fix RegExp syntax error in workflow.spec.ts:199
 3. ✅ Update H1 assertion in submission-workflow.test.js:52
@@ -236,12 +239,14 @@ await expect(page.locator("h1")).toContainText("Style Guide Submission");
 **Expected Result:** 18 failures → 14 failures (4 tests fixed)
 
 ### Phase 2: Visual Baselines (5 minutes)
+
 5. ✅ Run `npx playwright test --update-snapshots`
 6. ✅ Commit baseline images
 
 **Expected Result:** 14 failures → 8 failures (6 tests fixed)
 
 ### Phase 3: Environment Setup (30 minutes)
+
 7. ⏳ Configure `.env` with Airtable/Discord credentials
 8. ⏳ Install Netlify CLI and update playwright.config.ts
 9. ⏳ Test integration workflows

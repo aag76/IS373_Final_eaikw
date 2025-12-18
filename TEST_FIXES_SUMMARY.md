@@ -9,9 +9,11 @@
 ## ✅ Critical Fixes Applied (Committed: 160e85c)
 
 ### 1. Port Mismatch (12 occurrences)
+
 **Problem:** Tests were trying to connect to `localhost:8080` but the dev server runs on `localhost:8765`
 
-**Impact:** 
+**Impact:**
+
 - 5 E2E tests failed with `ERR_CONNECTION_REFUSED`
 - 3 integration tests failed with `ERR_CONNECTION_REFUSED`
 - 2 API endpoint tests failed
@@ -24,15 +26,18 @@
 ```
 
 **Files Updated:**
+
 - `tests/e2e/live-submission.test.js` (7 changes)
 - `tests/integration/submission-workflow.test.js` (5 changes)
 
 ---
 
 ### 2. Cookie Consent Banner Blocking Clicks
+
 **Problem:** Cookie banner intercepted pointer events, causing 5-second timeout failures
 
 **Impact:**
+
 - Mobile menu test failed (5.9s timeout)
 - Filter button clicks failed (5.5s timeout)
 - Interactive tests timing out
@@ -57,6 +62,7 @@ export const test = base.extend({
 ---
 
 ### 3. Navigation Selector Strict Mode Violation
+
 **Problem:** `page.locator("nav")` matched 2 nav elements on the page
 
 **Impact:** Homepage navigation test failed
@@ -71,6 +77,7 @@ export const test = base.extend({
 ---
 
 ### 4. Heading Hierarchy Test on Wrong Page
+
 **Problem:** Test checked `/showcase/` which intentionally has 3 h1 elements for typography demonstration
 
 **Impact:** Accessibility test failed expecting 1 h1, found 3
@@ -85,6 +92,7 @@ export const test = base.extend({
 ---
 
 ### 5. Workflow Test Regex Syntax Error
+
 **Problem:** Invalid regex flags `'i, [data-testid="success-message"]'`
 
 **Impact:** Event registration test crashed with SyntaxError
@@ -101,8 +109,10 @@ export const test = base.extend({
 ## ⚠️ Remaining Known Issues (Not Blocking)
 
 ### 1. Visual Regression Baselines Missing (4 tests)
+
 **Status:** Expected first-run behavior  
 **Tests:**
+
 - Component snapshots: header, hero, footer
 - Page snapshots: homepage, blog
 
@@ -114,13 +124,16 @@ npm test -- --update-snapshots
 ---
 
 ### 2. Integration Tests Missing Environment Variables (6 tests)
+
 **Status:** Expected in local environment  
 **Missing Variables:**
+
 - `AIRTABLE_API_TOKEN`
 - `AIRTABLE_BASE_ID`
 - `DISCORD_WEBHOOK_SUBMISSIONS`
 
 **Tests Affected:**
+
 - Complete Submission Workflow (Steps 1 & 4)
 - Discord notification verification
 - API endpoint tests
@@ -131,8 +144,10 @@ npm test -- --update-snapshots
 ---
 
 ### 3. Gallery Data-Testid Missing (2 tests)
+
 **Status:** Requires HTML updates  
 **Tests:**
+
 - "should display approved submissions in gallery"
 - "should filter submissions by status"
 
@@ -147,6 +162,7 @@ npm test -- --update-snapshots
 ---
 
 ### 4. Featured Projects Element Missing (1 test)
+
 **Status:** Requires HTML updates  
 **Test:** "featured projects section" visual snapshot
 
@@ -163,11 +179,13 @@ npm test -- --update-snapshots
 ## 📊 Test Execution Performance
 
 **Before Optimizations:** (from previous session)
+
 - Test timeout: 30s
 - Workers: 1 (serial)
 - Execution time: 10+ minutes
 
 **After Optimizations:**
+
 - Test timeout: 10s (test), 5s (actions), 5s (assertions)
 - Workers: 4 (local), 2 (CI)
 - Execution time: ~1 minute
@@ -178,6 +196,7 @@ npm test -- --update-snapshots
 ## 🎯 Next Steps
 
 ### To Apply Cookie Consent Fix Globally:
+
 Update all test files to import from fixtures instead of @playwright/test:
 
 ```typescript
@@ -189,6 +208,7 @@ import { test, expect } from "./fixtures";
 ```
 
 **Files to update:**
+
 - `tests/e2e/live-submission.test.js`
 - `tests/functional.spec.ts`
 - `tests/homepage.spec.ts`
@@ -200,11 +220,13 @@ import { test, expect } from "./fixtures";
 - `tests/workflow.spec.ts`
 
 ### To Fix Data-Testid Issues:
+
 1. Add `data-testid="gallery-grid"` to gallery container
 2. Add `data-testid="submission-card"` to submission cards
 3. Add `data-component="featured-projects"` to projects section
 
 ### To Generate Visual Baselines:
+
 ```bash
 npm test -- --update-snapshots
 git add tests/visual/**/*.png
@@ -231,6 +253,7 @@ git commit -m "test: Add visual regression baselines"
 **CI Status:** Check GitHub Actions
 
 The critical fixes have been deployed. Tests should now:
+
 - ✅ Connect to correct server port (8765)
 - ✅ Have proper navigation selectors
 - ✅ Test heading hierarchy on correct page

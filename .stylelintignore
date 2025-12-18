@@ -1,0 +1,17 @@
+# Build artifacts
+_site/
+node_modules/
+dist/
+build/
+
+# Test reports
+playwright-report-analysis/
+test-results/
+playwright-report/
+
+# CMS
+eaikw-cms/
+.sanity/
+
+# Vendor CSS
+*.min.css
