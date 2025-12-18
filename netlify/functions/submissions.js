@@ -32,9 +32,14 @@ async function sendDiscordNotification(submission) {
       description: "A new design style has been submitted for review.",
       fields: [
         {
-          name: "📝 Design Style",
-          value: submission.designStyle || "Untitled",
+          name: "📝 Style Guide Name",
+          value: submission.styleGuideName || "Untitled",
           inline: false,
+        },
+        {
+          name: "🏷️ Category",
+          value: submission.category || "Not specified",
+          inline: true,
         },
         {
           name: "👤 Submitter",
@@ -47,8 +52,8 @@ async function sendDiscordNotification(submission) {
           inline: true,
         },
         {
-          name: "🔗 Demo URL",
-          value: submission.demoUrl || "Not provided",
+          name: "🔗 Style Guide URL",
+          value: submission.styleGuideUrl || "Not provided",
           inline: false,
         },
         {
@@ -126,8 +131,9 @@ exports.handler = async (event, _context) => {
       // Map form fields to Airtable fields
       const name = data.submitterName || data.name;
       const email = data.submitterEmail || data.email;
-      const designStyle = data.styleGuideName || data.designStyle;
-      const demoUrl = data.styleGuideUrl || data.demoUrl || "";
+      const styleGuideName = data.styleGuideName || "";
+      const styleGuideUrl = data.styleGuideUrl || data.demoUrl || "";
+      const category = data.category || "";
       const description = data.description || "";
       const technologies = data.technologies || data.toolsUsed || "";
       const liveExampleUrl = data.liveExampleUrl || "";
@@ -137,8 +143,9 @@ exports.handler = async (event, _context) => {
       console.log("Mapped fields:", {
         name,
         email,
-        designStyle,
-        demoUrl,
+        styleGuideName,
+        styleGuideUrl,
+        category,
         description: description.substring(0, 50) + "...",
         technologies,
         liveExampleUrl,
@@ -150,21 +157,21 @@ exports.handler = async (event, _context) => {
       console.log("Table name:", tableName);
       console.log("Base ID:", process.env.AIRTABLE_BASE_ID?.substring(0, 8) + "...");
 
-      // Prepare fields with both naming conventions for compatibility
+      // Prepare fields matching form data structure
       const airtableFields = {
-        // Try both "ConfirmationNumber" and "Confirmation Number" (with space)
         "Confirmation Number": confirmationNumber,
         Status: "pending",
         Name: name,
         Email: email,
-        "Design Style": designStyle, // Changed from DesignStyle
-        "Demo URL": demoUrl, // Changed from DemoURL
+        "Style Guide Name": styleGuideName,
+        "Style Guide URL": styleGuideUrl,
+        Category: category,
         Description: description,
         Technologies: technologies,
-        "Live Example URL": liveExampleUrl, // Changed from LiveExampleURL
+        "Live Example URL": liveExampleUrl,
         License: license,
-        "Additional Notes": additionalNotes, // Changed from AdditionalNotes
-        "Submitted Date": new Date().toISOString().split('T')[0], // Format: YYYY-MM-DD for Airtable Date field
+        "Additional Notes": additionalNotes,
+        "Submitted Date": new Date().toISOString().split("T")[0],
       };
 
       console.log("Attempting to create with fields:", Object.keys(airtableFields));
@@ -235,17 +242,18 @@ exports.handler = async (event, _context) => {
 
       const submissions = records.map((record) => ({
         id: record.id,
-        confirmationNumber: record.fields["Confirmation Number"], // Updated field name
+        confirmationNumber: record.fields["Confirmation Number"],
         status: record.fields.Status || "pending",
         name: record.fields.Name,
         email: record.fields.Email,
-        designStyle: record.fields["Design Style"], // Updated field name
-        demoUrl: record.fields["Demo URL"], // Updated field name
+        styleGuideName: record.fields["Style Guide Name"],
+        styleGuideUrl: record.fields["Style Guide URL"],
+        category: record.fields.Category,
         description: record.fields.Description,
         technologies: record.fields.Technologies,
-        liveExampleUrl: record.fields["Live Example URL"], // Updated field name
+        liveExampleUrl: record.fields["Live Example URL"],
         license: record.fields.License,
-        additionalNotes: record.fields["Additional Notes"], // Updated field name
+        additionalNotes: record.fields["Additional Notes"],
         submittedDate: record.fields["Submitted Date"], // Updated field name
         reviewDate: record.fields["Review Date"],
         reviewNotes: record.fields["Review Notes"],
