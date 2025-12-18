@@ -95,12 +95,12 @@ exports.handler = async (event, _context) => {
         body: JSON.stringify({
           success: true,
           submission: {
-            confirmationNumber: record.fields.ConfirmationNumber,
+            confirmationNumber: record.fields["Confirmation Number"],
             status: record.fields.Status || "pending",
-            designStyle: record.fields.DesignStyle,
-            submittedDate: record.fields.SubmittedDate,
-            reviewDate: record.fields.ReviewDate,
-            reviewNotes: record.fields.ReviewNotes,
+            styleGuideName: record.fields["Style Guide Name"],
+            submittedDate: record.fields["Submitted Date"],
+            reviewDate: record.fields["Review Date"],
+            reviewNotes: record.fields["Review Notes"],
           },
         }),
       };

@@ -282,7 +282,7 @@ eleventyExcludeFromCollections: true
           <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
             <div style="flex: 1;">
               <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem; flex-wrap: wrap;">
-                <h3 class="font-bold" style="font-size: 1.5rem; margin: 0;">${submission.designStyle || 'Untitled Style Guide'}</h3>
+                <h3 class="font-bold" style="font-size: 1.5rem; margin: 0;">${submission.styleGuideName || 'Untitled Style Guide'}</h3>
                 <span class="status-badge" style="display: inline-block; padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.75rem; font-weight: bold; text-transform: uppercase; background: ${statusStyle.bg}; color: ${statusStyle.text};">
                   ${submission.status}
                 </span>
@@ -300,9 +300,9 @@ eleventyExcludeFromCollections: true
             <p class="text-sm font-bold uppercase tracking-wider mb-2" style="color: var(--swiss-gray-600);">Contact</p>
             <p style="color: var(--swiss-gray-700); font-size: 0.875rem;">${submission.email}</p>
 
-            ${submission.demoUrl ? `
-              <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Demo URL</p>
-              <a href="${submission.demoUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--swiss-red); text-decoration: underline; font-size: 0.875rem;">${submission.demoUrl}</a>
+            ${submission.styleGuideUrl ? `
+              <p class="text-sm font-bold uppercase tracking-wider mb-2 mt-3" style="color: var(--swiss-gray-600);">Style Guide URL</p>
+              <a href="${submission.styleGuideUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--swiss-red); text-decoration: underline; font-size: 0.875rem;">${submission.styleGuideUrl}</a>
             ` : ''}
 
             ${submission.toolsUsed ? `
@@ -317,8 +317,8 @@ eleventyExcludeFromCollections: true
           </div>
 
           <div style="display: flex; gap: 1rem; padding-top: 1.5rem; border-top: 1px solid var(--swiss-gray-200); flex-wrap: wrap;">
-            ${submission.demoUrl ? `
-              <a href="${submission.demoUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--swiss-black); color: white; border-radius: 4px; font-weight: bold; text-decoration: none; transition: all 0.2s;">
+            ${submission.styleGuideUrl ? `
+              <a href="${submission.styleGuideUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; background: var(--swiss-black); color: white; border-radius: 4px; font-weight: bold; text-decoration: none; transition: all 0.2s;">
                 <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                   <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
                 </svg>

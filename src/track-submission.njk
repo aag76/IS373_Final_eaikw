@@ -292,7 +292,7 @@ permalink: /track-submission/
     <div style="background: var(--swiss-white); border: 2px solid var(--swiss-black); padding: var(--space-2xl);">
       <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: var(--space-lg); flex-wrap: wrap; gap: var(--space-md);">
         <div style="flex: 1; min-width: 250px;">
-          <h3 class="font-bold text-xl mb-2" style="color: var(--swiss-black);">${submission.designStyle || "Style Guide Submission"}</h3>
+          <h3 class="font-bold text-xl mb-2" style="color: var(--swiss-black);">${submission.styleGuideName || "Style Guide Submission"}</h3>
           <p class="font-mono text-sm" style="color: var(--swiss-gray-600);">
             ${submission.confirmationNumber} • Submitted: ${new Date(submission.submittedDate).toLocaleDateString()}
           </p>
