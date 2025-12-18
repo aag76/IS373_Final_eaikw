@@ -3,7 +3,7 @@
  * Tests Discord webhook notifications for submissions and approvals
  */
 
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures";
 import "dotenv/config";
 
 test.describe("Discord Webhook Integration", () => {

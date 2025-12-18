@@ -3,7 +3,7 @@
  * Tests: Form Submission → Airtable Storage → Discord Notification → Review Mode Display
  */
 
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures";
 import Airtable from "airtable";
 import "dotenv/config";
 

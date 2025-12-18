@@ -3,7 +3,7 @@
  * Visual validation of the complete user experience
  */
 
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures";
 
 test.describe("Live Form Submission Experience", () => {
   test("User submits design system and sees it in review mode", async ({ page }) => {
