@@ -150,22 +150,28 @@ exports.handler = async (event, _context) => {
       console.log("Table name:", tableName);
       console.log("Base ID:", process.env.AIRTABLE_BASE_ID?.substring(0, 8) + "...");
 
+      // Prepare fields with both naming conventions for compatibility
+      const airtableFields = {
+        // Try both "ConfirmationNumber" and "Confirmation Number" (with space)
+        "Confirmation Number": confirmationNumber,
+        Status: "pending",
+        Name: name,
+        Email: email,
+        "Design Style": designStyle, // Changed from DesignStyle
+        "Demo URL": demoUrl, // Changed from DemoURL
+        Description: description,
+        Technologies: technologies,
+        "Live Example URL": liveExampleUrl, // Changed from LiveExampleURL
+        License: license,
+        "Additional Notes": additionalNotes, // Changed from AdditionalNotes
+        "Submitted Date": new Date().toISOString(), // Changed from SubmittedDate
+      };
+
+      console.log("Attempting to create with fields:", Object.keys(airtableFields));
+
       const airtableRecord = await base(tableName).create([
         {
-          fields: {
-            ConfirmationNumber: confirmationNumber,
-            Status: "pending",
-            Name: name,
-            Email: email,
-            DesignStyle: designStyle,
-            DemoURL: demoUrl,
-            Description: description,
-            Technologies: technologies,
-            LiveExampleURL: liveExampleUrl,
-            License: license,
-            AdditionalNotes: additionalNotes,
-            SubmittedDate: new Date().toISOString(),
-          },
+          fields: airtableFields,
         },
       ]);
 
@@ -223,24 +229,26 @@ exports.handler = async (event, _context) => {
     try {
       const records = await base(tableName)
         .select({
-          sort: [{ field: "SubmittedDate", direction: "desc" }],
+          sort: [{ field: "Submitted Date", direction: "desc" }], // Updated field name
         })
         .all();
 
       const submissions = records.map((record) => ({
         id: record.id,
-        confirmationNumber: record.fields.ConfirmationNumber,
+        confirmationNumber: record.fields["Confirmation Number"], // Updated field name
         status: record.fields.Status || "pending",
         name: record.fields.Name,
         email: record.fields.Email,
-        designStyle: record.fields.DesignStyle,
-        demoUrl: record.fields.DemoURL,
-        authenticity: record.fields.Authenticity,
-        toolsUsed: record.fields.ToolsUsed,
-        additionalNotes: record.fields.AdditionalNotes,
-        submittedDate: record.fields.SubmittedDate,
-        reviewDate: record.fields.ReviewDate,
-        reviewNotes: record.fields.ReviewNotes,
+        designStyle: record.fields["Design Style"], // Updated field name
+        demoUrl: record.fields["Demo URL"], // Updated field name
+        description: record.fields.Description,
+        technologies: record.fields.Technologies,
+        liveExampleUrl: record.fields["Live Example URL"], // Updated field name
+        license: record.fields.License,
+        additionalNotes: record.fields["Additional Notes"], // Updated field name
+        submittedDate: record.fields["Submitted Date"], // Updated field name
+        reviewDate: record.fields["Review Date"],
+        reviewNotes: record.fields["Review Notes"],
       }));
 
       return {
