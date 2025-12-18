@@ -66,7 +66,7 @@ exports.handler = async (event, _context) => {
       console.log("📤 Querying Airtable table:", tableName);
       const records = await base(tableName)
         .select({
-          filterByFormula: `{ConfirmationNumber} = '${confirmationNumber}'`,
+          filterByFormula: `{Confirmation Number} = '${confirmationNumber}'`,
           maxRecords: 1,
         })
         .all();
