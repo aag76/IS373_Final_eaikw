@@ -107,6 +107,7 @@ jobs:
         run: npm test -- --grep-invert "@visual"
         env:
           CI: true
+          DISCORD_WEBHOOK_SUBMISSIONS: ${{ secrets.DISCORD_WEBHOOK_SUBMISSIONS }}
 
       - name: Upload test results
         uses: actions/upload-artifact@v4
