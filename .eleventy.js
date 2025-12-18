@@ -14,6 +14,9 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/css/print.css": "css/print.css" });
   eleventyConfig.addPassthroughCopy({ "src/js/cookie-consent.js": "js/cookie-consent.js" });
   eleventyConfig.addPassthroughCopy("CNAME");
+  
+  // Disable Jekyll processing on GitHub Pages
+  eleventyConfig.addPassthroughCopy({ ".nojekyll": ".nojekyll" });
 
   // Add plugins
   eleventyConfig.addPlugin(EleventyHtmlBasePlugin);
