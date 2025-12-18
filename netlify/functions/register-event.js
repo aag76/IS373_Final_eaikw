@@ -97,13 +97,23 @@ exports.handler = async (event, _context) => {
   // Handle POST - Register for event
   if (event.httpMethod === "POST") {
     try {
+      console.log('📅 Event registration request:', {
+        method: event.httpMethod,
+        headers: event.headers,
+        queryParams: event.queryStringParameters
+      });
+      console.log('Raw body:', event.body);
+
       const data = JSON.parse(event.body);
+      console.log('Parsed data:', data);
 
       // Generate registration number
       const registrationNumber = "EVT-" + crypto.randomBytes(4).toString("hex").toUpperCase();
+      console.log('Generated registration number:', registrationNumber);
 
       // Create record in Airtable
-      await base(tableName).create([
+      console.log('📤 Creating Airtable record in table:', tableName);
+      const airtableRecord = await base(tableName).create([
         {
           fields: {
             RegistrationNumber: registrationNumber,
@@ -118,6 +128,7 @@ exports.handler = async (event, _context) => {
           },
         },
       ]);
+      console.log('✅ Airtable record created:', airtableRecord[0].id);
 
       // Send Discord notification (non-blocking)
       const registrationData = {

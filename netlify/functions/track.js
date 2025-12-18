@@ -30,10 +30,19 @@ exports.handler = async (event, _context) => {
   // Handle POST - Track submission by confirmation number
   if (event.httpMethod === "POST") {
     try {
+      console.log('🔍 Tracking request:', {
+        method: event.httpMethod,
+        headers: event.headers,
+        queryParams: event.queryStringParameters
+      });
+      console.log('Raw body:', event.body);
+
       const data = JSON.parse(event.body);
       const confirmationNumber = data.confirmationNumber;
+      console.log('Searching for confirmation number:', confirmationNumber);
 
       if (!confirmationNumber) {
+        console.log('❌ Missing confirmation number');
         return {
           statusCode: 400,
           headers,
@@ -45,6 +54,7 @@ exports.handler = async (event, _context) => {
       }
 
       // Find submission in Airtable
+      console.log('📤 Querying Airtable table:', tableName);
       const records = await base(tableName)
         .select({
           filterByFormula: `{ConfirmationNumber} = '${confirmationNumber}'`,
@@ -52,7 +62,10 @@ exports.handler = async (event, _context) => {
         })
         .all();
 
+      console.log('Query results:', records.length > 0 ? 'Found match' : 'No match found');
+
       if (records.length === 0) {
+        console.log('❌ Submission not found');
         return {
           statusCode: 404,
           headers,

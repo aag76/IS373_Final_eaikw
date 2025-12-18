@@ -38,20 +38,31 @@ export async function createSubmission(event) {
   }
 
   try {
+    console.log('📝 Sanity submission request:', {
+      method: event.httpMethod,
+      headers: event.headers,
+      queryParams: event.queryStringParameters
+    });
+    console.log('Raw body:', event.body);
+
     const data = JSON.parse(event.body);
+    console.log('Parsed data:', data);
 
     // Validate required fields
     const requiredFields = ["submitterName", "submitterEmail", "url", "description"];
     const missing = requiredFields.filter((field) => !data[field]);
     if (missing.length > 0) {
+      console.log('❌ Validation failed. Missing fields:', missing);
       return {
         statusCode: 400,
         headers: corsHeaders,
         body: JSON.stringify({ error: `Missing required fields: ${missing.join(", ")}` }),
       };
     }
+    console.log('✅ Validation passed');
 
     // Create submission document in Sanity
+    console.log('📤 Creating Sanity document...');
     const submission = await client.create({
       _type: "gallerySubmission",
       submitterName: data.submitterName,
@@ -61,11 +72,17 @@ export async function createSubmission(event) {
       status: "submitted",
       submittedAt: new Date().toISOString(),
     });
+    console.log('✅ Sanity document created:', submission._id);
 
     // Call Discord webhook if configured
     if (process.env.DISCORD_WEBHOOK_URL) {
+      console.log('📨 Sending Discord notification...');
       await notifyDiscord(submission, "submitted");
+    } else {
+      console.log('ℹ️ Discord webhook not configured, skipping notification');
     }
+
+    console.log('✅ Submission completed successfully');
 
     return {
       statusCode: 201,
@@ -80,11 +97,19 @@ export async function createSubmission(event) {
       }),
     };
   } catch (error) {
-    console.error("Submission error:", error);
+    console.error('❌ Submission error:', error);
+    console.error('Error details:', {
+      message: error.message,
+      stack: error.stack,
+      statusCode: error.statusCode
+    });
     return {
       statusCode: 500,
       headers: corsHeaders,
-      body: JSON.stringify({ error: "Failed to create submission" }),
+      body: JSON.stringify({ 
+        error: "Failed to create submission",
+        details: error.message 
+      }),
     };
   }
 }

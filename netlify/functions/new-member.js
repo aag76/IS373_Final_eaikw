@@ -102,13 +102,23 @@ exports.handler = async (event, _context) => {
   // Handle POST - Register new member
   if (event.httpMethod === "POST") {
     try {
+      console.log('👤 New member registration request:', {
+        method: event.httpMethod,
+        headers: event.headers,
+        queryParams: event.queryStringParameters
+      });
+      console.log('Raw body:', event.body);
+
       const data = JSON.parse(event.body);
+      console.log('Parsed data:', data);
 
       // Generate member ID
       const memberId = "MBR-" + crypto.randomBytes(4).toString("hex").toUpperCase();
+      console.log('Generated member ID:', memberId);
 
       // Create record in Airtable
-      await base(tableName).create([
+      console.log('📤 Creating Airtable record in table:', tableName);
+      const airtableRecord = await base(tableName).create([
         {
           fields: {
             MemberId: memberId,
@@ -123,6 +133,7 @@ exports.handler = async (event, _context) => {
           },
         },
       ]);
+      console.log('✅ Airtable record created:', airtableRecord[0].id);
 
       // Send Discord notification (non-blocking)
       const memberData = {
@@ -133,15 +144,18 @@ exports.handler = async (event, _context) => {
         interests: data.interests,
         website: data.website,
       };
-      sendDiscordNotification(memberData).catch(console.error);
+      sendDiscordNotification(memberData).catch((err) => {
+        console.error('Discord notification failed:', err.message);
+      });
 
+      console.log('✅ Member registration completed successfully');
       return {
         statusCode: 200,
         headers,
         body: JSON.stringify({
           success: true,
           memberId: memberId,
-          message: "Welcome to the Design Gallery community! Your member ID has been created.",
+          message: "Welcome to the Design Gallery community!",
         }),
       };
     } catch (error) {
