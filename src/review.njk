@@ -206,6 +206,29 @@ eleventyExcludeFromCollections: true
 
     // Load submissions from API
     async function loadSubmissions() {
+      try {
+        const response = await fetch('/.netlify/functions/submissions');
+        const data = await response.json();
+        
+        if (data.success) {
+          allSubmissions = data.submissions;
+          updateStats(allSubmissions);
+          renderSubmissions(allSubmissions);
+        } else {
+          console.error('Failed to load submissions:', data.error);
+          document.getElementById('submissionsList').innerHTML = `
+            <div style="text-align: center; padding: 3rem; color: var(--swiss-red);">
+              <p>Failed to load submissions. Please check console for details.</p>
+            </div>
+          `;
+        }
+      } catch (error) {
+        console.error('Error loading submissions:', error);
+        document.getElementById('submissionsList').innerHTML = `
+          <div style="text-align: center; padding: 3rem; color: var(--swiss-red);">
+            <p>Error loading submissions: ${error.message}</p>
+          </div>
+        `;
       }
     }
 
