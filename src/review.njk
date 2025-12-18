@@ -105,40 +105,52 @@ eleventyExcludeFromCollections: true
         </div>
       </div>
 
-      {# Database Snapshot Table #}
-      <div id="databaseSnapshot" class="mb-12" style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
-        <div style="background: var(--swiss-gray-100); padding: 1rem 1.5rem; border-bottom: 1px solid var(--swiss-gray-300);">
-          <h2 class="font-bold text-lg" style="color: var(--swiss-black);">
-            📊 Airtable Database Snapshot
-          </h2>
-          <p class="text-sm" style="color: var(--swiss-gray-600); margin-top: 0.25rem;">
-            Live view of all submissions in the database
-          </p>
+      {# Pending Submissions Quick View #}
+      <div id="pendingQuickView" class="mb-12" style="background: white; border: 1px solid var(--swiss-gray-300); border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);">
+        <div style="background: var(--swiss-gray-100); padding: 1rem 1.5rem; border-bottom: 1px solid var(--swiss-gray-300); display: flex; justify-content: space-between; align-items: center;">
+          <div>
+            <h2 class="font-bold text-lg" style="color: var(--swiss-black);">
+              ⏳ Pending Review Queue
+            </h2>
+            <p class="text-sm" style="color: var(--swiss-gray-600); margin-top: 0.25rem;">
+              Click any row to view full submission details
+            </p>
+          </div>
+          <span id="pendingBadge" style="background: #ffa500; color: white; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.875rem;">
+            0 Pending
+          </span>
         </div>
         <div style="overflow-x: auto;">
-          <table id="snapshotTable" style="width: 100%; border-collapse: collapse; font-size: 0.875rem;">
+          <table id="pendingTable" style="width: 100%; border-collapse: collapse;">
             <thead>
               <tr style="background: var(--swiss-gray-50); border-bottom: 2px solid var(--swiss-gray-300);">
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">Confirmation #</th>
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">Style Guide Name</th>
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">Category</th>
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">Submitter</th>
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">Date</th>
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">Status</th>
-                <th style="padding: 0.75rem 1rem; text-align: left; font-weight: 700; white-space: nowrap;">License</th>
+                <th style="padding: 1rem 1.5rem; text-align: left; font-weight: 700; font-size: 0.875rem;">Confirmation Number</th>
+                <th style="padding: 1rem 1.5rem; text-align: left; font-weight: 700; font-size: 0.875rem;">Submitter Name</th>
               </tr>
             </thead>
-            <tbody id="snapshotTableBody">
+            <tbody id="pendingTableBody">
               <tr>
-                <td colspan="7" style="padding: 2rem; text-align: center; color: var(--swiss-gray-600);">
-                  Loading database snapshot...
+                <td colspan="2" style="padding: 2rem; text-align: center; color: var(--swiss-gray-600);">
+                  Loading pending submissions...
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div style="background: var(--swiss-gray-50); padding: 0.75rem 1.5rem; border-top: 1px solid var(--swiss-gray-300); font-size: 0.75rem; color: var(--swiss-gray-600);">
-          Last updated: <span id="lastUpdated">--</span> • Auto-refreshes every 30 seconds
+          Last updated: <span id="lastUpdated">--</span>
+        </div>
+      </div>
+
+      {# Expanded Submission Modal #}
+      <div id="submissionModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; overflow-y: auto; padding: 2rem;">
+        <div style="max-width: 900px; margin: 0 auto; background: white; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative;">
+          <button id="closeModal" style="position: absolute; top: 1rem; right: 1rem; background: var(--swiss-gray-200); border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; line-height: 1; display: flex; align-items: center; justify-content: center; transition: all 0.2s;" onmouseover="this.style.background='var(--swiss-gray-300)'" onmouseout="this.style.background='var(--swiss-gray-200)'">
+            ×
+          </button>
+          <div id="modalContent" style="padding: 2rem;">
+            <!-- Content will be populated by JavaScript -->
+          </div>
         </div>
       </div>
 
@@ -237,15 +249,6 @@ eleventyExcludeFromCollections: true
     // Call checkReviewMode on page load
     document.addEventListener('DOMContentLoaded', function() {
       checkReviewMode();
-      
-      // Auto-refresh database snapshot every 30 seconds
-      setInterval(() => {
-        const isReviewMode = localStorage.getItem('reviewMode') === 'true';
-        if (isReviewMode && allSubmissions.length > 0) {
-          console.log('Auto-refreshing database snapshot...');
-          loadSubmissions();
-        }
-      }, 30000); // 30 seconds
     });
 
     // Load submissions from API
@@ -262,7 +265,7 @@ eleventyExcludeFromCollections: true
           console.log('Total submissions loaded:', allSubmissions.length);
           console.log('Submissions:', allSubmissions);
           updateStats(allSubmissions);
-          renderDatabaseSnapshot(allSubmissions);
+          renderPendingQuickView(allSubmissions);
           renderSubmissions(allSubmissions);
         } else {
           console.error('Failed to load submissions:', data.error);
@@ -272,10 +275,10 @@ eleventyExcludeFromCollections: true
               <p style="font-size: 0.875rem; margin-top: 1rem;">Error: ${data.error}</p>
             </div>
           `;
-          document.getElementById('snapshotTableBody').innerHTML = `
+          document.getElementById('pendingTableBody').innerHTML = `
             <tr>
-              <td colspan="7" style="padding: 2rem; text-align: center; color: var(--swiss-red);">
-                Failed to load database snapshot
+              <td colspan="2" style="padding: 2rem; text-align: center; color: var(--swiss-red);">
+                Failed to load pending submissions
               </td>
             </tr>
           `;
@@ -287,20 +290,24 @@ eleventyExcludeFromCollections: true
             <p>Error loading submissions: ${error.message}</p>
           </div>
         `;
-        document.getElementById('snapshotTableBody').innerHTML = `
+        document.getElementById('pendingTableBody').innerHTML = `
           <tr>
-            <td colspan="7" style="padding: 2rem; text-align: center; color: var(--swiss-red);">
-              Error loading database
+            <td colspan="2" style="padding: 2rem; text-align: center; color: var(--swiss-red);">
+              Error loading pending submissions
             </td>
           </tr>
         `;
       }
     }
 
-    // Render database snapshot table
-    function renderDatabaseSnapshot(submissions) {
-      const tbody = document.getElementById('snapshotTableBody');
+    // Render pending submissions quick view (lightweight 2-column table)
+    function renderPendingQuickView(submissions) {
+      const tbody = document.getElementById('pendingTableBody');
+      const badge = document.getElementById('pendingBadge');
       const lastUpdated = document.getElementById('lastUpdated');
+      
+      // Filter only pending submissions
+      const pendingSubmissions = submissions.filter(s => s.status === 'pending');
       
       // Update timestamp
       const now = new Date();
@@ -310,11 +317,14 @@ eleventyExcludeFromCollections: true
         second: '2-digit' 
       });
 
-      if (submissions.length === 0) {
+      // Update badge
+      badge.textContent = `${pendingSubmissions.length} Pending`;
+
+      if (pendingSubmissions.length === 0) {
         tbody.innerHTML = `
           <tr>
-            <td colspan="7" style="padding: 2rem; text-align: center; color: var(--swiss-gray-600);">
-              No submissions in database yet
+            <td colspan="2" style="padding: 2rem; text-align: center; color: var(--swiss-gray-600);">
+              🎉 No pending submissions - all caught up!
             </td>
           </tr>
         `;
@@ -322,55 +332,135 @@ eleventyExcludeFromCollections: true
       }
 
       // Sort by date (newest first)
-      const sortedSubmissions = [...submissions].sort((a, b) => 
+      const sortedSubmissions = [...pendingSubmissions].sort((a, b) => 
         new Date(b.submittedDate) - new Date(a.submittedDate)
       );
 
       tbody.innerHTML = sortedSubmissions.map(sub => {
-        const statusColors = {
-          pending: '#ffa500',
-          approved: '#22c55e',
-          rejected: '#ef4444'
-        };
-
         return `
-          <tr style="border-bottom: 1px solid var(--swiss-gray-200); transition: background 0.2s;" onmouseover="this.style.background='var(--swiss-gray-50)'" onmouseout="this.style.background='white'">
-            <td style="padding: 0.75rem 1rem;">
-              <code style="font-size: 0.8125rem; font-weight: 600; color: var(--swiss-black);">${sub.confirmationNumber}</code>
+          <tr onclick="openSubmissionModal('${sub.confirmationNumber}')" style="border-bottom: 1px solid var(--swiss-gray-200); cursor: pointer; transition: all 0.2s;" onmouseover="this.style.background='var(--swiss-gray-50)'; this.style.transform='scale(1.01)'" onmouseout="this.style.background='white'; this.style.transform='scale(1)'">
+            <td style="padding: 1rem 1.5rem;">
+              <code style="font-size: 0.9375rem; font-weight: 700; color: var(--swiss-black);">${sub.confirmationNumber}</code>
             </td>
-            <td style="padding: 0.75rem 1rem;">
-              <a href="${sub.styleGuideUrl}" target="_blank" rel="noopener noreferrer" style="color: var(--swiss-blue); text-decoration: none; font-weight: 500;">
-                ${sub.styleGuideName}
-              </a>
-            </td>
-            <td style="padding: 0.75rem 1rem;">
-              <span style="display: inline-block; padding: 0.25rem 0.5rem; background: var(--swiss-gray-100); border-radius: 4px; font-size: 0.75rem; font-weight: 600;">
-                ${sub.category || 'N/A'}
-              </span>
-            </td>
-            <td style="padding: 0.75rem 1rem;">
-              <div style="font-weight: 500;">${sub.name}</div>
-              <div style="font-size: 0.75rem; color: var(--swiss-gray-600);">${sub.email}</div>
-            </td>
-            <td style="padding: 0.75rem 1rem; white-space: nowrap;">
-              ${new Date(sub.submittedDate).toLocaleDateString('en-US', { 
-                month: 'short', 
-                day: 'numeric', 
-                year: 'numeric' 
-              })}
-            </td>
-            <td style="padding: 0.75rem 1rem;">
-              <span style="display: inline-block; padding: 0.375rem 0.75rem; background: ${statusColors[sub.status]}; color: white; border-radius: 999px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.025em;">
-                ${sub.status}
-              </span>
-            </td>
-            <td style="padding: 0.75rem 1rem; font-size: 0.8125rem; color: var(--swiss-gray-700);">
-              ${sub.licenseType || 'N/A'}
+            <td style="padding: 1rem 1.5rem;">
+              <div style="font-weight: 600; font-size: 0.9375rem; color: var(--swiss-black);">${sub.name}</div>
+              <div style="font-size: 0.8125rem; color: var(--swiss-gray-600); margin-top: 0.25rem;">${sub.styleGuideName}</div>
             </td>
           </tr>
         `;
       }).join('');
     }
+
+    // Open submission modal with full details
+    function openSubmissionModal(confirmationNumber) {
+      const submission = allSubmissions.find(s => s.confirmationNumber === confirmationNumber);
+      if (!submission) return;
+
+      const modal = document.getElementById('submissionModal');
+      const modalContent = document.getElementById('modalContent');
+
+      const statusColors = {
+        'pending': { bg: '#FEF3C7', text: '#92400E' },
+        'approved': { bg: '#D1FAE5', text: '#065F46' },
+        'rejected': { bg: '#FEE2E2', text: '#991B1B' }
+      };
+      const statusStyle = statusColors[submission.status] || { bg: '#F3F4F6', text: '#374151' };
+
+      modalContent.innerHTML = `
+        <div style="border-bottom: 2px solid var(--swiss-gray-300); padding-bottom: 1.5rem; margin-bottom: 2rem;">
+          <div style="display: flex; justify-content: space-between; align-items: start; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h2 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 0.5rem; color: var(--swiss-black);">
+                ${submission.styleGuideName}
+              </h2>
+              <code style="font-size: 0.875rem; color: var(--swiss-gray-600); background: var(--swiss-gray-100); padding: 0.25rem 0.75rem; border-radius: 4px;">
+                ${submission.confirmationNumber}
+              </code>
+            </div>
+            <span style="background: ${statusStyle.bg}; color: ${statusStyle.text}; padding: 0.5rem 1rem; border-radius: 999px; font-weight: 700; font-size: 0.875rem; text-transform: uppercase;">
+              ${submission.status}
+            </span>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-bottom: 2rem;">
+          <div>
+            <h3 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--swiss-gray-600); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Submitter</h3>
+            <p style="font-weight: 600; font-size: 1rem; margin-bottom: 0.25rem;">${submission.name}</p>
+            <p style="color: var(--swiss-gray-600); font-size: 0.875rem;">${submission.email}</p>
+          </div>
+          
+          <div>
+            <h3 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--swiss-gray-600); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Category</h3>
+            <p style="font-weight: 600; font-size: 1rem;">${submission.category || 'N/A'}</p>
+          </div>
+
+          <div>
+            <h3 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--swiss-gray-600); margin-bottom: 0.5rem; letter-spacing: 0.05em;">Submitted Date</h3>
+            <p style="font-weight: 600; font-size: 1rem;">${new Date(submission.submittedDate).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+          </div>
+
+          <div>
+            <h3 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--swiss-gray-600); margin-bottom: 0.5rem; letter-spacing: 0.05em;">License Type</h3>
+            <p style="font-weight: 600; font-size: 1rem;">${submission.licenseType || 'N/A'}</p>
+          </div>
+        </div>
+
+        ${submission.description ? `
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--swiss-gray-600); margin-bottom: 0.75rem; letter-spacing: 0.05em;">Description</h3>
+            <p style="line-height: 1.6; color: var(--swiss-gray-700);">${submission.description}</p>
+          </div>
+        ` : ''}
+
+        ${submission.designPrinciples ? `
+          <div style="margin-bottom: 2rem;">
+            <h3 style="font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--swiss-gray-600); margin-bottom: 0.75rem; letter-spacing: 0.05em;">Design Principles</h3>
+            <p style="line-height: 1.6; color: var(--swiss-gray-700);">${submission.designPrinciples}</p>
+          </div>
+        ` : ''}
+
+        <div style="display: flex; gap: 1rem; padding-top: 2rem; border-top: 2px solid var(--swiss-gray-300); flex-wrap: wrap;">
+          ${submission.styleGuideUrl ? `
+            <a href="${submission.styleGuideUrl}" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.875rem 1.75rem; background: var(--swiss-black); color: white; border-radius: 6px; font-weight: 700; text-decoration: none; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(0,0,0,0.2)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+              </svg>
+              View Style Guide
+            </a>
+          ` : ''}
+
+          ${submission.status === 'pending' ? `
+            <button onclick="updateStatus('${submission.confirmationNumber}', 'approved')" style="padding: 0.875rem 1.75rem; background: #22C55E; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(34, 197, 94, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+              ✓ Approve
+            </button>
+            <button onclick="updateStatus('${submission.confirmationNumber}', 'rejected')" style="padding: 0.875rem 1.75rem; background: #EF4444; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(239, 68, 68, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+              ✗ Reject
+            </button>
+            <button onclick="requestChanges('${submission.confirmationNumber}')" style="padding: 0.875rem 1.75rem; background: #F59E0B; color: white; border: none; border-radius: 6px; font-weight: 700; cursor: pointer; transition: all 0.2s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(245, 158, 11, 0.3)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'">
+              Request Changes
+            </button>
+          ` : ''}
+        </div>
+      `;
+
+      modal.style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    // Close modal
+    document.getElementById('closeModal').addEventListener('click', function() {
+      document.getElementById('submissionModal').style.display = 'none';
+      document.body.style.overflow = 'auto';
+    });
+
+    // Close modal when clicking outside
+    document.getElementById('submissionModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        this.style.display = 'none';
+        document.body.style.overflow = 'auto';
+      }
+    });
 
     // Update statistics
     function updateStats(submissions) {
