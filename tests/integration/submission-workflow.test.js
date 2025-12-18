@@ -49,7 +49,7 @@ test.describe("Complete Submission Workflow", () => {
   test("Step 1: Submit form through UI", async ({ page }) => {
     // Navigate to submission form
     await page.goto("http://localhost:8080/blog/submit-style-guide/");
-    await expect(page.locator("h1")).toContainText("Submit");
+    await expect(page.locator("h1")).toContainText("Style Guide Submission");
 
     // Fill out the form
     await page.fill('input[name="name"]', TEST_SUBMISSION.name);

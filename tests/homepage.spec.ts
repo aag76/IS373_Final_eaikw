@@ -27,8 +27,10 @@ test.describe("Homepage Tests", () => {
     // Test a navigation link
     const galleryLink = page.locator('nav a:has-text("Style Gallery"), nav a:has-text("Gallery")');
     if ((await galleryLink.count()) > 0) {
-      await galleryLink.first().click();
-      await page.waitForLoadState("networkidle");
+      await Promise.all([
+        page.waitForURL('**/blog/**', { timeout: 10000 }),
+        galleryLink.first().click()
+      ]);
       expect(page.url()).toContain("blog");
     }
   });
