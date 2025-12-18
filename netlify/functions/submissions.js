@@ -190,8 +190,9 @@ exports.handler = async (event, _context) => {
         confirmationNumber,
         name: name,
         email: email,
-        designStyle: designStyle,
-        demoUrl: demoUrl,
+        styleGuideName: styleGuideName,
+        styleGuideUrl: styleGuideUrl,
+        category: category,
       };
       sendDiscordNotification(submissionData).catch((err) => {
         console.error("Discord notification failed:", err.message);
