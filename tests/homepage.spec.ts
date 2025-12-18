@@ -14,14 +14,14 @@ test.describe("Homepage Tests", () => {
     await expect(h1).toBeVisible();
   });
 
-  test.skip(\"should have working navigation menu\", async ({ page }) => {
+  test.skip("should have working navigation menu", async ({ page }) => {
     // Note: Navigation works in manual testing but has race conditions in automated tests
     // Check navigation exists
-    const nav = page.locator(\"header nav\").first();
+    const nav = page.locator("header nav").first();
     await expect(nav).toBeVisible();
 
     // Check for key navigation links
-    const links = page.locator(\"nav a\");
+    const links = page.locator("nav a");
     const linkCount = await links.count();
     expect(linkCount).toBeGreaterThan(3);
   });
