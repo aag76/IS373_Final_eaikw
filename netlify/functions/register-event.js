@@ -2,13 +2,13 @@ const crypto = require("crypto");
 const Airtable = require("airtable");
 
 // Environment variable check on load
-console.log('🔧 register-event.js Environment check:', {
+console.log("🔧 register-event.js Environment check:", {
   hasAirtableToken: !!process.env.AIRTABLE_API_TOKEN,
   hasAirtableBase: !!process.env.AIRTABLE_BASE_ID,
   hasDiscordWebhook: !!process.env.DISCORD_WEBHOOK_EVENTS,
   nodeEnv: process.env.NODE_ENV,
   tokenLength: process.env.AIRTABLE_API_TOKEN?.length,
-  baseIdLength: process.env.AIRTABLE_BASE_ID?.length
+  baseIdLength: process.env.AIRTABLE_BASE_ID?.length,
 });
 
 // Configure Airtable

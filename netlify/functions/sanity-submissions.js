@@ -2,14 +2,14 @@ import sanityClient from "@sanity/client";
 import { syncSubmissionToAirtable } from "./airtable-crm.js";
 
 // Environment variable check on load
-console.log('🔧 sanity-submissions.js Environment check:', {
+console.log("🔧 sanity-submissions.js Environment check:", {
   hasSanityProjectId: !!process.env.SANITY_PROJECT_ID,
   hasSanityToken: !!process.env.SANITY_API_TOKEN,
   hasSanityDataset: !!process.env.SANITY_DATASET,
   hasDiscordWebhook: !!process.env.DISCORD_WEBHOOK_URL,
   nodeEnv: process.env.NODE_ENV,
   projectIdLength: process.env.SANITY_PROJECT_ID?.length,
-  tokenLength: process.env.SANITY_API_TOKEN?.length
+  tokenLength: process.env.SANITY_API_TOKEN?.length,
 });
 
 const client = sanityClient({

@@ -4,12 +4,12 @@
  */
 
 // Environment variable check on load
-console.log('🔧 sanity-to-airtable.js Environment check:', {
+console.log("🔧 sanity-to-airtable.js Environment check:", {
   hasAirtableToken: !!process.env.AIRTABLE_API_TOKEN,
   hasAirtableBase: !!process.env.AIRTABLE_BASE_ID,
   nodeEnv: process.env.NODE_ENV,
   tokenLength: process.env.AIRTABLE_API_TOKEN?.length,
-  baseIdLength: process.env.AIRTABLE_BASE_ID?.length
+  baseIdLength: process.env.AIRTABLE_BASE_ID?.length,
 });
 
 const AIRTABLE_BASE_ID = process.env.AIRTABLE_BASE_ID;
